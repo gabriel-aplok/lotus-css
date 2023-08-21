@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>LOTUS.css - Demo</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+		<link rel="stylesheet" href="assets/css/style.css">
+	</head>
+	<body>
+		<div id="top" class="container" role="document">
+			<header role="banner">
+				<h1 class="float-right" style="margin: 0;"><a href="javascript:void(0)" onclick="switchMode(this)">☀️</a></h1>
+				<h1>LOTUS.css</h1>
+				<div class="clearfix"></div>
+				<p>A small CSS framework.</p>
+			</header>
+			<nav role="navigation">
+				<ul>
+					<li>
+						<a href="#text">Text</a>
+						<ul>
+							<li><a href="#text__headings">Headings</a></li>
+							<li><a href="#text__paragraphs">Paragraphs</a></li>
+							<li><a href="#text__blockquotes">Blockquotes</a></li>
+							<li><a href="#text__lists">Lists</a></li>
+							<li><a href="#text__hr">Horizontal rules</a></li>
+							<li><a href="#text__tables">Tables</a></li>
+							<li><a href="#text__code">Code</a></li>
+							<li><a href="#text__inline">Inline elements</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#embedded">Embedded</a>
+						<ul>
+							<li><a href="#embedded__images">Images</a></li>
+							<li><a href="#embedded__video">Video</a></li>
+							<li><a href="#embedded__meter">Meter</a></li>
+							<li><a href="#embedded__progress">Progress</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#forms">Forms</a>
+						<ul>
+							<li><a href="#forms__input">Input fields</a></li>
+							<li><a href="#forms__select">Select menus</a></li>
+							<li><a href="#forms__checkbox">Checkboxes</a></li>
+							<li><a href="#forms__radio">Radio buttons</a></li>
+							<li><a href="#forms__textareas">Textareas</a></li>
+							<li><a href="#forms__html5">HTML5 inputs</a></li>
+							<li><a href="#forms__action">Action buttons</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#components">Components</a>
+						<ul>
+							<li><a href="#components__nav">Nav</a></li>
+							<li><a href="#components__tabs">Tabs</a></li>
+							<li><a href="#components__cards">Cards</a></li>
+							<li><a href="#components__tags">Tags</a></li>
+							<li><a href="#components__utils">Utilities</a></li>
+							<li><a href="#components__icons">Icons</a></li>
+							<li><a href="#components__grids">Grids</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<main role="main">
+				<section id="text">
+					<header>
+						<h1>Text</h1>
+					</header>
+					<article id="text__headings">
+						<header>
+							<h1>Headings</h1>
+						</header>
+						<div>
+							<h1>Heading 1</h1>
+							<h2>Heading 2</h2>
+							<h3>Heading 3</h3>
+							<h4>Heading 4</h4>
+							<h5>Heading 5</h5>
+							<h6>Heading 6</h6>
+						</div>
+					</article>
+					<article id="text__paragraphs">
+						<header>
+							<h1>Paragraphs</h1>
+						</header>
+						<div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed risus metus. Quisque eleifend ultrices dolor at suscipit. Cras ut justo sagittis, interdum erat at, finibus lorem. Aliquam at sem pulvinar, sagittis diam blandit, ultrices dolor. Donec tincidunt, urna at efficitur rutrum, elit turpis dignissim sem, ut pharetra eros eros quis libero. Donec maximus tincidunt nibh vel malesuada. Donec nec ligula aliquet, interdum leo eget, cursus tellus. Praesent ac nisi a sapien vehicula efficitur dapibus eget erat. Morbi in dui pretium erat egestas iaculis. Aenean quis metus purus.</p>
+						</div>
+					</article>
+					<article id="text__blockquotes">
+						<header>
+							<h1>Blockquotes</h1>
+						</header>
+						<div>
+							<blockquote>
+								<p>Donec augue risus, luctus non elit a, ullamcorper aliquam magna. Aliquam hendrerit turpis ut tincidunt rutrum. Suspendisse potenti. Donec augue erat, consectetur pulvinar luctus quis, dictum at nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id dui sapien. Nullam quis velit sed neque convallis viverra. Vestibulum nec orci sit amet mi ultrices imperdiet rutrum at velit. Sed non purus luctus, tempor magna quis, eleifend elit. Cras porta vulputate lorem, id ultrices est pretium id. Etiam lobortis libero id felis condimentum, in eleifend dui faucibus. Integer erat justo, dapibus vel convallis in, tempor in ante. Ut ac tellus hendrerit, mattis erat sit amet, sodales ante.</p>
+								<cite>
+									<a href="#!">Hello!</a>
+								</cite>
+							</blockquote>
+						</div>
+					</article>
+					<article id="text__lists">
+						<header>
+							<h1>Lists</h1>
+						</header>
+						<div>
+							<h3>Definition list</h3>
+							<dl>
+								<dt>
+									Definition List Title
+								</dt>
+								<dd>
+									This is a definition list division.
+								</dd>
+							</dl>
+							<h3>Ordered List</h3>
+							<ol>
+								<li>List Item 1</li>
+								<li>List Item 2</li>
+								<li>List Item 3</li>
+							</ol>
+							<h3>Unordered List</h3>
+							<ul>
+								<li>List Item 1</li>
+								<li>List Item 2</li>
+								<li>List Item 3</li>
+							</ul>
+						</div>
+					</article>
+					<article id="text__hr">
+						<header>
+							<h1>Horizontal rules</h1>
+						</header>
+						<div>
+							<hr>
+						</div>
+					</article>
+					<article id="text__tables">
+						<header>
+							<h1>Tables</h1>
+						</header>
+						<table>
+							<caption>
+								Table Caption
+							</caption>
+							<thead>
+								<tr>
+									<th>Table Heading 1</th>
+									<th>Table Heading 2</th>
+									<th>Table Heading 3</th>
+									<th>Table Heading 4</th>
+									<th>Table Heading 5</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>Table Footer 1</th>
+									<th>Table Footer 2</th>
+									<th>Table Footer 3</th>
+									<th>Table Footer 4</th>
+									<th>Table Footer 5</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								<tr>
+									<td>Table Cell 1</td>
+									<td>Table Cell 2</td>
+									<td>Table Cell 3</td>
+									<td>Table Cell 4</td>
+									<td>Table Cell 5</td>
+								</tr>
+								<tr>
+									<td>Table Cell 1</td>
+									<td>Table Cell 2</td>
+									<td>Table Cell 3</td>
+									<td>Table Cell 4</td>
+									<td>Table Cell 5</td>
+								</tr>
+							</tbody>
+						</table> <br>
+						<h4>Table with strips. Just add the <code>striped</code> class to <code>&lt;table&gt;</code>.</h4>
+						<table class="striped">
+							<caption>
+								Table Caption
+							</caption>
+							<thead>
+								<tr>
+									<th>Table Heading 1</th>
+									<th>Table Heading 2</th>
+									<th>Table Heading 3</th>
+									<th>Table Heading 4</th>
+									<th>Table Heading 5</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<th>Table Footer 1</th>
+									<th>Table Footer 2</th>
+									<th>Table Footer 3</th>
+									<th>Table Footer 4</th>
+									<th>Table Footer 5</th>
+								</tr>
+							</tfoot>
+							<tbody>
+								<tr>
+									<td>Table Cell 1</td>
+									<td>Table Cell 2</td>
+									<td>Table Cell 3</td>
+									<td>Table Cell 4</td>
+									<td>Table Cell 5</td>
+								</tr>
+								<tr>
+									<td>Table Cell 1</td>
+									<td>Table Cell 2</td>
+									<td>Table Cell 3</td>
+									<td>Table Cell 4</td>
+									<td>Table Cell 5</td>
+								</tr>
+								<tr>
+									<td>Table Cell 1</td>
+									<td>Table Cell 2</td>
+									<td>Table Cell 3</td>
+									<td>Table Cell 4</td>
+									<td>Table Cell 5</td>
+								</tr>
+								<tr>
+									<td>Table Cell 1</td>
+									<td>Table Cell 2</td>
+									<td>Table Cell 3</td>
+									<td>Table Cell 4</td>
+									<td>Table Cell 5</td>
+								</tr>
+							</tbody>
+						</table>
+					</article>
+					<article id="text__code">
+						<header>
+							<h1>Code</h1>
+						</header>
+						<div>
+							<p><strong>Keyboard:</strong> <kbd>WASD</kbd></p>
+							<p><strong>Inline:</strong> <code>console.log("Hello, world!");</code></p>
+							<p><strong>Sample:</strong> <samp>This is sample output from a computer program.</samp></p>
+							<h2>Pre-formatted text</h2>
+							<pre>console.log("Hello, world!");</pre>
+							<pre><code>console.log("Hello, world!");</code></pre>
+						</div>
+					</article>
+					<article id="text__inline">
+						<header>
+							<h1>Inline elements</h1>
+						</header>
+						<div>
+							<p><a href="#!">This is a text link</a>.</p>
+							<p><strong>Strong is used to indicate strong importance.</strong></p>
+							<p><em>This text has added emphasis.</em></p>
+							<p>The <b>b element</b> is stylistically different text from normal text, without any special importance.</p>
+							<p>The <i>i element</i> is text that is offset from the normal text.</p>
+							<p>The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation.</p>
+							<p><del>This text is deleted</del> and <ins>This text is inserted</ins>.</p>
+							<p><s>This text has a strikethrough</s>.</p>
+							<p>Superscript<sup>®</sup>.</p>
+							<p>Subscript for things like H<sub>2</sub>O.</p>
+							<p><small>This small text is small for for fine print, etc.</small></p>
+							<p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
+							<p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q></p>
+							<p><cite>This is a citation.</cite></p>
+							<p>The <dfn>dfn element</dfn> indicates a definition.</p>
+							<p>The <mark>mark element</mark> indicates a highlight.</p>
+							<p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
+							<p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time></p>
+						</div>
+					</article>
+				</section>
+				<section id="embedded">
+					<header>
+						<h1>Embedded</h1>
+					</header>
+					<article id="embedded__images">
+						<header>
+							<h2>Images</h2>
+						</header>
+						<div>
+							<h4>No <code>&lt;figure&gt;</code></h4>
+							<p>
+								<img src="https://plus.unsplash.com/premium_photo-1661602467928-71790825a335?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWF0ZXJpYWwlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=700&q=60">
+							</p>
+							<h4>With <code>&lt;figure&gt;</code>, no <code>&lt;figcaption&gt;</code></h4>
+							<figure>
+								<img src="https://images.unsplash.com/photo-1612015299147-fd3d5b2274ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWF0ZXJpYWwlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=700&q=60">
+							</figure>
+							<h4>With <code>&lt;figure&gt;</code>, with <code>&lt;figcaption&gt;</code></h4>
+							<figure>
+								<img src="https://images.unsplash.com/photo-1528035015334-80868324e60e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bWF0ZXJpYWwlMjBkZXNpZ258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=700&q=60">
+								<figcaption>
+									Here is a caption for this image.
+								</figcaption>
+							</figure>
+						</div>
+					</article>
+					<article id="embedded__video">
+						<header>
+							<h2>Video</h2>
+						</header>
+						<div>
+							<video controls="">
+								video
+							</video>
+						</div>
+					</article>
+					<article id="embedded__meter">
+						<header>
+							<h2>Meter</h2>
+						</header>
+						<div>
+							<meter value="2" min="0" max="10">2 out of 10</meter>
+						</div>
+					</article>
+					<article id="embedded__progress">
+						<header>
+							<h2>Progress</h2>
+						</header>
+						<div>
+							<progress>progress</progress>
+						</div>
+					</article>
+				</section>
+				<section id="forms">
+					<header>
+						<h1>Forms</h1>
+					</header>
+					<form>
+						<fieldset id="forms__input">
+							<legend>Input fields</legend>
+							<p>
+								<label for="input__text">Text Input</label>
+								<input id="input__text" type="text" placeholder="Text">
+							</p>
+							<p>
+								<label for="input__password">Password</label>
+								<input id="input__password" type="password" placeholder="Password">
+							</p>
+							<p>
+								<label for="input__webaddress">Web Address</label>
+								<input id="input__webaddress" type="url" placeholder="http://yoursite.com">
+							</p>
+							<p>
+								<label for="input__emailaddress">Email Address</label>
+								<input id="input__emailaddress" type="email" placeholder="youremail@example.com">
+							</p>
+							<p>
+								<label for="input__phone">Phone Number</label>
+								<input id="input__phone" type="tel" placeholder="+99 (99) 9 9999-9999">
+							</p>
+							<p>
+								<label for="input__search">Search</label>
+								<input id="input__search" type="search" placeholder="Search">
+							</p>
+							<p>
+								<label for="input__text2">Number</label>
+								<input id="input__text2" type="number" placeholder="Number">
+							</p>
+							<p>
+								<label for="input__text3" class="error">Error</label>
+								<input id="input__text3" class="error" type="text" placeholder="Text">
+							</p>
+							<p>
+								<label for="input__text4" class="success">Valid</label>
+								<input id="input__text4" class="success" type="text" placeholder="Text">
+							</p>
+							<p>
+								<label for="input__text5">Disabled Text</label>
+								<input id="input__text5" type="text" placeholder="Disabled Text" disabled>
+							</p>
+							<p class="grouped">
+								<input type="search" name="input__text6" id="input__text6" placeholder="Search">
+								<button class="button icon-only">
+									<span class="material-symbols-outlined">search</span>
+								</button>
+							</p>
+							<p class="grouped">
+								<input type="text" name="input__text7" id="input__text7" placeholder="Username">
+								<input type="text" name="input__text8" id="input__text8" placeholder="Password">
+								<button class="button primary">Submit</button>
+							</p>
+						</fieldset>
+						<fieldset id="forms__select">
+							<legend>Select menus</legend>
+							<p>
+								<label for="select">Select</label>
+								<select id="select">
+									<optgroup label="Option Group">
+										<option>Option One</option>
+										<option>Option Two</option>
+										<option>Option Three</option>
+									</optgroup>
+								</select>
+							</p>
+						</fieldset>
+						<fieldset id="forms__checkbox">
+							<legend>Checkboxes</legend>
+							<ul class="list list--bare">
+								<li>
+									<label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox" checked> Choice A</label>
+								</li>
+								<li>
+									<label for="checkbox2"><input id="checkbox2" name="checkbox" type="checkbox"> Choice B</label>
+								</li>
+								<li>
+									<label for="checkbox3"><input id="checkbox3" name="checkbox" type="checkbox"> Choice C</label>
+								</li>
+							</ul>
+						</fieldset>
+						<fieldset id="forms__radio">
+							<legend>Radio buttons</legend>
+							<ul class="list list--bare">
+								<li>
+									<label for="radio1"><input id="radio1" name="radio" type="radio" class="radio" checked> Option 1</label>
+								</li>
+								<li>
+									<label for="radio2"><input id="radio2" name="radio" type="radio" class="radio"> Option 2</label>
+								</li>
+								<li>
+									<label for="radio3"><input id="radio3" name="radio" type="radio" class="radio"> Option 3</label>
+								</li>
+							</ul>
+						</fieldset>
+						<fieldset id="forms__textareas">
+							<legend>Textareas</legend>
+							<p>
+								<label for="textarea">Textarea</label>
+								<textarea id="textarea" rows="8" cols="48" placeholder="Text Area"></textarea>
+							</p>
+						</fieldset>
+						<fieldset id="forms__html5">
+							<legend>HTML5 inputs</legend>
+							<p>
+								<label for="ic">Color</label>
+								<input type="color" id="ic" value="#000000">
+							</p>
+							<p>
+								<label for="in">Number</label>
+								<input type="number" id="in" min="0" max="10" value="5">
+							</p>
+							<p>
+								<label for="ir">Range</label>
+								<input type="range" id="ir" value="10">
+							</p>
+							<p>
+								<label for="idd">Date</label>
+								<input type="date" id="idd" value="1999-09-09">
+							</p>
+							<p>
+								<label for="idm">Month</label>
+								<input type="month" id="idm" value="1999-09">
+							</p>
+							<p>
+								<label for="idw">Week</label>
+								<input type="week" id="idw" value="1999-W09">
+							</p>
+							<p>
+								<label for="idt">Datetime</label>
+								<input type="datetime" id="idt" value="1999-09-09T00:00:00Z">
+							</p>
+							<p>
+								<label for="idtl">Datetime-local</label>
+								<input type="datetime-local" id="idtl" value="1999-09-09T00:00">
+							</p>
+						</fieldset>
+						<fieldset id="forms__action">
+							<legend>Action buttons</legend>
+							<p>
+								<input type="submit" value="Input Submit"><br><br>
+								<input type="button" value="Input Button"><br><br>
+								<input type="reset" value="Input Reset"><br><br>
+								<input type="submit" value="Input Disabled" disabled>
+							</p>
+							<p>
+								<button type="submit">Button Submit</button><br><br>
+								<button type="button">Button Default</button><br><br>
+								<button type="reset">Button Reset</button><br><br>
+								<button type="button" disabled>Button Disabled</button>
+							</p>
+							<p>
+								<a href="#" class="button">Default</a><br><br>
+								<a href="#" class="button primary">Primary</a><br><br>
+								<a href="#" class="button secondary">Secondary</a><br><br>
+								<a href="#" class="button dark">Dark</a><br><br>
+								<a href="#" class="button error">Error</a><br><br>
+								<a href="#" class="button success">Success</a>
+							</p>
+							<p>
+								<a href="#" class="button outline">Outline Default</a><br><br>
+								<a href="#" class="button outline primary">Outline Primary</a><br><br>
+								<a href="#" class="button outline secondary">Outline Secondary</a><br><br>
+								<a href="#" class="button outline dark">Outline Dark</a><br><br>
+								<a href="#" class="button clear">Clear</a>
+							</p>
+						</fieldset>
+					</form>
+				</section>
+				<section id="components">
+					<header>
+						<h1>Components</h1>
+					</header>
+					<article id="components__nav">
+						<header>
+							<h2>Nav</h2>
+						</header>
+						<div>
+							<nav class="nav">
+								<div class="container">
+									<div class="nav-left">
+										<a class="brand" href="#">LOGO</a>
+									</div>
+									<div class="nav-center">
+										<a class="button outline" href="#">Centered</a>
+									</div>
+									<div class="nav-right">
+										<a href="#!1.html" class="active">Link 1</a>
+										<a href="#!2.html">Link 2</a>
+										<a href="#!3.html">Link 3</a>
+									</div>
+								</div>
+							</nav>
+							<br><hr><br>
+							<nav class="nav">
+								<div class="container">
+									<div class="nav-left">
+										<a class="brand" href="#">LOGO</a>
+									</div>
+									<div class="nav-center">
+										<a class="button outline" href="#">Centered</a>
+									</div>
+									<div class="nav-right">
+										<a href="#!1.html">Link 1</a>
+										<a href="#!2.html">Link 2</a>
+										<a href="#!3.html">Link 3</a>
+									</div>
+								</div>
+							</nav>
+							<br><hr><br>
+							<nav class="nav">
+								<div class="container">
+									<div class="nav-center">
+										<a href="#!1.html" class="active">Link 1</a>
+										<a href="#!2.html">Link 2</a>
+										<a href="#!3.html">Link 3</a>
+										<a href="#!4.html" class="button primary">Button</a>
+									</div>
+								</div>
+							</nav>
+							<br><hr><br>
+							<nav class="nav">
+								<div class="container">
+									<div class="nav-left">
+										<a class="brand" href="#">
+											<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=""> Brand
+										</a>
+									</div>
+									<div class="nav-right">
+										<div class="tabs">
+											<a href="#!1.html" class="active">Link 1</a>
+											<a href="#!2.html">Link 2</a>
+											<a href="#!3.html">Link 3</a>
+										</div>
+									</div>
+								</div>
+							</nav>
+							<br><hr><br>
+							<nav class="nav">
+								<div class="container">
+									<div class="nav-left">
+										<a class="brand" href="#">
+											<img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="">
+										</a>
+									</div>
+									<div class="nav-right">
+										<div class="tabs">
+											<a href="#!1.html" class="active">Link 1</a>
+											<a href="#!2.html">Link 2</a>
+											<a href="#!3.html">Link 3</a>
+										</div>
+									</div>
+								</div>
+							</nav>
+							<br>
+						</div>
+					</article>
+					<article id="components__tabs">
+						<header>
+							<h2>Tabs</h2>
+						</header>
+						<div>
+							<div class="tabs">
+								<a href="#!1.html" class="active">Tab 1</a>
+								<a href="#!2.html">Tab 2</a>
+								<a href="#!3.html">Tab 3</a>
+							</div>
+							<br><hr><br>
+							<div class="tabs is-full">
+								<a href="#!1.html" class="active">Tab 1</a>
+								<a href="#!2.html">Tab 2</a>
+								<a href="#!3.html">Tab 3</a>
+							</div>
+						</div>
+					</article>
+					<article id="components__cards">
+						<header>
+							<h2>Cards</h2>
+						</header>
+						<div class="row center">
+							<div class="col-4">
+								<div class="card">
+									<header>
+										<h4>Card title</h4>
+									</header>
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius hendrerit ligula. Nunc neque dui, pulvinar at nisi quis, sagittis imperdiet justo.
+									</p>
+									<footer class="text-right">
+										<a href="#!" class="button primary">Submit</a>
+										<a href="#!" class="button">Cancel</a>
+									</footer>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="card">
+									<p>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius hendrerit ligula. Nunc neque dui, pulvinar at nisi quis, sagittis imperdiet justo.
+									</p>
+									<p>
+										Proin congue rhoncus volutpat. Nam egestas leo lorem, eu facilisis nunc ornare vitae. Phasellus consectetur, tellus ac bibendum aliquet, ligula mi porta felis, sed iaculis dolor tortor at leo.
+									</p>
+								</div>
+							</div>
+						</div>
+					</article>
+					<article id="components__tags">
+						<header>
+							<h2>Tags</h2>
+						</header>
+						<div>
+							<p>
+								<span class="tag">One</span><br><br>
+								<span class="tag">Two</span><br><br>
+								<span class="tag">Three</span><br><br>
+								<span class="tag is-small">Small</span><br><br>
+								<span class="tag is-large">Large</span><br>
+							</p>
+						</div>
+					</article>
+					<article id="components__utils">
+						<header>
+							<h2>Utilities</h2>
+						</header>
+						<div>
+							<h4>Text colors</h4>
+							<hr>
+							<p class="text-primary-color">Primary</p>
+							<p class="text-light-color">Light</p>
+							<p class="text-grey-color">Grey</p>
+							<p class="text-dark-color">Dark</p>
+							<p class="text-error-color">Error</p>
+							<p class="text-success-color">Success</p>
+							<h4>Background colors</h4>
+							<hr>
+							<div class="row">
+								<div class="col">
+									<div class="card bg-primary-color">
+										Primary
+									</div>
+								</div>
+								<div class="col">
+									<div class="card bg-light-color">
+										Light
+									</div>
+								</div>
+								<div class="col">
+									<div class="card bg-grey-color">
+										Grey
+									</div>
+								</div>
+								<div class="col">
+									<div class="card bg-dark-color">
+										Dark
+									</div>
+								</div>
+								<div class="col">
+									<div class="card bg-success-color">
+										Success
+									</div>
+								</div>
+								<div class="col">
+									<div class="card bg-error-color">
+										Error
+									</div>
+								</div>
+							</div>
+							<h4>Border colors</h4>
+							<hr>
+							<div class="row">
+								<div class="col">
+									<div class="card bd-primary-color">
+										Primary
+									</div>
+								</div>
+								<div class="col">
+									<div class="card bd-light-color">
+										Light
+									</div>
+								</div>
+								<div class="col">
+									<div class="card bd-grey-color">
+										Grey
+									</div>
+								</div>
+								<div class="col">
+									<div class="card bd-dark-color">
+										Dark
+									</div>
+								</div>
+								<div class="col">
+									<div class="card bd-success-color">
+										Success
+									</div>
+								</div>
+								<div class="col">
+									<div class="card bd-error-color">
+										Error
+									</div>
+								</div>
+							</div>
+							<h4>Responsive utilities</h4>
+							<hr>
+							<div class="hide-xs">
+								.hide-xs
+							</div>
+							<div class="hide-sm">
+								.hide-sm
+							</div>
+							<div class="hide-md">
+								.hide-md
+							</div>
+							<div class="hide-lg">
+								.hide-lg
+							</div>
+						</div>
+					</article>
+					<article id="components__icons">
+						<header>
+							<h2>Icons</h2>
+						</header>
+						<div>
+							<button type="button" class="button primary icon"> New file <span class="material-symbols-outlined">upload_file</span> </button><br><br>
+							<button type="button" class="button icon"> New file <span class="material-symbols-outlined">upload_file</span> </button><br><br>
+							<button type="button" class="button dark icon"> New file <span class="material-symbols-outlined">upload_file</span> </button><br><br>
+							<button class="button primary icon-only"> <span class="material-symbols-outlined">search</span> </button>
+							<button class="button icon-only"> <span class="material-symbols-outlined">search</span> </button>
+							<button class="button dark icon-only"> <span class="material-symbols-outlined">search</span> </button>
+						</div>
+					</article>
+					<article id="components__grids">
+						<header>
+							<h2>Grids</h2>
+						</header>
+						<div>
+							<div class="row">
+								<div class="col">
+									<div class="card center">
+										.col
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<div class="card center">
+										.col
+									</div>
+								</div>
+								<div class="col">
+									<div class="card center">
+										.col
+									</div>
+								</div>
+								<div class="col">
+									<div class="card center">
+										.col
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-2">
+									<div class="card center">
+										.col-2
+									</div>
+								</div>
+								<div class="col-2">
+									<div class="card center">
+										.col-2
+									</div>
+								</div>
+								<div class="col-2">
+									<div class="card center">
+										.col-2
+									</div>
+								</div>
+								<div class="col">
+									<div class="card center">
+										.col
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-3">
+									<div class="card center">
+										.col-3
+									</div>
+								</div>
+								<div class="col-3">
+									<div class="card center">
+										.col-3
+									</div>
+								</div>
+								<div class="col-3">
+									<div class="card center">
+										.col-3
+									</div>
+								</div>
+								<div class="col-3">
+									<div class="card center">
+										.col-3
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-4">
+									<div class="card center">
+										.col-4
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="card center">
+										.col-4
+									</div>
+								</div>
+								<div class="col-4">
+									<div class="card center">
+										.col-4
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-5">
+									<div class="card center">
+										.col-5
+									</div>
+								</div>
+								<div class="col-5">
+									<div class="card center">
+										.col-5
+									</div>
+								</div>
+								<div class="col">
+									<div class="card center">
+										.col
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-6">
+									<div class="card center">
+										.col-6
+									</div>
+								</div>
+								<div class="col-6">
+									<div class="card center">
+										.col-6
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-7">
+									<div class="card center">
+										.col-7
+									</div>
+								</div>
+								<div class="col">
+									<div class="card center">
+										.col
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-8">
+									<div class="card center">
+										.col-8
+									</div>
+								</div>
+								<div class="col">
+									<div class="card center">
+										.col
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-9">
+									<div class="card center">
+										.col-9
+									</div>
+								</div>
+								<div class="col">
+									<div class="card center">
+										.col
+									</div>
+								</div>
+								<div class="col-1">
+									<div class="card center">
+										.col-1
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-10">
+									<div class="card center">
+										.col-10
+									</div>
+								</div>
+								<div class="col">
+									<div class="card center">
+										.col
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-11">
+									<div class="card center">
+										.col-11
+									</div>
+								</div>
+								<div class="col">
+									<div class="card center">
+										.col
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12">
+									<div class="card center">
+										.col-12
+									</div>
+								</div>
+							</div>
+							<h4>Responsive grids:</h4>
+							<div class="row">
+								<div class="col-12 col-6-md col-4-lg">
+									<div class="card center">
+										.col-12.col-6-md.col-4-lg
+									</div>
+								</div>
+								<div class="col-6 col-3-md col-4-lg">
+									<div class="card center">
+										.col-6.col-3-md.col-4-lg
+									</div>
+								</div>
+								<div class="col-6 col-3-md col-4-lg">
+									<div class="card center">
+										.col-6.col-3-md.col-4-lg
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col col-6-lg">
+									<div class="card center">
+										.col.col-6-lg
+									</div>
+								</div>
+								<div class="col col-3-lg">
+									<div class="card center">
+										.col.col-3-lg
+									</div>
+								</div>
+								<div class="col col-3-lg">
+									<div class="card center">
+										.col.col-3-lg
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col hide-sm">
+									<div class="card center">
+										.hide-sm
+									</div>
+								</div>
+								<div class="col hide-md">
+									<div class="card center">
+										.hide-md
+									</div>
+								</div>
+								<div class="col hide-lg">
+									<div class="card center">
+										.hide-lg
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+				</section>
+				<br>
+				<p>
+					<a href="#top">[Back to Top]</a>
+				</p>
+			</main>
+		</div>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>

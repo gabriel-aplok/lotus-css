@@ -1,5 +1,6 @@
 .tabs {
 	display: flex;
+	justify-content: flex-start;
 }
 
 .tabs a {
@@ -11,20 +12,22 @@
 	padding: 1rem 2rem;
 	flex: 0 1 auto;
 	color: var(--color-darkGrey);
-	border-bottom: 2px solid var(--color-lightGrey);
+	border-bottom: 2px solid transparent;
 	text-align: center;
+	transition: border-bottom-color 0.3s, opacity 0.3s;
 }
 
 .tabs > a[aria-current="page"],
 .tabs > a.active,
 .tabs > a:hover {
 	opacity: 1;
-	border-bottom: 2px solid var(--color-darkGrey);
+	border-bottom-color: var(--color-darkGrey);
 }
 
 .tabs > a[aria-current="page"],
 .tabs > a.active {
 	border-color: var(--color-primary);
+	font-weight: bold;
 }
 
 .tabs.is-full a {

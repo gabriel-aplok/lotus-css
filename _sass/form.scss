@@ -1,5 +1,5 @@
 fieldset {
-	padding: 0.5rem 2rem;
+	padding: 0.5rem 1rem;
 	border-radius: 4px;
 }
 
@@ -20,6 +20,7 @@ textarea[type="text"] {
 	font-size: 1em;
 	transition: all 0.2s ease;
 	display: block;
+	transition: border-color 0.2s ease;
 	width: 100%;
 }
 
@@ -80,6 +81,7 @@ button:disabled:hover {
 
 .grouped {
 	display: flex;
+	align-items: center;
 }
 
 .grouped > *:not(:last-child) {
@@ -128,11 +130,11 @@ textarea.success {
 
 [type="checkbox"],
 [type="radio"] {
-	width: 2rem;
+	width: 1.6rem;
 	height: 1.6rem;
+	margin-right: 6px;
 }
 
-/* BUTTONS*/
 .button + .button {
 	margin-left: 1rem;
 }
@@ -184,7 +186,7 @@ textarea.success {
 	align-items: center;
 }
 
-.button.icon > img {
+.button.icon > * {
 	margin-left: 2px;
 }
 
@@ -201,5 +203,5 @@ button:active:not(:disabled) {
 }
 
 ::placeholder {
-	color: #bdbfc4;
+	color: #BDBFC4;
 }

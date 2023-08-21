@@ -57,12 +57,12 @@
 .nav [aria-current="page"]:not(.button),
 .nav .active:not(.button) {
 	color: var(--color-primary);
+	font-weight: bold;
 }
 
 .nav .brand {
 	font-size: 1.75em;
-	padding-top: 0;
-	padding-bottom: 0;
+	padding: 0;
 }
 
 .nav .brand img {
@@ -70,5 +70,5 @@
 }
 
 .nav .button {
-	margin: auto 1rem;
+	margin: 0 1rem;
 }
