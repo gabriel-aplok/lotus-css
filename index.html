@@ -5,24 +5,27 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<title>LOTUS.css - A Minimal CSS Framework</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>LOTUS.css - A Minimal CSS Framework</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 		<link rel="stylesheet" href="./assets/css/style.css">
 		<link rel="stylesheet" href="./styles.css">
-		<link rel="icon" type="image/png" href="favicon.png">
+		<link rel="icon" type="image/png" href="./favicon.png">
 	</head>
 	<body id="top">
 		<div class="container">
 			<header class="full-width">
-				<h1 class="float-right"><a href="javascript:void(0)" onclick="switchMode(this)">☀️</a></h1>
+				<h1 class="fixed button primary icon-only toggle-theme" style="top: 2rem; right: 2rem;">
+					<span class="material-symbols-outlined">dark_mode</span>
+					<span class="material-symbols-outlined">light_mode</span>
+				</h1>
 				<div class="hero full-screen-width">
 					<div class="logo center vertical-align">
 						<h1><strong>LOTUS</strong>.css</h1>
 						<h3>A <strong>Minimal</strong> CSS Framework</h3>
-						<small><em>I named this "<span class="text-primary-color">LOTUS.css</span>" cuz I love this flower!</em></small>
+						<small><em>I named this "<span class="primary-text">LOTUS.css</span>" cuz I love this flower!</em></small>
 					</div>
 				</div>
 			</header>
@@ -34,6 +37,7 @@
 					<li>📐 12 super columns with grid</li>
 					<li>🎨 Easy to <a href="#customizing">customize</a> with CSS variables</li>
 					<li>🧱 Enjoy super components and utilities</li>
+					<li>💌 Visual based on MD3, beautiful to look at!</li>
 					<li>🌙 Easy dark mode switch</li>
 				</ul>
 			</section>
@@ -45,11 +49,14 @@
 				{% highlight html %}<link rel="stylesheet" href="https://unpkg.com/lotus-css@latest">{% endhighlight %}
 				<br>
 				<p>You can get the latest release from GitHub</p>
-				<p><a href="https://github.com/gabriel-aplok/lotus-css/archive/master.zip" class="button primary">Download .zip</a></p>
+				<p class="row">
+					<a class="col button outline primary" href="https://github.com/gabriel-aplok/lotus-css/archive/master.zip">Download Source</a>
+					<a class="col button primary" href="https://github.com/gabriel-aplok/lotus-css/archive/master.zip">Download Compiled</a>
+				</p>
 				<br>
 				<p>Install it from <code>npm</code> or <code>yarn</code></p>
 				{% highlight bash %}npm install lotus-css{% endhighlight %}
-				<em class="text-error">The package is not available on npm, coming soon!</em>
+				<em class="error-text">The package is not available on npm, coming soon!</em>
 			</section>
 			<section id="docs">
 				<header class="row">
@@ -68,20 +75,44 @@
 				<h3 id="customizing">Customizing</h3>
 				<p>LOTUS comes with a basic set of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables" target="_blank">CSS variables</a>:</p>
 				{% highlight css %}:root {
-  --bg-color: #ffffff;
-  --bg-secondary-color: #f3f3f6;
-  --color-primary: #14854F;
-  --color-lightGrey: #d2d6dd;
-  --color-grey: #747681;
-  --color-darkGrey: #3f4144;
-  --color-error: #d43939;
-  --color-success: #28bd14;
-  --grid-maxWidth: 120rem;
-  --grid-gutter: 2rem;
-  --font-size: 1.6rem;
-  --font-color: #333333;
-  --font-family-sans: sans-serif;
-  --font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
+  --typography-font: "Lato", sans-serif;
+  --typography-code: "Inconsolata", monospace;
+  --typography-size: 1.6em;
+  --typography-line-height: 1.4;
+
+  --grid-max-width: 120rem;
+  --grid-gutter-size: 2rem;
+
+  --color-primary: #6750A4;
+  --color-on-primary: #FFFFFF;
+  --color-primary-container: #EADDFF;
+  --color-on-primary-container: #21005D;
+  --color-secondary: #625B71;
+  --color-on-secondary: #FFFFFF;
+  --color-secondary-container: #E8DEF8;
+  --color-on-secondary-container: #1D192B;
+  --color-tertiary: #7D5260;
+  --color-on-tertiary: #FFFFFF;
+  --color-tertiary-container: #FFD8E4;
+  --color-on-tertiary-container: #31111D;
+  --color-error: #B3261E;
+  --color-on-error: #FFFFFF;
+  --color-error-container: #F9DEDC;
+  --color-on-error-container: #410E0B;
+  --color-outline: #79747E;
+  --color-background: #FFFBFE;
+  --color-on-background: #1C1B1F;
+  --color-surface: #FFFBFE;
+  --color-on-surface: #1C1B1F;
+  --color-surface-variant: #E7E0EC;
+  --color-on-surface-variant: #49454F;
+  --color-inverse-surface: #313033;
+  --color-inverse-on-surface: #F4EFF4;
+  --color-inverse-primary: #D0BCFF;
+  --color-shadow: #000000;
+  --color-surface-tint: #6750A4;
+  --color-outline-variant: #CAC4D0;
+  --color-scrim: #000000;
 }{% endhighlight %}
 				<br>
 				<p>To override the variables, just add them to your <code>:root</code> selector after importing <code>lotus.css</code></p>
@@ -89,27 +120,53 @@
 @import url(lotus.css)
 
 :root {
-  --color-primary: #da1d50;
+  --color-primary: #6750A4;
+  --color-on-primary: #FFFFFF;
   --grid-maxWidth: 108rem;
 }
 
 /* Your other styles... */{% endhighlight %}
 				<br>
 				<p>Addtionally, you can add dark mode to your site, to support devices that prefer dark mode.</p>
-				{% highlight html %} <style>
-  body.dark {
-    --bg-color: #000;
-    --bg-secondary-color: #131316;
-    --font-color: #f5f5f5;
-    --color-grey: #ccc;
-    --color-darkGrey: #777;
+				{% highlight html %}<style>
+  .dark {
+    --color-primary: #D0BCFF;
+    --color-on-primary: #381E72;
+    --color-primary-container: #4F378B;
+    --color-on-primary-container: #EADDFF;
+    --color-secondary: #CCC2DC;
+    --color-on-secondary: #332D41;
+    --color-secondary-container: #4A4458;
+    --color-on-secondary-container: #E8DEF8;
+    --color-tertiary: #EFB8C8;
+    --color-on-tertiary: #492532;
+    --color-tertiary-container: #633B48;
+    --color-on-tertiary-container: #FFD8E4;
+    --color-error: #F2B8B5;
+    --color-on-error: #601410;
+    --color-error-container: #8C1D18;
+    --color-on-error-container: #F9DEDC;
+    --color-outline: #938F99;
+    --color-background: #1C1B1F;
+    --color-on-background: #E6E1E5;
+    --color-surface: #1C1B1F;
+    --color-on-surface: #E6E1E5;
+    --color-surface-variant: #49454F;
+    --color-on-surface-variant: #CAC4D0;
+    --color-inverse-surface: #E6E1E5;
+    --color-inverse-on-surface: #313033;
+    --color-inverse-primary: #6750A4;
+    --color-shadow: #000000;
+    --color-surface-tint: #D0BCFF;
+    --color-outline-variant: #49454F;
+    --color-scrim: #000000;
   }
 </style>
 <script>
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     document.body.classList.add('dark');
   }
-  </script>{% endhighlight %}
+</script>{% endhighlight %}
 			</section>
 			<section id="components">
 				<div>
@@ -126,13 +183,18 @@
 				</div>
 				<div class="is-center">
 					<p>
-						Coming soon I'll add the components here, but you can see the components and elements demo <a href="./demo.html">here</a>.
+						[WIP] Coming soon I'll add the components here, but you can see the components and elements demo <a href="./demo.html">here</a>.
 					</p>
 				</div>
 				<section id="icons">
 					<h4>Icons</h4>
-					<p>While you're free to use any icon library you like, I'd just like to leave a link to <a href="https://fonts.google.com/icons" target="_blank">Google Fonts</a> here .  It's the <em>fastest</em> way to add icons to your website.</p>
-				</section> <br> <br>
+					<p>While you're free to use any icon library you like, I'd just like to leave a link to <a href="https://fonts.google.com/icons" target="_blank">Google Icons</a> here. It's the <em>fastest</em> way to add icons to your website.</p>
+				</section>
+				<section id="fonts">
+					<h4>Fonts</h4>
+					<p>While you're free to use any font you like, I'd just like to leave a link to <a href="https://fonts.google.com" target="_blank">Google Fonts</a> here. It's the <em>fastest</em> way to add fonts to your website.</p>
+				</section>
+				<br><br>
 				<p class="center">
 					<a class="button primary outline" target="_blank" href="https://x.com/intent/tweet?url=https://gabriel-aplok.github.io/lotus-css/&amp;text=lotus-css%20-%20A%20minimalist%20CSS%20framework&amp;via=GabrielAplok&amp;hashtags=web,css">Give a shout-out on Twitter / X 📢</a>
 				</p>

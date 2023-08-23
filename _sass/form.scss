@@ -153,21 +153,22 @@ textarea.error {
 .button.outline {
 	background-color: transparent;
 	color: var(--color-on-primary-container);
-	border-color: var(--color-on-primary-container);
+	border-color: var(--color-outline);
 }
 
 .button.outline.primary {
-	border-color: var(--color-primary);
 	color: var(--color-primary);
 }
 
 .button.outline.secondary {
-	border-color: var(--color-secondary);
 	color: var(--color-secondary);
 }
 
 .button.outline.tertiary {
-	border-color: var(--color-tertiary);
+	color: var(--color-tertiary);
+}
+
+.button.outline.error {
 	color: var(--color-tertiary);
 }
 

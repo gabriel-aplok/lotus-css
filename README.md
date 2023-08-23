@@ -10,17 +10,11 @@ LOTUS.css is a minimalist CSS framework designed to simplify web development and
 
 - **Customizable Components:** Enhance interactivity with customizable components.
 
-- **Typography Options:** Support for custom fonts and text styles.
+- **Customizable Colors:** Use a pre-defined color palette for a consistent look.
 
 - **Responsive Layout:** Adapt to different devices and screen sizes with a responsive layout.
 
-- **Positioning and Alignment:** Easily control the position and alignment of elements.
-
-- **Media Visibility:** Show or hide elements based on screen size.
-
 - **Responsive Components:** Components that adapt to different screen sizes.
-
-- **Customizable Colors:** Use a pre-defined color palette for a consistent look.
 
 ## Getting Started
 
@@ -44,6 +38,11 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 - Special thanks to the open-source community for their contributions and inspiration.
 
+
+## Supported Browsers
+
+Any evergreen browser > IE11 (why is IE still a thing?)
+
 ## Contact
 
-If you have any questions or feedback, feel free to reach out to us at [contact@example.com](mailto:gabrielaplok.contact@gmail.com).
+If you have any questions or feedback, feel free to reach out to us at [Twitter / X](https://x.com/gabrielaplok).

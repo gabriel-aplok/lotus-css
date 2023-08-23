@@ -26,12 +26,9 @@ body > .container {
 
 
 body > footer {
-	background-color: var(--bg-secondary-color);
+	background-color: var(--color-surface-variant);
+	color: var(--color-on-surface-variant);
 	padding: 4rem;
-}
-
-body.dark > footer {
- background-color: black;
 }
 
 section {
