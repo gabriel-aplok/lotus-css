@@ -1,0 +1,28 @@
+{
+	"name": "lotus-css",
+	"version": "0.0.1",
+	"description": "A minimal CSS Framework.",
+	"main": "dist/lotus.css",
+	"files": [
+		"dist/lotus.css",
+		"dist/lotus.min.css"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gabriel-aplok/lotus-css.git"
+	},
+	"author": "gabriel-aplok",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/gabriel-aplok/lotus-css/issues"
+	},
+	"homepage": "https://github.com/gabriel-aplok/lotus-css#readme",
+	"keywords": [
+		"css",
+		"html",
+		"lotus.css",
+		"lotuscss.org",
+		"lotuscss",
+		"classless"
+	]
+}

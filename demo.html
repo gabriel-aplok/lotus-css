@@ -21,7 +21,7 @@
 				<div class="clearfix"></div>
 				<p>A Minimal CSS Framework.</p>
 			</header>
-			<nav>
+			<nav class="no-deco">
 				<ul>
 					<li>
 						<a href="#text">Text</a>
@@ -41,7 +41,6 @@
 						<ul>
 							<li><a href="#embedded__images">Images</a></li>
 							<li><a href="#embedded__video">Video</a></li>
-							<li><a href="#embedded__meter">Meter</a></li>
 							<li><a href="#embedded__progress">Progress</a></li>
 						</ul>
 					</li>
@@ -319,20 +318,15 @@
 							</video>
 						</div>
 					</article>
-					<article id="embedded__meter">
-						<header>
-							<h2>Meter</h2>
-						</header>
-						<div>
-							<meter value="2" min="0" max="10">2 out of 10</meter>
-						</div>
-					</article>
 					<article id="embedded__progress">
 						<header>
 							<h2>Progress</h2>
 						</header>
 						<div>
-							<progress>progress</progress>
+							<progress class="is-full primary" value="50" max="100"></progress>
+							<progress class="is-full secondary" value="50" max="100"></progress>
+							<progress class="is-full tertiary" value="50" max="100"></progress>
+							<progress class="is-full error" value="50" max="100"></progress>
 						</div>
 					</article>
 				</section>

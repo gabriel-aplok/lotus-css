@@ -6,3 +6,5 @@ vendor
 public
 
 node_modules
+
+dist.zip

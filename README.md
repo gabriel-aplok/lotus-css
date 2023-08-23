@@ -24,25 +24,12 @@ To get started with LOTUS.css, simply include the CSS file in your project and s
 <link rel="stylesheet" href="lotus.css">
 ```
 
-For detailed documentation and examples, visit the [LOTUS.css Docs](https://example.com/documentation).
-
-## Contributing
-
-If you'd like to contribute to LOTUS.css, please read our [Contribution Guidelines](CONTRIBUTING.md) for details on how to get started.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+For detailed documentation and examples, visit the [LOTUS.css Docs](https://gabriel-aplok.github.io/lotus-css).
 
 ## Acknowledgments
 
 - Special thanks to the open-source community for their contributions and inspiration.
 
-
 ## Supported Browsers
 
 Any evergreen browser > IE11 (why is IE still a thing?)
-
-## Contact
-
-If you have any questions or feedback, feel free to reach out to us at [Twitter / X](https://x.com/gabrielaplok).

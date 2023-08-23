@@ -29,6 +29,8 @@ textarea[type="text"] {
 
 select {
 	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
 	background: var(--color-on-secondary) no-repeat 100%;
 	background-size: 1ex;
 	background-origin: content-box;
@@ -199,6 +201,61 @@ button:active:not(:disabled) {
 	transform: scale(0.99);
 }
 
+progress {
+	--color: var(--color-primary-container);
+	--color-value: var(--color-on-primary-container);
+
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border-radius: 4px;
+
+	&.is-full {
+		width: 100%;
+	}
+
+	&.secondary {
+		--color: var(--color-secondary-container);
+		--color-value: var(--color-on-secondary-container);
+	}
+
+	&.tertiary {
+		--color: var(--color-tertiary-container);
+		--color-value: var(--color-on-tertiary-container);
+	}
+
+	&.error {
+		--color: var(--color-error-container);
+		--color-value: var(--color-on-error-container);
+	}
+}
+
+progress:indeterminate {
+	background-color: var(--color);
+}
+
+progress::-webkit-progress-bar {
+	background-color: var(--color);
+	border-radius: 4px;
+}
+
+progress::-webkit-progress-value {
+	background-color: var(--color-value);
+	border-radius: 4px;
+}
+
+progress::-moz-progress-bar {
+	background-color: var(--color);
+	border-radius: 4px;
+	transition-property: width;
+	transition-duration: 0.3s;
+}
+
+progress::-moz-progress-value {
+	background-color: var(--color-value);
+	border-radius: 4px;
+}
+
 ::placeholder {
-	color: var(--color-outline-variant);
+	color: var(--color-outline);
 }
