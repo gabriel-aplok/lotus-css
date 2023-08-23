@@ -1,11 +1,12 @@
 .tag {
-	background-color: var(--color-lightGrey);
-	color: var(--color-darkGrey);
+	background-color: var(--color-secondary-container);
+	color: var(--color-on-secondary-container);
 	border-radius: 4px;
-	display: inline-block;
+	font-size: 80%;
 	letter-spacing: 0.2px;
-	padding: 0.6rem;
 	line-height: 1;
+	padding: 0.6rem;
+	display: inline-block;
 }
 
 .tag.is-small {

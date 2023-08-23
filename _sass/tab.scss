@@ -11,7 +11,7 @@
 .tabs > a {
 	padding: 1rem 2rem;
 	flex: 0 1 auto;
-	color: var(--color-darkGrey);
+	color: var(--color-secondary);
 	border-bottom: 2px solid transparent;
 	text-align: center;
 	transition: border-bottom-color 0.3s, opacity 0.3s;
@@ -21,7 +21,7 @@
 .tabs > a.active,
 .tabs > a:hover {
 	opacity: 1;
-	border-bottom-color: var(--color-darkGrey);
+	border-bottom-color: var(--color-secondary);
 }
 
 .tabs > a[aria-current="page"],
