@@ -388,7 +388,11 @@ document.querySelector('#send').addEventListener('click', () => {
 		filename: 'utils.html',
 		lang: 'html',
 		code: `<p class="text-center">…</p>
-<div class="full-width">…</div>`,
+<div class="full-width">…</div>
+<div class="stack">
+  <button class="button primary">First</button>
+  <button class="button outline">Second</button>
+</div>`,
 	},
 };
 

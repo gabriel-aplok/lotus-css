@@ -471,8 +471,14 @@ body.page-accordion .demo-layout {
 	border-radius: var(--radius-lg);
 	background-color: var(--card);
 
+	// Components are bare blocks with no built-in flow margin, so space
+	// stacked children (alerts, cards, buttons, ...) with a consistent gap.
 	& > :last-child {
 		margin-bottom: 0;
+	}
+
+	& > * + * {
+		margin-top: 1.6rem;
 	}
 }
 

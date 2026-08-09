@@ -108,6 +108,25 @@
 	margin: 0 !important;
 }
 
+// --- stack ---
+// Stacks direct children with a consistent vertical gap (no margin collapse).
+// Adjust with --stack-gap, or use the size modifiers.
+
+.stack {
+	display: flex;
+	flex-direction: column;
+	gap: var(--stack-gap, 1.6rem);
+}
+
+// Size modifiers; use together with .stack.
+.stack-sm {
+	--stack-gap: 1rem;
+}
+
+.stack-lg {
+	--stack-gap: 2.4rem;
+}
+
 // --- misc ---
 
 .pointer-cursor {

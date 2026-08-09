@@ -3093,6 +3093,20 @@ html.js [data-animate].in-view {
   margin: 0 !important;
 }
 
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap, 1.6rem);
+}
+
+.stack-sm {
+  --stack-gap: 1rem;
+}
+
+.stack-lg {
+  --stack-gap: 2.4rem;
+}
+
 .pointer-cursor {
   cursor: pointer !important;
 }
