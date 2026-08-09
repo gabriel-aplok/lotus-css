@@ -1,0 +1,93 @@
+// Browser-native UI customization (scrollbars, selection, focus, autofill)
+
+html {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	scroll-behavior: smooth;
+	scroll-padding-top: 2rem; // keep anchored sections clear of fixed headers
+	-webkit-tap-highlight-color: transparent;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizelegibility;
+}
+
+// --- text selection ---
+::selection {
+	background-color: var(--primary);
+	color: var(--primary-foreground);
+}
+
+// --- scrollbars ---
+// Firefox uses standard properties; WebKit/Blink need the pseudo-elements.
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--muted-foreground) var(--background);
+}
+
+::-webkit-scrollbar {
+	width: 0.8rem;
+	height: 0.8rem;
+}
+
+::-webkit-scrollbar-track {
+	background-color: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--muted-foreground);
+	border-radius: var(--radius-full);
+	border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: var(--foreground);
+}
+
+::-webkit-scrollbar-corner {
+	background-color: var(--background);
+}
+
+// --- focus rings ---
+// Keyboard focus gets a ring; mouse clicks do not. Inputs are excluded
+// (they draw their own ring via box-shadow in _form.scss).
+:focus-visible:not(input, select, textarea) {
+	outline: 2px solid var(--ring);
+	outline-offset: 2px;
+}
+
+[type="checkbox"]:focus-visible,
+[type="radio"]:focus-visible,
+[type="range"]:focus-visible {
+	outline: 2px solid var(--ring);
+	outline-offset: 2px;
+}
+
+// --- form autofill ---
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+	-webkit-box-shadow: 0 0 0 1000px var(--background) inset;
+	-webkit-text-fill-color: var(--foreground);
+	caret-color: var(--foreground);
+}
+
+// --- caret color ---
+input,
+textarea {
+	caret-color: var(--primary);
+}
+
+// --- motion preferences ---
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}

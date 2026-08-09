@@ -1,0 +1,44 @@
+// Accordions (details/summary)
+details.accordion,
+details[data-accordion-item] {
+	border: 1px solid var(--border);
+	border-radius: var(--radius-md);
+	background-color: var(--card);
+	overflow: hidden;
+
+	& + & {
+		margin-top: 0.5rem;
+	}
+
+	summary {
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 1.4rem 1.6rem;
+		font-weight: 600;
+		user-select: none;
+
+		&::-webkit-details-marker {
+			display: none;
+		}
+
+		&::after {
+			content: "+";
+			font-size: 1.8rem;
+			color: var(--muted-foreground);
+			transition: transform var(--transition-fast);
+		}
+	}
+
+	&[open] summary::after {
+		transform: rotate(45deg);
+	}
+
+	> :not(summary),
+	.accordion-body {
+		padding: 0 1.6rem 1.4rem;
+	}
+}

@@ -1,0 +1,39 @@
+// Breadcrumbs
+.breadcrumb,
+.breadcrumb ol,
+.breadcrumb ul {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.75rem;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-size: var(--font-size-sm);
+	color: var(--muted-foreground);
+}
+
+.breadcrumb li {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.breadcrumb li:not(:last-child)::after {
+	content: "/";
+	opacity: 0.5;
+}
+
+.breadcrumb a {
+	color: var(--muted-foreground);
+	text-decoration: none;
+}
+
+.breadcrumb a:hover {
+	color: var(--foreground);
+}
+
+.breadcrumb [aria-current="page"] {
+	color: var(--foreground);
+	font-weight: 600;
+}

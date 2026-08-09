@@ -1,0 +1,147 @@
+// Syntax highlighting
+// One theme driven by the --syntax-* tokens in _base.scss (supports both
+// highlight.js output and legacy pygments markup).
+
+.hljs,
+.highlight {
+	background-color: var(--syntax-bg);
+	color: var(--syntax-fg);
+}
+
+// comments
+.hljs-comment,
+.hljs-quote,
+.highlight .c,
+.highlight .c1,
+.highlight .cd,
+.highlight .cm,
+.highlight .cs,
+.highlight .cp,
+.highlight .ch {
+	color: var(--syntax-comment);
+	font-style: italic;
+}
+
+// keywords & control flow
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag,
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kv,
+.highlight .kc {
+	color: var(--syntax-keyword);
+	font-weight: bold;
+}
+
+// strings & templates
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .se,
+.highlight .sh,
+.highlight .si,
+.highlight .sx,
+.highlight .sr,
+.highlight .ss {
+	color: var(--syntax-string);
+}
+
+// numbers
+.hljs-number,
+.hljs-symbol,
+.hljs-bullet,
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .mo,
+.highlight .mb,
+.highlight .mx,
+.highlight .il {
+	color: var(--syntax-number);
+}
+
+// functions
+.hljs-title,
+.hljs-title.function_,
+.hljs-section,
+.highlight .nf,
+.highlight .nl,
+.highlight .nx {
+	color: var(--syntax-function);
+}
+
+// types & classes
+.hljs-type,
+.hljs-built_in,
+.hljs-title.class_,
+.highlight .nc,
+.highlight .nn,
+.highlight .no,
+.highlight .kt {
+	color: var(--syntax-type);
+}
+
+// attributes, names, variables
+.hljs-attribute,
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-params,
+.hljs-property,
+.highlight .na,
+.highlight .nb,
+.highlight .bp,
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi,
+.highlight .nl {
+	color: var(--syntax-attr);
+}
+
+// operators & punctuation
+.hljs-operator,
+.hljs-punctuation,
+.highlight .o,
+.highlight .ow,
+.highlight .p,
+.highlight .pi,
+.highlight .w {
+	color: var(--syntax-operator);
+}
+
+// tags & meta
+.hljs-meta,
+.hljs-tag,
+.hljs-name,
+.highlight .nt {
+	color: var(--syntax-tag);
+}
+
+// errors & deletions
+.hljs-deletion,
+.highlight .err,
+.highlight .gd {
+	color: var(--syntax-error);
+}
+
+// emphasis
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}

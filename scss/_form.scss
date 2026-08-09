@@ -1,0 +1,281 @@
+// Forms & buttons
+fieldset {
+	border: 1px solid var(--border);
+	border-radius: var(--radius-md);
+	padding: 0.5rem 1rem;
+}
+
+legend {
+	text-transform: uppercase;
+	font-size: var(--font-size-sm);
+	letter-spacing: var(--letter-spacing-wide);
+	padding: 0 0.5rem;
+}
+
+label {
+	display: inline-block;
+	font-size: var(--font-size-sm);
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+input:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"], [type="range"]),
+select,
+textarea {
+	background-color: var(--background);
+	color: var(--foreground);
+	border: 1px solid var(--input);
+	border-radius: var(--radius-md);
+	font-family: inherit;
+	font-size: var(--font-size-base);
+	padding: 0.9rem 1.2rem;
+	transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+	display: block;
+	width: 100%;
+}
+
+select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23a1a1aa'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 1rem center;
+	background-size: 1rem;
+	padding-right: 3.2rem;
+}
+
+input:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"], [type="range"]):hover,
+select:hover,
+textarea:hover {
+	border-color: var(--muted-foreground);
+}
+
+input:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"], [type="range"]):focus,
+select:focus,
+textarea:focus {
+	outline: none;
+	border-color: var(--ring);
+	box-shadow: 0 0 0 2px color-mix(in oklab, var(--ring) 30%, transparent);
+}
+
+input.error:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"], [type="range"]),
+textarea.error {
+	border-color: var(--destructive);
+}
+
+input.error:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"], [type="range"]):focus,
+textarea.error:focus {
+	box-shadow: 0 0 0 2px color-mix(in oklab, var(--destructive) 30%, transparent);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+input[type="color"] {
+	width: 4rem;
+	height: 4rem;
+	padding: 0.3rem;
+	border: 1px solid var(--border);
+	border-radius: var(--radius-md);
+	background-color: var(--background);
+}
+
+::placeholder {
+	color: var(--muted-foreground);
+	opacity: 0.8;
+}
+
+// --- buttons --------------------------------------------------------------
+
+.button,
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	background-color: var(--secondary);
+	color: var(--secondary-foreground);
+	padding: 1rem 2rem;
+	border: 1px solid transparent;
+	border-radius: var(--radius-md);
+	font-family: inherit;
+	font-size: var(--font-size-base);
+	font-weight: 600;
+	line-height: 1;
+	text-decoration: none;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+	transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
+	transform: scale(1);
+}
+
+.button:hover,
+button:hover,
+[type="button"]:hover,
+[type="reset"]:hover,
+[type="submit"]:hover {
+	background-color: color-mix(in oklab, var(--secondary) 88%, var(--foreground));
+}
+
+.button:active:not(:disabled),
+button:active:not(:disabled),
+[type="button"]:active:not(:disabled),
+[type="reset"]:active:not(:disabled),
+[type="submit"]:active:not(:disabled) {
+	transform: scale(0.97);
+}
+
+button:disabled,
+.button:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+// --- button variants --------------------------------------------------------
+
+.button.primary,
+[type="submit"] {
+	background-color: var(--primary);
+	color: var(--primary-foreground);
+}
+
+.button.primary:hover,
+[type="submit"]:hover {
+	background-color: color-mix(in oklab, var(--primary) 85%, var(--foreground));
+}
+
+.button.secondary {
+	background-color: var(--secondary);
+	color: var(--secondary-foreground);
+}
+
+.button.accent {
+	background-color: var(--accent);
+	color: var(--accent-foreground);
+}
+
+.button.success {
+	background-color: var(--success);
+	color: var(--success-foreground);
+}
+
+.button.warning {
+	background-color: var(--warning);
+	color: var(--warning-foreground);
+}
+
+.button.destructive,
+.button.error {
+	background-color: var(--destructive);
+	color: var(--destructive-foreground);
+}
+
+.button.outline {
+	background-color: transparent;
+	color: var(--foreground);
+	border-color: var(--border);
+}
+
+.button.outline:hover {
+	background-color: var(--secondary);
+}
+
+.button.outline.primary {
+	color: var(--primary);
+}
+
+.button.outline.secondary {
+	color: var(--secondary-foreground);
+}
+
+.button.outline.accent {
+	color: var(--accent-foreground);
+}
+
+.button.outline.destructive,
+.button.outline.error {
+	color: var(--destructive);
+}
+
+.button.outline.success {
+	color: var(--success);
+}
+
+.button.outline.warning {
+	color: var(--warning);
+}
+
+.button.clear {
+	background-color: transparent;
+	border-color: transparent;
+	color: var(--primary);
+}
+
+.button.clear:hover {
+	background-color: var(--secondary);
+}
+
+.button.is-sm {
+	padding: 0.7rem 1.2rem;
+	font-size: var(--font-size-sm);
+}
+
+.button.is-lg {
+	padding: 1.4rem 2.6rem;
+	font-size: var(--font-size-lg);
+}
+
+.button.icon {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.button.icon-only {
+	padding: 1rem;
+}
+
+.button + .button {
+	margin-left: 1rem;
+}
+
+// --- input groups ------------------------------------------------------------
+
+.grouped {
+	display: flex;
+	align-items: stretch;
+}
+
+.grouped > *:not(:last-child) {
+	margin-right: 1rem;
+}
+
+.grouped.gapless > * {
+	margin: 0 0 0 -1px !important;
+	border-radius: 0 !important;
+}
+
+.grouped.gapless > *:first-child {
+	margin: 0 !important;
+	border-radius: var(--radius-md) 0 0 var(--radius-md) !important;
+}
+
+.grouped.gapless > *:last-child {
+	border-radius: 0 var(--radius-md) var(--radius-md) 0 !important;
+}
+
+// --- legacy button aliases ---
+
+.button.tertiary {
+	background-color: var(--accent);
+	color: var(--accent-foreground);
+}
+
+.button.outline.tertiary {
+	color: var(--accent-foreground);
+}

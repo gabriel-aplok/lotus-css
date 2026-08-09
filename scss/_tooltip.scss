@@ -1,0 +1,45 @@
+// Tooltips (pure CSS, driven by a data attribute)
+[data-tooltip] {
+	position: relative;
+}
+
+[data-tooltip]::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	bottom: calc(100% + 0.8rem);
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0.4rem 0.8rem;
+	white-space: nowrap;
+	border-radius: var(--radius-sm);
+	background-color: var(--foreground);
+	color: var(--background);
+	font-size: var(--font-size-sm);
+	line-height: 1.4;
+	opacity: 0;
+	pointer-events: none;
+	z-index: var(--z-dropdown);
+	transition: opacity var(--transition-fast);
+}
+
+[data-tooltip]:hover::after,
+[data-tooltip]:focus-visible::after {
+	opacity: 1;
+}
+
+[data-tooltip-position="bottom"]::after {
+	bottom: auto;
+	top: calc(100% + 0.8rem);
+}
+
+[data-tooltip-position="left"]::after {
+	inset: 50% calc(100% + 0.8rem) auto auto;
+	transform: translateY(-50%);
+}
+
+[data-tooltip-position="right"]::after {
+	bottom: auto;
+	top: 50%;
+	left: calc(100% + 0.8rem);
+	transform: translateY(-50%);
+}

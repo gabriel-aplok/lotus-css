@@ -1,0 +1,183 @@
+// Utility classes
+
+// --- floats ---
+
+.float-right {
+	float: right !important;
+}
+
+.float-left {
+	float: left !important;
+}
+
+.clearfix::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+// --- sizing ---
+
+.full-screen-width {
+	width: 100%;
+	min-height: 100vh;
+}
+
+.full-width {
+	width: 100% !important;
+}
+
+// --- text ---
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-justify {
+	text-align: justify;
+}
+
+.text-upper {
+	text-transform: uppercase;
+}
+
+.text-lower {
+	text-transform: lowercase;
+}
+
+.text-capital {
+	text-transform: capitalize;
+}
+
+// --- flex helpers ---
+
+.vertical-align {
+	display: flex;
+	align-items: center;
+}
+
+.horizontal-align {
+	display: flex;
+	justify-content: center;
+}
+
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.right {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.left {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+// --- position ---
+
+.fixed {
+	position: fixed;
+}
+
+.sticky {
+	position: sticky;
+	top: 0;
+}
+
+// --- spacing ---
+
+.paddingless {
+	padding: 0 !important;
+}
+
+.marginless {
+	margin: 0 !important;
+}
+
+// --- misc ---
+
+.pointer-cursor {
+	cursor: pointer !important;
+}
+
+.rounded {
+	border-radius: var(--radius-full);
+}
+
+.hidden {
+	display: none !important;
+}
+
+.no-deco {
+	text-decoration: none;
+}
+
+.no-deco * {
+	text-decoration: none;
+}
+
+.no-scrollbar {
+	scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+// --- responsive hiding ---
+
+@media screen and (max-width: 599px) {
+	.hide-xs {
+		display: none !important;
+	}
+}
+
+@media screen and (min-width: 600px) and (max-width: 899px) {
+	.hide-sm {
+		display: none !important;
+	}
+}
+
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+	.hide-md {
+		display: none !important;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.hide-lg {
+		display: none !important;
+	}
+}
+
+@media print {
+	.hide-print {
+		display: none !important;
+	}
+}

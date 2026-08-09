@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" data-lotus-no-init>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>LOTUS.css — A classless CSS framework</title>
+	<meta name="description"
+		content="Classless CSS with a neutral token system, automatic dark mode, and an optional dependency-free JS layer for dialogs, toasts, tabs and more.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap">
+	<link rel="stylesheet" href="./css/site.scss">
+</head>
+
+<body>
+	<!-- ======================= Site nav ======================= -->
+	<nav class="site-nav" aria-label="Main">
+		<a class="brand" href="./index.html">
+			<span class="brand-logo">L</span>
+			<span>LOTUS<span style="color: var(--muted-foreground);">.css</span></span>
+		</a>
+		<ul class="site-nav-links">
+			<li class="hide-mobile"><a href="#features">Features</a></li>
+			<li class="hide-mobile"><a href="#start">Quick start</a></li>
+			<li class="hide-mobile"><a href="#customize">Customize</a></li>
+			<li class="hide-mobile"><a href="#components">Components</a></li>
+			<li><a href="./demo.html">Demo</a></li>
+			<li>
+				<button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+					<svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+					</svg>
+					<svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+						<circle cx="12" cy="12" r="4"></circle>
+						<path
+							d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+						</path>
+					</svg>
+				</button>
+			</li>
+		</ul>
+	</nav>
+
+	<main>
+		<!-- ======================= Hero ======================= -->
+		<section class="hero">
+			<span class="hero-badge">v0.3.0 — classless · dependency-free · MIT</span>
+			<h1 data-animate="fade-up">LOTUS<span style="color: var(--muted-foreground);">.css</span></h1>
+			<p class="hero-sub" data-animate="fade-up" data-animate-delay="80">
+				Classless CSS with a neutral, oklch token system. Automatic dark mode.
+				An optional 8&nbsp;kB JS layer for dialogs, toasts, tabs and more.
+				Semantic HTML still looks like something.
+			</p>
+			<div class="hero-actions" data-animate="fade-up" data-animate-delay="160">
+				<a class="button primary" href="#start">Get started</a>
+				<a class="button outline" href="./demo.html">Browse the demo</a>
+				<a class="button clear" href="https://github.com/gabriel-aplok/lotus-css" target="_blank" rel="noopener">GitHub
+					↗</a>
+			</div>
+		</section>
+
+		<!-- ======================= Features ======================= -->
+		<section class="section" id="features">
+			<div class="container">
+				<div class="section-head" data-animate="fade-up">
+					<h2>Features</h2>
+					<p>Semantic HTML alone covers a lot. The JavaScript layer covers the bits that need a browser.</p>
+				</div>
+				<div class="feature-grid">
+					<article class="feature-card" data-animate="fade-up">
+						<div class="feature-icon">⚡</div>
+						<h3>Lightweight</h3>
+						<p>~51 kB of CSS minified, and the optional JS layer is just 8 kB. No build step required.</p>
+					</article>
+					<article class="feature-card" data-animate="fade-up" data-animate-delay="60">
+						<div class="feature-icon">🧱</div>
+						<h3>Classless by default</h3>
+						<p>Style semantic HTML out of the box. Add classes only when you need them.</p>
+					</article>
+					<article class="feature-card" data-animate="fade-up" data-animate-delay="120">
+						<div class="feature-icon">🎨</div>
+						<h3>Design tokens</h3>
+						<p>An oklch palette in the spirit of Vercel / shadcn. Every color is a CSS variable you can override.</p>
+					</article>
+					<article class="feature-card" data-animate="fade-up" data-animate-delay="180">
+						<div class="feature-icon">🌙</div>
+						<h3>Automatic dark mode</h3>
+						<p>Follows <code>prefers-color-scheme</code>. Override with <code>.dark</code>/<code>.light</code>, or a
+							toggle button.</p>
+					</article>
+					<article class="feature-card" data-animate="fade-up" data-animate-delay="240">
+						<div class="feature-icon">🧩</div>
+						<h3>Component library</h3>
+						<p>Navs, tabs, cards, dialogs, sheets, toasts, tooltips, carousels, accordions, badges, spinners, and so on.
+						</p>
+					</article>
+					<article class="feature-card" data-animate="fade-up" data-animate-delay="300">
+						<div class="feature-icon">🪄</div>
+						<h3>Progressive interactivity</h3>
+						<p>Scroll reveals, page transitions and code copy buttons. Nothing breaks if JavaScript is off.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- ======================= Quick start ======================= -->
+		<section class="section" id="start">
+			<div class="container">
+				<div class="section-head" data-animate="fade-up">
+					<h2>Quick start</h2>
+					<p>One stylesheet. That's it. Add <code>lotus.min.js</code> if you want the interactive components.</p>
+				</div>
+				<div class="quick-grid">
+					<div class="quick-step" data-animate="fade-up">
+						<h3><span class="step">1</span> Link the CSS</h3>
+						<pre
+							data-filename="index.html"><code class="language-html">&lt;link rel="stylesheet" href="https://unpkg.com/lotus-css"&gt;</code></pre>
+					</div>
+					<div class="quick-step" data-animate="fade-up" data-animate-delay="60">
+						<h3><span class="step">2</span> Optional: the JS layer</h3>
+						<pre
+							data-filename="index.html"><code class="language-html">&lt;script src="https://unpkg.com/lotus-css/dist/lotus.min.js" defer&gt;&lt;/script&gt;</code></pre>
+					</div>
+					<div class="quick-step" data-animate="fade-up" data-animate-delay="120">
+						<h3><span class="step">3</span> Or install from npm</h3>
+						<pre data-filename="terminal"><code class="language-bash">npm install lotus-css</code></pre>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ======================= Customize ======================= -->
+		<section class="section" id="customize">
+			<div class="container">
+				<div class="section-head" data-animate="fade-up">
+					<h2>Customize</h2>
+					<p>Every color, radius, shadow and font is a design token. Override any of them in your own CSS.</p>
+				</div>
+				<pre data-filename="your-theme.css" data-animate="fade-up"><code class="language-css">:root {
+  --primary: #111111;          /* brand color */
+  --background: #fafafa;       /* page background */
+  --foreground: #18181b;       /* text color */
+  --radius-md: 0.75rem;        /* border radius */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --grid-max-width: 108rem;    /* container width */
+}</code></pre>
+				<p style="margin-top: 2rem; color: var(--muted-foreground);" data-animate="fade-up">
+					Dark mode is automatic. To force it, add <code>class="dark"</code> to
+					<code>&lt;html&gt;</code>. Or use <code>class="light"</code> to ignore the OS setting.
+				</p>
+			</div>
+		</section>
+
+		<!-- ======================= Components ======================= -->
+		<section class="section" id="components">
+			<div class="container">
+				<div class="section-head" data-animate="fade-up">
+					<h2>Components</h2>
+					<p>A growing library of CSS components, plus JS-driven ones that need nothing but a data attribute.</p>
+				</div>
+				<div class="component-grid">
+					<a class="component-link" href="./demo.html#buttons"><strong>Buttons</strong><small>solid · outline · clear ·
+							grouped</small></a>
+					<a class="component-link" href="./demo.html#tabs"><strong>Tabs</strong><small>CSS + JS driven</small></a>
+					<a class="component-link" href="./demo.html#cards"><strong>Cards</strong><small>hover · role
+							colors</small></a>
+					<a class="component-link" href="./demo.html#dialogs"><strong>Dialogs</strong><small>native
+							&lt;dialog&gt;</small></a>
+					<a class="component-link" href="./demo.html#sheets"><strong>Sheets</strong><small>side drawers</small></a>
+					<a class="component-link" href="./demo.html#toasts"><strong>Toasts</strong><small>stacked
+							notifications</small></a>
+					<a class="component-link" href="./demo.html#tooltips"><strong>Tooltips</strong><small>pure CSS data
+							attribute</small></a>
+					<a class="component-link"
+						href="./demo.html#popovers"><strong>Popovers</strong><small>trigger-positioned</small></a>
+					<a class="component-link" href="./demo.html#carousel"><strong>Carousel</strong><small>scroll-snap +
+							arrows</small></a>
+					<a class="component-link" href="./demo.html#accordions"><strong>Accordions</strong><small>exclusive
+							&lt;details&gt;</small></a>
+					<a class="component-link" href="./demo.html#controls"><strong>Controls</strong><small>switch · range · meter ·
+							progress</small></a>
+					<a class="component-link" href="./demo.html#badges"><strong>Badges &amp; Avatars</strong><small>status · roles
+							· dots</small></a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<p>
+			<a href="#top">Back to top</a> ·
+			<a href="https://github.com/gabriel-aplok/lotus-css" target="_blank" rel="noopener">GitHub</a> ·
+			<a href="https://github.com/gabriel-aplok/lotus-css/issues" target="_blank" rel="noopener">Report an issue</a>
+		</p>
+		<p>Made with LOTUS.css — MIT licensed.</p>
+	</footer>
+
+	<script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

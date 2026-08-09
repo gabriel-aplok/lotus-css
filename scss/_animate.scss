@@ -1,0 +1,82 @@
+// Animation system
+// Scroll reveals via data-animate, opt-in page transitions.
+
+html.js {
+	// no will-change: it breaks position:fixed overlays in animated sections.
+	[data-animate] {
+		opacity: 0;
+		transition:
+			opacity var(--transition-slow),
+			transform var(--transition-slow),
+			filter var(--transition-slow);
+		transition-delay: var(--animate-delay, 0ms);
+	}
+
+	[data-animate="fade-up"] {
+		transform: translateY(2rem);
+	}
+
+	[data-animate="fade-down"] {
+		transform: translateY(-2rem);
+	}
+
+	[data-animate="fade-left"] {
+		transform: translateX(2rem);
+	}
+
+	[data-animate="fade-right"] {
+		transform: translateX(-2rem);
+	}
+
+	[data-animate="zoom"] {
+		transform: scale(0.96);
+	}
+
+	[data-animate="blur"] {
+		filter: blur(0.6rem);
+		transform: translateY(0.5rem);
+	}
+
+	[data-animate].in-view {
+		opacity: 1;
+		transform: none;
+		filter: none;
+	}
+}
+
+// Reduced motion: never hide animated content.
+@media (prefers-reduced-motion: reduce) {
+	html.js [data-animate] {
+		opacity: 1;
+		transform: none;
+		filter: none;
+		transition: none;
+	}
+}
+
+// Page transitions (opt-in via html.view-transitions)
+@supports (view-transition-name: root) {
+	html.view-transitions {
+		&::view-transition-old(root) {
+			animation: lotus-view-out 0.2s ease both;
+		}
+
+		&::view-transition-new(root) {
+			animation: lotus-view-in 0.2s ease both;
+		}
+	}
+}
+
+@keyframes lotus-view-out {
+	to {
+		opacity: 0;
+		transform: translateY(-0.6rem);
+	}
+}
+
+@keyframes lotus-view-in {
+	from {
+		opacity: 0;
+		transform: translateY(0.6rem);
+	}
+}

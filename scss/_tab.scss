@@ -1,0 +1,54 @@
+// Tabs
+.tabs {
+	display: flex;
+	justify-content: flex-start;
+	border-bottom: 1px solid var(--border);
+}
+
+.tabs a {
+	text-decoration: none;
+}
+
+.tabs > .dropdown > summary,
+.tabs > a,
+.tabs > button {
+	padding: 1rem 2rem;
+	flex: 0 1 auto;
+	color: var(--muted-foreground);
+	border-bottom: 2px solid transparent;
+	margin-bottom: -1px;
+	text-align: center;
+	transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.tabs > button {
+	background: none;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	font-family: inherit;
+	font-size: var(--font-size-base);
+	cursor: pointer;
+}
+
+.tabs > a[aria-current="page"],
+.tabs > a.active,
+.tabs > a:hover,
+.tabs > button.active,
+.tabs > button[aria-selected="true"],
+.tabs > button:hover {
+	color: var(--foreground);
+}
+
+.tabs > a[aria-current="page"],
+.tabs > a.active,
+.tabs > button.active,
+.tabs > button[aria-selected="true"] {
+	border-color: var(--foreground);
+	font-weight: bold;
+}
+
+.tabs.is-full a,
+.tabs.is-full button {
+	flex: 1 1 auto;
+}

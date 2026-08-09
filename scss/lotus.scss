@@ -1,0 +1,4 @@
+// LOTUS.css — entry point. Compile to produce dist/lotus.css.
+// npm run build:css loads everything through lotus-theme, which controls
+// the order in which the partials are emitted.
+@use "lotus-theme";

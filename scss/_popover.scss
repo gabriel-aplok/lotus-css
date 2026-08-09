@@ -1,0 +1,26 @@
+// Popover
+.popover {
+	position: fixed;
+	z-index: var(--z-dialog);
+	min-width: 16rem;
+	max-width: min(80vw, 32rem);
+	padding: 1.4rem 1.6rem;
+	background-color: var(--popover);
+	color: var(--popover-foreground);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-lg);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(0.4rem);
+	transition:
+		opacity var(--transition-fast),
+		transform var(--transition-fast),
+		visibility var(--transition-fast);
+
+	&.open {
+		opacity: 1;
+		visibility: visible;
+		transform: none;
+	}
+}

@@ -1,0 +1,338 @@
+// Color utility classes
+// Every theme role gets a `.role` (background) and `.role-text` (text color)
+// pair, plus legacy Material-style names that map onto the same tokens.
+
+// --- new roles ---
+.primary {
+	background-color: var(--primary);
+}
+
+.primary-text {
+	color: var(--primary);
+}
+
+.on-primary {
+	background-color: var(--primary-foreground);
+}
+
+.on-primary-text {
+	color: var(--primary-foreground);
+}
+
+.secondary {
+	background-color: var(--secondary);
+}
+
+.secondary-text {
+	color: var(--secondary);
+}
+
+.on-secondary {
+	background-color: var(--secondary-foreground);
+}
+
+.on-secondary-text {
+	color: var(--secondary-foreground);
+}
+
+.muted {
+	background-color: var(--muted);
+}
+
+.muted-text {
+	color: var(--muted-foreground);
+}
+
+.on-muted {
+	background-color: var(--muted-foreground);
+}
+
+.on-muted-text {
+	color: var(--muted-foreground);
+}
+
+.accent {
+	background-color: var(--accent);
+}
+
+.accent-text {
+	color: var(--accent);
+}
+
+.on-accent {
+	background-color: var(--accent-foreground);
+}
+
+.on-accent-text {
+	color: var(--accent-foreground);
+}
+
+.destructive {
+	background-color: var(--destructive);
+}
+
+.destructive-text {
+	color: var(--destructive);
+}
+
+.on-destructive {
+	background-color: var(--destructive-foreground);
+}
+
+.on-destructive-text {
+	color: var(--destructive-foreground);
+}
+
+.success {
+	background-color: var(--success);
+}
+
+.success-text {
+	color: var(--success);
+}
+
+.warning {
+	background-color: var(--warning);
+}
+
+.warning-text {
+	color: var(--warning);
+}
+
+.background {
+	background-color: var(--background);
+}
+
+.background-text {
+	color: var(--background);
+}
+
+.foreground {
+	background-color: var(--foreground);
+}
+
+.foreground-text {
+	color: var(--foreground);
+}
+
+.surface {
+	background-color: var(--card);
+}
+
+.surface-text {
+	color: var(--card-foreground);
+}
+
+.on-surface {
+	background-color: var(--card-foreground);
+}
+
+.on-surface-text {
+	color: var(--card-foreground);
+}
+
+.surface-variant {
+	background-color: var(--muted);
+}
+
+.surface-variant-text {
+	color: var(--muted-foreground);
+}
+
+.on-surface-variant {
+	background-color: var(--muted-foreground);
+}
+
+.on-surface-variant-text {
+	color: var(--muted-foreground);
+}
+
+.outline {
+	background-color: var(--border);
+}
+
+.outline-text {
+	color: var(--border);
+}
+
+// --- role + card combos ---
+.card.primary {
+	color: var(--primary-foreground);
+}
+
+.card.secondary {
+	color: var(--secondary-foreground);
+}
+
+.card.muted {
+	color: var(--muted-foreground);
+}
+
+.card.accent {
+	color: var(--accent-foreground);
+}
+
+.card.destructive {
+	color: var(--destructive-foreground);
+}
+
+.card.success {
+	color: var(--success-foreground);
+}
+
+.card.warning {
+	color: var(--warning-foreground);
+}
+
+// --- legacy aliases ---
+.primary-container {
+	background-color: var(--secondary);
+}
+
+.primary-container-text {
+	color: var(--secondary);
+}
+
+.on-primary-container {
+	background-color: var(--secondary-foreground);
+}
+
+.on-primary-container-text {
+	color: var(--secondary-foreground);
+}
+
+.secondary-container {
+	background-color: var(--muted);
+}
+
+.secondary-container-text {
+	color: var(--muted-foreground);
+}
+
+.on-secondary-container {
+	background-color: var(--muted-foreground);
+}
+
+.on-secondary-container-text {
+	color: var(--muted-foreground);
+}
+
+.tertiary {
+	background-color: var(--accent);
+}
+
+.tertiary-text {
+	color: var(--accent);
+}
+
+.on-tertiary {
+	background-color: var(--accent-foreground);
+}
+
+.on-tertiary-text {
+	color: var(--accent-foreground);
+}
+
+.tertiary-container {
+	background-color: var(--muted);
+}
+
+.tertiary-container-text {
+	color: var(--muted-foreground);
+}
+
+.on-tertiary-container {
+	background-color: var(--muted-foreground);
+}
+
+.on-tertiary-container-text {
+	color: var(--muted-foreground);
+}
+
+.error {
+	background-color: var(--destructive);
+}
+
+.error-text {
+	color: var(--destructive);
+}
+
+.error-container {
+	background-color: var(--color-error-container);
+}
+
+.error-container-text {
+	color: var(--color-on-error-container);
+}
+
+.on-error {
+	background-color: var(--destructive-foreground);
+}
+
+.on-error-text {
+	color: var(--destructive-foreground);
+}
+
+.on-error-container {
+	background-color: var(--color-on-error-container);
+}
+
+.on-error-container-text {
+	color: var(--color-on-error-container);
+}
+
+.inverse-surface {
+	background-color: var(--foreground);
+}
+
+.inverse-surface-text {
+	color: var(--foreground);
+}
+
+.inverse-on-surface {
+	background-color: var(--background);
+}
+
+.inverse-on-surface-text {
+	color: var(--background);
+}
+
+.inverse-primary {
+	background-color: var(--primary);
+}
+
+.inverse-primary-text {
+	color: var(--primary);
+}
+
+.shadow {
+	background-color: var(--color-shadow);
+}
+
+.shadow-text {
+	color: var(--color-shadow);
+}
+
+.surface-tint {
+	background-color: var(--primary);
+}
+
+.surface-tint-text {
+	color: var(--primary);
+}
+
+.outline-variant {
+	background-color: var(--muted);
+}
+
+.outline-variant-text {
+	color: var(--muted-foreground);
+}
+
+.scrim {
+	background-color: var(--color-scrim);
+}
+
+.scrim-text {
+	color: var(--color-scrim);
+}

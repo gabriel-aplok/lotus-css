@@ -1,0 +1,48 @@
+// Dropdowns (details-based)
+details.dropdown {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+
+details.dropdown > summary {
+	cursor: pointer;
+	list-style: none;
+}
+
+details.dropdown > summary::-webkit-details-marker {
+	display: none;
+}
+
+details.dropdown > :last-child {
+	position: absolute;
+	left: 0;
+	top: calc(100% + 0.4rem);
+	white-space: nowrap;
+	min-width: 16rem;
+	padding: 0.5rem;
+	z-index: var(--z-dropdown);
+	background-color: var(--popover);
+	color: var(--popover-foreground);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-md);
+}
+
+details.dropdown > :last-child a {
+	display: block;
+	padding: 0.6rem 1rem;
+	border-radius: var(--radius-sm);
+	text-decoration: none;
+	color: var(--popover-foreground);
+}
+
+details.dropdown > :last-child a:hover {
+	background-color: var(--accent);
+	color: var(--accent-foreground);
+}
+
+details.dropdown.is-right > :last-child {
+	left: auto;
+	right: 0;
+}

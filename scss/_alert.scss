@@ -1,0 +1,54 @@
+// Alerts & banners
+.alert {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+	padding: 1.2rem 1.4rem;
+	border-radius: var(--radius-md);
+	border: 1px solid var(--border);
+	background-color: var(--secondary);
+	color: var(--secondary-foreground);
+}
+
+.alert .alert-title {
+	font-weight: bold;
+	margin: 0 0 0.25rem;
+}
+
+.alert .alert-body {
+	margin: 0;
+}
+
+.alert.is-full {
+	width: 100%;
+}
+
+.alert.primary {
+	background-color: var(--primary);
+	color: var(--primary-foreground);
+	border-color: transparent;
+}
+
+.alert.success {
+	background-color: color-mix(in oklab, var(--success) 14%, var(--background));
+	color: color-mix(in oklab, var(--success) 60%, var(--foreground));
+	border-color: color-mix(in oklab, var(--success) 40%, var(--border));
+}
+
+.alert.warning {
+	background-color: color-mix(in oklab, var(--warning) 14%, var(--background));
+	color: color-mix(in oklab, var(--warning) 60%, var(--foreground));
+	border-color: color-mix(in oklab, var(--warning) 40%, var(--border));
+}
+
+.alert.destructive {
+	background-color: color-mix(in oklab, var(--destructive) 14%, var(--background));
+	color: color-mix(in oklab, var(--destructive) 60%, var(--foreground));
+	border-color: color-mix(in oklab, var(--destructive) 40%, var(--border));
+}
+
+.alert.accent {
+	background-color: color-mix(in oklab, var(--accent) 60%, var(--background));
+	color: var(--accent-foreground);
+	border-color: transparent;
+}

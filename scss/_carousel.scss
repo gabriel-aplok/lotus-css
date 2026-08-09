@@ -1,0 +1,55 @@
+// Carousel
+.carousel {
+	position: relative;
+}
+
+.carousel-track {
+	display: flex;
+	gap: 1.6rem;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	padding: 0.6rem 0 1.4rem;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.carousel-item {
+	flex: 0 0 auto;
+	width: min(72vw, 28rem);
+	scroll-snap-align: start;
+}
+
+.carousel-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: var(--z-dropdown);
+	display: inline-grid;
+	place-items: center;
+	width: 3.6rem;
+	height: 3.6rem;
+	padding: 0;
+	border: 1px solid var(--border);
+	border-radius: var(--radius-full);
+	background-color: var(--card);
+	color: var(--foreground);
+	box-shadow: var(--shadow-md);
+	cursor: pointer;
+	transition: background-color var(--transition-fast), color var(--transition-fast);
+
+	&[data-carousel-prev] {
+		left: 0.8rem;
+	}
+
+	&[data-carousel-next] {
+		right: 0.8rem;
+	}
+
+	&:hover {
+		background-color: var(--secondary);
+		color: var(--primary);
+	}
+}

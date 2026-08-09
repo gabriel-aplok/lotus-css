@@ -1,0 +1,265 @@
+// Form controls: checkboxes, radios, switches, ranges, meters, progress
+
+// --- checkboxes & radios (classless) ---
+
+[type="checkbox"],
+[type="radio"] {
+	appearance: none;
+	-webkit-appearance: none;
+	width: 1.8rem;
+	height: 1.8rem;
+	margin: 0 0.6rem 0 0;
+	vertical-align: middle;
+	display: inline-grid;
+	place-content: center;
+	background-color: var(--background);
+	border: 1px solid var(--input);
+	cursor: pointer;
+	transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+[type="checkbox"] {
+	border-radius: var(--radius-sm);
+}
+
+[type="checkbox"]:checked,
+[type="radio"]:checked {
+	background-color: var(--primary);
+	border-color: var(--primary);
+}
+
+[type="checkbox"]:checked::before {
+	content: "";
+	width: 1rem;
+	height: 1rem;
+	background-color: var(--primary-foreground);
+	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+[type="radio"] {
+	border-radius: var(--radius-full);
+}
+
+[type="radio"]:checked::before {
+	content: "";
+	width: 0.8rem;
+	height: 0.8rem;
+	background-color: var(--primary-foreground);
+	border-radius: var(--radius-full);
+}
+
+[type="checkbox"]:disabled,
+[type="radio"]:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+// --- switch ---
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 4.2rem;
+	height: 2.4rem;
+	vertical-align: middle;
+}
+
+.switch input {
+	position: absolute;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.switch .track {
+	position: absolute;
+	inset: 0;
+	background-color: var(--input);
+	border-radius: var(--radius-full);
+	transition: background-color var(--transition-fast);
+}
+
+.switch .track::before {
+	content: "";
+	position: absolute;
+	top: 0.2rem;
+	left: 0.2rem;
+	width: 2rem;
+	height: 2rem;
+	border-radius: var(--radius-full);
+	background-color: var(--card);
+	box-shadow: var(--shadow-sm);
+	transition: transform var(--transition-fast);
+}
+
+.switch input:checked + .track {
+	background-color: var(--primary);
+}
+
+.switch input:checked + .track::before {
+	transform: translateX(1.8rem);
+}
+
+.switch input:focus-visible + .track {
+	outline: 2px solid var(--ring);
+	outline-offset: 2px;
+}
+
+.switch input:disabled + .track {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+// --- range ---
+
+[type="range"] {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 0.4rem;
+	margin: 1rem 0;
+	border-radius: var(--radius-full);
+	background-color: var(--input);
+	outline: none;
+}
+
+[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 1.8rem;
+	height: 1.8rem;
+	border-radius: var(--radius-full);
+	background-color: var(--primary);
+	border: 2px solid var(--card);
+	box-shadow: var(--shadow-sm);
+	cursor: pointer;
+}
+
+[type="range"]::-moz-range-thumb {
+	width: 1.8rem;
+	height: 1.8rem;
+	border-radius: var(--radius-full);
+	background-color: var(--primary);
+	border: 2px solid var(--card);
+	box-shadow: var(--shadow-sm);
+	cursor: pointer;
+}
+
+// --- meter ---
+
+meter {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: 1.2rem;
+	border: none;
+	border-radius: var(--radius-full);
+	background-color: var(--input);
+}
+
+meter::-webkit-meter-bar {
+	border: none;
+	border-radius: var(--radius-full);
+	background-color: var(--input);
+}
+
+meter::-webkit-meter-optimum-value {
+	border-radius: var(--radius-full);
+	background-color: var(--success);
+}
+
+meter::-webkit-meter-suboptimum-value {
+	border-radius: var(--radius-full);
+	background-color: var(--warning);
+}
+
+meter::-webkit-meter-even-less-good-value {
+	border-radius: var(--radius-full);
+	background-color: var(--destructive);
+}
+
+meter::-moz-meter-bar {
+	border-radius: var(--radius-full);
+	background-color: var(--success);
+}
+
+// --- progress ---
+
+progress {
+	-webkit-appearance: none;
+	appearance: none;
+	display: block;
+	width: 100%;
+	height: 1.2rem;
+	border: none;
+	border-radius: var(--radius-full);
+	background-color: var(--input);
+	overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+	border-radius: var(--radius-full);
+	background-color: var(--input);
+}
+
+progress::-webkit-progress-value {
+	border-radius: var(--radius-full);
+	background-color: var(--primary);
+}
+
+progress::-moz-progress-bar {
+	border-radius: var(--radius-full);
+	background-color: var(--primary);
+}
+
+progress.secondary::-webkit-progress-value,
+progress.secondary::-moz-progress-bar {
+	background-color: var(--secondary-foreground);
+}
+
+progress.accent::-webkit-progress-value,
+progress.accent::-moz-progress-bar {
+	background-color: var(--accent-foreground);
+}
+
+progress.success::-webkit-progress-value,
+progress.success::-moz-progress-bar {
+	background-color: var(--success);
+}
+
+progress.destructive::-webkit-progress-value,
+progress.destructive::-moz-progress-bar {
+	background-color: var(--destructive);
+}
+
+progress:indeterminate {
+	position: relative;
+}
+
+progress:indeterminate::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	width: 40%;
+	border-radius: var(--radius-full);
+	background-color: var(--primary);
+	animation: progress-indeterminate 1.2s ease-in-out infinite;
+}
+
+@keyframes progress-indeterminate {
+	from {
+		transform: translateX(-100%);
+	}
+
+	to {
+		transform: translateX(350%);
+	}
+}
+
+progress.tertiary::-webkit-progress-value,
+progress.tertiary::-moz-progress-bar {
+	background-color: var(--accent-foreground);
+}

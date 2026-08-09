@@ -1,0 +1,79 @@
+{
+	"name": "lotus-css",
+	"version": "0.3.0",
+	"description": "A minimal, classless CSS framework with an optional dependency-free JS enhancement layer.",
+	"keywords": [
+		"css",
+		"html",
+		"js",
+		"typescript",
+		"lotus.css",
+		"lotuscss",
+		"classless",
+		"framework",
+		"tabs",
+		"toast",
+		"dialog",
+		"carousel",
+		"shadcn"
+	],
+	"license": "MIT",
+	"author": "gabriel-aplok",
+	"main": "dist/lotus.css",
+	"style": "dist/lotus.css",
+	"unpkg": "dist/lotus.min.css",
+	"jsdelivr": "dist/lotus.min.css",
+	"types": "dist/lotus.d.ts",
+	"exports": {
+		".": "./dist/lotus.css",
+		"./js": "./dist/lotus.js",
+		"./js.min": "./dist/lotus.min.js",
+		"./package.json": "./package.json"
+	},
+	"files": [
+		"dist"
+	],
+	"engines": {
+		"node": ">=18"
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not dead"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gabriel-aplok/lotus-css.git"
+	},
+	"bugs": {
+		"url": "https://github.com/gabriel-aplok/lotus-css/issues"
+	},
+	"homepage": "https://github.com/gabriel-aplok/lotus-css#readme",
+	"scripts": {
+		"clean": "node scripts/clean.mjs",
+		"build": "npm run clean && npm run build:dist && npm run build:docs",
+		"build:dist": "npm run build:css && npm run build:js",
+		"build:css": "node scripts/build.mjs",
+		"build:js": "node scripts/build-js.mjs",
+		"build:docs": "vite build",
+		"watch": "node scripts/build.mjs --watch",
+		"watch:js": "node scripts/build-js.mjs --watch",
+		"typecheck": "tsc --noEmit",
+		"dev": "vite",
+		"preview": "vite preview",
+		"lint": "stylelint \"scss/**/*.scss\" \"docs/css/*.scss\"",
+		"version": "npm run build:dist && git add dist",
+		"prepublishOnly": "npm run lint && npm run typecheck && npm run build:dist"
+	},
+	"devDependencies": {
+		"browserslist": "^4.24.0",
+		"esbuild": "^0.28.2",
+		"highlight.js": "^11.11.1",
+		"lightningcss": "^1.29.0",
+		"sass": "^1.83.0",
+		"stylelint": "^16.13.0",
+		"stylelint-config-standard-scss": "^14.0.0",
+		"typescript": "^7.0.2",
+		"vite": "^6.0.0"
+	}
+}

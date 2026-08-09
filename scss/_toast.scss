@@ -1,0 +1,86 @@
+// Toasts (fixed notification stack)
+// The stack element is created by lotus.js with the .toast-stack class.
+// .toast is kept as an alias for hand-written markup.
+.toast,
+.toast-stack {
+	position: fixed;
+	bottom: 1.5rem;
+	right: 1.5rem;
+	z-index: var(--z-toast);
+	display: grid;
+	gap: 0.75rem;
+	max-width: min(90vw, 36rem);
+}
+
+.toast.is-top-right,
+.toast-stack.is-top-right {
+	top: 1.5rem;
+	bottom: auto;
+}
+
+.toast.is-top-left,
+.toast-stack.is-top-left {
+	inset: 1.5rem auto auto 1.5rem;
+}
+
+.toast.is-bottom-left,
+.toast-stack.is-bottom-left {
+	left: 1.5rem;
+	right: auto;
+}
+
+.toast-item {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	padding: 1.2rem 1.4rem;
+	background-color: var(--popover);
+	color: var(--popover-foreground);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-md);
+	box-shadow: var(--shadow-lg);
+	opacity: 0;
+	transform: translateY(0.5rem);
+	transition: opacity var(--transition-base), transform var(--transition-base);
+
+	&.is-in {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.toast-title {
+	font-weight: 700;
+}
+
+.toast-body {
+	margin: 0;
+	min-width: 0;
+}
+
+.toast-close {
+	margin-left: auto;
+	padding: 0.2rem;
+	background: none;
+	border: none;
+	border-radius: var(--radius-sm);
+	color: var(--muted-foreground);
+	line-height: 1;
+
+	&:hover {
+		background-color: var(--muted);
+		color: var(--foreground);
+	}
+}
+
+.toast-item.success {
+	border-left: 3px solid var(--success);
+}
+
+.toast-item.warning {
+	border-left: 3px solid var(--warning);
+}
+
+.toast-item.destructive {
+	border-left: 3px solid var(--destructive);
+}

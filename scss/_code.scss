@@ -1,0 +1,53 @@
+// Code block chrome
+pre[data-filename]::before {
+	content: attr(data-filename);
+	position: absolute;
+	top: 1rem;
+	left: 1.6rem;
+	z-index: 1;
+	font-family: var(--font-mono);
+	font-size: 1.2rem;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: var(--syntax-comment);
+	pointer-events: none;
+}
+
+.copy-button {
+	position: absolute;
+	top: 0.8rem;
+	right: 0.8rem;
+	z-index: 1;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.4rem 0.8rem;
+	border: 1px solid var(--border);
+	border-radius: var(--radius-sm);
+	background-color: var(--card);
+	color: var(--muted-foreground);
+	font-family: var(--font-sans);
+	font-size: 1.2rem;
+	line-height: 1;
+	cursor: pointer;
+	opacity: 0;
+	transition:
+		opacity var(--transition-fast),
+		background-color var(--transition-fast),
+		color var(--transition-fast),
+		border-color var(--transition-fast);
+
+	pre:hover &,
+	pre:focus-within & {
+		opacity: 1;
+	}
+	&:hover {
+		background-color: var(--muted);
+		color: var(--foreground);
+	}
+
+	&.copied {
+		border-color: var(--success);
+		color: var(--success);
+	}
+}

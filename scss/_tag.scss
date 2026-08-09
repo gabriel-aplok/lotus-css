@@ -1,0 +1,25 @@
+// Tags (small informational pills)
+.tag {
+	background-color: var(--muted);
+	color: var(--muted-foreground);
+	border-radius: var(--radius-sm);
+	font-size: var(--font-size-sm);
+	letter-spacing: var(--letter-spacing-wide);
+	line-height: 1;
+	padding: 0.6rem 0.8rem;
+	display: inline-block;
+}
+
+.tag.is-small {
+	padding: 0.4rem;
+	font-size: 0.75em;
+}
+
+.tag.is-large {
+	padding: 0.7rem;
+	font-size: 1.125em;
+}
+
+.tag + .tag {
+	margin-left: 1rem;
+}
