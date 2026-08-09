@@ -37,6 +37,10 @@ main {
 	font-size: 1.2rem;
 }
 
+.badge .material-symbols-outlined {
+	font-size: 1.4rem;
+}
+
 .container {
 	width: min(112rem, 100% - 4rem);
 	margin-inline: auto;
@@ -162,12 +166,13 @@ html.dark .theme-toggle [data-theme-icon="moon"] {
 }
 
 // The nav shell is shared between pages; conditional items are hidden by a
-// class on <body> (the clock only on the landing page, Demo only on the demo).
+// class on <body> (the clock only on the landing page, Components only on the
+// components page).
 body.page-index .hide-on-index {
 	display: none;
 }
 
-body.page-demo .hide-on-demo {
+body.page-components .hide-on-components {
 	display: none;
 }
 
@@ -354,9 +359,9 @@ body.page-demo .hide-on-demo {
 	}
 }
 
-// --- demo page layout -------------------------------------------------------
+// --- components page layout ------------------------------------------------
 
-.demo-layout {
+.components-layout {
 	display: grid;
 	grid-template-columns: 24rem 1fr;
 	gap: 4rem;
@@ -368,7 +373,7 @@ body.page-demo .hide-on-demo {
 	}
 }
 
-.demo-sidebar {
+.components-sidebar {
 	position: sticky;
 	top: 8rem;
 	max-height: calc(100vh - 10rem);
@@ -404,7 +409,7 @@ body.page-demo .hide-on-demo {
 	}
 }
 
-.demo-content {
+.components-content {
 	min-width: 0;
 
 	h2 {

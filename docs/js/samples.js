@@ -60,7 +60,7 @@ export const SAMPLES = {
 </article>`,
 	},
 	dialog: {
-		filename: 'demo.html',
+		filename: 'components.html',
 		lang: 'html',
 		code: `<!-- Add data-dialog-static for alert-dialog semantics (no backdrop/Esc dismissal). -->
 <button class="button primary" data-dialog-open="my-dialog">Open dialog</button>
@@ -112,7 +112,7 @@ toast('Saved', { type: 'success', title: 'Done' });`,
 		code: `<button data-tooltip="Help text">Hover me</button>`,
 	},
 	accordion: {
-		filename: 'demo.html',
+		filename: 'components.html',
 		lang: 'html',
 		code: `<div data-accordion>
   <details data-accordion-item open>
@@ -189,7 +189,7 @@ toast('Saved', { type: 'success', title: 'Done' });`,
 </details>`,
 	},
 	alert: {
-		filename: 'demo.html',
+		filename: 'components.html',
 		lang: 'html',
 		code: `<!-- Variants: primary, success, warning, destructive, accent. Custom colors
      via --alert-bg / --alert-fg / --alert-border. -->
@@ -208,7 +208,21 @@ toast('Saved', { type: 'success', title: 'Done' });`,
 	badge: {
 		filename: 'badge.html',
 		lang: 'html',
-		code: `<span class="badge success">Success</span>
+		code: `<!-- Variants: primary, secondary, success, warning, destructive, outline,
+     ghost, link. Custom colors via --badge-bg / --badge-fg / --badge-border. -->
+<span class="badge">Default</span>
+<span class="badge primary">Primary</span>
+<span class="badge secondary">Secondary</span>
+<span class="badge destructive">Destructive</span>
+<span class="badge outline">Outline</span>
+<span class="badge ghost">Ghost</span>
+<a class="badge link" href="#">Link</a>
+
+<!-- Icons and spinners: mark them data-icon="inline-start" or "inline-end" -->
+<span class="badge secondary"><span class="material-symbols-outlined" data-icon="inline-start" aria-hidden="true">verified</span> Verified</span>
+<span class="badge destructive"><span class="spinner is-sm" data-icon="inline-start"></span> Deleting</span>
+<span class="badge">Generating <span class="spinner is-sm" data-icon="inline-end"></span></span>
+
 <span class="avatar">G</span>
 
 <!-- Sizes: is-xs, is-sm, (default), is-lg, is-xl -->

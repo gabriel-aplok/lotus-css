@@ -91,8 +91,8 @@ Dark mode is automatic. Force it with `class="dark"` on `<html>`, or use
 names still work as aliases, so existing customizations keep running.
 
 The [docs site](https://gabriel-aplok.github.io/lotus-css) has the full token
-list and a [live demo](https://gabriel-aplok.github.io/lotus-css/demo.html) of
-every component, and the [development guide](DEVELOPMENT.md) documents the
+list and a [component showcase](https://gabriel-aplok.github.io/lotus-css/components.html)
+of every component, and the [development guide](DEVELOPMENT.md) documents the
 token system (§5) and the JS layer (§6).
 
 ## Development

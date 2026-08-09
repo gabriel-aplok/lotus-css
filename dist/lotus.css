@@ -567,7 +567,7 @@ a {
   text-underline-offset: 2px;
 }
 
-a:hover:not(.button) {
+a:hover:not(.button, .badge) {
   color: var(--foreground);
   opacity: 0.85;
 }
@@ -812,6 +812,9 @@ mark {
 }
 
 .badge {
+  --badge-bg: var(--secondary);
+  --badge-fg: var(--secondary-foreground);
+  --badge-border: var(--border);
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -821,44 +824,80 @@ mark {
   font-weight: 600;
   letter-spacing: var(--letter-spacing-wide);
   line-height: 1.6;
-  background-color: var(--secondary);
-  color: var(--secondary-foreground);
-  border: 1px solid var(--border);
+  background-color: var(--badge-bg);
+  color: var(--badge-fg);
+  border: 1px solid var(--badge-border);
+}
+
+.badge [data-icon] {
+  flex: none;
+  line-height: 1;
+}
+
+a.badge {
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+a.badge:hover {
+  opacity: 0.85;
+  color: var(--badge-fg);
 }
 
 .badge.primary {
-  background-color: var(--primary);
-  color: var(--primary-foreground);
-  border-color: transparent;
+  --badge-bg: var(--primary);
+  --badge-fg: var(--primary-foreground);
+  --badge-border: transparent;
+}
+
+.badge.secondary {
+  --badge-bg: var(--secondary);
+  --badge-fg: var(--secondary-foreground);
+  --badge-border: var(--border);
 }
 
 .badge.accent {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
-  border-color: transparent;
+  --badge-bg: var(--accent);
+  --badge-fg: var(--accent-foreground);
+  --badge-border: transparent;
 }
 
 .badge.success {
-  background-color: var(--success);
-  color: var(--success-foreground);
-  border-color: transparent;
+  --badge-bg: var(--success);
+  --badge-fg: var(--success-foreground);
+  --badge-border: transparent;
 }
 
 .badge.warning {
-  background-color: var(--warning);
-  color: var(--warning-foreground);
-  border-color: transparent;
+  --badge-bg: var(--warning);
+  --badge-fg: var(--warning-foreground);
+  --badge-border: transparent;
 }
 
 .badge.destructive {
-  background-color: var(--destructive);
-  color: var(--destructive-foreground);
-  border-color: transparent;
+  --badge-bg: var(--destructive);
+  --badge-fg: var(--destructive-foreground);
+  --badge-border: transparent;
 }
 
 .badge.outline {
-  background-color: transparent;
-  color: var(--foreground);
+  --badge-bg: transparent;
+  --badge-fg: var(--foreground);
+  --badge-border: var(--border);
+}
+
+.badge.ghost {
+  --badge-bg: transparent;
+  --badge-fg: var(--muted-foreground);
+  --badge-border: transparent;
+}
+
+.badge.link {
+  --badge-bg: transparent;
+  --badge-fg: var(--primary);
+  --badge-border: transparent;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .badge .badge-dot {

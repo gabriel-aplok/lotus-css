@@ -6,7 +6,7 @@ import { SAMPLES } from '../docs/js/samples';
 type Sample = (typeof SAMPLES)['quick-css'];
 const samples = SAMPLES as Record<string, Sample>;
 
-const PAGES = ['index.html', 'demo.html'];
+const PAGES = ['index.html', 'components.html'];
 
 function sampleIds(): Set<string> {
 	const ids = new Set<string>();

@@ -4,24 +4,24 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>LOTUS.css | Component demo</title>
+	<title>LOTUS.css | Components</title>
 	<meta name="description"
-		content="Live demo of every LOTUS.css component, with copyable, syntax-highlighted code samples.">
-	<meta property="og:title" content="LOTUS.css | Component demo">
+		content="Every LOTUS.css component, with copyable, syntax-highlighted code samples.">
+	<meta property="og:title" content="LOTUS.css | Components">
 	<meta property="og:description"
-		content="Live demo of every LOTUS.css component, with copyable, syntax-highlighted code samples.">
-	<meta name="twitter:title" content="LOTUS.css | Component demo">
-	<meta name="twitter:description" content="Live demo of every LOTUS.css component.">
+		content="Every LOTUS.css component, with copyable, syntax-highlighted code samples.">
+	<meta name="twitter:title" content="LOTUS.css | Components">
+	<meta name="twitter:description" content="Every LOTUS.css component, with copyable, syntax-highlighted code samples.">
 	<!-- #include:head -->
 </head>
 
-<body class="page-demo" id="top">
+<body class="page-components" id="top">
 	<!-- #include:nav -->
 
 	<main>
-		<div class="demo-layout">
+		<div class="components-layout">
 			<!-- ======================= Sidebar ======================= -->
-			<aside class="demo-sidebar">
+			<aside class="components-sidebar">
 				<nav aria-label="Components">
 					<ul>
 						<li><a href="#buttons">Buttons</a></li>
@@ -56,9 +56,9 @@
 			</aside>
 
 			<!-- ======================= Content ======================= -->
-			<div class="demo-content">
+			<div class="components-content">
 
-				<h1>Component demo</h1>
+				<h1>Components</h1>
 				<p style="color: var(--muted-foreground);">
 					Every component below is a live example. Hover the code samples for the
 					copy button. Syntax highlighting is automatic via highlight.js.
@@ -586,11 +586,25 @@
 						<p>
 							<span class="badge">Default</span>
 							<span class="badge primary">Primary</span>
+							<span class="badge secondary">Secondary</span>
 							<span class="badge success">Success</span>
 							<span class="badge warning">Warning</span>
 							<span class="badge destructive">Destructive</span>
 							<span class="badge outline">Outline</span>
+							<span class="badge ghost">Ghost</span>
+							<a class="badge link" href="#badges">Link ↗</a>
 							<span class="badge primary"><span class="badge-dot"></span> Live</span>
+						</p>
+						<p>
+							<span class="badge secondary"><span class="material-symbols-outlined" data-icon="inline-start"
+									aria-hidden="true">verified</span> Verified</span>
+							<span class="badge outline">Bookmark <span class="material-symbols-outlined" data-icon="inline-end"
+									aria-hidden="true">bookmark</span></span>
+							<span class="badge destructive"><span class="spinner is-sm" data-icon="inline-start"></span>
+								Deleting</span>
+							<span class="badge">Generating <span class="spinner is-sm" data-icon="inline-end"></span></span>
+							<span class="badge"
+								style="--badge-bg: color-mix(in oklab, oklch(0.6 0.15 260) 18%, var(--background)); --badge-fg: color-mix(in oklab, oklch(0.45 0.12 260) 75%, var(--foreground)); --badge-border: color-mix(in oklab, oklch(0.6 0.15 260) 40%, var(--border));">Custom</span>
 						</p>
 						<p>
 							<span class="avatar is-sm" title="S">S</span>
