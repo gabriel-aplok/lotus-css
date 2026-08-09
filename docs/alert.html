@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-lotus-no-init>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Alert | LOTUS.css</title>
+	<meta name="description"
+		content="Displays a callout for user attention. Icon, title, description and action slots, with default, destructive and custom-color variants.">
+	<meta property="og:title" content="Alert | LOTUS.css">
+	<meta property="og:description"
+		content="The LOTUS.css alert: a callout for user attention with icon, title, description and action slots.">
+	<meta name="twitter:title" content="Alert | LOTUS.css">
+	<meta name="twitter:description"
+		content="A callout for user attention with default, destructive and custom-color variants.">
+	<!-- #include:head -->
+</head>
+
+<body class="page-alert" id="top">
+	<!-- #include:nav -->
+
+	<main>
+		<header class="doc-header">
+			<p class="doc-crumb"><a href="./index.html#components">Components</a> · <a href="./demo.html#alerts">Demo</a></p>
+			<h1>Alert</h1>
+			<p>
+				Displays a callout for user attention. Icon, title, description and an
+				optional action slot together inside one bordered box, with variants
+				driven by the theme tokens.
+			</p>
+		</header>
+
+		<div class="demo-layout">
+			<!-- ======================= On this page ======================= -->
+			<aside class="demo-sidebar">
+				<nav aria-label="On this page">
+					<ul>
+						<li><a href="#basic">Basic</a></li>
+						<li><a href="#destructive">Destructive</a></li>
+						<li><a href="#action">Action</a></li>
+						<li><a href="#colors">Custom colors</a></li>
+						<li><a href="#api">API reference</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<!-- ======================= Content ======================= -->
+			<div class="demo-content">
+
+				<!-- ===== Basic ===== -->
+				<section id="basic" data-animate="fade-up">
+					<h2>Basic</h2>
+					<p>
+						An alert is a <code>.alert</code> box with an icon, a
+						<code>.alert-title</code> and a <code>.alert-description</code>.
+						The icon is either a <code>.alert-icon</code> element or the first
+						<code>svg</code> child.
+					</p>
+					<div class="showcase">
+						<div class="alert">
+							<span class="alert-icon material-symbols-outlined" aria-hidden="true">check_circle</span>
+							<div>
+								<p class="alert-title">Account updated successfully</p>
+								<p class="alert-description">Your profile information has been saved. Changes are reflected
+									immediately.</p>
+							</div>
+						</div>
+					</div>
+					<div class="code-label">Markup</div>
+					<pre data-sample="alert-basic"></pre>
+				</section>
+
+				<!-- ===== Destructive ===== -->
+				<section id="destructive" data-animate="fade-up">
+					<h2>Destructive</h2>
+					<p>
+						Add <code>destructive</code> to signal an error or a destructive
+						action. The tint comes from the <code>--destructive</code> token and
+						follows light and dark mode automatically.
+					</p>
+					<div class="showcase">
+						<div class="alert destructive">
+							<span class="alert-icon material-symbols-outlined" aria-hidden="true">error</span>
+							<div>
+								<p class="alert-title">Payment failed</p>
+								<p class="alert-description">Your payment could not be processed. Please check your payment
+									method and try again.</p>
+							</div>
+						</div>
+					</div>
+					<div class="code-label">Markup</div>
+					<pre data-sample="alert-destructive"></pre>
+				</section>
+
+				<!-- ===== Action ===== -->
+				<section id="action" data-animate="fade-up">
+					<h2>Action</h2>
+					<p>
+						Add an <code>.alert-action</code> slot to place a button or any other
+						control in the top-right corner of the alert.
+					</p>
+					<div class="showcase">
+						<div class="alert">
+							<span class="alert-icon material-symbols-outlined" aria-hidden="true">info</span>
+							<div>
+								<p class="alert-title">Dark mode is now available</p>
+								<p class="alert-description">Enable it under your profile settings to get started.</p>
+							</div>
+							<div class="alert-action">
+								<button class="button outline">Enable</button>
+							</div>
+						</div>
+					</div>
+					<div class="code-label">Markup</div>
+					<pre data-sample="alert-action"></pre>
+				</section>
+
+				<!-- ===== Custom colors ===== -->
+				<section id="colors" data-animate="fade-up">
+					<h2>Custom colors</h2>
+					<p>
+						Every alert reads its colors from three variables:
+						<code>--alert-bg</code>, <code>--alert-fg</code> and
+						<code>--alert-border</code>. Override them on the element for a
+						custom scheme. The built-in variants are just variable assignments,
+						and <code>color-mix()</code> keeps hand-picked colors theme-aware.
+					</p>
+					<div class="showcase">
+						<div class="alert" style="
+							--alert-bg: color-mix(in oklab, oklch(0.87 0.13 75) 30%, var(--background));
+							--alert-fg: color-mix(in oklab, oklch(0.45 0.12 75) 65%, var(--foreground));
+							--alert-border: color-mix(in oklab, oklch(0.87 0.13 75) 45%, var(--border));">
+							<span class="alert-icon material-symbols-outlined" aria-hidden="true">warning</span>
+							<div>
+								<p class="alert-title">Your subscription expires in 3 days</p>
+								<p class="alert-description">Renew now to avoid an interruption in service.</p>
+							</div>
+						</div>
+					</div>
+					<div class="code-label">Markup</div>
+					<pre data-sample="alert-colors"></pre>
+				</section>
+
+				<!-- ===== API reference ===== -->
+				<section id="api" data-animate="fade-up">
+					<h2>API reference</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Class</th>
+								<th>Where</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>.alert</code></td>
+								<td>Container</td>
+								<td>The callout box. Defaults to the secondary palette.</td>
+							</tr>
+							<tr>
+								<td><code>.alert-icon</code></td>
+								<td>Icon</td>
+								<td>Icon slot. A leading <code>svg</code> child is styled the same way.</td>
+							</tr>
+							<tr>
+								<td><code>.alert-title</code></td>
+								<td>Title</td>
+								<td>Bold heading for the alert.</td>
+							</tr>
+							<tr>
+								<td><code>.alert-description</code></td>
+								<td>Body</td>
+								<td>Supporting copy. <code>.alert-body</code> is an alias.</td>
+							</tr>
+							<tr>
+								<td><code>.alert-action</code></td>
+								<td>Action</td>
+								<td>Action slot, pushed to the top-right corner.</td>
+							</tr>
+							<tr>
+								<td><code>.primary</code> · <code>.success</code> · <code>.warning</code> · <code>.destructive</code> · <code>.accent</code></td>
+								<td>Variant</td>
+								<td>Re-points the alert colors to the matching token.</td>
+							</tr>
+							<tr>
+								<td><code>.is-full</code></td>
+								<td>Utility</td>
+								<td>Forces the alert to fill its container width.</td>
+							</tr>
+						</tbody>
+					</table>
+					<h3>Design variables</h3>
+					<table>
+						<thead>
+							<tr>
+								<th>Variable</th>
+								<th>Default</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>--alert-bg</code></td>
+								<td><code>--secondary</code></td>
+								<td>Alert background.</td>
+							</tr>
+							<tr>
+								<td><code>--alert-fg</code></td>
+								<td><code>--secondary-foreground</code></td>
+								<td>Text and icon color.</td>
+							</tr>
+							<tr>
+								<td><code>--alert-border</code></td>
+								<td><code>--border</code></td>
+								<td>Border color.</td>
+							</tr>
+						</tbody>
+					</table>
+					<p><a href="./demo.html#alerts">Back to the component demo</a></p>
+				</section>
+
+			</div>
+		</div>
+	</main>
+
+	<!-- #include:footer -->
+
+	<script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

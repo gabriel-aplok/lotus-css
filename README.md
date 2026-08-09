@@ -93,8 +93,9 @@ names still work as aliases, so existing customizations keep running.
 The [docs site](https://gabriel-aplok.github.io/lotus-css) has the full token
 list, a [live demo](https://gabriel-aplok.github.io/lotus-css/demo.html) of
 every component, [accordion docs](https://gabriel-aplok.github.io/lotus-css/accordion.html)
-with copy-ready snippets, and the [development guide](DEVELOPMENT.md)
-documents the token system (§5) and the JS layer (§6).
+and [alert docs](https://gabriel-aplok.github.io/lotus-css/alert.html) with
+copy-ready snippets, and the [development guide](DEVELOPMENT.md) documents
+the token system (§5) and the JS layer (§6).
 
 ## Development
 

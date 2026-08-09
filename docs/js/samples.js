@@ -248,8 +248,65 @@ toast('Saved', { type: 'success', title: 'Done' });`,
 		filename: 'alert.html',
 		lang: 'html',
 		code: `<div class="alert success">
-  <p class="alert-title">Success</p>
-  <p class="alert-body">Everything went as planned.</p>
+  <span class="alert-icon material-symbols-outlined" aria-hidden="true">check_circle</span>
+  <div>
+    <p class="alert-title">Success</p>
+    <p class="alert-description">Everything went as planned.</p>
+  </div>
+</div>`,
+	},
+	'alert-basic': {
+		filename: 'alert.html',
+		lang: 'html',
+		code: `<!-- Icon slot: any element works. This docs site uses the Material Symbols
+     font; an inline <svg> or any icon you already ship works the same. -->
+<div class="alert">
+  <span class="alert-icon material-symbols-outlined" aria-hidden="true">check_circle</span>
+  <div>
+    <p class="alert-title">Account updated successfully</p>
+    <p class="alert-description">Your profile information has been saved. Changes are reflected immediately.</p>
+  </div>
+</div>`,
+	},
+	'alert-destructive': {
+		filename: 'alert.html',
+		lang: 'html',
+		code: `<div class="alert destructive">
+  <span class="alert-icon material-symbols-outlined" aria-hidden="true">error</span>
+  <div>
+    <p class="alert-title">Payment failed</p>
+    <p class="alert-description">Your payment could not be processed. Please check your payment method and try again.</p>
+  </div>
+</div>`,
+	},
+	'alert-action': {
+		filename: 'alert.html',
+		lang: 'html',
+		code: `<div class="alert">
+  <span class="alert-icon material-symbols-outlined" aria-hidden="true">info</span>
+  <div>
+    <p class="alert-title">Dark mode is now available</p>
+    <p class="alert-description">Enable it under your profile settings to get started.</p>
+  </div>
+  <div class="alert-action">
+    <button class="button outline">Enable</button>
+  </div>
+</div>`,
+	},
+	'alert-colors': {
+		filename: 'alert.html',
+		lang: 'html',
+		code: `<!-- Custom colors: override the alert's design variables. Any color works;
+     color-mix keeps the scheme theme-aware in light and dark mode. -->
+<div class="alert" style="
+  --alert-bg: color-mix(in oklab, oklch(0.87 0.13 75) 30%, var(--background));
+  --alert-fg: color-mix(in oklab, oklch(0.45 0.12 75) 65%, var(--foreground));
+  --alert-border: color-mix(in oklab, oklch(0.87 0.13 75) 45%, var(--border));">
+  <span class="alert-icon material-symbols-outlined" aria-hidden="true">warning</span>
+  <div>
+    <p class="alert-title">Your subscription expires in 3 days</p>
+    <p class="alert-description">Renew now to avoid an interruption in service.</p>
+  </div>
 </div>`,
 	},
 	badge: {

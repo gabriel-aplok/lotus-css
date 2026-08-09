@@ -82,6 +82,8 @@ main {
 .site-nav-links {
 	display: flex;
 	align-items: center;
+	justify-content: flex-end;
+	flex-wrap: wrap;
 	gap: 0.4rem;
 	list-style: none;
 	padding: 0;
@@ -157,7 +159,7 @@ html.dark .theme-toggle [data-theme-icon="moon"] {
 
 // The nav shell is shared between pages; conditional items are hidden by a
 // class on <body> (the clock only on the landing page, Demo only on the demo,
-// the Accordion link only on the accordion usage page).
+// the Accordion/Alert links only on their own usage pages).
 body.page-index .hide-on-index {
 	display: none;
 }
@@ -167,6 +169,10 @@ body.page-demo .hide-on-demo {
 }
 
 body.page-accordion .hide-on-accordion {
+	display: none;
+}
+
+body.page-alert .hide-on-alert {
 	display: none;
 }
 
