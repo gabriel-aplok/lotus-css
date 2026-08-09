@@ -209,7 +209,23 @@ toast('Saved', { type: 'success', title: 'Done' });`,
 		filename: 'badge.html',
 		lang: 'html',
 		code: `<span class="badge success">Success</span>
-<span class="avatar">G</span>`,
+<span class="avatar">G</span>
+
+<!-- Sizes: is-xs, is-sm, (default), is-lg, is-xl -->
+<span class="avatar is-sm">S</span>
+
+<!-- Status badge, bottom right; content turns it into a tile -->
+<span class="avatar">G<span class="avatar-badge is-success"></span></span>
+<span class="avatar">P<span class="avatar-badge is-primary"><span class="material-symbols-outlined" aria-hidden="true">add</span></span></span>
+
+<!-- Group: overlapping avatars + a count tile. lotus.js hides failed
+     images so the initials fallback shows. -->
+<span class="avatar-group">
+  <span class="avatar">G</span>
+  <span class="avatar">R</span>
+  <span class="avatar">A</span>
+  <span class="avatar-group-count">+3</span>
+</span>`,
 	},
 	tags: {
 		filename: 'tags.html',

@@ -1,5 +1,10 @@
-// Avatars
+// Avatars: an image with a fallback for representing a user.
+// Structure: .avatar (initials fallback) > img (covers the fallback) + .avatar-badge.
+// Groups overlap with .avatar-group; .avatar-group-count shows the remainder.
+// lotus.js hides failed images so the fallback text shows through.
+
 .avatar {
+	position: relative;
 	display: inline-grid;
 	place-items: center;
 	width: 4rem;
@@ -54,4 +59,71 @@
 
 .avatar.ring {
 	box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring);
+}
+
+// Status indicator, bottom right. An empty badge is a dot; any content (like
+// an icon) turns it into a small tile.
+.avatar-badge {
+	position: absolute;
+	inset-block-end: 0.1rem;
+	inset-inline-end: 0.1rem;
+	display: grid;
+	place-items: center;
+	width: 1.1rem;
+	height: 1.1rem;
+	border-radius: var(--radius-full);
+	background-color: var(--success);
+	color: var(--success-foreground);
+	font-size: 1rem;
+	line-height: 1;
+	box-shadow: 0 0 0 2px var(--background);
+	pointer-events: none;
+}
+
+.avatar-badge:not(:empty) {
+	width: 1.9rem;
+	height: 1.9rem;
+}
+
+.avatar-badge.is-primary {
+	background-color: var(--primary);
+	color: var(--primary-foreground);
+}
+
+.avatar-badge.is-warning {
+	background-color: var(--warning);
+	color: var(--warning-foreground);
+}
+
+.avatar-badge.is-destructive {
+	background-color: var(--destructive);
+	color: var(--destructive-foreground);
+}
+
+// Group: overlapping avatars with a background ring to keep them readable.
+.avatar-group {
+	display: inline-flex;
+	align-items: center;
+	vertical-align: middle;
+
+	> * + * {
+		margin-inline-start: -1.2rem;
+	}
+
+	.avatar,
+	.avatar-group-count {
+		box-shadow: 0 0 0 2px var(--background);
+	}
+}
+
+.avatar-group-count {
+	display: inline-grid;
+	place-items: center;
+	width: 4rem;
+	height: 4rem;
+	border-radius: var(--radius-full);
+	background-color: var(--muted);
+	color: var(--muted-foreground);
+	font-weight: bold;
+	font-size: var(--font-size-sm);
 }

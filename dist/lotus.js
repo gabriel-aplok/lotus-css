@@ -348,6 +348,24 @@ function initHighlight(root = document) {
   });
 }
 
+// js/avatar.ts
+function hideBroken(img) {
+  const parent = img.parentElement;
+  if (parent && !parent.hasAttribute("title") && img.alt) {
+    parent.setAttribute("title", img.alt);
+  }
+  img.hidden = true;
+}
+function initAvatars(root = document) {
+  root.querySelectorAll(".avatar img").forEach((img) => {
+    if (img.complete && img.naturalWidth === 0) {
+      hideBroken(img);
+      return;
+    }
+    img.addEventListener("error", () => hideBroken(img), { once: true });
+  });
+}
+
 // js/animate.ts
 var observer = null;
 function initAnimate(root = document) {
@@ -407,6 +425,7 @@ function init(root = document) {
   initToggles(root);
   initCopy(root);
   initHighlight(root);
+  initAvatars(root);
   initAnimate(root);
   initToasts(root);
 }
@@ -424,6 +443,7 @@ export {
   init,
   initAccordions,
   initAnimate,
+  initAvatars,
   initCarousels,
   initCopy,
   initDialogs,

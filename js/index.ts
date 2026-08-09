@@ -20,6 +20,7 @@ import { initPopovers } from './popover';
 import { initSheets } from './sheet';
 import { initToggles } from './toggle';
 import { initCopy, initHighlight } from './code';
+import { initAvatars } from './avatar';
 import { initAnimate, viewTransition } from './animate';
 
 export {
@@ -43,6 +44,7 @@ export {
 	initToggles,
 	initCopy,
 	initHighlight,
+	initAvatars,
 	initAnimate,
 	viewTransition,
 	type ToastOptions,
@@ -65,6 +67,7 @@ export function init(root: ParentNode | Document = document): void {
 	initToggles(root);
 	initCopy(root);
 	initHighlight(root);
+	initAvatars(root);
 	initAnimate(root);
 	initToasts(root);
 }
