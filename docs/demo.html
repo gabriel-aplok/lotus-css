@@ -7,6 +7,11 @@
 	<title>LOTUS.css | Component demo</title>
 	<meta name="description"
 		content="Live demo of every LOTUS.css component, with copyable, syntax-highlighted code samples.">
+	<meta property="og:title" content="LOTUS.css | Component demo">
+	<meta property="og:description"
+		content="Live demo of every LOTUS.css component, with copyable, syntax-highlighted code samples.">
+	<meta name="twitter:title" content="LOTUS.css | Component demo">
+	<meta name="twitter:description" content="Live demo of every LOTUS.css component.">
 	<!-- #include:head -->
 </head>
 
@@ -288,19 +293,33 @@
 					<div class="showcase">
 						<div data-accordion>
 							<details data-accordion-item open>
-								<summary>What is LOTUS.css?</summary>
-								<p>Classless CSS with neutral design tokens and an optional JS layer.</p>
+								<summary>What are your shipping options?</summary>
+								<p>Standard (5-7 days), express (2-3 days) and overnight shipping. Free shipping on orders over
+									$50.</p>
 							</details>
 							<details data-accordion-item>
-								<summary>Does it need a build step?</summary>
-								<p>No. Link the stylesheet and go. The JS layer is optional and dependency-free.</p>
+								<summary>What is your return policy?</summary>
+								<p>Returns are accepted within 30 days. Items must be unused and in original packaging.</p>
 							</details>
-							<details data-accordion-item>
-								<summary>Is dark mode automatic?</summary>
-								<p>Yes, via <code>prefers-color-scheme</code>, with manual <code>.dark</code>/<code>.light</code>
-									overrides.</p>
+							<details data-accordion-item data-disabled>
+								<summary>Premium feature information</summary>
+								<p>This section is locked. Upgrade your plan to access this content.</p>
 							</details>
 						</div>
+						<div data-accordion data-accordion-multiple style="margin-top: 2rem;">
+							<details data-accordion-item open>
+								<summary>Notification settings</summary>
+								<p>Manage how you receive notifications. Enable email alerts for updates or push notifications for
+									mobile devices.</p>
+							</details>
+							<details data-accordion-item>
+								<summary>Privacy &amp; security</summary>
+								<p>Control your privacy settings, enable two-factor authentication, and review active sessions.</p>
+							</details>
+						</div>
+						<p style="color: var(--muted-foreground); margin-bottom: 0;">Exclusive by default. Add
+							<code>data-accordion-multiple</code> to a group to allow several open, and mark an item
+							<code>data-disabled</code> to lock it.</p>
 					</div>
 					<div class="code-label">Markup</div>
 					<pre data-sample="accordion"></pre>

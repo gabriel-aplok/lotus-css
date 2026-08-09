@@ -50,7 +50,7 @@ export {
 	type Theme,
 };
 
-export const version = '0.4.0';
+export const version = '0.5.0';
 
 /** Initialise every LOTUS enhancement on the given subtree (default: document). */
 export function init(root: ParentNode | Document = document): void {

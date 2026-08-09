@@ -1,44 +1,101 @@
-// Accordions (details/summary)
-details.accordion,
-details[data-accordion-item] {
+// Accordions (native <details>/<summary>, WAI-ARIA safe by construction).
+// Exclusive by default; add data-accordion-multiple to a group to allow
+// several open items; mark an item data-disabled to lock it closed.
+
+[data-accordion] {
 	border: 1px solid var(--border);
-	border-radius: var(--radius-md);
+	border-radius: var(--radius-lg);
 	background-color: var(--card);
 	overflow: hidden;
 
-	& + & {
-		margin-top: 0.5rem;
+	> details + details {
+		border-top: 1px solid var(--border);
 	}
+}
 
+details.accordion,
+details[data-accordion-item] {
 	summary {
 		cursor: pointer;
 		list-style: none;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
+		gap: 1.2rem;
 		padding: 1.4rem 1.6rem;
 		font-weight: 600;
 		user-select: none;
+		transition: background-color var(--transition-fast);
 
 		&::-webkit-details-marker {
 			display: none;
 		}
 
+		&:hover {
+			background-color: var(--muted);
+		}
+
+		&:focus-visible {
+			outline: none;
+			background-color: var(--muted);
+			box-shadow: inset 0 0 0 2px var(--ring);
+		}
+
+		// chevron indicator, rotates when open
 		&::after {
-			content: "+";
-			font-size: 1.8rem;
-			color: var(--muted-foreground);
-			transition: transform var(--transition-fast);
+			content: "";
+			flex: none;
+			width: 0.8rem;
+			height: 0.8rem;
+			border-right: 2px solid currentcolor;
+			border-bottom: 2px solid currentcolor;
+			transform: rotate(45deg);
+			margin-top: -0.3rem;
+			opacity: 0.6;
+			transition: transform var(--transition-base);
 		}
 	}
 
 	&[open] summary::after {
-		transform: rotate(45deg);
+		transform: rotate(225deg);
 	}
 
 	> :not(summary),
 	.accordion-body {
-		padding: 0 1.6rem 1.4rem;
+		padding: 0 1.6rem 1.6rem;
+		color: var(--muted-foreground);
+	}
+
+	&[data-disabled] summary {
+		opacity: 0.5;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+}
+
+details.accordion + details.accordion {
+	margin-top: 0.5rem;
+}
+
+// Smooth open/close where the platform can animate details content
+// (Chrome 131+). Older browsers skip the animation; the content still works.
+details[data-accordion-item] {
+	&::details-content {
+		block-size: 0;
+		overflow: clip;
+		content-visibility: hidden;
+		transition: content-visibility var(--transition-slow) allow-discrete,
+			block-size var(--transition-slow);
+	}
+
+	&[open]::details-content {
+		block-size: auto;
+		content-visibility: visible;
+	}
+}
+
+@supports (interpolate-size: allow-keywords) {
+	[data-accordion] {
+		interpolate-size: allow-keywords;
 	}
 }

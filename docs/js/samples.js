@@ -101,7 +101,93 @@ toast('Saved', { type: 'success', title: 'Done' });`,
     <summary>Question</summary>
     <p>Answer…</p>
   </details>
+  <details data-accordion-item>
+    <summary>Another question</summary>
+    <p>Answer…</p>
+  </details>
+</div>
+
+<!-- multiple:    <div data-accordion data-accordion-multiple> -->
+<!-- locked item: <details data-accordion-item data-disabled> -->`,
+	},
+	'accordion-basic': {
+		filename: 'accordion.html',
+		lang: 'html',
+		code: `<div data-accordion>
+  <details data-accordion-item open>
+    <summary>How do I reset my password?</summary>
+    <p>Click "Forgot password" on the login page, enter your email and we will send you a reset link that expires in 24 hours.</p>
+  </details>
+  <details data-accordion-item>
+    <summary>Can I change my subscription plan?</summary>
+    <p>Yes. Upgrade or downgrade at any time from account settings, and the change applies from your next billing cycle.</p>
+  </details>
+  <details data-accordion-item>
+    <summary>What payment methods do you accept?</summary>
+    <p>All major credit cards, PayPal and bank transfers, all processed securely through our payment partners.</p>
+  </details>
 </div>`,
+	},
+	'accordion-multiple': {
+		filename: 'accordion.html',
+		lang: 'html',
+		code: `<div data-accordion data-accordion-multiple>
+  <details data-accordion-item open>
+    <summary>Notification settings</summary>
+    <p>Choose email alerts, push notifications, or turn both off for individual devices.</p>
+  </details>
+  <details data-accordion-item open>
+    <summary>Privacy &amp; security</summary>
+    <p>Enable two-factor authentication, review active sessions and manage connected devices.</p>
+  </details>
+  <details data-accordion-item>
+    <summary>Billing &amp; subscription</summary>
+    <p>View your plan, payment history and upcoming invoices, or update your payment method.</p>
+  </details>
+</div>`,
+	},
+	'accordion-disabled': {
+		filename: 'accordion.html',
+		lang: 'html',
+		code: `<div data-accordion>
+  <details data-accordion-item>
+    <summary>How do I update my email address?</summary>
+    <p>Change it in account settings. You will receive a verification email at the new address.</p>
+  </details>
+  <details data-accordion-item data-disabled>
+    <summary>Premium feature information</summary>
+    <p>This section is locked. Upgrade your plan to access this content.</p>
+  </details>
+  <details data-accordion-item>
+    <summary>Where can I find my invoices?</summary>
+    <p>All invoices live in the billing section, downloadable at any time.</p>
+  </details>
+</div>`,
+	},
+	'accordion-bordered': {
+		filename: 'accordion.html',
+		lang: 'html',
+		code: `<!-- Bordered group: the container border and hairline dividers are the default. -->
+<div data-accordion>
+  <details data-accordion-item open>
+    <summary>How does billing work?</summary>
+    <p>Monthly and annual plans, charged at the start of each cycle. Cancel any time.</p>
+  </details>
+  <details data-accordion-item>
+    <summary>Is my data secure?</summary>
+    <p>Yes. End-to-end encryption, SOC 2 Type II compliance and regular third-party audits.</p>
+  </details>
+</div>
+
+<!-- Flat alternative: skip the group and stack standalone items instead. -->
+<details class="accordion" open>
+  <summary>What integrations do you support?</summary>
+  <p>500+ tools, plus a REST API and webhooks for custom integrations.</p>
+</details>
+<details class="accordion">
+  <summary>Do you offer a free trial?</summary>
+  <p>Yes, 14 days on every paid plan, no credit card required.</p>
+</details>`,
 	},
 	carousel: {
 		filename: 'carousel.html',

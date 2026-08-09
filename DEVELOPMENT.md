@@ -58,6 +58,8 @@ install`.
 │   ├── build.mjs             # Sass → Lightning CSS pipeline (--watch supported)
 │   ├── build-js.mjs          # esbuild → lotus.js + lotus.min.js (--watch supported)
 │   ├── html-partials.mjs     # Vite plugin: inlines docs/partials/*.html
+│   ├── favicons.mjs          # sharp: logo.svg → full favicon/app-icon set + webmanifest
+│   ├── social-card.mjs       # headless Chrome: renders the 1200×630 og-image.png
 │   └── clean.mjs             # empties dist/
 ├── .github/workflows/
 │   ├── ci.yml                # lint + typecheck + build + verify dist on every push/PR
@@ -256,7 +258,7 @@ Set `data-lotus-no-init` on `<html>` to disable auto-initialisation.
 | Sheet            | `[data-sheet-open="#id"]`, `[data-sheet-close]`         | Side-drawer dialogs (`data-side="left                         | right | top | bottom"`) |
 | Tabs             | `[data-tabs]` + `[data-tab]` / `[data-tab-panel]`       | Accessible tab switching                                      |
 | Toast            | `[data-toast]` + `data-toast-type/-title`, `toast(msg, opts)` | Stacked notifications                                   |
-| Accordion        | `[data-accordion]` + `[data-accordion-item]`            | Exclusive `<details>` groups                                  |
+| Accordion        | `[data-accordion]` + `[data-accordion-item]`            | Exclusive `<details>` groups (`data-accordion-multiple`, `data-disabled`) |
 | Dropdown         | `.dropdown`                                             | Click-outside close                                           |
 | Carousel         | `[data-carousel]` + `[data-carousel-track]` + prev/next | Scroll-snap track navigation                                  |
 | Popover          | `[data-popover-trigger]` + `[data-popover]`             | Trigger-positioned panel, flips near viewport edge            |
@@ -289,7 +291,7 @@ npm run test:watch   # watch mode
 ## 7. The docs site
 
 The docs are a plain **Vite** multi-page app (`docs/index.html` +
-`docs/demo.html`). The framework is pulled in through
+`docs/demo.html` + `docs/accordion.html`). The framework is pulled in through
 `docs/css/site.scss`:
 
 ```scss
@@ -306,11 +308,11 @@ inside HTML.
 The page shell (head, nav, footer) is shared the same way: `docs/partials/*.html`
 hold the chrome and a tiny Vite plugin (`scripts/html-partials.mjs`) inlines
 `<!-- #include:nav -->` markers in dev and build. Note that editing a partial
-needs a `npm run dev` restart (Vite caches the transformed HTML per URL). Per-page tweaks (the clock,
-the Demo link) are toggled with `.hide-on-index`/`.hide-on-demo` classes on
-`<body>`. The lotus logo lives in `docs/public/` (SVG source plus a 512&nbsp;px
-PNG, used as the favicon), and the site uses Google Material Symbols for its
-icons instead of emoji.
+needs a `npm run dev` restart (Vite caches the transformed HTML per URL). Per-page tweaks (the clock, the
+Demo and Accordion links) are toggled with `.hide-on-index`/`.hide-on-demo`/
+`.hide-on-accordion` classes on `<body>`. The lotus logo lives in
+`docs/public/` (SVG source plus a 512&nbsp;px PNG, used as the favicon), and the
+site uses Google Material Symbols for its icons instead of emoji.
 
 - Local development: `npm run dev`
 - Production build: `npm run build:docs` → `docs-dist/`

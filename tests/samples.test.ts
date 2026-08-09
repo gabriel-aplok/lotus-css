@@ -6,7 +6,7 @@ import { SAMPLES } from '../docs/js/samples';
 type Sample = (typeof SAMPLES)['quick-css'];
 const samples = SAMPLES as Record<string, Sample>;
 
-const PAGES = ['index.html', 'demo.html'];
+const PAGES = ['index.html', 'demo.html', 'accordion.html'];
 
 function sampleIds(): Set<string> {
 	const ids = new Set<string>();
@@ -20,7 +20,7 @@ function sampleIds(): Set<string> {
 }
 
 describe('docs code samples', () => {
-	it('every data-sample id on both pages resolves in SAMPLES', () => {
+	it('every data-sample id on every page resolves in SAMPLES', () => {
 		const ids = sampleIds();
 		expect(ids.size).toBeGreaterThan(0);
 		ids.forEach((id) => {

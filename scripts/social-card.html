@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Inconsolata&display=swap" rel="stylesheet">
+	<style>
+		* {
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			width: 1200px;
+			height: 630px;
+			overflow: hidden;
+		}
+
+		body {
+			font-family: 'Lato', sans-serif;
+			background: #18181b;
+			background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1.5px, transparent 1.5px);
+			background-size: 28px 28px;
+			color: #fafafa;
+			display: flex;
+			align-items: center;
+			gap: 72px;
+			padding: 0 96px;
+		}
+
+		.mark {
+			flex: none;
+			width: 210px;
+			height: 210px;
+			border-radius: 48px;
+			background: linear-gradient(180deg, #27272a 0%, #3f3f46 100%);
+			display: grid;
+			place-items: center;
+			box-shadow: 0 24px 64px -16px rgba(0, 0, 0, 0.55);
+		}
+
+		.mark svg {
+			width: 130px;
+			height: 130px;
+		}
+
+		h1 {
+			font-size: 92px;
+			font-weight: 700;
+			letter-spacing: -0.02em;
+			line-height: 1;
+		}
+
+		h1 span {
+			color: #a1a1aa;
+		}
+
+		.tag {
+			color: #d4d4d8;
+			font-size: 27px;
+			line-height: 1.5;
+			margin-top: 18px;
+			max-width: 620px;
+		}
+
+		.meta {
+			margin-top: 44px;
+			font-family: 'Inconsolata', monospace;
+			font-size: 19px;
+			color: #71717a;
+			display: flex;
+			gap: 26px;
+		}
+
+		.meta span {
+			padding: 8px 14px;
+			border: 1px solid rgba(255, 255, 255, 0.12);
+			border-radius: 999px;
+			color: #a1a1aa;
+		}
+	</style>
+</head>
+<body>
+	<div class="mark">
+		<svg viewBox="0 0 24 24" fill="#fafafa" aria-hidden="true">
+			<path fill="#a1a1aa" d="M12 2.4 C14.1 5.2 15.2 8.1 15.2 10.7 C15.2 12.7 13.8 14.1 12 14.1 C10.2 14.1 8.8 12.7 8.8 10.7 C8.8 8.1 9.9 5.2 12 2.4 Z"></path>
+			<path d="M12 14.4 C9.8 14.5 7.5 15.9 6.1 18.2 C5.4 19.4 5.8 20.6 7 20.8 C8.4 19.6 10 17.5 11.1 15.2 C11.3 14.9 11.6 14.6 12 14.4 Z"></path>
+			<path d="M12 14.4 C14.2 14.5 16.5 15.9 17.9 18.2 C18.6 19.4 18.2 20.6 17 20.8 C15.6 19.6 14 17.5 12.9 15.2 C12.7 14.9 12.4 14.6 12 14.4 Z"></path>
+			<path d="M7.4 19.6 C9.5 21 14.5 21 16.6 19.6 C15.7 20.8 13.9 21.4 12 21.4 C10.1 21.4 8.3 20.8 7.4 19.6 Z"></path>
+		</svg>
+	</div>
+	<div>
+		<h1>LOTUS<span>.css</span></h1>
+		<p class="tag">A classless CSS framework with a neutral oklch token system, automatic dark mode, and an optional dependency-free JS layer.</p>
+		<div class="meta">
+			<span>classless</span>
+			<span>oklch tokens</span>
+			<span>auto dark mode</span>
+			<span>MIT</span>
+		</div>
+	</div>
+</body>
+</html>

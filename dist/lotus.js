@@ -159,10 +159,19 @@ function initTabs(root = document) {
 // js/accordion.ts
 function initAccordions(root = document) {
   root.querySelectorAll("[data-accordion]").forEach((group) => {
+    const multiple = group.hasAttribute("data-accordion-multiple");
     const items = group.querySelectorAll("[data-accordion-item]");
+    if (!multiple) {
+      const opened = [...items].filter((item) => item.hasAttribute("open"));
+      opened.slice(1).forEach((item) => item.removeAttribute("open"));
+    }
     items.forEach((item) => {
       item.addEventListener("toggle", () => {
-        if (!item.hasAttribute("open")) return;
+        if (item.hasAttribute("data-disabled")) {
+          item.removeAttribute("open");
+          return;
+        }
+        if (multiple || !item.hasAttribute("open")) return;
         items.forEach((other) => {
           if (other !== item && other.hasAttribute("open")) other.removeAttribute("open");
         });
@@ -379,7 +388,7 @@ function viewTransition(update) {
 }
 
 // js/index.ts
-var version = "0.4.0";
+var version = "0.5.0";
 function init(root = document) {
   initTheme(root);
   initDialogs(root);

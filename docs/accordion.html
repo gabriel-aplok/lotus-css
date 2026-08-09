@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" data-lotus-no-init>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Accordion | LOTUS.css</title>
+	<meta name="description"
+		content="A vertically stacked set of interactive headings that each reveal a section of content. Exclusive by default, with opt-in multiple, disabled and bordered variants.">
+	<meta property="og:title" content="Accordion | LOTUS.css">
+	<meta property="og:description"
+		content="The LOTUS.css accordion: native details/summary, exclusive by default, with multiple, disabled and bordered variants.">
+	<meta name="twitter:title" content="Accordion | LOTUS.css">
+	<meta name="twitter:description"
+		content="Native details/summary accordion with multiple, disabled and bordered variants.">
+	<!-- #include:head -->
+</head>
+
+<body class="page-accordion" id="top">
+	<!-- #include:nav -->
+
+	<main>
+		<header class="doc-header">
+			<p class="doc-crumb"><a href="./index.html#components">Components</a> · <a href="./demo.html#accordions">Demo</a></p>
+			<h1>Accordion</h1>
+			<p>
+				A vertically stacked set of interactive headings that each reveal a section of
+				content. Built on native <code>&lt;details&gt;</code> and
+				<code>&lt;summary&gt;</code>, so it is keyboard accessible, animates smoothly
+				where the platform supports it, and still works with JavaScript off.
+			</p>
+		</header>
+
+		<div class="demo-layout">
+			<!-- ======================= On this page ======================= -->
+			<aside class="demo-sidebar">
+				<nav aria-label="On this page">
+					<ul>
+						<li><a href="#basic">Basic</a></li>
+						<li><a href="#multiple">Multiple</a></li>
+						<li><a href="#disabled">Disabled</a></li>
+						<li><a href="#bordered">Bordered</a></li>
+						<li><a href="#api">API reference</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<!-- ======================= Content ======================= -->
+			<div class="demo-content">
+
+				<!-- ===== Basic ===== -->
+				<section id="basic" data-animate="fade-up">
+					<h2>Basic</h2>
+					<p>
+						Accordions are exclusive by default: opening one item closes the others,
+						and only the first item starts open. The markup is plain
+						<code>&lt;details&gt;</code> elements inside a <code>data-accordion</code>
+						group, with <code>data-accordion-item</code> on each pair.
+					</p>
+					<div class="showcase">
+						<div data-accordion>
+							<details data-accordion-item open>
+								<summary>How do I reset my password?</summary>
+								<p>Click "Forgot password" on the login page, enter your email and we will send you a reset
+									link that expires in 24 hours.</p>
+							</details>
+							<details data-accordion-item>
+								<summary>Can I change my subscription plan?</summary>
+								<p>Yes. Upgrade or downgrade at any time from account settings, and the change applies from
+									your next billing cycle.</p>
+							</details>
+							<details data-accordion-item>
+								<summary>What payment methods do you accept?</summary>
+								<p>All major credit cards, PayPal and bank transfers, all processed securely through our
+									payment partners.</p>
+							</details>
+						</div>
+					</div>
+					<div class="code-label">Markup</div>
+					<pre data-sample="accordion-basic"></pre>
+				</section>
+
+				<!-- ===== Multiple ===== -->
+				<section id="multiple" data-animate="fade-up">
+					<h2>Multiple</h2>
+					<p>
+						Add <code>data-accordion-multiple</code> to the group to let several items
+						stay open at the same time. Each item keeps its own open state.
+					</p>
+					<div class="showcase">
+						<div data-accordion data-accordion-multiple>
+							<details data-accordion-item open>
+								<summary>Notification settings</summary>
+								<p>Choose email alerts, push notifications, or turn both off for individual devices.</p>
+							</details>
+							<details data-accordion-item open>
+								<summary>Privacy &amp; security</summary>
+								<p>Enable two-factor authentication, review active sessions and manage connected devices.
+								</p>
+							</details>
+							<details data-accordion-item>
+								<summary>Billing &amp; subscription</summary>
+								<p>View your plan, payment history and upcoming invoices, or update your payment method.</p>
+							</details>
+						</div>
+					</div>
+					<div class="code-label">Markup</div>
+					<pre data-sample="accordion-multiple"></pre>
+				</section>
+
+				<!-- ===== Disabled ===== -->
+				<section id="disabled" data-animate="fade-up">
+					<h2>Disabled</h2>
+					<p>
+						Mark an item with <code>data-disabled</code> to lock it closed. The trigger
+						is dimmed and unclickable, and the JavaScript layer re-closes it even if
+						the browser opens it via keyboard.
+					</p>
+					<div class="showcase">
+						<div data-accordion>
+							<details data-accordion-item>
+								<summary>How do I update my email address?</summary>
+								<p>Change it in account settings. You will receive a verification email at the new address.
+								</p>
+							</details>
+							<details data-accordion-item data-disabled>
+								<summary>Premium feature information</summary>
+								<p>This section is locked. Upgrade your plan to access this content.</p>
+							</details>
+							<details data-accordion-item>
+								<summary>Where can I find my invoices?</summary>
+								<p>All invoices live in the billing section, downloadable at any time.</p>
+							</details>
+						</div>
+					</div>
+					<div class="code-label">Markup</div>
+					<pre data-sample="accordion-disabled"></pre>
+				</section>
+
+				<!-- ===== Bordered ===== -->
+				<section id="bordered" data-animate="fade-up">
+					<h2>Bordered</h2>
+					<p>
+						The group ships with a container border, rounded corners and hairline
+						dividers between items. To drop the container entirely, stack standalone
+						<code>details</code> elements with <code>class="accordion"</code> instead
+						of wrapping them in a group.
+					</p>
+					<div class="showcase">
+						<div data-accordion style="margin-bottom: 2rem;">
+							<details data-accordion-item open>
+								<summary>How does billing work?</summary>
+								<p>Monthly and annual plans, charged at the start of each cycle. Cancel any time.</p>
+							</details>
+							<details data-accordion-item>
+								<summary>Is my data secure?</summary>
+								<p>Yes. End-to-end encryption, SOC 2 Type II compliance and regular third-party audits.
+								</p>
+							</details>
+						</div>
+						<details class="accordion" open>
+							<summary>What integrations do you support?</summary>
+							<p>500+ tools, plus a REST API and webhooks for custom integrations.</p>
+						</details>
+						<details class="accordion">
+							<summary>Do you offer a free trial?</summary>
+							<p>Yes, 14 days on every paid plan, no credit card required.</p>
+						</details>
+					</div>
+					<div class="code-label">Markup</div>
+					<pre data-sample="accordion-bordered"></pre>
+				</section>
+
+				<!-- ===== API reference ===== -->
+				<section id="api" data-animate="fade-up">
+					<h2>API reference</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Attribute</th>
+								<th>Where</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>data-accordion</code></td>
+								<td>Container</td>
+								<td>Groups items into a bordered, exclusive accordion.</td>
+							</tr>
+							<tr>
+								<td><code>data-accordion-multiple</code></td>
+								<td>Container</td>
+								<td>Allows several items to stay open at once.</td>
+							</tr>
+							<tr>
+								<td><code>data-accordion-item</code></td>
+								<td><code>&lt;details&gt;</code></td>
+								<td>Marks a heading/content pair as an accordion item.</td>
+							</tr>
+							<tr>
+								<td><code>data-disabled</code></td>
+								<td>Item</td>
+								<td>Locks the item closed: dimmed, unclickable, re-closed even via keyboard.</td>
+							</tr>
+							<tr>
+								<td><code>open</code></td>
+								<td>Item</td>
+								<td>Native attribute. The item starts open; exclusive groups keep only the first.</td>
+							</tr>
+							<tr>
+								<td><code>class="accordion"</code></td>
+								<td><code>&lt;details&gt;</code></td>
+								<td>Standalone item outside a group, with no container border.</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>
+						Styling comes from the <code>--border</code>, <code>--radius-lg</code>,
+						<code>--card</code>, <code>--muted</code> and <code>--ring</code> tokens,
+						so the look follows your theme automatically. The open/close animation
+						uses the platform <code>details</code> transition where supported
+						(Chrome 131+ and other engines that understand
+						<code>::details-content</code>) and degrades gracefully everywhere else.
+					</p>
+					<p><a href="./demo.html#accordions">Back to the component demo</a></p>
+				</section>
+
+			</div>
+		</div>
+	</main>
+
+	<!-- #include:footer -->
+
+	<script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

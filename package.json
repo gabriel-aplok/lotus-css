@@ -1,6 +1,6 @@
 {
 	"name": "lotus-css",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"description": "A minimal, classless CSS framework with an optional dependency-free JS enhancement layer.",
 	"keywords": [
 		"css",
@@ -55,7 +55,9 @@
 		"build:dist": "npm run build:css && npm run build:js",
 		"build:css": "node scripts/build.mjs",
 		"build:js": "node scripts/build-js.mjs",
-		"build:docs": "vite build",
+		"favicons": "node scripts/favicons.mjs",
+		"social-card": "node scripts/social-card.mjs",
+		"build:docs": "npm run favicons && vite build",
 		"watch": "node scripts/build.mjs --watch",
 		"watch:js": "node scripts/build-js.mjs --watch",
 		"typecheck": "tsc --noEmit",
@@ -75,6 +77,7 @@
 		"jsdom": "^29.1.1",
 		"lightningcss": "^1.29.0",
 		"sass": "^1.83.0",
+		"sharp": "^0.35.3",
 		"stylelint": "^16.13.0",
 		"stylelint-config-standard-scss": "^14.0.0",
 		"typescript": "^7.0.2",

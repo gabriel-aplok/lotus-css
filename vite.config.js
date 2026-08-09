@@ -16,6 +16,7 @@ export default defineConfig({
 			input: {
 				main: fileURLToPath(new URL('./docs/index.html', import.meta.url)),
 				demo: fileURLToPath(new URL('./docs/demo.html', import.meta.url)),
+				accordion: fileURLToPath(new URL('./docs/accordion.html', import.meta.url)),
 			},
 		},
 	},

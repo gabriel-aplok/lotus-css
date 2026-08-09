@@ -16,7 +16,7 @@ describe('framework entry', () => {
 	});
 
 	it('exposes a version', () => {
-		expect(version).toBe('0.4.0');
+		expect(version).toBe('0.5.0');
 	});
 
 	it('wires every enhancement without throwing', () => {

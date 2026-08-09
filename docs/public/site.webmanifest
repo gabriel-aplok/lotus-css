@@ -1,0 +1,21 @@
+{
+  "name": "LOTUS.css",
+  "short_name": "LOTUS.css",
+  "description": "A classless CSS framework with a neutral oklch token system, automatic dark mode and an optional JS layer.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#18181b",
+  "icons": [
+    {
+      "src": "./android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
