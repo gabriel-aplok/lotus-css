@@ -4,26 +4,26 @@
 // never duplicated or hand-escaped inside HTML.
 
 export const SAMPLES = {
-	// ---- Landing page ---------------------------------------------------
-	'quick-css': {
-		filename: 'index.html',
-		lang: 'html',
-		code: '<link rel="stylesheet" href="https://unpkg.com/lotus-css">',
-	},
-	'quick-js': {
-		filename: 'index.html',
-		lang: 'html',
-		code: '<script src="https://unpkg.com/lotus-css/dist/lotus.min.js" defer></script>',
-	},
-	'quick-npm': {
-		filename: 'terminal',
-		lang: 'bash',
-		code: 'npm install lotus-css',
-	},
-	customize: {
-		filename: 'your-theme.css',
-		lang: 'css',
-		code: `:root {
+  // ---- Landing page ---------------------------------------------------
+  "quick-css": {
+    filename: "index.html",
+    lang: "html",
+    code: '<link rel="stylesheet" href="https://unpkg.com/lotus-css">',
+  },
+  "quick-js": {
+    filename: "index.html",
+    lang: "html",
+    code: '<script src="https://unpkg.com/lotus-css/dist/lotus.min.js" defer></script>',
+  },
+  "quick-npm": {
+    filename: "terminal",
+    lang: "bash",
+    code: "npm install lotus-css",
+  },
+  customize: {
+    filename: "your-theme.css",
+    lang: "css",
+    code: `:root {
   --primary: #111111;          /* brand color */
   --background: #fafafa;       /* page background */
   --foreground: #18181b;       /* text color */
@@ -31,13 +31,13 @@ export const SAMPLES = {
   --font-sans: "Inter", system-ui, sans-serif;
   --grid-max-width: 108rem;    /* container width */
 }`,
-	},
+  },
 
-	// ---- Component demo -------------------------------------------------
-	buttons: {
-		filename: 'components.html',
-		lang: 'html',
-		code: `<!-- Variants: primary / secondary / outline / ghost / success / warning / destructive -->
+  // ---- Component demo -------------------------------------------------
+  buttons: {
+    filename: "components.html",
+    lang: "html",
+    code: `<!-- Variants: primary / secondary / outline / ghost / success / warning / destructive -->
 <button class="button primary">Primary</button>
 <button class="button outline">Outline</button>
 <button class="button ghost">Ghost</button>
@@ -80,29 +80,29 @@ export const SAMPLES = {
   <input type="text" value="10.00">
   <button class="button primary">Send</button>
 </div>`,
-	},
-	tabs: {
-		filename: 'tabs.html',
-		lang: 'html',
-		code: `<div class="tabs" data-tabs>
+  },
+  tabs: {
+    filename: "tabs.html",
+    lang: "html",
+    code: `<div class="tabs" data-tabs>
   <button data-tab="tab1" class="active">Overview</button>
   <button data-tab="tab2">Settings</button>
 </div>
 <div data-tab-panel="tab1">…</div>
 <div data-tab-panel="tab2" hidden>…</div>`,
-	},
-	cards: {
-		filename: 'cards.html',
-		lang: 'html',
-		code: `<article class="card hover">
+  },
+  cards: {
+    filename: "cards.html",
+    lang: "html",
+    code: `<article class="card hover">
   <h3 class="card-title">Title</h3>
   <p>Body text…</p>
 </article>`,
-	},
-	dialog: {
-		filename: 'components.html',
-		lang: 'html',
-		code: `<!-- Add data-dialog-static for alert-dialog semantics (no backdrop/Esc dismissal). -->
+  },
+  dialog: {
+    filename: "components.html",
+    lang: "html",
+    code: `<!-- Add data-dialog-static for alert-dialog semantics (no backdrop/Esc dismissal). -->
 <button class="button primary" data-dialog-open="my-dialog">Open dialog</button>
 
 <dialog id="my-dialog">
@@ -119,42 +119,38 @@ export const SAMPLES = {
     <button class="button primary" data-dialog-close>Continue</button>
   </div>
 </dialog>`,
-	},
+  },
 
-
-
-
-
-	sheet: {
-		filename: 'sheet.html',
-		lang: 'html',
-		code: `<button data-sheet-open="my-sheet">Open</button>
+  sheet: {
+    filename: "sheet.html",
+    lang: "html",
+    code: `<button data-sheet-open="my-sheet">Open</button>
 <dialog class="sheet" id="my-sheet" data-side="right">
   <button data-sheet-close>Close</button>
 </dialog>`,
-	},
-	popover: {
-		filename: 'popover.html',
-		lang: 'html',
-		code: `<button data-popover-trigger="menu">Open</button>
+  },
+  popover: {
+    filename: "popover.html",
+    lang: "html",
+    code: `<button data-popover-trigger="menu">Open</button>
 <div class="popover" id="menu">…</div>`,
-	},
-	toast: {
-		filename: 'app.js',
-		lang: 'js',
-		code: `import { toast } from 'lotus-css/js';
+  },
+  toast: {
+    filename: "app.js",
+    lang: "js",
+    code: `import { toast } from 'lotus-css/js';
 
 toast('Saved', { type: 'success', title: 'Done' });`,
-	},
-	tooltip: {
-		filename: 'tooltip.html',
-		lang: 'html',
-		code: `<button data-tooltip="Help text">Hover me</button>`,
-	},
-	accordion: {
-		filename: 'components.html',
-		lang: 'html',
-		code: `<div data-accordion>
+  },
+  tooltip: {
+    filename: "tooltip.html",
+    lang: "html",
+    code: `<button data-tooltip="Help text">Hover me</button>`,
+  },
+  accordion: {
+    filename: "components.html",
+    lang: "html",
+    code: `<div data-accordion>
   <details data-accordion-item open>
     <summary>Question</summary>
     <p>Answer…</p>
@@ -168,70 +164,67 @@ toast('Saved', { type: 'success', title: 'Done' });`,
 <!-- multiple:    <div data-accordion data-accordion-multiple> -->
 <!-- locked item: <details data-accordion-item data-disabled> -->
 <!-- standalone:  <details class="accordion"> -->`,
-	},
+  },
 
-
-
-
-	carousel: {
-		filename: 'carousel.html',
-		lang: 'html',
-		code: `<div class="carousel" data-carousel>
+  carousel: {
+    filename: "carousel.html",
+    lang: "html",
+    code: `<div class="carousel" data-carousel>
   <button data-carousel-prev>‹</button>
   <div class="carousel-track" data-carousel-track>
     <div class="carousel-item">…</div>
   </div>
   <button data-carousel-next>›</button>
 </div>`,
-	},
-	form: {
-		filename: 'form.html',
-		lang: 'html',
-		code: `<label for="name">Name</label>
+  },
+  form: {
+    filename: "form.html",
+    lang: "html",
+    code: `<label for="name">Name</label>
 <input id="name" type="text" placeholder="Ada Lovelace">
 <select id="country"><option>…</option></select>
 <textarea rows="3">…</textarea>`,
-	},
-	controls: {
-		filename: 'controls.html',
-		lang: 'html',
-		code: `<label><input type="checkbox" checked> Checkbox</label>
+  },
+  controls: {
+    filename: "controls.html",
+    lang: "html",
+    code: `<label><input type="checkbox" checked> Checkbox</label>
 <span class="switch">
   <input type="checkbox" checked>
   <span class="track"></span>
 </span>
 <input type="range" min="0" max="100" value="40">`,
-	},
-	toggle: {
-		filename: 'toggle.html',
-		lang: 'html',
-		code: `<button class="toggle" aria-pressed="true">Bold</button>
+  },
+  toggle: {
+    filename: "toggle.html",
+    lang: "html",
+    code: `<button class="toggle" aria-pressed="true">Bold</button>
 <div class="toggle-group">
   <button class="toggle" aria-pressed="false">Week</button>
 </div>`,
-	},
-	nav: {
-		filename: 'nav.html',
-		lang: 'html',
-		code: `<nav class="nav">
+  },
+  nav: {
+    filename: "nav.html",
+    lang: "html",
+    code: `<nav class="nav">
   <div class="nav-left"><a class="brand" href="#">LOTUS</a></div>
   <div class="nav-right">
     <a href="#" aria-current="page">Home</a>
   </div>
 </nav>`,
-	},
-	dropdown: {
-		filename: 'dropdown.html',
-		lang: 'html',
-		code: `<details class="dropdown">
+  },
+  dropdown: {
+    filename: "dropdown.html",
+    lang: "html",
+    code: `<details class="dropdown">
   <summary>Menu</summary>
   <div class="dropdown-menu">…</div>
 </details>`,
-	},
-	alert: {
-		filename: 'components.html',
-		lang: 'html',
-		code: `<!-- Variants: primary, success, warning, destructive, accent. Custom colors
+  },
+  alert: {
+    filename: "components.html",
+    lang: "html",
+    code: `<!-- Variants: primary, success, warning, destructive, accent. Custom colors
      via --alert-bg / --alert-fg / --alert-border. -->
 <div class="alert success">
   <span class="alert-icon material-symbols-outlined" aria-hidden="true">check_circle</span>
@@ -240,15 +233,12 @@ toast('Saved', { type: 'success', title: 'Done' });`,
     <p class="alert-description">Everything went as planned.</p>
   </div>
 </div>`,
-	},
+  },
 
-
-
-
-	badge: {
-		filename: 'badge.html',
-		lang: 'html',
-		code: `<!-- Variants: primary, secondary, success, warning, destructive, outline,
+  badge: {
+    filename: "badge.html",
+    lang: "html",
+    code: `<!-- Variants: primary, secondary, success, warning, destructive, outline,
      ghost, link. Custom colors via --badge-bg / --badge-fg / --badge-border. -->
 <span class="badge">Default</span>
 <span class="badge primary">Primary</span>
@@ -280,16 +270,156 @@ toast('Saved', { type: 'success', title: 'Done' });`,
   <span class="avatar">A</span>
   <span class="avatar-group-count">+3</span>
 </span>`,
-	},
-	tags: {
-		filename: 'tags.html',
-		lang: 'html',
-		code: `<span class="tag">css</span>`,
-	},
-	breadcrumb: {
-		filename: 'components.html',
-		lang: 'html',
-		code: `<!-- Automatic separator: any item except the last gets "/" -->
+  },
+  "chat-bubble": {
+    filename: "components.html",
+    lang: "html",
+    code: `<!-- A thread: .chat > (.bubble | .bubble-group). Ghost = assistant prose. -->
+<div class="chat">
+  <div class="bubble ghost">
+    <div class="bubble-content">How can I help you today?</div>
+  </div>
+
+  <!-- Consecutive bubbles from one sender; set .is-end on each bubble -->
+  <div class="bubble-group">
+    <div class="bubble is-end">
+      <div class="bubble-content">Hey! Did you see the new design files?</div>
+    </div>
+    <div class="bubble is-end">
+      <div class="bubble-content">Also, the build failed on main.</div>
+      <div class="bubble-reactions" role="img" aria-label="Reactions: thumbs up, fire, and 2 more">
+        <span class="material-symbols-outlined" aria-hidden="true">thumb_up</span>
+        <span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+        <span>+2</span>
+      </div>
+      <span class="bubble-meta"><span class="material-symbols-outlined" aria-hidden="true">done_all</span> Seen · 4:32 PM</span>
+    </div>
+  </div>
+
+  <div class="bubble secondary">
+    <div class="bubble-content">On it. Found the issue and fixed it.</div>
+  </div>
+</div>
+
+<!-- Variants: secondary, muted, tinted, outline, ghost, destructive.
+     Reactions anchor bottom/end by default; data-side="top" anchors the
+     upper edge. -->
+<div class="bubble muted">
+  <div class="bubble-content">Muted supporting content.</div>
+</div>
+<div class="bubble tinted is-end">
+  <div class="bubble-content">Tinted primary-derived fill.</div>
+</div>
+<div class="bubble outline">
+  <div class="bubble-content">Bordered, for rich content.</div>
+</div>
+<div class="bubble destructive is-end">
+  <div class="bubble-content">Errors and failed actions.</div>
+</div>`,
+  },
+  "chat-variants": {
+    filename: "components.html",
+    lang: "html",
+    code: `<!-- Seven variants: (default) primary, secondary, muted, tinted, outline,
+     ghost, destructive. Alignment: add .is-end to the bubble. -->
+<div class="bubble muted">
+  <div class="bubble-content">Muted supporting content.</div>
+</div>
+<div class="bubble tinted is-end">
+  <div class="bubble-content">Tinted primary-derived fill.</div>
+</div>
+<div class="bubble outline">
+  <div class="bubble-content">Bordered, for rich content.</div>
+</div>
+<div class="bubble destructive is-end">
+  <div class="bubble-content">Errors and failed actions.</div>
+</div>
+
+<!-- Reactions: data-side="top" anchors the upper edge; data-align="start"
+     anchors the inline start. Group them as one image for screen readers. -->
+<div class="bubble is-end">
+  <div class="bubble-content">Tests passed.</div>
+  <div class="bubble-reactions" data-side="top" role="img" aria-label="Reactions: party popper, clapping">
+    <span class="material-symbols-outlined" aria-hidden="true">celebration</span>
+    <span class="material-symbols-outlined" aria-hidden="true">handshake</span>
+  </div>
+</div>`,
+  },
+  "chat-attachment": {
+    filename: "components.html",
+    lang: "html",
+    code: `<!-- File attachment: media, content, actions -->
+<div class="attachment">
+  <div class="attachment-media"><span class="material-symbols-outlined" aria-hidden="true">description</span></div>
+  <div class="attachment-content">
+    <div class="attachment-title">report.pdf</div>
+    <div class="attachment-description">PDF · 2.4 MB</div>
+  </div>
+  <div class="attachment-actions">
+    <button class="attachment-action" aria-label="Remove report.pdf"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+  </div>
+</div>
+
+<!-- Image: .attachment-media.image + is-vertical stacks media above content -->
+<div class="attachment is-vertical" style="width: 20rem;">
+  <div class="attachment-media image"><img src="photo.png" alt="Photo"></div>
+  <div class="attachment-content">
+    <div class="attachment-title">photo.png</div>
+    <div class="attachment-description">PNG · 820 KB</div>
+  </div>
+</div>
+
+<!-- Full-card trigger: fills the card behind the actions, so the actions
+     stay separately clickable. -->
+<a class="attachment-trigger" href="photo.png" target="_blank" rel="noreferrer" aria-label="Open photo.png"></a>
+
+<!-- Scrollable, snapping row with an edge fade -->
+<div class="attachment-group" tabindex="0" role="group" aria-label="Attachments">
+  <div class="attachment is-vertical" style="width: 20rem;">…</div>
+  <div class="attachment is-vertical" style="width: 20rem;">…</div>
+</div>`,
+  },
+  "attachment-states": {
+    filename: "components.html",
+    lang: "html",
+    code: `<!-- data-state: idle | uploading | processing | error | done.
+     uploading / processing shimmer the title; error tints destructive. -->
+<div class="attachment" data-state="uploading">
+  <div class="attachment-media"><span class="spinner is-sm"></span></div>
+  <div class="attachment-content">
+    <div class="attachment-title">design-system.zip</div>
+    <div class="attachment-description">Uploading · 64%</div>
+  </div>
+  <div class="attachment-actions">
+    <button class="attachment-action" aria-label="Cancel upload"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+  </div>
+</div>
+
+<div class="attachment is-sm" data-state="error">
+  <div class="attachment-media"><span class="material-symbols-outlined" aria-hidden="true">error</span></div>
+  <div class="attachment-content">
+    <div class="attachment-title">financial-model.xlsx</div>
+    <div class="attachment-description">Upload failed. Try again.</div>
+  </div>
+</div>
+
+<!-- Sizes: is-sm / is-xs -->
+<div class="attachment is-xs">
+  <div class="attachment-media"><span class="material-symbols-outlined" aria-hidden="true">description</span></div>
+  <div class="attachment-content">
+    <div class="attachment-title">Extra small attachment</div>
+  </div>
+</div>`,
+  },
+  tags: {
+    filename: "tags.html",
+    lang: "html",
+    code: `<span class="tag">css</span>`,
+  },
+  breadcrumb: {
+    filename: "components.html",
+    lang: "html",
+    code: `<!-- Automatic separator: any item except the last gets "/" -->
 <nav class="breadcrumb">
   <ol>
     <li><a href="#">Home</a></li>
@@ -320,90 +450,90 @@ toast('Saved', { type: 'success', title: 'Done' });`,
     <li aria-current="page">Breadcrumb</li>
   </ol>
 </nav>`,
-	},
-	pagination: {
-		filename: 'pagination.html',
-		lang: 'html',
-		code: `<ul class="pagination">
+  },
+  pagination: {
+    filename: "pagination.html",
+    lang: "html",
+    code: `<ul class="pagination">
   <li><a href="#" class="active">2</a></li>
 </ul>`,
-	},
-	table: {
-		filename: 'table.html',
-		lang: 'html',
-		code: `<table class="striped">
+  },
+  table: {
+    filename: "table.html",
+    lang: "html",
+    code: `<table class="striped">
   <thead><tr><th>Plan</th><th>Price</th></tr></thead>
   <tbody><tr><td>Pro</td><td>$12/mo</td></tr></tbody>
 </table>`,
-	},
-	loading: {
-		filename: 'loading.html',
-		lang: 'html',
-		code: `<span class="spinner"></span>
+  },
+  loading: {
+    filename: "loading.html",
+    lang: "html",
+    code: `<span class="spinner"></span>
 <div class="skeleton"></div>`,
-	},
-	separator: {
-		filename: 'separator.html',
-		lang: 'html',
-		code: `<hr class="separator">
+  },
+  separator: {
+    filename: "separator.html",
+    lang: "html",
+    code: `<hr class="separator">
 <div class="separator">Label</div>
 <hr class="separator" data-orientation="vertical">`,
-	},
-	scroll: {
-		filename: 'scroll.html',
-		lang: 'html',
-		code: `<div class="scroll-area">
+  },
+  scroll: {
+    filename: "scroll.html",
+    lang: "html",
+    code: `<div class="scroll-area">
   <p>Long content…</p>
 </div>`,
-	},
-	code: {
-		filename: 'example.js',
-		lang: 'js',
-		code: `import { init, toast, theme } from 'lotus-css/js';
+  },
+  code: {
+    filename: "example.js",
+    lang: "js",
+    code: `import { init, toast, theme } from 'lotus-css/js';
 
 init();
 
 document.querySelector('#send').addEventListener('click', () => {
   toast('Message sent', { type: 'success' });
 });`,
-	},
-	grid: {
-		filename: 'grid.html',
-		lang: 'html',
-		code: `<div class="row">
+  },
+  grid: {
+    filename: "grid.html",
+    lang: "html",
+    code: `<div class="row">
   <div class="col-4">…</div>
   <div class="col-8">…</div>
 </div>`,
-	},
-	utils: {
-		filename: 'utils.html',
-		lang: 'html',
-		code: `<p class="text-center">…</p>
+  },
+  utils: {
+    filename: "utils.html",
+    lang: "html",
+    code: `<p class="text-center">…</p>
 <div class="full-width">…</div>
 <div class="stack">
   <button class="button primary">First</button>
   <button class="button outline">Second</button>
 </div>`,
-	},
+  },
 };
 
 /**
  * Fill every <pre data-sample="id"> with the matching sample from SAMPLES.
  * Uses textContent, so the source is injected raw (no HTML escaping) and
  * stays safe to copy and highlight.
- */	export function renderSamples(root = document) {
-	root.querySelectorAll('pre[data-sample]').forEach((pre) => {
-		const id = pre.getAttribute('data-sample') ?? '';
-		const sample = SAMPLES[id];
-		if (!sample) {
-			console.warn(`[lotus-docs] no sample registered for data-sample="${id}"`);
-			return;
-		}
-		if (sample.filename) pre.setAttribute('data-filename', sample.filename);
-		const code = document.createElement('code');
-		code.className = `language-${sample.lang}`;
-		code.textContent = sample.code.trim();
-		pre.textContent = '';
-		pre.appendChild(code);
-	});
+ */ export function renderSamples(root = document) {
+  root.querySelectorAll("pre[data-sample]").forEach((pre) => {
+    const id = pre.getAttribute("data-sample") ?? "";
+    const sample = SAMPLES[id];
+    if (!sample) {
+      console.warn(`[lotus-docs] no sample registered for data-sample="${id}"`);
+      return;
+    }
+    if (sample.filename) pre.setAttribute("data-filename", sample.filename);
+    const code = document.createElement("code");
+    code.className = `language-${sample.lang}`;
+    code.textContent = sample.code.trim();
+    pre.textContent = "";
+    pre.appendChild(code);
+  });
 }

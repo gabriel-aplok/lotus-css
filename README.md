@@ -21,7 +21,7 @@ The whole CSS file is about 52 kB minified. The JS layer is roughly 9 kB.
 - 25+ components: navs, tabs, cards, tags, dialogs, sheets, alerts, toasts,
   tooltips, popovers, breadcrumbs, pagination, avatars, badges, switches,
   accordions, carousels, toggles, spinners, skeletons, separators, scroll
-  areas, code blocks, and a few more.
+  areas, code blocks, chat bubbles, attachments, and a few more.
 - Scroll reveals, page transitions, and code blocks with a copy button and
   automatic syntax highlighting. All optional, all progressive.
 - Modern browsers only. IE support ended years ago and I'm not bringing it

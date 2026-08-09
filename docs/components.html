@@ -5,11 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>LOTUS.css | Components</title>
-	<meta name="description"
-		content="Every LOTUS.css component, with copyable, syntax-highlighted code samples.">
+	<meta name="description" content="Every LOTUS.css component, with copyable, syntax-highlighted code samples.">
 	<meta property="og:title" content="LOTUS.css | Components">
-	<meta property="og:description"
-		content="Every LOTUS.css component, with copyable, syntax-highlighted code samples.">
+	<meta property="og:description" content="Every LOTUS.css component, with copyable, syntax-highlighted code samples.">
 	<meta name="twitter:title" content="LOTUS.css | Components">
 	<meta name="twitter:description" content="Every LOTUS.css component, with copyable, syntax-highlighted code samples.">
 	<!-- #include:head -->
@@ -41,6 +39,7 @@
 						<li><a href="#dropdowns">Dropdowns</a></li>
 						<li><a href="#alerts">Alerts</a></li>
 						<li><a href="#badges">Badges &amp; Avatars</a></li>
+						<li><a href="#chat">Chat</a></li>
 						<li><a href="#tags">Tags</a></li>
 						<li><a href="#breadcrumbs">Breadcrumbs</a></li>
 						<li><a href="#pagination">Pagination</a></li>
@@ -129,15 +128,15 @@
 						</p>
 						<p class="grouped" role="group" aria-label="Split button">
 							<button class="button primary">Follow</button>
-							<details class="dropdown">
-								<summary class="button primary icon-only" aria-label="More options"><span
-										class="material-symbols-outlined" aria-hidden="true">arrow_drop_down</span></summary>
-								<div>
-									<a href="#">Mute conversation</a>
-									<a href="#">Report</a>
-									<a href="#">Block user</a>
-								</div>
-							</details>
+						<details class="dropdown">
+							<summary class="button primary icon-only" aria-label="More options"><span
+									class="material-symbols-outlined" aria-hidden="true">arrow_drop_down</span></summary>
+							<div>
+								<a href="#">Mute conversation</a>
+								<a href="#">Report</a>
+								<a href="#">Block user</a>
+							</div>
+						</details>
 						</p>
 						<p class="grouped" role="group" aria-label="Currency input">
 							<span class="grouped-text">$</span>
@@ -694,6 +693,169 @@
 					<pre data-sample="badge"></pre>
 				</section>
 
+				<!-- ===== Chat ===== -->
+				<section id="chat" data-animate="fade-up">
+					<h2>Chat bubbles &amp; attachments</h2>
+					<div class="showcase" style="display: flex; justify-content: center;">
+						<div class="chat" style="width: min(100%, 52rem);">
+							<div class="bubble ghost">
+								<div class="bubble-content">How can I help you today?</div>
+							</div>
+							<div class="bubble-group">
+								<div class="bubble is-end">
+									<div class="bubble-content">Hey! I uploaded the new design files. Can you review them?</div>
+								</div>
+								<div class="bubble is-end">
+									<div class="bubble-content">Also, the build failed on main. It was working yesterday.</div>
+									<div class="bubble-reactions" role="img" aria-label="Reactions: thumbs up, fire, and 2 more">
+										<span class="material-symbols-outlined" aria-hidden="true">thumb_up</span>
+										<span class="material-symbols-outlined" aria-hidden="true">local_fire_department</span>
+										<span>+2</span>
+									</div>
+									<span class="bubble-meta"><span class="material-symbols-outlined" aria-hidden="true">done_all</span>
+										Seen
+										· 4:32 PM</span>
+								</div>
+							</div>
+							<div class="bubble secondary">
+								<div class="bubble-content">On it. I found the issue: a stale route was still registered.
+									Fixed it, and I reviewed the designs too.</div>
+							</div>
+							<div class="bubble secondary">
+								<div class="bubble-content">Here is the build output:</div>
+								<div class="attachment" style="max-width: 32rem;">
+									<div class="attachment-media"><span class="material-symbols-outlined"
+											aria-hidden="true">description</span></div>
+									<div class="attachment-content">
+										<div class="attachment-title">build-report.txt</div>
+										<div class="attachment-description">Text · 4 KB</div>
+									</div>
+									<div class="attachment-actions">
+										<button class="attachment-action" aria-label="Download build-report.txt"><span
+												class="material-symbols-outlined" aria-hidden="true">download</span></button>
+									</div>
+								</div>
+								<div class="bubble-reactions" data-align="start" role="img" aria-label="Reaction: eyes">
+									<span class="material-symbols-outlined" aria-hidden="true">visibility</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="code-label">Bubbles</div>
+					<pre data-sample="chat-bubble"></pre>
+
+					<div class="showcase">
+						<div class="stack" style="max-width: 52rem;">
+							<div class="bubble muted">
+								<div class="bubble-content">Muted: quiet supporting content.</div>
+							</div>
+							<div class="bubble tinted is-end">
+								<div class="bubble-content">Tinted: a soft primary-derived fill.</div>
+							</div>
+							<div class="bubble outline">
+								<div class="bubble-content">Outline: bordered, for rich content.</div>
+							</div>
+							<div class="bubble destructive is-end">
+								<div class="bubble-content">Destructive: errors and failed actions.</div>
+							</div>
+						</div>
+					</div>
+					<div class="code-label">Variants</div>
+					<pre data-sample="chat-variants"></pre>
+
+					<div class="showcase">
+						<div class="attachment-group" tabindex="0" role="group" aria-label="Image attachments">
+							<div class="attachment is-vertical" style="width: 22rem;">
+								<div class="attachment-media image"><img src="https://picsum.photos/seed/workspace/400/300"
+										alt="Workspace screenshot"></div>
+								<div class="attachment-content">
+									<div class="attachment-title">workspace.png</div>
+									<div class="attachment-description">PNG · 820 KB</div>
+								</div>
+								<div class="attachment-actions">
+									<button class="attachment-action" aria-label="Remove workspace.png"><span
+											class="material-symbols-outlined" aria-hidden="true">close</span></button>
+								</div>
+								<a class="attachment-trigger" href="https://picsum.photos/seed/workspace/400/300" target="_blank"
+									rel="noreferrer" aria-label="Open workspace.png"></a>
+							</div>
+							<div class="attachment is-vertical" style="width: 22rem;">
+								<div class="attachment-media image"><img src="https://picsum.photos/seed/desk/400/300" alt="Desk photo">
+								</div>
+								<div class="attachment-content">
+									<div class="attachment-title">desk-reference.jpg</div>
+									<div class="attachment-description">JPG · 1.1 MB</div>
+								</div>
+							</div>
+							<div class="attachment is-vertical" style="width: 22rem;">
+								<div class="attachment-media image"><img src="https://picsum.photos/seed/office/400/300"
+										alt="Office photo"></div>
+								<div class="attachment-content">
+									<div class="attachment-title">office-reference.jpg</div>
+									<div class="attachment-description">JPG · 940 KB</div>
+								</div>
+							</div>
+							<div class="attachment is-vertical" style="width: 22rem;">
+								<div class="attachment-media"><span class="material-symbols-outlined"
+										aria-hidden="true">table_chart</span></div>
+								<div class="attachment-content">
+									<div class="attachment-title">customers.csv</div>
+									<div class="attachment-description">CSV · 18 KB</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="code-label">Attachments</div>
+					<pre data-sample="chat-attachment"></pre>
+
+					<div class="showcase">
+						<div class="stack" style="max-width: 52rem;">
+							<div class="attachment" data-state="uploading">
+								<div class="attachment-media"><span class="spinner is-sm"></span></div>
+								<div class="attachment-content">
+									<div class="attachment-title">design-system.zip</div>
+									<div class="attachment-description">Uploading · 64%</div>
+								</div>
+								<div class="attachment-actions">
+									<button class="attachment-action" aria-label="Cancel upload"><span class="material-symbols-outlined"
+											aria-hidden="true">close</span></button>
+								</div>
+							</div>
+							<div class="attachment is-sm" data-state="error">
+								<div class="attachment-media"><span class="material-symbols-outlined" aria-hidden="true">error</span>
+								</div>
+								<div class="attachment-content">
+									<div class="attachment-title">financial-model.xlsx</div>
+									<div class="attachment-description">Upload failed. Try again.</div>
+								</div>
+								<div class="attachment-actions">
+									<button class="attachment-action" aria-label="Retry upload"><span class="material-symbols-outlined"
+											aria-hidden="true">refresh</span></button>
+									<button class="attachment-action" aria-label="Remove financial-model.xlsx"><span
+											class="material-symbols-outlined" aria-hidden="true">close</span></button>
+								</div>
+							</div>
+							<div class="attachment is-sm">
+								<div class="attachment-media"><span class="material-symbols-outlined"
+										aria-hidden="true">description</span></div>
+								<div class="attachment-content">
+									<div class="attachment-title">Small attachment</div>
+									<div class="attachment-description">PDF · 2.4 MB</div>
+								</div>
+							</div>
+							<div class="attachment is-xs">
+								<div class="attachment-media"><span class="material-symbols-outlined"
+										aria-hidden="true">description</span></div>
+								<div class="attachment-content">
+									<div class="attachment-title">Extra small attachment</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="code-label">States &amp; sizes</div>
+					<pre data-sample="attachment-states"></pre>
+				</section>
+
 				<!-- ===== Tags ===== -->
 				<section id="tags" data-animate="fade-up">
 					<h2>Tags</h2>
@@ -723,9 +885,11 @@
 						<nav class="breadcrumb" aria-label="Breadcrumb with icons">
 							<ol>
 								<li><a href="#">Home</a></li>
-								<li class="breadcrumb-separator" aria-hidden="true"><span class="material-symbols-outlined">chevron_right</span></li>
+								<li class="breadcrumb-separator" aria-hidden="true"><span
+										class="material-symbols-outlined">chevron_right</span></li>
 								<li><a href="#">Components</a></li>
-								<li class="breadcrumb-separator" aria-hidden="true"><span class="material-symbols-outlined">chevron_right</span></li>
+								<li class="breadcrumb-separator" aria-hidden="true"><span
+										class="material-symbols-outlined">chevron_right</span></li>
 								<li><span class="breadcrumb-page" aria-current="page">Breadcrumb</span></li>
 							</ol>
 						</nav>

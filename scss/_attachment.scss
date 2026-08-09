@@ -1,0 +1,231 @@
+// Attachments: files and images in chat composers, threads, and upload lists.
+.attachment {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--card);
+  min-width: 0;
+}
+
+// Media slot: an icon tile or an image preview.
+.attachment-media {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: var(--radius-md);
+  background-color: var(--muted);
+  color: var(--foreground);
+  font-size: 2.2rem;
+  overflow: hidden;
+}
+
+.attachment-media.image {
+  padding: 0;
+}
+
+.attachment-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.attachment-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.attachment-title {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.attachment-description {
+  color: var(--muted-foreground);
+  font-size: var(--font-size-sm);
+}
+
+// Actions sit above the full-card trigger.
+.attachment-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-inline-start: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.attachment-action {
+  display: inline-grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background-color: transparent;
+  color: var(--muted-foreground);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.attachment-action:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+// Full-card overlay that opens the attachment; sits behind the actions.
+.attachment-trigger {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.attachment-trigger:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+// --- upload states ----------------------------------------------------------
+
+// uploading / processing shimmer the title; error gets a destructive tint.
+// The shimmer sweeps the highlight band from the left edge of the text to the
+// right: a 200%-wide background is only on-screen between positions 0% and
+// 100%, so the keyframes must stay inside that range (a -200% end position
+// would leave the text invisible at the end of every cycle).
+.attachment[data-state="uploading"] .attachment-title,
+.attachment[data-state="processing"] .attachment-title {
+  color: transparent;
+  background: linear-gradient(
+    90deg,
+    var(--muted-foreground) 25%,
+    var(--foreground) 50%,
+    var(--muted-foreground) 75%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: attachment-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes attachment-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}
+
+.attachment[data-state="error"] {
+  border-color: color-mix(in oklab, var(--destructive) 45%, var(--border));
+}
+
+.attachment[data-state="error"] .attachment-media {
+  background-color: color-mix(
+    in oklab,
+    var(--destructive) 12%,
+    var(--background)
+  );
+  color: var(--destructive);
+}
+
+// --- sizes ------------------------------------------------------------------
+
+.attachment.is-sm {
+  gap: 0.8rem;
+  padding: 0.7rem 1rem;
+}
+
+.attachment.is-sm .attachment-media {
+  width: 3.2rem;
+  height: 3.2rem;
+  font-size: 1.7rem;
+  border-radius: var(--radius-sm);
+}
+
+.attachment.is-xs {
+  gap: 0.6rem;
+  padding: 0.5rem 0.8rem;
+}
+
+.attachment.is-xs .attachment-media {
+  width: 2.6rem;
+  height: 2.6rem;
+  font-size: 1.4rem;
+  border-radius: var(--radius-sm);
+}
+
+.attachment.is-xs .attachment-description {
+  display: none;
+}
+
+// --- orientation ------------------------------------------------------------
+
+.attachment.is-vertical {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.attachment.is-vertical .attachment-actions {
+  position: absolute;
+  top: 0.6rem;
+  inset-inline-end: 0.6rem;
+}
+
+// Image media in vertical orientation spans the card.
+.attachment.is-vertical .attachment-media.image {
+  width: 100%;
+  height: 14rem;
+}
+
+// --- group: scrollable, snapping row with an edge fade -----------------------
+
+.attachment-group {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding: 0.4rem 1.6rem;
+  scroll-padding-inline: 1.6rem;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 1.6rem,
+    black calc(100% - 1.6rem),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 1.6rem,
+    black calc(100% - 1.6rem),
+    transparent
+  );
+}
+
+.attachment-group > * {
+  flex: none;
+  scroll-snap-align: start;
+}

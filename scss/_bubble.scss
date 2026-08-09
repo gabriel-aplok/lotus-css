@@ -1,0 +1,139 @@
+// Chat bubbles
+// A thread of messages: .chat > (.bubble | .bubble-group)
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+// The bubble wrapper. Bubbles size to their content, up to 80% of the thread.
+.bubble {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  max-width: 80%;
+}
+
+// Sender bubble: aligned and content-flush to the inline end.
+.bubble.is-end {
+  align-self: flex-end;
+  align-items: flex-end;
+}
+
+// The framed surface. Default variant is the strong primary (user) bubble.
+.bubble-content {
+  width: fit-content;
+  padding: 1rem 1.4rem;
+  border-radius: var(--radius-lg);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  overflow-wrap: anywhere;
+}
+
+// Neutral bubble for the other sender.
+.bubble.secondary .bubble-content {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+// Lower-emphasis supporting content.
+.bubble.muted .bubble-content {
+  background-color: var(--muted);
+  color: var(--muted-foreground);
+}
+
+// Soft primary tint.
+.bubble.tinted .bubble-content {
+  background-color: color-mix(in oklab, var(--primary) 10%, var(--background));
+  color: var(--primary);
+}
+
+// Bordered bubble for secondary or rich content.
+.bubble.outline .bubble-content {
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+// Extra surface inside a bubble (e.g. an attachment under the text).
+.bubble > .bubble-content + .attachment {
+  margin-top: 0.8rem;
+}
+
+// Unframed content (assistant prose, markdown): full width, no box.
+.bubble.ghost {
+  max-width: none;
+}
+
+.bubble.ghost .bubble-content {
+  width: auto;
+  padding-inline: 0;
+  background-color: transparent;
+  color: var(--foreground);
+}
+
+.bubble.destructive .bubble-content {
+  background-color: var(--destructive);
+  color: var(--destructive-foreground);
+}
+
+// Consecutive bubbles from the same sender: tight gap, alignment lives on
+// each .bubble inside (set .is-end there, not on the group).
+.bubble-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+// Reactions anchored to the bubble edge, overlapping it. Defaults: bottom
+// side, end alignment. Override with data-side="top" / data-align="start".
+.bubble-reactions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  align-self: flex-end;
+  position: relative;
+  z-index: 1;
+  margin-top: -0.8rem;
+  margin-inline-end: 1.4rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background-color: var(--card);
+  color: var(--muted-foreground);
+  font-size: var(--font-size-xs);
+  line-height: 1;
+  box-shadow: var(--shadow-sm);
+}
+
+.bubble-reactions .material-symbols-outlined {
+  font-size: 1.6rem;
+}
+
+.bubble-reactions[data-align="start"] {
+  align-self: flex-start;
+  margin-inline: 1.4rem 0;
+}
+
+.bubble-reactions[data-side="top"] {
+  order: -1;
+  margin-top: 0;
+  margin-bottom: -0.8rem;
+}
+
+// Small metadata line under a bubble (a "seen" read receipt, timestamp, ...).
+.bubble-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+  color: var(--muted-foreground);
+  font-size: var(--font-size-xs);
+}
+
+.bubble-meta .material-symbols-outlined {
+  font-size: 1.4rem;
+}
