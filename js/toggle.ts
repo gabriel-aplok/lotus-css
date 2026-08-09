@@ -1,4 +1,4 @@
-// Toggle buttons — flip aria-pressed; exclusive inside a .toggle-group.
+// Toggle buttons: flip aria-pressed; exclusive inside a .toggle-group.
 export function initToggles(root: ParentNode = document): void {
 	root.querySelectorAll<HTMLElement>('.toggle').forEach((btn) => {
 		btn.addEventListener('click', () => {

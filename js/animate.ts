@@ -1,4 +1,4 @@
-// Animations — scroll reveals via [data-animate]; respects prefers-reduced-motion.
+// Animations: scroll reveals via [data-animate]; respects prefers-reduced-motion.
 
 let observer: IntersectionObserver | null = null;
 

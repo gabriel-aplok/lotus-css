@@ -408,6 +408,14 @@ html.dark .theme-toggle [data-theme-icon="moon"] {
 	letter-spacing: 0.06em;
 }
 
+// Code samples are filled at runtime from samples.js. Without JavaScript the
+// blocks would render as empty boxes, so show a quiet placeholder instead.
+pre[data-sample]:empty::before {
+	content: 'Code sample appears when JavaScript is enabled.';
+	color: var(--muted-foreground);
+	font-style: italic;
+}
+
 // --- footer -----------------------------------------------------------------
 
 .site-footer {

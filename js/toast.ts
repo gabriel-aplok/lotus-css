@@ -1,4 +1,4 @@
-// Toast notifications — dependency-free; stacked in a created container.
+// Toast notifications: dependency-free; stacked in a created container.
 export type ToastType = 'default' | 'success' | 'warning' | 'destructive';
 
 export interface ToastOptions {

@@ -305,7 +305,7 @@ function addCopyButton(pre) {
   btn.setAttribute("aria-label", "Copy code");
   btn.innerHTML = COPY_ICON;
   btn.addEventListener("click", async () => {
-    await copyText(code.innerText);
+    await copyText(code.textContent ?? "");
     btn.innerHTML = CHECK_ICON;
     btn.classList.add("copied");
     btn.setAttribute("aria-label", "Copied");
@@ -379,7 +379,7 @@ function viewTransition(update) {
 }
 
 // js/index.ts
-var version = "0.3.0";
+var version = "0.4.0";
 function init(root = document) {
   initTheme(root);
   initDialogs(root);

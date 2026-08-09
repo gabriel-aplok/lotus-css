@@ -5,7 +5,7 @@ mostly it. It ships a neutral, oklch-based token system, layout utilities, a
 bunch of components, and an optional JavaScript layer for the parts that
 actually need JavaScript.
 
-The whole CSS file is about 51 kB minified. The JS layer is roughly 8 kB.
+The whole CSS file is about 52 kB minified. The JS layer is roughly 9 kB.
 
 ## What you get
 
@@ -93,7 +93,7 @@ token system (§5) and the JS layer (§6).
 
 ## Development
 
-Working on it — good. See [DEVELOPMENT.md](DEVELOPMENT.md) for the full
+Working on it? Good. See [DEVELOPMENT.md](DEVELOPMENT.md) for the full
 build, lint, typecheck, test and release workflow. The short version:
 
 ```bash
@@ -103,6 +103,7 @@ npm run watch      # rebuild dist/ on scss changes
 npm run watch:js   # rebuild dist/lotus.js on js/ changes
 npm run lint       # stylelint must pass
 npm run typecheck  # tsc must pass
+npm test           # vitest unit tests for the JS layer
 npm run build      # framework CSS + JS + docs
 ```
 
@@ -111,4 +112,4 @@ before opening a pull request.
 
 ## License
 
-MIT — see [LICENSE.md](LICENSE.md).
+MIT. See [LICENSE.md](LICENSE.md).

@@ -14,7 +14,7 @@ const WATCH = process.argv.includes('--watch');
 function banner() {
 	return `/*!
  * lotus.css v${pkg.version}
- * A minimal CSS framework — MIT License.
+ * A minimal CSS framework: MIT License.
  * https://github.com/gabriel-aplok/lotus-css
  */\n\n`;
 }

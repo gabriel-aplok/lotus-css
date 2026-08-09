@@ -31,7 +31,9 @@ function addCopyButton(pre: HTMLElement): void {
 	btn.setAttribute('aria-label', 'Copy code');
 	btn.innerHTML = COPY_ICON;
 	btn.addEventListener('click', async () => {
-		await copyText(code.innerText);
+		// textContent, not innerText: identical result for code, no forced reflow,
+		// and works in jsdom/SSR where innerText is unavailable.
+		await copyText(code.textContent ?? '');
 		btn.innerHTML = CHECK_ICON;
 		btn.classList.add('copied');
 		btn.setAttribute('aria-label', 'Copied');

@@ -1,4 +1,4 @@
-// Carousel — scroll-snap track with optional prev/next buttons.
+// Carousel: scroll-snap track with optional prev/next buttons.
 export function initCarousels(root: ParentNode = document): void {
 	root.querySelectorAll<HTMLElement>('[data-carousel]').forEach((carousel) => {
 		const track = carousel.querySelector<HTMLElement>('[data-carousel-track]');

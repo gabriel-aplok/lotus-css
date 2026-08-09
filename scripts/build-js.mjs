@@ -12,7 +12,7 @@ const WATCH = process.argv.includes('--watch');
 function banner() {
 	return `/*!
  * lotus.js v${pkg.version}
- * Optional JS enhancements for lotus.css — MIT License.
+ * Optional JS enhancements for lotus.css: MIT License.
  * https://github.com/gabriel-aplok/lotus-css
  */\n`;
 }

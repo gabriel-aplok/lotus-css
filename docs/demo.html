@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>LOTUS.css — Component demo</title>
+	<title>LOTUS.css | Component demo</title>
 	<meta name="description"
 		content="Live demo of every LOTUS.css component, with copyable, syntax-highlighted code samples.">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,7 +86,7 @@
 				<h1>Component demo</h1>
 				<p style="color: var(--muted-foreground);">
 					Every component below is a live example. Hover the code samples for the
-					copy button — syntax highlighting is automatic via highlight.js.
+					copy button. Syntax highlighting is automatic via highlight.js.
 				</p>
 
 				<!-- ===== Buttons ===== -->
@@ -117,9 +117,7 @@
 						</p>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="buttons.html"><code class="language-html">&lt;button class="button primary"&gt;Primary&lt;/button&gt;
-&lt;button class="button outline is-lg"&gt;Large outline&lt;/button&gt;
-&lt;div class="grouped"&gt;…&lt;/div&gt;</code></pre>
+					<pre data-sample="buttons"></pre>
 				</section>
 
 				<!-- ===== Tabs ===== -->
@@ -133,7 +131,7 @@
 						</div>
 						<div data-tab-panel="tab1" role="tabpanel" style="padding: 2rem 0;">
 							<h3 style="margin-top: 0;">Overview</h3>
-							<p>The overview panel — tabs are fully accessible and work without JavaScript too.</p>
+							<p>This is the overview panel. Tabs are fully accessible and work without JavaScript too.</p>
 						</div>
 						<div data-tab-panel="tab2" role="tabpanel" hidden style="padding: 2rem 0;">
 							<h3 style="margin-top: 0;">Settings</h3>
@@ -145,12 +143,7 @@
 						</div>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="tabs.html"><code class="language-html">&lt;div class="tabs" data-tabs&gt;
-  &lt;button data-tab="tab1" class="active"&gt;Overview&lt;/button&gt;
-  &lt;button data-tab="tab2"&gt;Settings&lt;/button&gt;
-&lt;/div&gt;
-&lt;div data-tab-panel="tab1"&gt;…&lt;/div&gt;
-&lt;div data-tab-panel="tab2" hidden&gt;…&lt;/div&gt;</code></pre>
+					<pre data-sample="tabs"></pre>
 				</section>
 
 				<!-- ===== Cards ===== -->
@@ -180,10 +173,7 @@
 						</article>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="cards.html"><code class="language-html">&lt;article class="card hover"&gt;
-  &lt;h3 class="card-title"&gt;Title&lt;/h3&gt;
-  &lt;p&gt;Body text…&lt;/p&gt;
-&lt;/article&gt;</code></pre>
+					<pre data-sample="cards"></pre>
 				</section>
 
 				<!-- ===== Dialogs ===== -->
@@ -209,10 +199,7 @@
 						</dialog>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="dialog.html"><code class="language-html">&lt;button data-dialog-open="my-dialog"&gt;Open&lt;/button&gt;
-&lt;dialog id="my-dialog"&gt;
-  &lt;button data-dialog-close&gt;Close&lt;/button&gt;
-&lt;/dialog&gt;</code></pre>
+					<pre data-sample="dialog"></pre>
 				</section>
 
 				<!-- ===== Sheets ===== -->
@@ -257,10 +244,7 @@
 						</dialog>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="sheet.html"><code class="language-html">&lt;button data-sheet-open="my-sheet"&gt;Open&lt;/button&gt;
-&lt;dialog class="sheet" id="my-sheet" data-side="right"&gt;
-  &lt;button data-sheet-close&gt;Close&lt;/button&gt;
-&lt;/dialog&gt;</code></pre>
+					<pre data-sample="sheet"></pre>
 				</section>
 
 				<!-- ===== Popovers ===== -->
@@ -278,12 +262,11 @@
 						</div>
 						<div class="popover" id="popover-2" role="dialog">
 							<strong>Status</strong>
-							<p style="margin: 0.6rem 0 0;">Popovers are lightweight — one data attribute and an id.</p>
+							<p style="margin: 0.6rem 0 0;">Popovers are lightweight: one data attribute and an id.</p>
 						</div>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="popover.html"><code class="language-html">&lt;button data-popover-trigger="menu"&gt;Open&lt;/button&gt;
-&lt;div class="popover" id="menu"&gt;…&lt;/div&gt;</code></pre>
+					<pre data-sample="popover"></pre>
 				</section>
 
 				<!-- ===== Toasts ===== -->
@@ -291,22 +274,19 @@
 					<h2>Toasts</h2>
 					<div class="showcase">
 						<p>
-							<button class="button" data-toast-demo="default" data-toast-text="Saved successfully"
-								data-toast-title="Info">Default toast</button>
-							<button class="button success" data-toast-demo="success" data-toast-text="Your changes have been saved"
+							<button class="button" data-toast="Saved successfully" data-toast-title="Info">Default toast</button>
+							<button class="button success" data-toast="Your changes have been saved" data-toast-type="success"
 								data-toast-title="Success">Success toast</button>
-							<button class="button warning" data-toast-demo="warning" data-toast-text="Your session expires soon"
+							<button class="button warning" data-toast="Your session expires soon" data-toast-type="warning"
 								data-toast-title="Warning">Warning toast</button>
-							<button class="button destructive" data-toast-demo="destructive" data-toast-text="That operation failed"
+							<button class="button destructive" data-toast="That operation failed" data-toast-type="destructive"
 								data-toast-title="Error">Destructive toast</button>
 						</p>
 						<p style="color: var(--muted-foreground); margin-bottom: 0;">Toasts stack in the bottom-right corner and
 							dismiss themselves after 4 seconds.</p>
 					</div>
 					<div class="code-label">Programmatic API</div>
-					<pre data-filename="app.js"><code class="language-js">import { toast } from 'lotus-css/js';
-
-toast('Saved', { type: 'success', title: 'Done' });</code></pre>
+					<pre data-sample="toast"></pre>
 				</section>
 
 				<!-- ===== Tooltips ===== -->
@@ -319,12 +299,11 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 							<button class="button" data-tooltip="Left tooltip" data-tooltip-position="left">Left</button>
 							<button class="button" data-tooltip="Right tooltip" data-tooltip-position="right">Right</button>
 						</p>
-						<p style="color: var(--muted-foreground); margin-bottom: 0;">Pure CSS — no JavaScript required. Tooltips
+						<p style="color: var(--muted-foreground); margin-bottom: 0;">Pure CSS, no JavaScript required. Tooltips
 							also appear on keyboard focus.</p>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre
-						data-filename="tooltip.html"><code class="language-html">&lt;button data-tooltip="Help text"&gt;Hover me&lt;/button&gt;</code></pre>
+					<pre data-sample="tooltip"></pre>
 				</section>
 
 				<!-- ===== Accordions ===== -->
@@ -338,7 +317,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 							</details>
 							<details data-accordion-item>
 								<summary>Does it need a build step?</summary>
-								<p>No — link the stylesheet and go. The JS layer is optional and dependency-free.</p>
+								<p>No. Link the stylesheet and go. The JS layer is optional and dependency-free.</p>
 							</details>
 							<details data-accordion-item>
 								<summary>Is dark mode automatic?</summary>
@@ -348,12 +327,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						</div>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="accordion.html"><code class="language-html">&lt;div data-accordion&gt;
-  &lt;details data-accordion-item open&gt;
-    &lt;summary&gt;Question&lt;/summary&gt;
-    &lt;p&gt;Answer…&lt;/p&gt;
-  &lt;/details&gt;
-&lt;/div&gt;</code></pre>
+					<pre data-sample="accordion"></pre>
 				</section>
 
 				<!-- ===== Carousel ===== -->
@@ -398,13 +372,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						</div>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="carousel.html"><code class="language-html">&lt;div class="carousel" data-carousel&gt;
-  &lt;button data-carousel-prev&gt;‹&lt;/button&gt;
-  &lt;div class="carousel-track" data-carousel-track&gt;
-    &lt;div class="carousel-item"&gt;…&lt;/div&gt;
-  &lt;/div&gt;
-  &lt;button data-carousel-next&gt;›&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+					<pre data-sample="carousel"></pre>
 				</section>
 
 				<!-- ===== Forms ===== -->
@@ -433,10 +401,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						</form>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="form.html"><code class="language-html">&lt;label for="name"&gt;Name&lt;/label&gt;
-&lt;input id="name" type="text" placeholder="Ada Lovelace"&gt;
-&lt;select id="country"&gt;&lt;option&gt;…&lt;/option&gt;&lt;/select&gt;
-&lt;textarea rows="3"&gt;…&lt;/textarea&gt;</code></pre>
+					<pre data-sample="form"></pre>
 				</section>
 
 				<!-- ===== Controls ===== -->
@@ -467,12 +432,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						</p>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="controls.html"><code class="language-html">&lt;label&gt;&lt;input type="checkbox" checked&gt; Checkbox&lt;/label&gt;
-&lt;span class="switch"&gt;
-  &lt;input type="checkbox" checked&gt;
-  &lt;span class="track"&gt;&lt;/span&gt;
-&lt;/span&gt;
-&lt;input type="range" min="0" max="100" value="40"&gt;</code></pre>
+					<pre data-sample="controls"></pre>
 				</section>
 
 				<!-- ===== Toggles ===== -->
@@ -491,10 +451,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						</div>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="toggle.html"><code class="language-html">&lt;button class="toggle" aria-pressed="true"&gt;Bold&lt;/button&gt;
-&lt;div class="toggle-group"&gt;
-  &lt;button class="toggle" aria-pressed="false"&gt;Week&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+					<pre data-sample="toggle"></pre>
 				</section>
 
 				<!-- ===== Navs ===== -->
@@ -516,12 +473,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 							a blurred, translucent bar.</p>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="nav.html"><code class="language-html">&lt;nav class="nav"&gt;
-  &lt;div class="nav-left"&gt;&lt;a class="brand" href="#"&gt;LOTUS&lt;/a&gt;&lt;/div&gt;
-  &lt;div class="nav-right"&gt;
-    &lt;a href="#" aria-current="page"&gt;Home&lt;/a&gt;
-  &lt;/div&gt;
-&lt;/nav&gt;</code></pre>
+					<pre data-sample="nav"></pre>
 				</section>
 
 				<!-- ===== Dropdowns ===== -->
@@ -541,10 +493,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						<p style="color: var(--muted-foreground); margin-bottom: 0;">Click outside a dropdown to close it.</p>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="dropdown.html"><code class="language-html">&lt;details class="dropdown"&gt;
-  &lt;summary&gt;Menu&lt;/summary&gt;
-  &lt;div class="dropdown-menu"&gt;…&lt;/div&gt;
-&lt;/details&gt;</code></pre>
+					<pre data-sample="dropdown"></pre>
 				</section>
 
 				<!-- ===== Alerts ===== -->
@@ -577,10 +526,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						</div>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="alert.html"><code class="language-html">&lt;div class="alert success"&gt;
-  &lt;p class="alert-title"&gt;Success&lt;/p&gt;
-  &lt;p class="alert-body"&gt;Everything went as planned.&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+					<pre data-sample="alert"></pre>
 				</section>
 
 				<!-- ===== Badges & Avatars ===== -->
@@ -603,8 +549,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						</p>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="badge.html"><code class="language-html">&lt;span class="badge success"&gt;Success&lt;/span&gt;
-&lt;span class="avatar"&gt;G&lt;/span&gt;</code></pre>
+					<pre data-sample="badge"></pre>
 				</section>
 
 				<!-- ===== Tags ===== -->
@@ -619,8 +564,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						</p>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre
-						data-filename="tags.html"><code class="language-html">&lt;span class="tag"&gt;css&lt;/span&gt;</code></pre>
+					<pre data-sample="tags"></pre>
 				</section>
 
 				<!-- ===== Breadcrumbs ===== -->
@@ -636,12 +580,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						</nav>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="breadcrumb.html"><code class="language-html">&lt;nav class="breadcrumb"&gt;
-  &lt;ol&gt;
-    &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;li aria-current="page"&gt;Components&lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/nav&gt;</code></pre>
+					<pre data-sample="breadcrumb"></pre>
 				</section>
 
 				<!-- ===== Pagination ===== -->
@@ -659,9 +598,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						</nav>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="pagination.html"><code class="language-html">&lt;ul class="pagination"&gt;
-  &lt;li&gt;&lt;a href="#" class="active"&gt;2&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+					<pre data-sample="pagination"></pre>
 				</section>
 
 				<!-- ===== Tables ===== -->
@@ -680,7 +617,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 								<tr>
 									<td>LOTUS.css</td>
 									<td>Classless</td>
-									<td>~51 kB</td>
+									<td>~52 kB</td>
 								</tr>
 								<tr>
 									<td>Bootstrap</td>
@@ -718,10 +655,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						</table>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="table.html"><code class="language-html">&lt;table class="striped"&gt;
-  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Plan&lt;/th&gt;&lt;th&gt;Price&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-  &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Pro&lt;/td&gt;&lt;td&gt;$12/mo&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
-&lt;/table&gt;</code></pre>
+					<pre data-sample="table"></pre>
 				</section>
 
 				<!-- ===== Spinners & Skeletons ===== -->
@@ -738,8 +672,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						<div class="skeleton" style="height: 2rem; width: 45%;"></div>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="loading.html"><code class="language-html">&lt;span class="spinner"&gt;&lt;/span&gt;
-&lt;div class="skeleton"&gt;&lt;/div&gt;</code></pre>
+					<pre data-sample="loading"></pre>
 				</section>
 
 				<!-- ===== Separators ===== -->
@@ -755,9 +688,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						</div>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="separator.html"><code class="language-html">&lt;hr class="separator"&gt;
-&lt;div class="separator"&gt;Label&lt;/div&gt;
-&lt;hr class="separator" data-orientation="vertical"&gt;</code></pre>
+					<pre data-sample="separator"></pre>
 				</section>
 
 				<!-- ===== Scroll area ===== -->
@@ -777,9 +708,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 						</div>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="scroll.html"><code class="language-html">&lt;div class="scroll-area"&gt;
-  &lt;p&gt;Long content…&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+					<pre data-sample="scroll"></pre>
 				</section>
 
 				<!-- ===== Code blocks ===== -->
@@ -791,13 +720,7 @@ toast('Saved', { type: 'success', title: 'Done' });</code></pre>
 							automatic syntax highlighting. Use <code>data-no-copy</code> to opt out.
 						</p>
 					</div>
-					<pre data-filename="example.js" data-animate="fade-up"><code class="language-js">import { init, toast, theme } from 'lotus-css/js';
-
-init();
-
-document.querySelector('#send').addEventListener('click', () => {
-  toast('Message sent', { type: 'success' });
-});</code></pre>
+					<pre data-sample="code" data-animate="fade-up"></pre>
 				</section>
 
 				<!-- ===== Grid ===== -->
@@ -829,26 +752,22 @@ document.querySelector('#send').addEventListener('click', () => {
 						</div>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="grid.html"><code class="language-html">&lt;div class="row"&gt;
-  &lt;div class="col-4"&gt;…&lt;/div&gt;
-  &lt;div class="col-8"&gt;…&lt;/div&gt;
-&lt;/div&gt;</code></pre>
+					<pre data-sample="grid"></pre>
 				</section>
 
 				<!-- ===== Utilities ===== -->
 				<section id="utilities" data-animate="fade-up">
 					<h2>Utilities</h2>
 					<div class="showcase">
-						<p class="text-center">.text-center — centered text</p>
-						<p class="text-right">.text-right — right-aligned</p>
-						<p class="text-upper">.text-upper — uppercase</p>
+						<p class="text-center">.text-center: centered text</p>
+						<p class="text-right">.text-right: right-aligned</p>
+						<p class="text-upper">.text-upper: uppercase</p>
 						<div class="full-width"
 							style="height: 4rem; background: var(--muted); border-radius: var(--radius-md); display: grid; place-items: center;">
 							.full-width</div>
 					</div>
 					<div class="code-label">Markup</div>
-					<pre data-filename="utils.html"><code class="language-html">&lt;p class="text-center"&gt;…&lt;/p&gt;
-&lt;div class="full-width"&gt;…&lt;/div&gt;</code></pre>
+					<pre data-sample="utils"></pre>
 				</section>
 
 			</div>

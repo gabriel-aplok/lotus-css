@@ -1,4 +1,4 @@
-// Sheets (side drawers) — native <dialog class="sheet"> sliding in from an edge.
+// Sheets (side drawers): native <dialog class="sheet"> sliding in from an edge.
 import { openDialog, closeDialog } from './dialog';
 
 export function initSheets(root: ParentNode = document): void {

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>LOTUS.css — A classless CSS framework</title>
+	<title>LOTUS.css | A classless CSS framework</title>
 	<meta name="description"
 		content="Classless CSS with a neutral token system, automatic dark mode, and an optional dependency-free JS layer for dialogs, toasts, tabs and more.">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,11 +48,11 @@
 	<main>
 		<!-- ======================= Hero ======================= -->
 		<section class="hero">
-			<span class="hero-badge">v0.3.0 — classless · dependency-free · MIT</span>
+			<span class="hero-badge">v0.4.0, classless, dependency-free, MIT</span>
 			<h1 data-animate="fade-up">LOTUS<span style="color: var(--muted-foreground);">.css</span></h1>
 			<p class="hero-sub" data-animate="fade-up" data-animate-delay="80">
 				Classless CSS with a neutral, oklch token system. Automatic dark mode.
-				An optional 8&nbsp;kB JS layer for dialogs, toasts, tabs and more.
+				An optional 9&nbsp;kB JS layer for dialogs, toasts, tabs and more.
 				Semantic HTML still looks like something.
 			</p>
 			<div class="hero-actions" data-animate="fade-up" data-animate-delay="160">
@@ -74,7 +74,7 @@
 					<article class="feature-card" data-animate="fade-up">
 						<div class="feature-icon">⚡</div>
 						<h3>Lightweight</h3>
-						<p>~51 kB of CSS minified, and the optional JS layer is just 8 kB. No build step required.</p>
+						<p>~52 kB of CSS minified, and the optional JS layer is under 9 kB. No build step required.</p>
 					</article>
 					<article class="feature-card" data-animate="fade-up" data-animate-delay="60">
 						<div class="feature-icon">🧱</div>
@@ -117,17 +117,15 @@
 				<div class="quick-grid">
 					<div class="quick-step" data-animate="fade-up">
 						<h3><span class="step">1</span> Link the CSS</h3>
-						<pre
-							data-filename="index.html"><code class="language-html">&lt;link rel="stylesheet" href="https://unpkg.com/lotus-css"&gt;</code></pre>
+						<pre data-sample="quick-css"></pre>
 					</div>
 					<div class="quick-step" data-animate="fade-up" data-animate-delay="60">
 						<h3><span class="step">2</span> Optional: the JS layer</h3>
-						<pre
-							data-filename="index.html"><code class="language-html">&lt;script src="https://unpkg.com/lotus-css/dist/lotus.min.js" defer&gt;&lt;/script&gt;</code></pre>
+						<pre data-sample="quick-js"></pre>
 					</div>
 					<div class="quick-step" data-animate="fade-up" data-animate-delay="120">
 						<h3><span class="step">3</span> Or install from npm</h3>
-						<pre data-filename="terminal"><code class="language-bash">npm install lotus-css</code></pre>
+						<pre data-sample="quick-npm"></pre>
 					</div>
 				</div>
 			</div>
@@ -140,14 +138,7 @@
 					<h2>Customize</h2>
 					<p>Every color, radius, shadow and font is a design token. Override any of them in your own CSS.</p>
 				</div>
-				<pre data-filename="your-theme.css" data-animate="fade-up"><code class="language-css">:root {
-  --primary: #111111;          /* brand color */
-  --background: #fafafa;       /* page background */
-  --foreground: #18181b;       /* text color */
-  --radius-md: 0.75rem;        /* border radius */
-  --font-sans: "Inter", system-ui, sans-serif;
-  --grid-max-width: 108rem;    /* container width */
-}</code></pre>
+				<pre data-sample="customize" data-animate="fade-up"></pre>
 				<p style="margin-top: 2rem; color: var(--muted-foreground);" data-animate="fade-up">
 					Dark mode is automatic. To force it, add <code>class="dark"</code> to
 					<code>&lt;html&gt;</code>. Or use <code>class="light"</code> to ignore the OS setting.
@@ -196,7 +187,7 @@
 			<a href="https://github.com/gabriel-aplok/lotus-css" target="_blank" rel="noopener">GitHub</a> ·
 			<a href="https://github.com/gabriel-aplok/lotus-css/issues" target="_blank" rel="noopener">Report an issue</a>
 		</p>
-		<p>Made with LOTUS.css — MIT licensed.</p>
+		<p>Made with LOTUS.css, MIT licensed.</p>
 	</footer>
 
 	<script type="module" src="./js/main.js"></script>

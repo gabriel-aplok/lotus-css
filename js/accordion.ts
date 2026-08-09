@@ -1,4 +1,4 @@
-// Accordion — exclusive <details> groups.
+// Accordion: exclusive <details> groups.
 export function initAccordions(root: ParentNode = document): void {
 	root.querySelectorAll<HTMLElement>('[data-accordion]').forEach((group) => {
 		const items = group.querySelectorAll<HTMLElement>('[data-accordion-item]');

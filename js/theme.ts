@@ -1,4 +1,4 @@
-// Theme management — defaults to OS; manual .dark/.light persisted to localStorage.
+// Theme management: defaults to OS; manual .dark/.light persisted to localStorage.
 export type Theme = 'light' | 'dark' | 'auto';
 
 const STORAGE_KEY = 'lotus-theme';

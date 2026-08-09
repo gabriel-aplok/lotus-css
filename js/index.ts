@@ -1,4 +1,4 @@
-// lotus.js — optional JS enhancements for LOTUS.css (dependency-free).
+// lotus.js: optional JS enhancements for LOTUS.css (dependency-free).
 // Opt-in via data attributes; set data-lotus-no-init on <html> to disable
 // automatic initialisation.
 
@@ -50,7 +50,7 @@ export {
 	type Theme,
 };
 
-export const version = '0.3.0';
+export const version = '0.4.0';
 
 /** Initialise every LOTUS enhancement on the given subtree (default: document). */
 export function init(root: ParentNode | Document = document): void {

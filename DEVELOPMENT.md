@@ -1,4 +1,4 @@
-# LOTUS.css — Development Guide
+# LOTUS.css: Development Guide
 
 This document describes how the source is organized, how it is compiled, the
 design-token system, the JS enhancement layer, how the docs site is built, and
@@ -8,7 +8,7 @@ how releases get from your machine to npm and the web.
 
 ## 1. Toolchain
 
-Everything runs on Node.js — no Ruby, no Jekyll.
+Everything runs on Node.js, no Ruby, no Jekyll.
 
 | Tool                 | What it does                                                    |
 | -------------------- | --------------------------------------------------------------- |
@@ -18,6 +18,7 @@ Everything runs on Node.js — no Ruby, no Jekyll.
 | **Vite**             | Docs site dev server, HMR, and production build                 |
 | **Stylelint**        | Lints `scss/**` and `docs/css/**` (config: `.stylelintrc.json`) |
 | **TypeScript (tsc)** | Typechecks the `js/` sources (`npm run typecheck`)              |
+| **Vitest**          | Runs the JS unit tests in jsdom (`npm test`)                    |
 | **highlight.js**     | Syntax highlighting on the docs site (docs-only dep)            |
 
 **Prerequisites:** Node.js ≥ 18 and npm. Install everything once with `npm
@@ -33,14 +34,18 @@ install`.
 │   ├── lotus-theme.scss      #   defines the partial load order
 │   └── _*.scss               #   partials (normalize, base, form, sheet, …)
 ├── js/                       # The optional JS layer (TypeScript source)
-│   ├── index.ts              #   entry — init() wires up every module
+│   ├── index.ts              #   entry: init() wires up every module
 │   ├── types.d.ts            #   hand-written public type declarations
 │   └── *.ts                  #   modules (theme, toast, dialog, tabs, …)
+├── tests/                    # Unit tests for the JS layer (Vitest + jsdom)
+│   └── *.test.ts             #   one spec file per module
 ├── docs/                     # Docs site (Vite)
-│   ├── index.html            #   landing page (from scratch)
-│   ├── demo.html             #   component demo (from scratch)
+│   ├── index.html            #   landing page
+│   ├── demo.html             #   component demo
 │   ├── css/site.scss         #   bundles the framework + site styles
-│   └── js/main.js            #   registers highlight.js, imports js/, init()
+│   └── js/
+│       ├── main.js           #   registers highlight.js, imports js/, init()
+│       └── samples.js        #   single source of truth for code samples
 ├── dist/                     # Committed build output (never hand-edited)
 │   ├── lotus.css             #   expanded, readable
 │   ├── lotus.min.css         #   minified + prefixed
@@ -56,7 +61,8 @@ install`.
 │   ├── pages.yml             # builds + deploys the docs to GitHub Pages
 │   └── release.yml           # publishes to npm on a version tag
 ├── vite.config.js            # docs site config (multi-page, relative base)
-├── tsconfig.json             # typecheck config for js/
+├── vitest.config.ts          # test runner config (jsdom environment)
+├── tsconfig.json             # typecheck config for js/ + tests/
 └── .stylelintrc.json         # linting rules
 ```
 
@@ -76,6 +82,7 @@ install`.
 | `npm run build`      | `clean` → `build:dist` → `build:docs` (the full build)       |
 | `npm run lint`       | Stylelint over all Sass sources                              |
 | `npm run typecheck`  | `tsc --noEmit` over the `js/` sources                        |
+| `npm test`           | Vitest unit tests for the JS layer (`tests/*.test.ts`)       |
 | `npm run preview`    | Preview the built docs site locally                          |
 
 ### Typical editing loop
@@ -83,7 +90,7 @@ install`.
 ```bash
 npm run dev        # open http://localhost:5173, tweak docs/css/site.scss → HMR
 npm run watch      # while editing scss/, keep dist/ in sync in a second terminal
-npm run lint       # before committing — must be clean
+npm run lint       # before committing, must be clean
 npm run build:css  # regenerate dist/ if you changed scss/
 ```
 
@@ -101,12 +108,12 @@ npm run build:css  # regenerate dist/ if you changed scss/
 3. **Lightning CSS** minifies the result and adds vendor prefixes for the
    browsers in the `browserslist` field of `package.json`.
 4. Outputs:
-   - `dist/lotus.css` — readable, for development/debugging
-   - `dist/lotus.min.css` — production, for CDNs and package consumers
+   - `dist/lotus.css`: readable, for development/debugging
+   - `dist/lotus.min.css`: production, for CDNs and package consumers
 
 Both files carry a `/*!` version banner. The minified file is additionally
 vendor-prefixed (e.g. `-webkit-`) per the `browserslist` field, while
-`dist/lotus.css` is left as-is for readability — use the minified file for
+`dist/lotus.css` is left as-is for readability. Use the minified file for
 production. (The source already hand-writes the prefixes it needs.)
 
 ### Adding a new partial
@@ -123,9 +130,9 @@ production. (The source already hand-writes the prefixes it needs.)
 ## 5. Design tokens
 
 Every visual decision in LOTUS.css is a CSS custom property defined in
-`scss/_base.scss`. There are **two palettes** — light (the `:root` defaults)
+`scss/_base.scss`. There are **two palettes**: light (the `:root` defaults)
 and dark (the `@mixin dark-tokens()` block, applied by the `.dark` class and
-by `@media (prefers-color-scheme: dark)`) — plus a shared set of shape, motion
+by `@media (prefers-color-scheme: dark)`), plus a shared set of shape, motion
 and layout tokens that stay constant across themes.
 
 ### 5.1 Color roles
@@ -156,7 +163,7 @@ and layout tokens that stay constant across themes.
 ### 5.2 Syntax tokens
 
 Code blocks are themed through `--syntax-*` tokens instead of hardcoded
-backgrounds — this is what keeps code blocks readable in dark mode (the old
+backgrounds. This is what keeps code blocks readable in dark mode (the old
 `body.dark`-scoped overrides never matched, because the theme class lives on
 `<html>`). All tokens are consumed by `scss/_syntax.scss`, which maps both
 highlight.js classes (`.hljs-keyword`, …) and legacy pygments classes
@@ -217,9 +224,9 @@ upgrades components that carry data attributes.
 
 `npm run build:js` runs `scripts/build-js.mjs` (esbuild):
 
-- `dist/lotus.js` — ESM bundle for bundlers / `import`
-- `dist/lotus.min.js` — minified IIFE exposing the `lotus` global (script tag)
-- `dist/lotus.d.ts` — hand-written types, copied from `js/types.d.ts`
+- `dist/lotus.js`: ESM bundle for bundlers / `import`
+- `dist/lotus.min.js`: minified IIFE exposing the `lotus` global (script tag)
+- `dist/lotus.d.ts`: hand-written types, copied from `js/types.d.ts`
 
 Script-tag usage (auto-initialises on `DOMContentLoaded`):
 
@@ -241,11 +248,11 @@ Set `data-lotus-no-init` on `<html>` to disable auto-initialisation.
 
 | Module           | Attribute / API                                         | What it does                                                  |
 | ---------------- | ------------------------------------------------------- | ------------------------------------------------------------- | ----- | --- | --------- |
-| Theme            | `[data-theme-toggle]`, `theme.set()/toggle()`           | Auto + manual dark mode, persisted, emits `lotus:themechange` |
+| Theme            | `[data-theme-toggle]`, `setTheme()/toggleTheme()`       | Auto + manual dark mode, persisted, emits `lotus:themechange` |
 | Dialog           | `[data-dialog-open="#id"]`, `[data-dialog-close]`       | Opens/closes native `<dialog>` modals                         |
 | Sheet            | `[data-sheet-open="#id"]`, `[data-sheet-close]`         | Side-drawer dialogs (`data-side="left                         | right | top | bottom"`) |
 | Tabs             | `[data-tabs]` + `[data-tab]` / `[data-tab-panel]`       | Accessible tab switching                                      |
-| Toast            | `[data-toast-demo]` buttons, `toast(msg, opts)` API     | Stacked notifications                                         |
+| Toast            | `[data-toast]` + `data-toast-type/-title`, `toast(msg, opts)` | Stacked notifications                                   |
 | Accordion        | `[data-accordion]` + `[data-accordion-item]`            | Exclusive `<details>` groups                                  |
 | Dropdown         | `.dropdown`                                             | Click-outside close                                           |
 | Carousel         | `[data-carousel]` + `[data-carousel-track]` + prev/next | Scroll-snap track navigation                                  |
@@ -257,11 +264,22 @@ Set `data-lotus-no-init` on `<html>` to disable auto-initialisation.
 
 ### 6.3 Code blocks
 
-Copy buttons are added by `initCopy()` and styled in `scss/_code.scss` — they
+Copy buttons are added by `initCopy()` and styled in `scss/_code.scss`. They
 fade in on hover/focus of the block. Syntax highlighting is progressive: if a
 highlight.js instance exists as `window.hljs`, `initHighlight()` runs it over
 `pre code` blocks. The docs site registers its own curated language set in
 `docs/js/main.js`; consumers can register their own before `init()`.
+
+### 6.4 Unit tests
+
+`npm test` runs the Vitest suite (`tests/*.test.ts`) in a jsdom environment,
+one spec file per module (theme, toast, tabs, dialog, code, animate, …). The
+suite runs in CI, so keep it green when you touch `js/`:
+
+```bash
+npm test             # one-shot run
+npm run test:watch   # watch mode
+```
 
 ---
 
@@ -276,6 +294,11 @@ The docs are a plain **Vite** multi-page app (`docs/index.html` +
 ```
 
 so the docs always reflect the current source with instant HMR in dev.
+
+Code samples are kept in exactly one place. Pages write
+`<pre data-sample="id"></pre>` and `docs/js/samples.js` (`renderSamples()`)
+fills them at runtime, so sample markup is never duplicated or hand-escaped
+inside HTML.
 
 - Local development: `npm run dev`
 - Production build: `npm run build:docs` → `docs-dist/`
@@ -335,7 +358,7 @@ The package is then available from:
 
 1. `npm run lint` is clean.
 2. `npm run build` succeeds and `git diff --exit-code -- dist/` is empty.
-3. `npm version <patch|minor|major>` — check the banner in `dist/lotus.css`
+3. `npm version <patch|minor|major>`; check the banner in `dist/lotus.css`
    picked up the new version.
 4. Push commit + tag; watch the _Release to npm_ run on GitHub.
 5. The docs deploy to GitHub Pages runs automatically on the `main` push.
@@ -349,7 +372,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor flow. Short version:
 1. Fork, create a branch.
 2. Edit the Sass partials in `scss/` (keep comments explaining _why_).
 3. `npm run lint` clean, `npm run build:css`, commit `dist/` too.
-4. Open a PR — CI verifies everything automatically.
+4. Open a PR; CI verifies everything automatically.
 
 ---
 

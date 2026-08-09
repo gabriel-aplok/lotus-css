@@ -1,4 +1,4 @@
-/** Type declarations for lotus.js — the optional JS enhancements for LOTUS.css. */
+/** Type declarations for lotus.js: the optional JS enhancements for LOTUS.css. */
 
 export type Theme = 'light' | 'dark' | 'auto';
 

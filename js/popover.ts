@@ -1,4 +1,4 @@
-// Popover — positions [data-popover] panels, flipping when they'd overflow.
+// Popover: positions [data-popover] panels, flipping when they'd overflow.
 export function initPopovers(root: ParentNode = document): void {
 	root.querySelectorAll<HTMLElement>('[data-popover-trigger]').forEach((trigger) => {
 		const id = trigger.getAttribute('data-popover-trigger');
