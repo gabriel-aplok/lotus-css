@@ -255,6 +255,7 @@ template {
   --transition-slow: 300ms ease;
   --grid-max-width: 120rem;
   --grid-gutter-size: 2rem;
+  --card-spacing: 1.6rem;
   --color-primary: var(--primary);
   --color-on-primary: var(--primary-foreground);
   --color-primary-container: var(--secondary);
@@ -1618,12 +1619,20 @@ details.dropdown.is-right > :last-child {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-spacing);
+  padding: var(--card-spacing);
   background-color: var(--card);
   color: var(--card-foreground);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  padding: 2.5rem 2rem;
+  overflow: hidden;
+}
+
+.card.is-sm {
+  --card-spacing: 1.2rem;
 }
 
 .card.border {
@@ -1639,10 +1648,58 @@ details.dropdown.is-right > :last-child {
   transform: translateY(-2px);
 }
 
-.card .card-title {
+.card-header {
+  display: grid;
+  align-items: start;
+  gap: 0.4rem;
+}
+
+.card-header:has(.card-action) {
+  grid-template-columns: 1fr auto;
+}
+
+.card-title {
   font-size: var(--font-size-lg);
   font-weight: bold;
-  margin: 0 0 1rem;
+  margin: 0;
+}
+
+.card-description {
+  color: var(--muted-foreground);
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+
+.card-action {
+  justify-self: end;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-inline: calc(-1 * var(--card-spacing));
+  margin-bottom: calc(-1 * var(--card-spacing));
+  padding: var(--card-spacing);
+  border-top: 1px solid var(--border);
+  background-color: color-mix(in oklab, var(--muted) 55%, transparent);
+}
+
+.card-footer.is-column {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.card-footer.is-end {
+  justify-content: flex-end;
+}
+
+.card > img:first-child {
+  display: block;
+  width: calc(100% + 2 * var(--card-spacing));
+  margin: calc(-1 * var(--card-spacing)) calc(-1 * var(--card-spacing)) 0;
+  aspect-ratio: 16/9;
+  object-fit: cover;
 }
 
 .card header > * {

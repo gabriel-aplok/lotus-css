@@ -92,11 +92,87 @@ export const SAMPLES = {
 <div data-tab-panel="tab2" hidden>…</div>`,
   },
   cards: {
-    filename: "cards.html",
+    filename: "components.html",
     lang: "html",
-    code: `<article class="card hover">
-  <h3 class="card-title">Title</h3>
-  <p>Body text…</p>
+    code: `<!-- Slots: .card-header (.card-title, .card-description, .card-action),
+     .card-content, .card-footer. Role classes (.primary, .hover, ...) still
+     repaint the card. -->
+<article class="card">
+  <div class="card-header">
+    <h3 class="card-title">Basic card</h3>
+    <p class="card-description">A plain card with title, content and a footer.</p>
+  </div>
+  <div class="card-content">
+    <p>Cards work with any semantic content.</p>
+  </div>
+  <div class="card-footer is-end">
+    <button class="button primary">Action</button>
+  </div>
+</article>`,
+  },
+  "card-slots": {
+    filename: "components.html",
+    lang: "html",
+    code: `<!-- Header with an action: .card-action sits top-right when present -->
+<article class="card">
+  <div class="card-header">
+    <h3 class="card-title">Login to your account</h3>
+    <p class="card-description">Enter your email below to log in.</p>
+    <div class="card-action"><a class="button link" href="#">Sign up</a></div>
+  </div>
+  <div class="card-content">
+    <form>
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="m@example.com">
+    </form>
+  </div>
+  <div class="card-footer is-column">
+    <button class="button primary">Login</button>
+    <button class="button outline">Login with Google</button>
+  </div>
+</article>
+
+<!-- .is-sm tightens spacing; override --card-spacing for custom insets -->
+<article class="card is-sm">
+  <div class="card-header">
+    <h3 class="card-title">Scheduled reports</h3>
+    <p class="card-description">Weekly snapshots. No manual exports.</p>
+  </div>
+</article>
+
+<!-- Edge-to-edge content: negative --card-spacing margins pull a block flush
+     with the card insets (e.g. a scrollable terms area above a footer) -->
+<article class="card">
+  <div class="card-content" style="margin-inline: calc(-1 * var(--card-spacing));">
+    <div style="max-height: 12rem; overflow-y: auto; padding-inline: var(--card-spacing);">Terms text…</div>
+  </div>
+</article>`,
+  },
+  "card-media": {
+    filename: "components.html",
+    lang: "html",
+    code: `<!-- An <img> as the first child spans edge to edge above the header -->
+<article class="card">
+  <img src="cover.jpg" alt="Event cover">
+  <div class="card-header">
+    <h3 class="card-title">Design systems meetup</h3>
+    <div class="card-action"><span class="badge secondary">Featured</span></div>
+  </div>
+  <div class="card-footer">
+    <button class="button primary">View event</button>
+  </div>
+</article>
+
+<!-- Every inset and gap follows --card-spacing -->
+<article class="card" style="--card-spacing: 2.4rem;">
+  <div class="card-header">
+    <h3 class="card-title">Custom spacing</h3>
+    <p class="card-description">Set the variable on any card.</p>
+  </div>
+  <div class="card-footer is-end">
+    <button class="button outline">Decline</button>
+    <button class="button primary">Accept</button>
+  </div>
 </article>`,
   },
   dialog: {

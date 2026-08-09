@@ -1,37 +1,114 @@
-// Cards
+// Cards. The default --card-spacing lives on :root (scss/_base.scss) so the
+// whole site shares it; .card.is-sm tightens it for compact cards.
 .card {
-	background-color: var(--card);
-	color: var(--card-foreground);
-	border: 1px solid var(--border);
-	border-radius: var(--radius-lg);
-	box-shadow: var(--shadow-sm);
-	padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-spacing);
+  padding: var(--card-spacing);
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+
+  // Rounds the corners of edge-to-edge children (image, footer).
+  overflow: hidden;
+}
+
+// Compact variant: a smaller --card-spacing drives every inset and gap.
+
+.card.is-sm {
+  --card-spacing: 1.2rem;
 }
 
 .card.border {
-	border-width: 2px;
+  border-width: 2px;
 }
 
 .card.hover {
-	transition: box-shadow var(--transition-base), transform var(--transition-base);
+  transition:
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
 }
 
 .card.hover:hover {
-	box-shadow: var(--shadow-lg);
-	transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
 }
 
-.card .card-title {
-	font-size: var(--font-size-lg);
-	font-weight: bold;
-	margin: 0 0 1rem;
+// --- header -----------------------------------------------------------------
+
+.card-header {
+  display: grid;
+  align-items: start;
+  gap: 0.4rem;
 }
+
+// When an action (badge, button) is present it sits top-right.
+.card-header:has(.card-action) {
+  grid-template-columns: 1fr auto;
+}
+
+.card-title {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-description {
+  color: var(--muted-foreground);
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+
+.card-action {
+  justify-self: end;
+}
+
+// --- footer -----------------------------------------------------------------
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  // Span the card edge to edge (the card's own padding is pulled back).
+  margin-inline: calc(-1 * var(--card-spacing));
+  margin-bottom: calc(-1 * var(--card-spacing));
+  padding: var(--card-spacing);
+  border-top: 1px solid var(--border);
+  background-color: color-mix(in oklab, var(--muted) 55%, transparent);
+}
+
+.card-footer.is-column {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.card-footer.is-end {
+  justify-content: flex-end;
+}
+
+// --- image cards ------------------------------------------------------------
+
+// An image as the first child spans edge to edge above the header.
+
+.card > img:first-child {
+  display: block;
+  width: calc(100% + 2 * var(--card-spacing));
+  margin: calc(-1 * var(--card-spacing)) calc(-1 * var(--card-spacing)) 0;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+// --- legacy markup ----------------------------------------------------------
+// Cards written with a bare <header> (no slot classes) keep their spacing.
 
 .card header > * {
-	margin-top: 0;
-	margin-bottom: 1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .card p:last-child {
-	margin: 0;
+  margin: 0;
 }

@@ -183,31 +183,114 @@
 				<!-- ===== Cards ===== -->
 				<section id="cards" data-animate="fade-up">
 					<h2>Cards</h2>
-					<div class="showcase"
-						style="display: grid; grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr)); gap: 2rem;">
+					<div class="showcase is-grid">
 						<article class="card">
-							<header>
+							<div class="card-header">
 								<h3 class="card-title">Basic card</h3>
-							</header>
-							<p>A plain card with a title. Cards work with any semantic content.</p>
-							<p><a href="#" class="button outline is-sm">Action</a></p>
+								<p class="card-description">A plain card with title, content and a footer.</p>
+							</div>
+							<div class="card-content">
+								<p>Cards work with any semantic content.</p>
+							</div>
+							<div class="card-footer is-end">
+								<a href="#" class="button outline is-sm">Action</a>
+							</div>
 						</article>
 						<article class="card hover">
-							<header>
+							<div class="card-header">
 								<h3 class="card-title">Hover card</h3>
-							</header>
-							<p>Add <code>.hover</code> for a lift + shadow on hover.</p>
-							<p><a href="#" class="button primary is-sm">Action</a></p>
+								<p class="card-description">Add <code>.hover</code> for a lift + shadow on hover.</p>
+							</div>
+							<div class="card-content">
+								<p>Hover over this card to see it move.</p>
+							</div>
+							<div class="card-footer is-end">
+								<a href="#" class="button primary is-sm">Action</a>
+							</div>
 						</article>
 						<article class="card primary">
-							<header>
+							<div class="card-header">
 								<h3 class="card-title">Colored card</h3>
-							</header>
-							<p>Role classes repaint cards, and the text stays readable in both themes.</p>
+							</div>
+							<div class="card-content">
+								<p>Role classes repaint cards, and the text stays readable in both themes.</p>
+							</div>
 						</article>
 					</div>
 					<div class="code-label">Markup</div>
 					<pre data-sample="cards"></pre>
+
+					<div class="showcase is-grid">
+						<article class="card">
+							<div class="card-header">
+								<h3 class="card-title">Login to your account</h3>
+								<p class="card-description">Enter your email below to log in.</p>
+								<div class="card-action"><a class="button link" href="#">Sign up</a></div>
+							</div>
+							<div class="card-content">
+								<form onsubmit="return false;">
+									<label for="card-email">Email</label>
+									<input id="card-email" type="email" placeholder="m@example.com">
+									<label for="card-password" style="margin-top: 1.2rem;">Password</label>
+									<input id="card-password" type="password">
+								</form>
+							</div>
+							<div class="card-footer is-column">
+								<button class="button primary">Login</button>
+								<button class="button outline">Login with Google</button>
+							</div>
+						</article>
+						<article class="card is-sm">
+							<div class="card-header">
+								<h3 class="card-title">Scheduled reports</h3>
+								<p class="card-description">Weekly snapshots. No manual exports.</p>
+							</div>
+							<div class="card-content">
+								<ul>
+									<li>Choose a schedule: daily or weekly.</li>
+									<li>Send to channels or specific teammates.</li>
+									<li>Include charts, tables and key metrics.</li>
+								</ul>
+							</div>
+							<div class="card-footer is-column">
+								<button class="button is-sm">Set up scheduled reports</button>
+								<button class="button outline is-sm">See what's new</button>
+							</div>
+						</article>
+					</div>
+					<div class="code-label">Login &amp; compact</div>
+					<pre data-sample="card-slots"></pre>
+
+					<div class="showcase is-grid">
+						<article class="card">
+							<img src="https://picsum.photos/seed/meetup/800/450" alt="Event cover">
+							<div class="card-header">
+								<h3 class="card-title">Design systems meetup</h3>
+								<p class="card-description">A practical talk on component APIs, accessibility and
+									shipping faster.</p>
+								<div class="card-action"><span class="badge secondary">Featured</span></div>
+							</div>
+							<div class="card-footer">
+								<a href="#" class="button primary">View event</a>
+							</div>
+						</article>
+						<article class="card" style="--card-spacing: 2.4rem;">
+							<div class="card-header">
+								<h3 class="card-title">Custom spacing</h3>
+								<p class="card-description">Set <code>--card-spacing</code> on any card to control every
+									inset and gap.</p>
+							</div>
+							<div class="card-content">
+								<p>This card uses 2.4rem spacing instead of the 1.6rem default.</p>
+							</div>
+							<div class="card-footer is-end">
+								<button class="button outline">Decline</button>
+								<button class="button primary">Accept</button>
+							</div>
+						</article>
+					</div>
+					<div class="code-label">Image &amp; spacing</div>
+					<pre data-sample="card-media"></pre>
 				</section>
 
 				<!-- ===== Dialogs ===== -->

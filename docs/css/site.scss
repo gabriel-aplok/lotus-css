@@ -253,11 +253,16 @@ body.page-components .hide-on-components {
 .feature-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+	// Inter-card rhythm — intentionally not a --card-spacing consumer.
 	gap: 2rem;
 }
 
+// Landing cards consume the shared --card-spacing token (default on :root is
+// 1.6rem). Inner rhythms below are fractions of it, so the whole card scales
+// together when the token changes.
+
 .feature-card {
-	padding: 2.4rem;
+	padding: var(--card-spacing);
 	border: 1px solid var(--border);
 	border-radius: var(--radius-lg);
 	background-color: var(--card);
@@ -273,7 +278,7 @@ body.page-components .hide-on-components {
 		place-items: center;
 		width: 4rem;
 		height: 4rem;
-		margin-bottom: 1.4rem;
+		margin-bottom: calc(var(--card-spacing) * 0.6);
 		border-radius: var(--radius-md);
 		background-color: var(--muted);
 		color: var(--foreground);
@@ -281,7 +286,7 @@ body.page-components .hide-on-components {
 	}
 
 	h3 {
-		margin: 0 0 0.6rem;
+		margin: 0 0 calc(var(--card-spacing) * 0.375);
 	}
 
 	p {
@@ -303,7 +308,7 @@ body.page-components .hide-on-components {
 .quick-step {
 	display: flex;
 	flex-direction: column;
-	padding: 2.4rem;
+	padding: var(--card-spacing);
 	border: 1px solid var(--border);
 	border-radius: var(--radius-lg);
 	background-color: var(--card);
@@ -311,8 +316,8 @@ body.page-components .hide-on-components {
 	h3 {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
-		margin: 0 0 1.4rem;
+		gap: calc(var(--card-spacing) * 0.625);
+		margin: 0 0 calc(var(--card-spacing) * 0.875);
 
 		.step {
 			display: grid;
@@ -448,6 +453,19 @@ body.page-components .hide-on-components {
 
 .showcase + .showcase {
 	margin-top: 4rem;
+}
+
+// Grid-laid-out showcases: the sibling margin rule above must not apply, or
+// later items shift inside their cells.
+.showcase.is-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+	gap: 2rem;
+	align-items: start;
+
+	& > * + * {
+		margin-top: 0;
+	}
 }
 
 .code-label {
