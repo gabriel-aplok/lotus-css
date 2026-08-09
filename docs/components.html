@@ -662,6 +662,42 @@
 								<li aria-current="page">Components</li>
 							</ol>
 						</nav>
+						<nav class="breadcrumb" aria-label="Breadcrumb with icons">
+							<ol>
+								<li><a href="#">Home</a></li>
+								<li class="breadcrumb-separator" aria-hidden="true"><span class="material-symbols-outlined">chevron_right</span></li>
+								<li><a href="#">Components</a></li>
+								<li class="breadcrumb-separator" aria-hidden="true"><span class="material-symbols-outlined">chevron_right</span></li>
+								<li><span class="breadcrumb-page" aria-current="page">Breadcrumb</span></li>
+							</ol>
+						</nav>
+						<nav class="breadcrumb" aria-label="Breadcrumb collapsed">
+							<ol>
+								<li><a href="#">Home</a></li>
+								<li class="breadcrumb-ellipsis" title="More pages">
+									<span aria-hidden="true">…</span>
+									<span class="visually-hidden">More pages</span>
+								</li>
+								<li><a href="#">Components</a></li>
+								<li aria-current="page">Breadcrumb</li>
+							</ol>
+						</nav>
+						<nav class="breadcrumb" aria-label="Breadcrumb with dropdown">
+							<ol>
+								<li><a href="#">Home</a></li>
+								<li>
+									<details class="dropdown">
+										<summary>Components</summary>
+										<div>
+											<a href="#">Buttons</a>
+											<a href="#">Cards</a>
+											<a href="#">Tables</a>
+										</div>
+									</details>
+								</li>
+								<li aria-current="page">Breadcrumb</li>
+							</ol>
+						</nav>
 					</div>
 					<div class="code-label">Markup</div>
 					<pre data-sample="breadcrumb"></pre>

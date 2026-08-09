@@ -19,9 +19,40 @@
 	gap: 0.75rem;
 }
 
+// Automatic separator. Zero markup: any item except the last gets a "/" after
+// it. For a custom separator (icon, dot, ...), insert an explicit
+// <li class="breadcrumb-separator"> and the automatic one is suppressed.
 .breadcrumb li:not(:last-child)::after {
 	content: "/";
 	opacity: 0.5;
+}
+
+// When an explicit separator follows an item, drop the automatic one so the
+// two never stack (Home / › / Components instead of Home / / › / Components).
+// (Browsers without :has() keep the automatic "/" before the first explicit
+// separator; the project targets modern browsers, so that is an accepted
+// degradation.)
+.breadcrumb li:has(+ .breadcrumb-separator)::after {
+	content: none;
+}
+
+// Explicit separator slot. Flex (not display: contents) so opacity applies,
+// and its own automatic "/" is suppressed. The shared list gap spaces the
+// icon or text evenly between items.
+.breadcrumb li.breadcrumb-separator {
+	display: flex;
+	align-items: center;
+	opacity: 0.5;
+}
+
+.breadcrumb li.breadcrumb-separator::after {
+	content: none;
+}
+
+// Collapsed trail: "..." with a screen-reader label next to it.
+.breadcrumb li.breadcrumb-ellipsis {
+	letter-spacing: 0.2em;
+	color: var(--muted-foreground);
 }
 
 .breadcrumb a {
@@ -33,7 +64,10 @@
 	color: var(--foreground);
 }
 
-.breadcrumb [aria-current="page"] {
+// The current page: `aria-current="page"` is the source of truth, either on
+// the <li> or on a .breadcrumb-page element inside it.
+.breadcrumb [aria-current="page"],
+.breadcrumb .breadcrumb-page {
 	color: var(--foreground);
 	font-weight: 600;
 }

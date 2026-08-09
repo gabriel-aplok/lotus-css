@@ -1959,6 +1959,25 @@ dialog.sheet::backdrop {
   opacity: 0.5;
 }
 
+.breadcrumb li:has(+ .breadcrumb-separator)::after {
+  content: none;
+}
+
+.breadcrumb li.breadcrumb-separator {
+  display: flex;
+  align-items: center;
+  opacity: 0.5;
+}
+
+.breadcrumb li.breadcrumb-separator::after {
+  content: none;
+}
+
+.breadcrumb li.breadcrumb-ellipsis {
+  letter-spacing: 0.2em;
+  color: var(--muted-foreground);
+}
+
 .breadcrumb a {
   color: var(--muted-foreground);
   text-decoration: none;
@@ -1968,7 +1987,8 @@ dialog.sheet::backdrop {
   color: var(--foreground);
 }
 
-.breadcrumb [aria-current=page] {
+.breadcrumb [aria-current=page],
+.breadcrumb .breadcrumb-page {
   color: var(--foreground);
   font-weight: 600;
 }

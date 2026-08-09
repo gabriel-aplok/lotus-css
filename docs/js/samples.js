@@ -247,12 +247,37 @@ toast('Saved', { type: 'success', title: 'Done' });`,
 		code: `<span class="tag">css</span>`,
 	},
 	breadcrumb: {
-		filename: 'breadcrumb.html',
+		filename: 'components.html',
 		lang: 'html',
-		code: `<nav class="breadcrumb">
+		code: `<!-- Automatic separator: any item except the last gets "/" -->
+<nav class="breadcrumb">
   <ol>
     <li><a href="#">Home</a></li>
-    <li aria-current="page">Components</li>
+    <li><a href="#">Components</a></li>
+    <li aria-current="page">Breadcrumb</li>
+  </ol>
+</nav>
+
+<!-- Custom separator: insert <li class="breadcrumb-separator"> slots -->
+<nav class="breadcrumb">
+  <ol>
+    <li><a href="#">Home</a></li>
+    <li class="breadcrumb-separator" aria-hidden="true"><span class="material-symbols-outlined">chevron_right</span></li>
+    <li><a href="#">Components</a></li>
+    <li class="breadcrumb-separator" aria-hidden="true"><span class="material-symbols-outlined">chevron_right</span></li>
+    <li><span class="breadcrumb-page" aria-current="page">Breadcrumb</span></li>
+  </ol>
+</nav>
+
+<!-- Collapsed trail -->
+<nav class="breadcrumb">
+  <ol>
+    <li><a href="#">Home</a></li>
+    <li class="breadcrumb-ellipsis">
+      <span aria-hidden="true">…</span>
+      <span class="visually-hidden">More pages</span>
+    </li>
+    <li aria-current="page">Breadcrumb</li>
   </ol>
 </nav>`,
 	},
