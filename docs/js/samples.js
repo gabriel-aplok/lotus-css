@@ -35,11 +35,32 @@ export const SAMPLES = {
 
 	// ---- Component demo -------------------------------------------------
 	buttons: {
-		filename: 'buttons.html',
+		filename: 'components.html',
 		lang: 'html',
-		code: `<button class="button primary">Primary</button>
-<button class="button outline is-lg">Large outline</button>
-<div class="grouped">…</div>`,
+		code: `<!-- Variants: primary / secondary / outline / ghost / success / warning / destructive -->
+<button class="button primary">Primary</button>
+<button class="button outline">Outline</button>
+<button class="button ghost">Ghost</button>
+<a class="button link" href="#">Link</a>
+<button class="button" disabled>Disabled</button>
+
+<!-- Sizes: is-xs / is-sm / (default) / is-lg, square icon-only variants -->
+<button class="button is-sm">Small</button>
+<button class="button is-lg">Large</button>
+<button class="button outline icon-only" aria-label="Add"><span class="material-symbols-outlined" aria-hidden="true">add</span></button>
+
+<!-- Icon + text: data-icon sizes the child; spacing comes from .icon's flex gap, or from the attribute's own margins without it -->
+<button class="button outline"><span class="material-symbols-outlined" data-icon="inline-start" aria-hidden="true">add</span> New branch</button>
+<button class="button icon">Fork <span class="material-symbols-outlined" data-icon="inline-end" aria-hidden="true">fork_right</span></button>
+
+<!-- Loading state: spinner + disabled -->
+<button class="button icon" disabled><span class="spinner is-sm" data-icon="inline-start"></span> Generating</button>
+
+<!-- Grouped -->
+<div class="grouped">
+  <button class="button outline">Left</button>
+  <button class="button outline">Right</button>
+</div>`,
 	},
 	tabs: {
 		filename: 'tabs.html',

@@ -210,14 +210,36 @@ button:disabled,
 	color: var(--warning);
 }
 
-.button.clear {
+.button.clear,
+.button.ghost {
 	background-color: transparent;
 	border-color: transparent;
 	color: var(--primary);
 }
 
-.button.clear:hover {
+.button.clear:hover,
+.button.ghost:hover {
 	background-color: var(--secondary);
+}
+
+// Link-styled button (no fill, underlined). Typically an <a class="button link">.
+.button.link {
+	background-color: transparent;
+	border-color: transparent;
+	color: var(--primary);
+	text-decoration: underline;
+	text-underline-offset: 0.4rem;
+	text-decoration-thickness: 0.1rem;
+}
+
+.button.link:hover {
+	background-color: transparent;
+	color: color-mix(in oklab, var(--primary) 80%, var(--foreground));
+}
+
+.button.is-xs {
+	padding: 0.6rem 1.2rem;
+	font-size: var(--font-size-xs);
 }
 
 .button.is-sm {
@@ -236,8 +258,39 @@ button:disabled,
 	gap: 0.75rem;
 }
 
+// Icon children align neatly in any button, and get the same 0.75rem spacing
+// the .icon gap provides (unless the button already uses .icon, whose gap
+// does the spacing). vertical-align only matters on non-flex (.icon-less)
+// buttons, where it centers the icon against the text.
+.button [data-icon] {
+	flex: none;
+	line-height: 1;
+	vertical-align: middle;
+}
+
+.button:not(.icon) [data-icon="inline-start"] {
+	margin-inline-end: 0.75rem;
+}
+
+.button:not(.icon) [data-icon="inline-end"] {
+	margin-inline-start: 0.75rem;
+}
+
+// Square icon-only buttons, padded to match their text-size counterparts.
 .button.icon-only {
 	padding: 1rem;
+}
+
+.button.icon-only.is-xs {
+	padding: 0.7rem;
+}
+
+.button.icon-only.is-sm {
+	padding: 0.85rem;
+}
+
+.button.icon-only.is-lg {
+	padding: 1.4rem;
 }
 
 .button + .button {

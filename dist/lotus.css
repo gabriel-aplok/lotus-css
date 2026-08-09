@@ -194,6 +194,7 @@ template {
   --font-mono:
     "Inconsolata", ui-monospace, sfmono-regular, menlo, consolas,
     "Liberation Mono", monospace;
+  --font-size-xs: 1.3rem;
   --font-size-sm: 1.4rem;
   --font-size-base: 1.6rem;
   --font-size-lg: 1.8rem;
@@ -1147,14 +1148,35 @@ button:disabled,
   color: var(--warning);
 }
 
-.button.clear {
+.button.clear,
+.button.ghost {
   background-color: transparent;
   border-color: transparent;
   color: var(--primary);
 }
 
-.button.clear:hover {
+.button.clear:hover,
+.button.ghost:hover {
   background-color: var(--secondary);
+}
+
+.button.link {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+  text-decoration-thickness: 0.1rem;
+}
+
+.button.link:hover {
+  background-color: transparent;
+  color: color-mix(in oklab, var(--primary) 80%, var(--foreground));
+}
+
+.button.is-xs {
+  padding: 0.6rem 1.2rem;
+  font-size: var(--font-size-xs);
 }
 
 .button.is-sm {
@@ -1173,8 +1195,34 @@ button:disabled,
   gap: 0.75rem;
 }
 
+.button [data-icon] {
+  flex: none;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.button:not(.icon) [data-icon=inline-start] {
+  margin-inline-end: 0.75rem;
+}
+
+.button:not(.icon) [data-icon=inline-end] {
+  margin-inline-start: 0.75rem;
+}
+
 .button.icon-only {
   padding: 1rem;
+}
+
+.button.icon-only.is-xs {
+  padding: 0.7rem;
+}
+
+.button.icon-only.is-sm {
+  padding: 0.85rem;
+}
+
+.button.icon-only.is-lg {
+  padding: 1.4rem;
 }
 
 .button + .button {
