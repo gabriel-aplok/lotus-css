@@ -1,5 +1,9 @@
 # LOTUS.css
 
+<p align="center">
+	<img src="docs/public/logo.svg" alt="LOTUS.css" width="96" height="96">
+</p>
+
 LOTUS.css is a classless CSS framework. You style semantic HTML and that's
 mostly it. It ships a neutral, oklch-based token system, layout utilities, a
 bunch of components, and an optional JavaScript layer for the parts that

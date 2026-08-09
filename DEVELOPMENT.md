@@ -42,6 +42,8 @@ install`.
 ├── docs/                     # Docs site (Vite)
 │   ├── index.html            #   landing page
 │   ├── demo.html             #   component demo
+│   ├── partials/             #   shared page shell (head, nav, footer)
+│   ├── public/               #   static assets (logo.svg, logo.png, favicon)
 │   ├── css/site.scss         #   bundles the framework + site styles
 │   └── js/
 │       ├── main.js           #   registers highlight.js, imports js/, init()
@@ -55,12 +57,13 @@ install`.
 ├── scripts/
 │   ├── build.mjs             # Sass → Lightning CSS pipeline (--watch supported)
 │   ├── build-js.mjs          # esbuild → lotus.js + lotus.min.js (--watch supported)
+│   ├── html-partials.mjs     # Vite plugin: inlines docs/partials/*.html
 │   └── clean.mjs             # empties dist/
 ├── .github/workflows/
 │   ├── ci.yml                # lint + typecheck + build + verify dist on every push/PR
 │   ├── pages.yml             # builds + deploys the docs to GitHub Pages
 │   └── release.yml           # publishes to npm on a version tag
-├── vite.config.js            # docs site config (multi-page, relative base)
+├── vite.config.js            # docs site config (multi-page, relative base, partials)
 ├── vitest.config.ts          # test runner config (jsdom environment)
 ├── tsconfig.json             # typecheck config for js/ + tests/
 └── .stylelintrc.json         # linting rules
@@ -299,6 +302,15 @@ Code samples are kept in exactly one place. Pages write
 `<pre data-sample="id"></pre>` and `docs/js/samples.js` (`renderSamples()`)
 fills them at runtime, so sample markup is never duplicated or hand-escaped
 inside HTML.
+
+The page shell (head, nav, footer) is shared the same way: `docs/partials/*.html`
+hold the chrome and a tiny Vite plugin (`scripts/html-partials.mjs`) inlines
+`<!-- #include:nav -->` markers in dev and build. Note that editing a partial
+needs a `npm run dev` restart (Vite caches the transformed HTML per URL). Per-page tweaks (the clock,
+the Demo link) are toggled with `.hide-on-index`/`.hide-on-demo` classes on
+`<body>`. The lotus logo lives in `docs/public/` (SVG source plus a 512&nbsp;px
+PNG, used as the favicon), and the site uses Google Material Symbols for its
+icons instead of emoji.
 
 - Local development: `npm run dev`
 - Production build: `npm run build:docs` → `docs-dist/`

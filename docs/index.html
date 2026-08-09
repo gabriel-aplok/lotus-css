@@ -7,43 +7,11 @@
 	<title>LOTUS.css | A classless CSS framework</title>
 	<meta name="description"
 		content="Classless CSS with a neutral token system, automatic dark mode, and an optional dependency-free JS layer for dialogs, toasts, tabs and more.">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap">
-	<link rel="stylesheet" href="./css/site.scss">
+	<!-- #include:head -->
 </head>
 
-<body>
-	<!-- ======================= Site nav ======================= -->
-	<nav class="site-nav" aria-label="Main">
-		<a class="brand" href="./index.html">
-			<span class="brand-logo">L</span>
-			<span>LOTUS<span style="color: var(--muted-foreground);">.css</span></span>
-		</a>
-		<ul class="site-nav-links">
-			<li class="hide-mobile"><a href="#features">Features</a></li>
-			<li class="hide-mobile"><a href="#start">Quick start</a></li>
-			<li class="hide-mobile"><a href="#customize">Customize</a></li>
-			<li class="hide-mobile"><a href="#components">Components</a></li>
-			<li><a href="./demo.html">Demo</a></li>
-			<li>
-				<button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
-					<svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-					</svg>
-					<svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<circle cx="12" cy="12" r="4"></circle>
-						<path
-							d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
-						</path>
-					</svg>
-				</button>
-			</li>
-		</ul>
-	</nav>
+<body class="page-index" id="top">
+	<!-- #include:nav -->
 
 	<main>
 		<!-- ======================= Hero ======================= -->
@@ -72,34 +40,34 @@
 				</div>
 				<div class="feature-grid">
 					<article class="feature-card" data-animate="fade-up">
-						<div class="feature-icon">⚡</div>
+						<div class="feature-icon"><span class="material-symbols-outlined" aria-hidden="true">bolt</span></div>
 						<h3>Lightweight</h3>
 						<p>~52 kB of CSS minified, and the optional JS layer is under 9 kB. No build step required.</p>
 					</article>
 					<article class="feature-card" data-animate="fade-up" data-animate-delay="60">
-						<div class="feature-icon">🧱</div>
+						<div class="feature-icon"><span class="material-symbols-outlined" aria-hidden="true">widgets</span></div>
 						<h3>Classless by default</h3>
 						<p>Style semantic HTML out of the box. Add classes only when you need them.</p>
 					</article>
 					<article class="feature-card" data-animate="fade-up" data-animate-delay="120">
-						<div class="feature-icon">🎨</div>
+						<div class="feature-icon"><span class="material-symbols-outlined" aria-hidden="true">palette</span></div>
 						<h3>Design tokens</h3>
 						<p>An oklch palette in the spirit of Vercel / shadcn. Every color is a CSS variable you can override.</p>
 					</article>
 					<article class="feature-card" data-animate="fade-up" data-animate-delay="180">
-						<div class="feature-icon">🌙</div>
+						<div class="feature-icon"><span class="material-symbols-outlined" aria-hidden="true">dark_mode</span></div>
 						<h3>Automatic dark mode</h3>
 						<p>Follows <code>prefers-color-scheme</code>. Override with <code>.dark</code>/<code>.light</code>, or a
 							toggle button.</p>
 					</article>
 					<article class="feature-card" data-animate="fade-up" data-animate-delay="240">
-						<div class="feature-icon">🧩</div>
+						<div class="feature-icon"><span class="material-symbols-outlined" aria-hidden="true">extension</span></div>
 						<h3>Component library</h3>
 						<p>Navs, tabs, cards, dialogs, sheets, toasts, tooltips, carousels, accordions, badges, spinners, and so on.
 						</p>
 					</article>
 					<article class="feature-card" data-animate="fade-up" data-animate-delay="300">
-						<div class="feature-icon">🪄</div>
+						<div class="feature-icon"><span class="material-symbols-outlined" aria-hidden="true">auto_awesome</span></div>
 						<h3>Progressive interactivity</h3>
 						<p>Scroll reveals, page transitions and code copy buttons. Nothing breaks if JavaScript is off.</p>
 					</article>
@@ -181,14 +149,7 @@
 		</section>
 	</main>
 
-	<footer class="site-footer">
-		<p>
-			<a href="#top">Back to top</a> ·
-			<a href="https://github.com/gabriel-aplok/lotus-css" target="_blank" rel="noopener">GitHub</a> ·
-			<a href="https://github.com/gabriel-aplok/lotus-css/issues" target="_blank" rel="noopener">Report an issue</a>
-		</p>
-		<p>Made with LOTUS.css, MIT licensed.</p>
-	</footer>
+	<!-- #include:footer -->
 
 	<script type="module" src="./js/main.js"></script>
 </body>

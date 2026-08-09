@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite';
 import { fileURLToPath } from 'node:url';
+import { htmlPartials } from './scripts/html-partials.mjs';
 
 const docs = fileURLToPath(new URL('./docs', import.meta.url));
 
 export default defineConfig({
 	root: docs,
+	plugins: [htmlPartials()],
 	// Relative base so the site works from any subpath (e.g. GitHub Pages).
 	base: './',
 	build: {

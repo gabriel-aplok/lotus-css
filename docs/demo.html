@@ -7,41 +7,11 @@
 	<title>LOTUS.css | Component demo</title>
 	<meta name="description"
 		content="Live demo of every LOTUS.css component, with copyable, syntax-highlighted code samples.">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap">
-	<link rel="stylesheet" href="./css/site.scss">
+	<!-- #include:head -->
 </head>
 
-<body id="top">
-	<!-- ======================= Site nav ======================= -->
-	<nav class="site-nav" aria-label="Main">
-		<a class="brand" href="./index.html">
-			<span class="brand-logo">L</span>
-			<span>LOTUS<span style="color: var(--muted-foreground);">.css</span></span>
-		</a>
-		<ul class="site-nav-links">
-			<li class="hide-mobile"><a href="./index.html#features">Features</a></li>
-			<li class="hide-mobile"><a href="./index.html#start">Quick start</a></li>
-			<li><span id="clock" class="tag" title="Local time"></span></li>
-			<li>
-				<button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
-					<svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-					</svg>
-					<svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-						stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-						<circle cx="12" cy="12" r="4"></circle>
-						<path
-							d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
-						</path>
-					</svg>
-				</button>
-			</li>
-		</ul>
-	</nav>
+<body class="page-demo" id="top">
+	<!-- #include:nav -->
 
 	<main>
 		<div class="demo-layout">
@@ -107,8 +77,10 @@
 							<button class="button is-sm">Small</button>
 							<button class="button">Default</button>
 							<button class="button is-lg">Large</button>
-							<button class="button icon">💾 Save</button>
-							<button class="button primary icon-only" aria-label="Star">★</button>
+							<button class="button icon"><span class="material-symbols-outlined"
+									aria-hidden="true">save</span> Save</button>
+							<button class="button primary icon-only" aria-label="Star"><span class="material-symbols-outlined"
+									aria-hidden="true">star</span></button>
 						</p>
 						<p class="grouped">
 							<button class="button outline">Left</button>
@@ -186,7 +158,8 @@
 						<dialog id="demo-dialog">
 							<div class="dialog-header">
 								<h3>Confirm action</h3>
-								<button class="button clear icon-only" data-dialog-close aria-label="Close">✕</button>
+								<button class="button clear icon-only" data-dialog-close aria-label="Close"><span
+										class="material-symbols-outlined" aria-hidden="true">close</span></button>
 							</div>
 							<div class="dialog-body">
 								<p>This is a native <code>&lt;dialog&gt;</code> element. It's focus-trapped, closes on <kbd>Esc</kbd>,
@@ -214,7 +187,8 @@
 						<dialog class="sheet" id="sheet-right" data-side="right">
 							<div class="dialog-header">
 								<h3>Right sheet</h3>
-								<button class="button clear icon-only" data-sheet-close aria-label="Close">✕</button>
+								<button class="button clear icon-only" data-sheet-close aria-label="Close"><span
+										class="material-symbols-outlined" aria-hidden="true">close</span></button>
 							</div>
 							<div class="dialog-body">
 								<p>Sheets are native dialogs that slide in from any edge. Good for mobile navigation or a detail view.
@@ -227,7 +201,8 @@
 						<dialog class="sheet" id="sheet-left" data-side="left">
 							<div class="dialog-header">
 								<h3>Left sheet</h3>
-								<button class="button clear icon-only" data-sheet-close aria-label="Close">✕</button>
+								<button class="button clear icon-only" data-sheet-close aria-label="Close"><span
+										class="material-symbols-outlined" aria-hidden="true">close</span></button>
 							</div>
 							<div class="dialog-body">
 								<p>Slides in from the left edge.</p>
@@ -236,7 +211,8 @@
 						<dialog class="sheet" id="sheet-bottom" data-side="bottom">
 							<div class="dialog-header">
 								<h3>Bottom sheet</h3>
-								<button class="button clear icon-only" data-sheet-close aria-label="Close">✕</button>
+								<button class="button clear icon-only" data-sheet-close aria-label="Close"><span
+										class="material-symbols-outlined" aria-hidden="true">close</span></button>
 							</div>
 							<div class="dialog-body">
 								<p>Slides up from the bottom, the way mobile apps do it.</p>
@@ -774,13 +750,7 @@
 		</div>
 	</main>
 
-	<footer class="site-footer">
-		<p>
-			<a href="#top">Back to top</a> ·
-			<a href="./index.html">Home</a> ·
-			<a href="https://github.com/gabriel-aplok/lotus-css" target="_blank" rel="noopener">GitHub</a>
-		</p>
-	</footer>
+	<!-- #include:footer -->
 
 	<script type="module" src="./js/main.js"></script>
 </body>
