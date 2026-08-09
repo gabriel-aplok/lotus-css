@@ -110,10 +110,45 @@
 							<button class="button secondary icon" disabled>Downloading <span class="spinner is-sm"
 									data-icon="inline-end"></span></button>
 						</p>
-						<p class="grouped">
+						<p class="grouped" role="group" aria-label="Basic group">
 							<button class="button outline">Left</button>
 							<button class="button outline">Middle</button>
 							<button class="button outline">Right</button>
+						</p>
+						<p class="grouped gapless" role="group" aria-label="Joined group">
+							<button class="button outline">Left</button>
+							<button class="button outline">Middle</button>
+							<button class="button outline">Right</button>
+							<button class="button outline icon-only" aria-label="More"><span class="material-symbols-outlined"
+									aria-hidden="true">more_horiz</span></button>
+						</p>
+						<p class="grouped" role="group" aria-label="Split actions">
+							<button class="button secondary">Copy</button>
+							<span class="grouped-separator" aria-hidden="true"></span>
+							<button class="button secondary">Paste</button>
+						</p>
+						<p class="grouped" role="group" aria-label="Split button">
+							<button class="button primary">Follow</button>
+							<details class="dropdown">
+								<summary class="button primary icon-only" aria-label="More options"><span
+										class="material-symbols-outlined" aria-hidden="true">arrow_drop_down</span></summary>
+								<div>
+									<a href="#">Mute conversation</a>
+									<a href="#">Report</a>
+									<a href="#">Block user</a>
+								</div>
+							</details>
+						</p>
+						<p class="grouped" role="group" aria-label="Currency input">
+							<span class="grouped-text">$</span>
+							<input type="text" value="10.00" style="width: 10rem;">
+							<button class="button primary">Send</button>
+						</p>
+						<p class="grouped is-vertical" role="group" aria-label="Vertical controls">
+							<button class="button outline icon-only" aria-label="Zoom in"><span class="material-symbols-outlined"
+									aria-hidden="true">add</span></button>
+							<button class="button outline icon-only" aria-label="Zoom out"><span class="material-symbols-outlined"
+									aria-hidden="true">remove</span></button>
 						</p>
 					</div>
 					<div class="code-label">Markup</div>

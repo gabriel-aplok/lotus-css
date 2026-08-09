@@ -56,10 +56,29 @@ export const SAMPLES = {
 <!-- Loading state: spinner + disabled -->
 <button class="button icon" disabled><span class="spinner is-sm" data-icon="inline-start"></span> Generating</button>
 
-<!-- Grouped -->
-<div class="grouped">
+<!-- Groups: .grouped (gapped), .gapless (joined), .is-vertical (stacked) -->
+<div class="grouped" role="group" aria-label="Actions">
   <button class="button outline">Left</button>
   <button class="button outline">Right</button>
+</div>
+
+<div class="grouped gapless">
+  <button class="button outline">Left</button>
+  <button class="button outline icon-only" aria-label="More"><span class="material-symbols-outlined" aria-hidden="true">more_horiz</span></button>
+</div>
+
+<!-- Divider for borderless variants -->
+<div class="grouped">
+  <button class="button secondary">Copy</button>
+  <span class="grouped-separator" aria-hidden="true"></span>
+  <button class="button secondary">Paste</button>
+</div>
+
+<!-- Static text inside a group -->
+<div class="grouped">
+  <span class="grouped-text">$</span>
+  <input type="text" value="10.00">
+  <button class="button primary">Send</button>
 </div>`,
 	},
 	tabs: {

@@ -297,7 +297,7 @@ button:disabled,
 	margin-left: 1rem;
 }
 
-// --- input groups ------------------------------------------------------------
+// --- button / input groups ---------------------------------------------------
 
 .grouped {
 	display: flex;
@@ -308,6 +308,24 @@ button:disabled,
 	margin-right: 1rem;
 }
 
+// The generic .button + .button margin would double up inside a group; the
+// group's own spacing takes over.
+.grouped > .button + .button {
+	margin-left: 0;
+}
+
+// Vertical orientation: stacked buttons, compact width by default.
+.grouped.is-vertical {
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.grouped.is-vertical > *:not(:last-child) {
+	margin-right: 0;
+	margin-bottom: 1rem;
+}
+
+// Joined group: children touch, only the outer corners stay rounded.
 .grouped.gapless > * {
 	margin: 0 0 0 -1px !important;
 	border-radius: 0 !important;
@@ -320,6 +338,50 @@ button:disabled,
 
 .grouped.gapless > *:last-child {
 	border-radius: 0 var(--radius-md) var(--radius-md) 0 !important;
+}
+
+.grouped.gapless.is-vertical {
+	align-items: stretch;
+}
+
+.grouped.gapless.is-vertical > *:first-child {
+	border-radius: var(--radius-md) var(--radius-md) 0 0 !important;
+}
+
+.grouped.gapless.is-vertical > *:last-child {
+	border-radius: 0 0 var(--radius-md) var(--radius-md) !important;
+}
+
+// Divider between items (handy for borderless variants like secondary).
+.grouped-separator {
+	width: 1px;
+	align-self: stretch;
+	background-color: var(--border);
+	margin: 0.4rem 0;
+}
+
+.grouped > .grouped-separator {
+	margin-inline: 0.4rem;
+}
+
+.grouped.gapless > .grouped-separator {
+	margin: 0 !important;
+}
+
+.grouped.is-vertical > .grouped-separator {
+	width: 100%;
+	height: 1px;
+	margin: 0.4rem 0;
+}
+
+// Static text inside a group (a currency symbol, a prefix, ...).
+.grouped-text {
+	display: inline-flex;
+	align-items: center;
+	padding: 0 1.2rem;
+	color: var(--muted-foreground);
+	font-size: var(--font-size-sm);
+	white-space: nowrap;
 }
 
 // --- legacy button aliases ---
