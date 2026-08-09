@@ -57,4 +57,32 @@ describe('dialog', () => {
 		dlg.click();
 		expect(close).toHaveBeenCalled();
 	});
+
+	it('data-dialog-static dialogs ignore backdrop clicks', () => {
+		document.body.innerHTML = '<dialog id="d1" data-dialog-static>content</dialog>';
+		const dlg = document.querySelector<HTMLDialogElement>('#d1')!;
+		const close = vi.fn();
+		dlg.close = close;
+		initDialogs();
+		dlg.click();
+		expect(close).not.toHaveBeenCalled();
+	});
+
+	it('data-dialog-static dialogs block the cancel (Esc) event', () => {
+		document.body.innerHTML = '<dialog id="d1" data-dialog-static>content</dialog>';
+		const dlg = document.querySelector<HTMLDialogElement>('#d1')!;
+		initDialogs();
+		const event = new Event('cancel', { cancelable: true });
+		dlg.dispatchEvent(event);
+		expect(event.defaultPrevented).toBe(true);
+	});
+
+	it('regular dialogs still dismiss via the cancel (Esc) event', () => {
+		document.body.innerHTML = '<dialog id="d1">content</dialog>';
+		const dlg = document.querySelector<HTMLDialogElement>('#d1')!;
+		initDialogs();
+		const event = new Event('cancel', { cancelable: true });
+		dlg.dispatchEvent(event);
+		expect(event.defaultPrevented).toBe(false);
+	});
 });

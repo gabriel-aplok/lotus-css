@@ -60,13 +60,31 @@ export const SAMPLES = {
 </article>`,
 	},
 	dialog: {
-		filename: 'dialog.html',
+		filename: 'demo.html',
 		lang: 'html',
-		code: `<button data-dialog-open="my-dialog">Open</button>
+		code: `<!-- Add data-dialog-static for alert-dialog semantics (no backdrop/Esc dismissal). -->
+<button class="button primary" data-dialog-open="my-dialog">Open dialog</button>
+
 <dialog id="my-dialog">
-  <button data-dialog-close>Close</button>
+  <div class="dialog-header">
+    <div class="dialog-header-text">
+      <span class="dialog-media material-symbols-outlined" aria-hidden="true">info</span>
+      <h3 class="dialog-title">Are you absolutely sure?</h3>
+      <p class="dialog-description">This action cannot be undone. It will permanently delete your account from our servers.</p>
+    </div>
+    <button class="button clear icon-only" data-dialog-close aria-label="Close"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+  </div>
+  <div class="dialog-footer">
+    <button class="button outline" data-dialog-close>Cancel</button>
+    <button class="button primary" data-dialog-close>Continue</button>
+  </div>
 </dialog>`,
 	},
+
+
+
+
+
 	sheet: {
 		filename: 'sheet.html',
 		lang: 'html',
@@ -94,7 +112,7 @@ toast('Saved', { type: 'success', title: 'Done' });`,
 		code: `<button data-tooltip="Help text">Hover me</button>`,
 	},
 	accordion: {
-		filename: 'accordion.html',
+		filename: 'demo.html',
 		lang: 'html',
 		code: `<div data-accordion>
   <details data-accordion-item open>
@@ -108,87 +126,13 @@ toast('Saved', { type: 'success', title: 'Done' });`,
 </div>
 
 <!-- multiple:    <div data-accordion data-accordion-multiple> -->
-<!-- locked item: <details data-accordion-item data-disabled> -->`,
+<!-- locked item: <details data-accordion-item data-disabled> -->
+<!-- standalone:  <details class="accordion"> -->`,
 	},
-	'accordion-basic': {
-		filename: 'accordion.html',
-		lang: 'html',
-		code: `<div data-accordion>
-  <details data-accordion-item open>
-    <summary>How do I reset my password?</summary>
-    <p>Click "Forgot password" on the login page, enter your email and we will send you a reset link that expires in 24 hours.</p>
-  </details>
-  <details data-accordion-item>
-    <summary>Can I change my subscription plan?</summary>
-    <p>Yes. Upgrade or downgrade at any time from account settings, and the change applies from your next billing cycle.</p>
-  </details>
-  <details data-accordion-item>
-    <summary>What payment methods do you accept?</summary>
-    <p>All major credit cards, PayPal and bank transfers, all processed securely through our payment partners.</p>
-  </details>
-</div>`,
-	},
-	'accordion-multiple': {
-		filename: 'accordion.html',
-		lang: 'html',
-		code: `<div data-accordion data-accordion-multiple>
-  <details data-accordion-item open>
-    <summary>Notification settings</summary>
-    <p>Choose email alerts, push notifications, or turn both off for individual devices.</p>
-  </details>
-  <details data-accordion-item open>
-    <summary>Privacy &amp; security</summary>
-    <p>Enable two-factor authentication, review active sessions and manage connected devices.</p>
-  </details>
-  <details data-accordion-item>
-    <summary>Billing &amp; subscription</summary>
-    <p>View your plan, payment history and upcoming invoices, or update your payment method.</p>
-  </details>
-</div>`,
-	},
-	'accordion-disabled': {
-		filename: 'accordion.html',
-		lang: 'html',
-		code: `<div data-accordion>
-  <details data-accordion-item>
-    <summary>How do I update my email address?</summary>
-    <p>Change it in account settings. You will receive a verification email at the new address.</p>
-  </details>
-  <details data-accordion-item data-disabled>
-    <summary>Premium feature information</summary>
-    <p>This section is locked. Upgrade your plan to access this content.</p>
-  </details>
-  <details data-accordion-item>
-    <summary>Where can I find my invoices?</summary>
-    <p>All invoices live in the billing section, downloadable at any time.</p>
-  </details>
-</div>`,
-	},
-	'accordion-bordered': {
-		filename: 'accordion.html',
-		lang: 'html',
-		code: `<!-- Bordered group: the container border and hairline dividers are the default. -->
-<div data-accordion>
-  <details data-accordion-item open>
-    <summary>How does billing work?</summary>
-    <p>Monthly and annual plans, charged at the start of each cycle. Cancel any time.</p>
-  </details>
-  <details data-accordion-item>
-    <summary>Is my data secure?</summary>
-    <p>Yes. End-to-end encryption, SOC 2 Type II compliance and regular third-party audits.</p>
-  </details>
-</div>
 
-<!-- Flat alternative: skip the group and stack standalone items instead. -->
-<details class="accordion" open>
-  <summary>What integrations do you support?</summary>
-  <p>500+ tools, plus a REST API and webhooks for custom integrations.</p>
-</details>
-<details class="accordion">
-  <summary>Do you offer a free trial?</summary>
-  <p>Yes, 14 days on every paid plan, no credit card required.</p>
-</details>`,
-	},
+
+
+
 	carousel: {
 		filename: 'carousel.html',
 		lang: 'html',
@@ -245,9 +189,11 @@ toast('Saved', { type: 'success', title: 'Done' });`,
 </details>`,
 	},
 	alert: {
-		filename: 'alert.html',
+		filename: 'demo.html',
 		lang: 'html',
-		code: `<div class="alert success">
+		code: `<!-- Variants: primary, success, warning, destructive, accent. Custom colors
+     via --alert-bg / --alert-fg / --alert-border. -->
+<div class="alert success">
   <span class="alert-icon material-symbols-outlined" aria-hidden="true">check_circle</span>
   <div>
     <p class="alert-title">Success</p>
@@ -255,60 +201,10 @@ toast('Saved', { type: 'success', title: 'Done' });`,
   </div>
 </div>`,
 	},
-	'alert-basic': {
-		filename: 'alert.html',
-		lang: 'html',
-		code: `<!-- Icon slot: any element works. This docs site uses the Material Symbols
-     font; an inline <svg> or any icon you already ship works the same. -->
-<div class="alert">
-  <span class="alert-icon material-symbols-outlined" aria-hidden="true">check_circle</span>
-  <div>
-    <p class="alert-title">Account updated successfully</p>
-    <p class="alert-description">Your profile information has been saved. Changes are reflected immediately.</p>
-  </div>
-</div>`,
-	},
-	'alert-destructive': {
-		filename: 'alert.html',
-		lang: 'html',
-		code: `<div class="alert destructive">
-  <span class="alert-icon material-symbols-outlined" aria-hidden="true">error</span>
-  <div>
-    <p class="alert-title">Payment failed</p>
-    <p class="alert-description">Your payment could not be processed. Please check your payment method and try again.</p>
-  </div>
-</div>`,
-	},
-	'alert-action': {
-		filename: 'alert.html',
-		lang: 'html',
-		code: `<div class="alert">
-  <span class="alert-icon material-symbols-outlined" aria-hidden="true">info</span>
-  <div>
-    <p class="alert-title">Dark mode is now available</p>
-    <p class="alert-description">Enable it under your profile settings to get started.</p>
-  </div>
-  <div class="alert-action">
-    <button class="button outline">Enable</button>
-  </div>
-</div>`,
-	},
-	'alert-colors': {
-		filename: 'alert.html',
-		lang: 'html',
-		code: `<!-- Custom colors: override the alert's design variables. Any color works;
-     color-mix keeps the scheme theme-aware in light and dark mode. -->
-<div class="alert" style="
-  --alert-bg: color-mix(in oklab, oklch(0.87 0.13 75) 30%, var(--background));
-  --alert-fg: color-mix(in oklab, oklch(0.45 0.12 75) 65%, var(--foreground));
-  --alert-border: color-mix(in oklab, oklch(0.87 0.13 75) 45%, var(--border));">
-  <span class="alert-icon material-symbols-outlined" aria-hidden="true">warning</span>
-  <div>
-    <p class="alert-title">Your subscription expires in 3 days</p>
-    <p class="alert-description">Renew now to avoid an interruption in service.</p>
-  </div>
-</div>`,
-	},
+
+
+
+
 	badge: {
 		filename: 'badge.html',
 		lang: 'html',

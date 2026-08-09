@@ -291,8 +291,7 @@ npm run test:watch   # watch mode
 ## 7. The docs site
 
 The docs are a plain **Vite** multi-page app (`docs/index.html` +
-`docs/demo.html` + the component pages `docs/accordion.html` and
-`docs/alert.html`). The framework is pulled in through
+`docs/demo.html`). The framework is pulled in through
 `docs/css/site.scss`:
 
 ```scss
@@ -309,11 +308,9 @@ inside HTML.
 The page shell (head, nav, footer) is shared the same way: `docs/partials/*.html`
 hold the chrome and a tiny Vite plugin (`scripts/html-partials.mjs`) inlines
 `<!-- #include:nav -->` markers in dev and build. Note that editing a partial
-needs a `npm run dev` restart (Vite caches the transformed HTML per URL). Per-page tweaks (the clock, the
-Demo, Accordion and Alert links) are toggled with `.hide-on-index`/`.hide-on-demo`/
-`.hide-on-accordion`/`.hide-on-alert` classes on `<body>`. Component pages
-follow a shared layout (`.doc-header` + the demo page's sidebar/content
-columns). The lotus logo lives in `docs/public/` (SVG source plus a 512&nbsp;px
+needs a `npm run dev` restart (Vite caches the transformed HTML per URL). Per-page tweaks (the clock,
+the Demo link) are toggled with `.hide-on-index`/`.hide-on-demo` classes on
+`<body>`. The lotus logo lives in `docs/public/` (SVG source plus a 512&nbsp;px
 PNG, used as the favicon), and the site uses Google Material Symbols for its
 icons instead of emoji.
 

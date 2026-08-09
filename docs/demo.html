@@ -162,19 +162,40 @@
 						</p>
 						<dialog id="demo-dialog">
 							<div class="dialog-header">
-								<h3>Confirm action</h3>
+								<div class="dialog-header-text">
+									<span class="dialog-media material-symbols-outlined" aria-hidden="true">info</span>
+									<h3 class="dialog-title">Are you absolutely sure?</h3>
+									<p class="dialog-description">This action cannot be undone. It will permanently delete your
+										account from our servers.</p>
+								</div>
 								<button class="button clear icon-only" data-dialog-close aria-label="Close"><span
 										class="material-symbols-outlined" aria-hidden="true">close</span></button>
 							</div>
-							<div class="dialog-body">
-								<p>This is a native <code>&lt;dialog&gt;</code> element. It's focus-trapped, closes on <kbd>Esc</kbd>,
-									and the backdrop dims and blurs on its own.</p>
+							<div class="dialog-footer">
+								<button class="button outline" data-dialog-close>Cancel</button>
+								<button class="button primary" data-dialog-close>Continue</button>
+							</div>
+						</dialog>
+						<p>
+							<button class="button destructive" data-dialog-open="demo-dialog-sm">Delete chat</button>
+						</p>
+						<dialog class="dialog-sm" id="demo-dialog-sm" data-dialog-static>
+							<div class="dialog-header">
+								<div class="dialog-header-text">
+									<span class="dialog-media is-destructive material-symbols-outlined" aria-hidden="true">delete</span>
+									<h3 class="dialog-title">Delete chat?</h3>
+									<p class="dialog-description">This will permanently delete this conversation and any memories
+										saved during it.</p>
+								</div>
 							</div>
 							<div class="dialog-footer">
 								<button class="button outline" data-dialog-close>Cancel</button>
-								<button class="button primary" data-dialog-close>Confirm</button>
+								<button class="button destructive" data-dialog-close>Delete</button>
 							</div>
 						</dialog>
+						<p style="color: var(--muted-foreground); margin-bottom: 0;">Native <code>&lt;dialog&gt;</code>: focus-trapped, Esc and
+							backdrop click close unless the dialog is marked <code>data-dialog-static</code>.
+							Use <code>dialog-sm</code> for compact confirmations.</p>
 					</div>
 					<div class="code-label">Markup</div>
 					<pre data-sample="dialog"></pre>
@@ -317,9 +338,17 @@
 								<p>Control your privacy settings, enable two-factor authentication, and review active sessions.</p>
 							</details>
 						</div>
+						<details class="accordion" open>
+							<summary>Standalone items</summary>
+							<p>Outside a group, <code>details.accordion</code> renders as flat, borderless items.</p>
+						</details>
+						<details class="accordion">
+							<summary>No container border</summary>
+							<p>Stack them with the <code>.stack</code> utility for a consistent gap.</p>
+						</details>
 						<p style="color: var(--muted-foreground); margin-bottom: 0;">Exclusive by default. Add
-							<code>data-accordion-multiple</code> to a group to allow several open, and mark an item
-							<code>data-disabled</code> to lock it.</p>
+							<code>data-accordion-multiple</code> to a group to allow several open, mark an item
+							<code>data-disabled</code> to lock it, or skip the group for standalone items.</p>
 					</div>
 					<div class="code-label">Markup</div>
 					<pre data-sample="accordion"></pre>
@@ -531,6 +560,15 @@
 							</div>
 							<div class="alert-action">
 								<button class="button outline">Enable</button>
+							</div>
+						</div>
+						<div class="alert"
+							style="--alert-bg: color-mix(in oklab, oklch(0.87 0.13 75) 30%, var(--background)); --alert-fg: color-mix(in oklab, oklch(0.45 0.12 75) 65%, var(--foreground)); --alert-border: color-mix(in oklab, oklch(0.87 0.13 75) 45%, var(--border));">
+							<span class="alert-icon material-symbols-outlined" aria-hidden="true">warning</span>
+							<div>
+								<p class="alert-title">Custom colors</p>
+								<p class="alert-description">Override <code>--alert-bg</code>, <code>--alert-fg</code> and
+									<code>--alert-border</code> for any scheme; <code>color-mix()</code> keeps it theme-aware.</p>
 							</div>
 						</div>
 					</div>

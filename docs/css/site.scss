@@ -158,68 +158,13 @@ html.dark .theme-toggle [data-theme-icon="moon"] {
 }
 
 // The nav shell is shared between pages; conditional items are hidden by a
-// class on <body> (the clock only on the landing page, Demo only on the demo,
-// the Accordion/Alert links only on their own usage pages).
+// class on <body> (the clock only on the landing page, Demo only on the demo).
 body.page-index .hide-on-index {
 	display: none;
 }
 
 body.page-demo .hide-on-demo {
 	display: none;
-}
-
-body.page-accordion .hide-on-accordion {
-	display: none;
-}
-
-body.page-alert .hide-on-alert {
-	display: none;
-}
-
-// --- component docs pages ---------------------------------------------------
-
-.doc-header {
-	width: min(112rem, 100% - 4rem);
-	margin: 0 auto;
-	padding: 6rem 2rem 0;
-
-	h1 {
-		margin: 0 0 1.4rem;
-		letter-spacing: -0.02em;
-	}
-
-	p {
-		max-width: 64rem;
-		margin: 0;
-		color: var(--muted-foreground);
-		font-size: var(--font-size-lg);
-	}
-}
-
-// Scoped above the generic .doc-header p rule so the crumb keeps its size
-// and bottom margin (it would otherwise inherit the lead-paragraph styles).
-.doc-header .doc-crumb {
-	margin: 0 0 2rem;
-	font-size: 1.3rem;
-	color: var(--muted-foreground);
-	text-transform: uppercase;
-	letter-spacing: 0.06em;
-
-	a {
-		color: var(--muted-foreground);
-		text-decoration: none;
-		transition: color var(--transition-fast);
-
-		&:hover {
-			color: var(--foreground);
-		}
-	}
-}
-
-// The accordion page places its header above the shared demo layout, so trim
-// the layout's top padding there.
-body.page-accordion .demo-layout {
-	padding-top: 2rem;
 }
 
 // --- hero -------------------------------------------------------------------
@@ -478,6 +423,12 @@ body.page-accordion .demo-layout {
 	}
 
 	& > * + * {
+		margin-top: 1.6rem;
+	}
+
+	// Standalone accordion items have their own small sibling margin (0.5rem)
+	// meant for general use; inside a showcase the shared gap takes over.
+	details.accordion + details.accordion {
 		margin-top: 1.6rem;
 	}
 }

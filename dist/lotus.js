@@ -129,8 +129,14 @@ function initDialogs(root = document) {
     btn.addEventListener("click", () => closeDialog(btn.closest("dialog")));
   });
   root.querySelectorAll("dialog").forEach((dlg) => {
-    dlg.addEventListener("click", (event) => {
-      if (event.target === dlg) closeDialog(dlg);
+    const isStatic = dlg.hasAttribute("data-dialog-static");
+    if (!isStatic) {
+      dlg.addEventListener("click", (event) => {
+        if (event.target === dlg) closeDialog(dlg);
+      });
+    }
+    dlg.addEventListener("cancel", (event) => {
+      if (isStatic) event.preventDefault();
     });
   });
 }

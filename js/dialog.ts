@@ -14,7 +14,9 @@ export function closeDialog(dialog: HTMLDialogElement | null): void {
 	else dialog.removeAttribute('open');
 }
 
-/** Bind [data-dialog-open]/[data-dialog-close] buttons and backdrop click-to-close. */
+/** Bind [data-dialog-open]/[data-dialog-close] buttons and backdrop click-to-close.
+ * Dialogs marked data-dialog-static keep the alert-dialog semantics: they only
+ * close via an explicit data-dialog-close button (Esc is blocked too). */
 export function initDialogs(root: ParentNode = document): void {
 	root.querySelectorAll<HTMLElement>('[data-dialog-open]').forEach((btn) => {
 		btn.addEventListener('click', () => {
@@ -28,8 +30,18 @@ export function initDialogs(root: ParentNode = document): void {
 	});
 
 	root.querySelectorAll<HTMLDialogElement>('dialog').forEach((dlg) => {
-		dlg.addEventListener('click', (event) => {
-			if (event.target === dlg) closeDialog(dlg);
+		const isStatic = dlg.hasAttribute('data-dialog-static');
+
+		if (!isStatic) {
+			dlg.addEventListener('click', (event) => {
+				if (event.target === dlg) closeDialog(dlg);
+			});
+		}
+
+		// Native <dialog> fires cancel before dismissing on Esc. Prevent it so a
+		// static dialog forces an explicit Cancel/Action response.
+		dlg.addEventListener('cancel', (event) => {
+			if (isStatic) event.preventDefault();
 		});
 	});
 }
