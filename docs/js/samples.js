@@ -581,15 +581,51 @@ document.querySelector('#send').addEventListener('click', () => {
   <div class="col-8">…</div>
 </div>`,
   },
+  "utils-text": {
+    filename: "utils.html",
+    lang: "html",
+    code: `<p class="text-left">Left-aligned</p>
+<p class="text-center">Centered</p>
+<p class="text-right">Right-aligned</p>
+<p class="text-upper">Uppercase</p>
+<p class="text-lower">Lowercase</p>
+<p class="text-capital">Capitalized words</p>
+<p class="text-truncate">This long line gets clipped with an ellipsis…</p>`,
+  },
+  "utils-layout": {
+    filename: "utils.html",
+    lang: "html",
+    code: `<div class="flex items-center justify-between">
+  <span>Left side</span>
+  <button class="button primary">Action</button>
+</div>
+<div class="full-width">Full width</div>
+<div class="flex">
+  <div class="grow">Grows to fill</div>
+  <div class="shrink-0">Stays put</div>
+</div>`,
+  },
+  "utils-colors": {
+    filename: "utils.html",
+    lang: "html",
+    code: `<span class="badge primary">.primary</span>
+<span class="badge secondary">.secondary</span>
+<span class="badge muted">.muted</span>
+<span class="badge accent">.accent</span>
+<span class="badge success">.success</span>
+<span class="badge warning">.warning</span>
+<span class="badge destructive">.destructive</span>
+<span class="badge outline ring-color">.ring-color</span>`,
+  },
   utils: {
     filename: "utils.html",
     lang: "html",
-    code: `<p class="text-center">…</p>
-<div class="full-width">…</div>
-<div class="stack">
+    code: `<div class="stack">
   <button class="button primary">First</button>
   <button class="button outline">Second</button>
-</div>`,
+</div>
+<span class="badge outline hide-print">.hide-print</span>
+<span class="badge outline hide-xs">.hide-xs</span>`,
   },
 };
 

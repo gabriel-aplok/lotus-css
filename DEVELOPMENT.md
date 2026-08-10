@@ -200,13 +200,6 @@ highlight.js classes (`.hljs-keyword`, …) and legacy pygments classes
 | Typography  | `--font-sans` · `--font-mono` · `--font-size-sm/base/lg/xl/2xl` · `--line-height-tight/base` · `--letter-spacing-wide` |
 | Layout      | `--grid-max-width` 120rem · `--grid-gutter-size` 2rem                                                                  |
 
-### 5.4 Legacy aliases
-
-The old Material-style names (`--color-primary`, `--color-on-primary-container`,
-`--typography-font`, …) still exist in `_base.scss` and simply reference the
-new tokens, so existing customizations keep working. New code should use the
-canonical `--primary` / `--muted` / … names.
-
 To override a token, redeclare it in your own `:root` after loading the
 stylesheet:
 

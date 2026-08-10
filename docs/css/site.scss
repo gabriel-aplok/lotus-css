@@ -422,6 +422,12 @@ body.page-components .hide-on-components {
 .components-content {
 	min-width: 0;
 
+	.section-note {
+		color: var(--muted-foreground);
+		max-width: 64rem;
+		margin: 0 0 var(--space-6);
+	}
+
 	h2 {
 		scroll-margin-top: var(--space-22_5);
 		margin-top: 0;

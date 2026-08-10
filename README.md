@@ -87,8 +87,7 @@ framework:
 ```
 
 Dark mode is automatic. Force it with `class="dark"` on `<html>`, or use
-`class="light"` to ignore the OS setting. The old Material-style `--color-*`
-names still work as aliases, so existing customizations keep running.
+`class="light"` to ignore the OS setting.
 
 The [docs site](https://gabriel-aplok.github.io/lotus-css) has the full token
 list and a [component showcase](https://gabriel-aplok.github.io/lotus-css/components.html)

@@ -1,111 +1,167 @@
-// Utility classes
-
-// --- floats ---
-
-.float-right {
-	float: right !important;
-}
-
-.float-left {
-	float: left !important;
-}
-
-.clearfix::after {
-	content: "";
-	display: table;
-	clear: both;
-}
+// Utility classes.
+// Naming convention: lower-kebab; every rule is a single responsibility so
+// utilities compose. The `!important` on layout/visibility helpers lets them
+// override component styles without specificity battles.
 
 // --- sizing ---
 
-.full-screen-width {
-	width: 100%;
-	min-height: 100vh;
+.full-width {
+  width: 100% !important;
 }
 
-.full-width {
-	width: 100% !important;
+.full-height {
+  height: 100% !important;
+}
+
+// --- floats ---
+
+.float-left {
+  float: left !important;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 // --- text ---
 
-.text-center {
-	text-align: center;
-}
-
 .text-left {
-	text-align: left;
+  text-align: left;
 }
 
 .text-right {
-	text-align: right;
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-justify {
-	text-align: justify;
+  text-align: justify;
 }
 
 .text-upper {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .text-lower {
-	text-transform: lowercase;
+  text-transform: lowercase;
 }
 
 .text-capital {
-	text-transform: capitalize;
+  text-transform: capitalize;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-balance {
+  text-wrap: balance;
 }
 
 // --- flex helpers ---
 
-.vertical-align {
-	display: flex;
-	align-items: center;
+.flex {
+  display: flex;
 }
 
-.horizontal-align {
-	display: flex;
-	justify-content: center;
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
+}
+
+// Centring aliases (kept for familiarity; compose freely from the flex helpers).
 .center {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.right {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .left {
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 // --- position ---
 
-.fixed {
-	position: fixed;
+.sticky {
+  position: sticky;
+  top: 0;
 }
 
-.sticky {
-	position: sticky;
-	top: 0;
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
 }
 
 // --- spacing ---
 
 .paddingless {
-	padding: 0 !important;
+  padding: 0 !important;
 }
 
 .marginless {
-	margin: 0 !important;
+  margin: 0 !important;
 }
 
 // --- stack ---
@@ -113,90 +169,85 @@
 // Adjust with --stack-gap, or use the size modifiers.
 
 .stack {
-	display: flex;
-	flex-direction: column;
-	gap: var(--stack-gap, var(--space-4));
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap, var(--space-4));
 }
 
-// Size modifiers; use together with .stack.
 .stack-sm {
-	--stack-gap: var(--space-2_5);
+  --stack-gap: var(--space-2_5);
 }
 
 .stack-lg {
-	--stack-gap: var(--space-6);
+  --stack-gap: var(--space-6);
 }
 
 // --- misc ---
 
 .pointer-cursor {
-	cursor: pointer !important;
+  cursor: pointer !important;
 }
 
 .rounded {
-	border-radius: var(--radius-full);
-}
-
-.hidden {
-	display: none !important;
+  border-radius: var(--radius-full);
 }
 
 .no-deco {
-	text-decoration: none;
+  text-decoration: none;
 }
 
-.no-deco * {
-	text-decoration: none;
-}
-
-.no-scrollbar {
-	scrollbar-width: none;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-	display: none;
+.hidden {
+  display: none !important;
 }
 
 .visually-hidden {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip-path: inset(50%);
-	white-space: nowrap;
-	border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 // --- responsive hiding ---
 
 @media screen and (max-width: 599px) {
-	.hide-xs {
-		display: none !important;
-	}
+  .hide-xs {
+    display: none !important;
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 899px) {
-	.hide-sm {
-		display: none !important;
-	}
+  .hide-sm {
+    display: none !important;
+  }
 }
 
 @media screen and (min-width: 900px) and (max-width: 1199px) {
-	.hide-md {
-		display: none !important;
-	}
+  .hide-md {
+    display: none !important;
+  }
 }
 
 @media screen and (min-width: 1200px) {
-	.hide-lg {
-		display: none !important;
-	}
+  .hide-lg {
+    display: none !important;
+  }
 }
 
 @media print {
-	.hide-print {
-		display: none !important;
-	}
+  .hide-print {
+    display: none !important;
+  }
 }
