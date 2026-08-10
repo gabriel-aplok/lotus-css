@@ -121,9 +121,16 @@ export const SAMPLES = {
     <div class="card-action"><a class="button link" href="#">Sign up</a></div>
   </div>
   <div class="card-content">
-    <form>
-      <label for="email">Email</label>
-      <input id="email" type="email" placeholder="m@example.com">
+    <!-- .field-group stacks .field rows with token spacing; labels sit flush -->
+    <form class="field-group">
+      <div class="field">
+        <label class="field-label" for="email">Email</label>
+        <input id="email" type="email" placeholder="m@example.com" required>
+      </div>
+      <div class="field">
+        <label class="field-label" for="password">Password</label>
+        <input id="password" type="password" required>
+      </div>
     </form>
   </div>
   <div class="card-footer is-column">

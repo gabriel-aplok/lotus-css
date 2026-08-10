@@ -132,8 +132,9 @@
 	flex-direction: column;
 	gap: var(--space-3);
 
-	// Checkbox/radio lists read better with regular-weight labels.
-	> .field > label {
+	// Checkbox/radio lists read better with regular-weight labels. Scoped to
+	// bare labels so .field-label keeps its intended semibold weight.
+	> .field > label:not(.field-label) {
 		font-weight: 500;
 	}
 }
