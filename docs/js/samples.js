@@ -246,11 +246,46 @@ toast('Saved', { type: 'success', title: 'Done' });`,
     filename: "carousel.html",
     lang: "html",
     code: `<div class="carousel" data-carousel>
-  <button data-carousel-prev>‹</button>
+  <button class="carousel-btn" data-carousel-prev aria-label="Previous">‹</button>
+  <div class="carousel-track" data-carousel-track>
+    <div class="carousel-item">
+      <div class="card">…</div>
+    </div>
+  </div>
+  <button class="carousel-btn" data-carousel-next aria-label="Next">›</button>
+</div>`,
+  },
+  "carousel-sizes": {
+    filename: "carousel.html",
+    lang: "html",
+    code: `<div class="carousel" data-carousel>
+  <div class="carousel-track" data-carousel-track>
+    <div class="carousel-item basis-1_2">…half the width…</div>
+    <div class="carousel-item basis-1_3">…a third…</div>
+    <div class="carousel-item basis-full">…full width…</div>
+  </div>
+</div>
+<!-- responsive: .md-basis-1_3, .lg-basis-1_2 … -->`,
+  },
+  "carousel-spacing": {
+    filename: "carousel.html",
+    lang: "html",
+    code: `<div class="carousel spacing-lg" data-carousel>
   <div class="carousel-track" data-carousel-track>
     <div class="carousel-item">…</div>
   </div>
-  <button data-carousel-next>›</button>
+</div>
+<!-- .spacing-sm (0.8rem) · default (1.6rem) · .spacing-lg (2.4rem) -->`,
+  },
+  "carousel-vertical": {
+    filename: "carousel.html",
+    lang: "html",
+    code: `<div class="carousel is-vertical" data-carousel>
+  <button class="carousel-btn" data-carousel-prev aria-label="Previous">↑</button>
+  <div class="carousel-track" data-carousel-track>
+    <div class="carousel-item">…</div>
+  </div>
+  <button class="carousel-btn" data-carousel-next aria-label="Next">↓</button>
 </div>`,
   },
   form: {

@@ -499,9 +499,14 @@
 				<!-- ===== Carousel ===== -->
 				<section id="carousel" data-animate="fade-up">
 					<h2>Carousel</h2>
+					<p class="section-note">A scroll-snap track with prev/next buttons. Native scrolling keeps it
+						smooth on touch; the buttons scroll by ~80% of the viewport per press.</p>
+
 					<div class="showcase">
 						<div class="carousel" data-carousel>
-							<button class="carousel-btn" data-carousel-prev aria-label="Previous">‹</button>
+							<button class="carousel-btn" data-carousel-prev aria-label="Previous">
+								<span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+							</button>
 							<div class="carousel-track" data-carousel-track>
 								<div class="carousel-item">
 									<div class="card" style="min-height: 16rem;">
@@ -534,11 +539,97 @@
 									</div>
 								</div>
 							</div>
-							<button class="carousel-btn" data-carousel-next aria-label="Next">›</button>
+							<button class="carousel-btn" data-carousel-next aria-label="Next">
+								<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+							</button>
 						</div>
 					</div>
 					<div class="code-label">Markup</div>
 					<pre data-sample="carousel"></pre>
+
+					<div class="showcase">
+						<div class="carousel" data-carousel>
+							<button class="carousel-btn" data-carousel-prev aria-label="Previous">
+								<span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+							</button>
+							<div class="carousel-track" data-carousel-track>
+								<div class="carousel-item basis-1_2">
+									<div class="card" style="min-height: 14rem;"><h4>Half · 1</h4><p>basis-1_2</p></div>
+								</div>
+								<div class="carousel-item basis-1_2">
+									<div class="card" style="min-height: 14rem;"><h4>Half · 2</h4><p>basis-1_2</p></div>
+								</div>
+								<div class="carousel-item basis-1_2">
+									<div class="card" style="min-height: 14rem;"><h4>Half · 3</h4><p>basis-1_2</p></div>
+								</div>
+								<div class="carousel-item basis-1_3">
+									<div class="card" style="min-height: 14rem;"><h4>Third · 1</h4><p>basis-1_3</p></div>
+								</div>
+								<div class="carousel-item basis-1_3">
+									<div class="card" style="min-height: 14rem;"><h4>Third · 2</h4><p>basis-1_3</p></div>
+								</div>
+								<div class="carousel-item basis-1_3">
+									<div class="card" style="min-height: 14rem;"><h4>Third · 3</h4><p>basis-1_3</p></div>
+								</div>
+							</div>
+							<button class="carousel-btn" data-carousel-next aria-label="Next">
+								<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+							</button>
+						</div>
+					</div>
+					<div class="code-label">Sizes</div>
+					<pre data-sample="carousel-sizes"></pre>
+
+					<div class="showcase">
+						<div class="carousel spacing-lg" data-carousel>
+							<button class="carousel-btn" data-carousel-prev aria-label="Previous">
+								<span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+							</button>
+							<div class="carousel-track" data-carousel-track>
+								<div class="carousel-item">
+									<div class="card" style="min-height: 12rem;"><h4>Wide gap</h4><p>spacing-lg</p></div>
+								</div>
+								<div class="carousel-item">
+									<div class="card" style="min-height: 12rem;"><h4>Wide gap</h4><p>spacing-lg</p></div>
+								</div>
+								<div class="carousel-item">
+									<div class="card" style="min-height: 12rem;"><h4>Wide gap</h4><p>spacing-lg</p></div>
+								</div>
+							</div>
+							<button class="carousel-btn" data-carousel-next aria-label="Next">
+								<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+							</button>
+						</div>
+					</div>
+					<div class="code-label">Spacing</div>
+					<pre data-sample="carousel-spacing"></pre>
+
+					<div class="showcase">
+						<div class="carousel is-vertical" data-carousel style="max-width: 28rem;">
+							<button class="carousel-btn" data-carousel-prev aria-label="Previous">
+								<span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
+							</button>
+							<div class="carousel-track" data-carousel-track>
+								<div class="carousel-item">
+									<div class="card" style="min-height: 8rem;"><h4>Vertical · 1</h4><p>Scrolls up and down.</p></div>
+								</div>
+								<div class="carousel-item">
+									<div class="card" style="min-height: 8rem;"><h4>Vertical · 2</h4><p>Buttons flip to top &amp; bottom.</p></div>
+								</div>
+								<div class="carousel-item">
+									<div class="card" style="min-height: 8rem;"><h4>Vertical · 3</h4><p>Snap-aligned like the rest.</p></div>
+								</div>
+								<div class="carousel-item">
+									<div class="card" style="min-height: 8rem;"><h4>Vertical · 4</h4><p>Just add .is-vertical.</p></div>
+								</div>
+							</div>
+							<button class="carousel-btn" data-carousel-next aria-label="Next">
+								<span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span>
+							</button>
+						</div>
+					</div>
+					<div class="code-label">Vertical</div>
+					<pre data-sample="carousel-vertical"></pre>
 				</section>
 
 				<!-- ===== Forms ===== -->
@@ -1187,12 +1278,12 @@
 						single responsibility, so they combine freely.</p>
 
 					<div class="showcase">
-						<p class="text-left">.text-left — left-aligned</p>
-						<p class="text-center">.text-center — centered</p>
-						<p class="text-right">.text-right — right-aligned</p>
+						<p class="text-left">.text-left: left-aligned</p>
+						<p class="text-center">.text-center: centered</p>
+						<p class="text-right">.text-right: right-aligned</p>
 						<p class="text-upper">.text-upper · <span class="text-lower">.text-lower</span> · <span
 								class="text-capital">.text-capital</span></p>
-						<p class="text-truncate" style="max-width: 36rem;">.text-truncate — this long line gets clipped with
+						<p class="text-truncate" style="max-width: 36rem;">.text-truncate: this long line gets clipped with
 							an ellipsis instead of wrapping…</p>
 					</div>
 					<div class="code-label">Text</div>
@@ -1244,7 +1335,7 @@
 							<span class="badge outline">.no-deco · .pointer-cursor</span>
 						</div>
 						<p class="text-center" style="color: var(--muted-foreground); margin-bottom: 0;">.stack: a consistent
-							1.6rem gap between stacked components — override with --stack-gap</p>
+							1.6rem gap between stacked components: override with --stack-gap</p>
 					</div>
 					<div class="code-label">Stack &amp; visibility</div>
 					<pre data-sample="utils"></pre>

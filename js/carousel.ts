@@ -4,9 +4,13 @@ export function initCarousels(root: ParentNode = document): void {
 		const track = carousel.querySelector<HTMLElement>('[data-carousel-track]');
 		if (!track) return;
 
+		// Vertical carousels (.is-vertical) scroll along the y axis.
+		const vertical = carousel.classList.contains('is-vertical');
+
 		const scroll = (direction: 1 | -1) => {
-			const amount = Math.max(track.clientWidth * 0.8, 200);
-			track.scrollBy({ left: direction * amount, behavior: 'smooth' });
+			const size = vertical ? track.clientHeight : track.clientWidth;
+			const amount = Math.max(size * 0.8, 200);
+			track.scrollBy(vertical ? { top: direction * amount, behavior: 'smooth' } : { left: direction * amount, behavior: 'smooth' });
 		};
 
 		carousel.querySelectorAll<HTMLElement>('[data-carousel-prev]').forEach((btn) => {

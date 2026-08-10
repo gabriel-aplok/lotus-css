@@ -1,11 +1,16 @@
-// Carousel
+// Carousel: a scroll-snap track with prev/next buttons. Zero-JS scrolling,
+// native momentum; the JS layer only wires up the buttons. Item width defaults
+// to a comfortable fixed size; override per item with the .basis-* classes
+// (fractions of the carousel width) like the grid does.
+
 .carousel {
+	--carousel-gap: var(--space-4);
 	position: relative;
 }
 
 .carousel-track {
 	display: flex;
-	gap: var(--space-4);
+	gap: var(--carousel-gap);
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
 	padding: var(--space-1_5) 0 var(--space-3_5);
@@ -22,6 +27,61 @@
 	scroll-snap-align: start;
 }
 
+// --- item sizing ------------------------------------------------------------
+// Fractions of the carousel width; responsive variants apply at their breakpoints.
+// The flex shorthand is important: `flex: 0 0 50%` makes the percentage the
+// used main size (a bare `flex-basis` would lose to the .carousel-item width).
+
+.carousel-item.basis-full {
+	flex: 0 0 100%;
+}
+
+.carousel-item.basis-1_2 {
+	flex: 0 0 50%;
+}
+
+.carousel-item.basis-1_3 {
+	flex: 0 0 33.3333%;
+}
+
+.carousel-item.basis-2_3 {
+	flex: 0 0 66.6667%;
+}
+
+@media (min-width: 640px) {
+	.carousel-item.md-basis-1_2 {
+		flex: 0 0 50%;
+	}
+
+	.carousel-item.md-basis-1_3 {
+		flex: 0 0 33.3333%;
+	}
+}
+
+@media (min-width: 1024px) {
+	.carousel-item.lg-basis-1_2 {
+		flex: 0 0 50%;
+	}
+
+	.carousel-item.lg-basis-1_3 {
+		flex: 0 0 33.3333%;
+	}
+}
+
+// --- spacing ----------------------------------------------------------------
+// Adjust the gap between items via the modifier classes (or --carousel-gap
+// directly on .carousel).
+
+.carousel.spacing-sm {
+	--carousel-gap: var(--space-2);
+}
+
+.carousel.spacing-lg {
+	--carousel-gap: var(--space-6);
+}
+
+// --- buttons ----------------------------------------------------------------
+
 .carousel-btn {
 	position: absolute;
 	top: 50%;
@@ -29,8 +89,8 @@
 	z-index: var(--z-dropdown);
 	display: inline-grid;
 	place-items: center;
-	width: 3.6rem;
-	height: 3.6rem;
+	width: var(--space-9);
+	height: var(--space-9);
 	padding: 0;
 	border: 1px solid var(--border);
 	border-radius: var(--radius-full);
@@ -41,15 +101,50 @@
 	transition: background-color var(--transition-fast), color var(--transition-fast);
 
 	&[data-carousel-prev] {
-		left: 0.8rem;
+		left: var(--space-2);
 	}
 
 	&[data-carousel-next] {
-		right: 0.8rem;
+		right: var(--space-2);
 	}
 
 	&:hover {
 		background-color: var(--secondary);
 		color: var(--primary);
+	}
+}
+
+// --- vertical orientation ---------------------------------------------------
+// Flipped layout: the track scrolls vertically and the buttons sit at the top
+// and bottom. Give the track a height so scrolling has room to work.
+
+.carousel.is-vertical {
+	--carousel-height: 36rem;
+
+	.carousel-track {
+		flex-direction: column;
+		overflow: hidden auto;
+		scroll-snap-type: y mandatory;
+		padding: var(--space-2) var(--space-1_5);
+		height: var(--carousel-height);
+	}
+
+	.carousel-item {
+		width: 100%;
+	}
+
+	.carousel-btn {
+		top: auto;
+		left: 50%;
+		right: auto;
+		transform: translateX(-50%);
+
+		&[data-carousel-prev] {
+			top: var(--space-2);
+		}
+
+		&[data-carousel-next] {
+			bottom: var(--space-2);
+		}
 	}
 }

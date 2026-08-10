@@ -201,9 +201,11 @@ function initCarousels(root = document) {
   root.querySelectorAll("[data-carousel]").forEach((carousel) => {
     const track = carousel.querySelector("[data-carousel-track]");
     if (!track) return;
+    const vertical = carousel.classList.contains("is-vertical");
     const scroll = (direction) => {
-      const amount = Math.max(track.clientWidth * 0.8, 200);
-      track.scrollBy({ left: direction * amount, behavior: "smooth" });
+      const size = vertical ? track.clientHeight : track.clientWidth;
+      const amount = Math.max(size * 0.8, 200);
+      track.scrollBy(vertical ? { top: direction * amount, behavior: "smooth" } : { left: direction * amount, behavior: "smooth" });
     };
     carousel.querySelectorAll("[data-carousel-prev]").forEach((btn) => {
       btn.addEventListener("click", () => scroll(-1));
