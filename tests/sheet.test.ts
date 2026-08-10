@@ -1,5 +1,8 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { initSheets, openSheet, resolveSnapPoint, clampSnapHeight } from '../js/sheet';
+import { topLevelBlocks } from './css-helpers';
 
 describe('resolveSnapPoint', () => {
 	it('treats numbers 0–1 as viewport fractions', () => {
@@ -23,6 +26,41 @@ describe('resolveSnapPoint', () => {
 	it('falls back to the full viewport for unknown values', () => {
 		expect(resolveSnapPoint('bogus', 800, 16)).toBe(800);
 	});
+});
+
+describe('sheet CSS load-state guard', () => {
+	// Regression guard: an author-level display on a closed dialog overrides
+	// the UA's dialog:not([open]){ display:none }, leaving every sheet visible
+	// on page load. Any dialog rule without [open] must not set display.
+	const files = ['scss/_sheet.scss', 'scss/_dialog.scss', 'dist/lotus.css'];
+
+	for (const file of files) {
+		const css = readFileSync(join(process.cwd(), file), 'utf8');
+		const dialogBlocks = topLevelBlocks(css).filter((block) =>
+			/(^|,)\s*dialog(\.|\[|::|\s|$)/.test(block.selector)
+		);
+
+		it(`${file}: closed dialog rules never set display`, () => {
+			expect(dialogBlocks.length).toBeGreaterThan(0);
+			for (const block of dialogBlocks) {
+				if (block.selector.includes('[open]')) continue;
+				expect(
+					block.body,
+					`closed dialog rule "${block.selector}" must not declare display`
+				).not.toMatch(/display\s*:/);
+			}
+		});
+
+		if (css.includes('dialog.sheet')) {
+			it(`${file}: the open sheet rule scopes display:flex to [open]`, () => {
+				const openSheet = dialogBlocks.find(
+					(block) => block.selector.includes('dialog.sheet') && block.selector.includes('[open]')
+				);
+				expect(openSheet, `missing dialog.sheet[open] rule in ${file}`).toBeDefined();
+				expect(openSheet!.body).toMatch(/display\s*:\s*flex/);
+			});
+		}
+	}
 });
 
 describe('clampSnapHeight', () => {
