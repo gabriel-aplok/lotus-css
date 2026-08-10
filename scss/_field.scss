@@ -1,12 +1,33 @@
-// Field layout: a label (and optional helper text) paired with a control.
+// Field layout: labels, controls, and helper text composed into fields.
 // The wrapper stays structural — the control itself keeps its own styles.
 
+// Vertical fields (default): label above the control, helper text below.
 .field {
 	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: var(--space-1_25);
+
+	// Labels sit flush against the control; the gap does the spacing.
+	> label,
+	> .field-label {
+		margin-bottom: 0;
+	}
+
+	// Two or more buttons in a row inherit the button + button margin;
+	// the flex gap already spaces them.
+	> .button + .button {
+		margin-left: 0;
+	}
+}
+
+// Side-by-side fields: control first, label (or content) beside it.
+.field.is-horizontal {
+	flex-direction: row;
 	align-items: flex-start;
 	gap: var(--space-2_5);
 
-	// A bare control in a field: the flex gap does the spacing, so drop the
+	// A bare control in a row: the flex gap does the spacing, so drop the
 	// control's own inline-end margin (both sides, to stay correct in RTL).
 	> [type="checkbox"],
 	> [type="radio"] {
@@ -15,33 +36,60 @@
 		margin-top: var(--space-0_5);
 	}
 
-	// Bare labels sit centred against a single control; the margin the global
-	// label rule adds would offset the row.
 	> label {
 		align-self: center;
-		margin-bottom: 0;
 	}
 
-	// Stacked content (label + description) under the control.
-	.field-content {
-		display: grid;
-		gap: var(--space-0_75);
-	}
-
-	.field-content label,
-	.field-content .field-label {
-		margin-bottom: 0;
+	// Content beside a control takes the remaining row width.
+	> .field-content {
+		flex: 1;
 	}
 }
 
-// Vertical fields stack the control above the content.
-.field.is-vertical {
+// Orientation that follows its group's container width: column on narrow
+// groups, row once the group clears ~40rem. Groups opt in via .field-group
+// (which is the container).
+.field.is-responsive {
 	flex-direction: column;
 	align-items: stretch;
 	gap: var(--space-1_25);
+
+	@container field-group (min-width: 640px) {
+		flex-direction: row;
+		align-items: flex-start;
+		gap: var(--space-2_5);
+
+		> [type="checkbox"],
+		> [type="radio"] {
+			flex: none;
+			margin-inline: 0;
+			margin-top: var(--space-0_5);
+		}
+
+		> label {
+			align-self: center;
+		}
+
+		> .field-content {
+			flex: 1;
+		}
+	}
 }
 
-.field-label {
+// Stacked content (label + description) beside a control.
+.field-content {
+	display: grid;
+	gap: var(--space-0_75);
+
+	label,
+	.field-label,
+	.field-title {
+		margin-bottom: 0;
+	}
+}
+
+.field-label,
+.field-title {
 	font-weight: 600;
 }
 
@@ -51,8 +99,35 @@
 	font-size: var(--font-size-sm);
 }
 
-// A stack of fields with consistent rhythm.
+// Validation message, shown under a control marked with aria-invalid.
+.field-error {
+	margin: 0;
+	color: var(--destructive);
+	font-size: var(--font-size-sm);
+}
+
+// Divider between field sections, optionally carrying content ("Or pay with").
+.field-separator {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2_5);
+	margin-block: var(--space-1);
+	color: var(--muted-foreground);
+	font-size: var(--font-size-sm);
+
+	&::before,
+	&::after {
+		content: "";
+		flex: 1;
+		height: 1px;
+		background-color: var(--border);
+	}
+}
+
+// A stack of fields with consistent rhythm; also the container that drives
+// .field.is-responsive.
 .field-group {
+	container: field-group / inline-size;
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-3);
@@ -63,8 +138,22 @@
 	}
 }
 
-// Invalid field: tint the label and helper text, and surface the control's
-// destructive border (the control itself styles [aria-invalid]).
+// Bordered grouping with room to breathe (the native fieldset, roomier).
+fieldset.fieldset {
+	padding: var(--space-5);
+}
+
+// Legend variant: normal-case label sizing for nested sets and checkbox lists.
+legend.field-legend.is-label {
+	text-transform: none;
+	letter-spacing: normal;
+	font-size: var(--font-size-sm);
+	font-weight: 600;
+	padding: 0;
+}
+
+// Invalid field: tint the label and helper text; the control styles its own
+// [aria-invalid] border.
 .field[data-invalid] {
 	> label,
 	.field-label,
@@ -87,7 +176,7 @@
 	}
 }
 
-// Fieldset-as-group: keep the native border but give it room to breathe.
+// Fieldset-as-group: keep the native border but give the rows room.
 fieldset .field-group {
 	gap: var(--space-2_5);
 }

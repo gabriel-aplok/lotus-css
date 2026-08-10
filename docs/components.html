@@ -676,29 +676,149 @@
 				<section id="forms" data-animate="fade-up">
 					<h2>Forms</h2>
 					<div class="showcase">
-						<form onsubmit="return false;">
-							<label for="name">Name</label>
-							<input id="name" type="text" placeholder="Ada Lovelace">
-							<label for="email" style="margin-top: 1.6rem;">Email</label>
-							<input id="email" type="email" placeholder="ada@example.com">
-							<label for="bio" style="margin-top: 1.6rem;">Bio</label>
-							<textarea id="bio" rows="3" placeholder="Tell us about yourself…"></textarea>
-							<label for="country" style="margin-top: 1.6rem;">Country</label>
-							<select id="country">
-								<option>United Kingdom</option>
-								<option>United States</option>
-								<option>Japan</option>
-							</select>
-							<label for="file" style="margin-top: 1.6rem;">Avatar</label>
-							<input id="file" type="file">
-							<p style="margin-top: 2rem;">
+						<p class="section-note">Compose fields with a label, a control, and optional helper text. A <code>.field</code> stacks vertically by default; add <code>is-horizontal</code> to align the label beside the control.</p>
+						<form class="field-group" onsubmit="return false;" style="max-width: 40rem;">
+							<div class="field">
+								<label class="field-label" for="name">Name</label>
+								<input id="name" type="text" placeholder="Ada Lovelace">
+							</div>
+							<div class="field">
+								<label class="field-label" for="email">Email</label>
+								<input id="email" type="email" placeholder="ada@example.com">
+								<p class="field-description">We never share your email with anyone.</p>
+							</div>
+							<div class="field">
+								<label class="field-label" for="bio">Bio</label>
+								<textarea id="bio" rows="3" placeholder="Tell us about yourself…"></textarea>
+							</div>
+							<div class="field">
+								<label class="field-label" for="country">Country</label>
+								<select id="country">
+									<option>United Kingdom</option>
+									<option>United States</option>
+									<option>Japan</option>
+								</select>
+							</div>
+							<div class="field is-horizontal">
 								<button class="button primary" type="submit">Submit</button>
 								<button class="button outline" type="reset">Reset</button>
-							</p>
+							</div>
 						</form>
 					</div>
 					<div class="code-label">Markup</div>
 					<pre data-sample="form"></pre>
+					<div class="showcase">
+						<form class="field-group" onsubmit="return false;" style="max-width: 44rem;">
+							<fieldset class="fieldset">
+								<legend class="field-legend">Payment Method</legend>
+								<p class="field-description">All transactions are secure and encrypted.</p>
+								<div class="field-group" style="margin-top: 1.6rem;">
+									<div class="field">
+										<label class="field-label" for="card-name">Name on Card</label>
+										<input id="card-name" type="text" placeholder="Evil Rabbit" required>
+									</div>
+									<div class="field">
+										<label class="field-label" for="card-number">Card Number</label>
+										<input id="card-number" type="text" placeholder="1234 5678 9012 3456" required>
+										<p class="field-description">Enter your 16-digit card number.</p>
+									</div>
+									<div class="row">
+										<div class="col-4">
+											<div class="field">
+												<label class="field-label" for="exp-month">Month</label>
+												<select id="exp-month">
+													<option>MM</option>
+													<option>01</option>
+													<option>02</option>
+													<option>03</option>
+													<option>04</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-4">
+											<div class="field">
+												<label class="field-label" for="exp-year">Year</label>
+												<select id="exp-year">
+													<option>YYYY</option>
+													<option>2025</option>
+													<option>2026</option>
+													<option>2027</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-4">
+											<div class="field">
+												<label class="field-label" for="cvv">CVV</label>
+												<input id="cvv" type="text" placeholder="123" required>
+											</div>
+										</div>
+									</div>
+								</div>
+							</fieldset>
+							<div class="field-separator">Or pay with</div>
+							<fieldset class="fieldset">
+								<legend class="field-legend">Billing Address</legend>
+								<p class="field-description">The billing address associated with your payment method.</p>
+								<div class="field-group" style="margin-top: 1.6rem;">
+									<div class="field is-horizontal">
+										<input type="checkbox" id="same-shipping" checked>
+										<label for="same-shipping">Same as shipping address</label>
+									</div>
+								</div>
+							</fieldset>
+							<fieldset class="fieldset">
+								<div class="field">
+									<label class="field-label" for="comments">Comments</label>
+									<textarea id="comments" rows="3" placeholder="Add any additional comments"></textarea>
+								</div>
+							</fieldset>
+							<div class="field is-horizontal">
+								<button class="button primary" type="submit">Submit</button>
+								<button class="button outline" type="button">Cancel</button>
+							</div>
+						</form>
+					</div>
+					<div class="code-label">Field composition</div>
+					<pre data-sample="field"></pre>
+					<div class="showcase">
+						<div class="field-group" style="max-width: 40rem;">
+							<div class="field" data-invalid>
+								<label class="field-label" for="username">Username</label>
+								<input id="username" type="text" value="taken-name" aria-invalid>
+								<p class="field-error">Choose another username.</p>
+							</div>
+							<div class="field">
+								<label class="field-label" for="email-account">Email</label>
+								<input id="email-account" type="email" placeholder="you@example.com">
+							</div>
+						</div>
+					</div>
+					<div class="code-label">Validation &amp; errors</div>
+					<pre data-sample="field-error"></pre>
+					<div class="showcase">
+						<p class="section-note">Fields with <code>is-responsive</code> stack in narrow containers and switch to a side-by-side row once their group clears ~40rem.</p>
+						<form class="field-group" onsubmit="return false;" style="max-width: 76rem;">
+							<fieldset class="fieldset">
+								<legend class="field-legend">Profile</legend>
+								<p class="field-description">Fill in your profile information.</p>
+								<div class="field-group" style="margin-top: 1.6rem;">
+									<div class="field is-responsive">
+										<div class="field-content">
+											<label class="field-label" for="name-responsive">Name</label>
+											<p class="field-description">Provide your full name for identification.</p>
+										</div>
+										<input id="name-responsive" type="text" placeholder="Evil Rabbit" required>
+									</div>
+									<div class="field is-responsive">
+										<button class="button primary" type="submit">Submit</button>
+										<button class="button outline" type="button">Cancel</button>
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+					<div class="code-label">Responsive fields</div>
+					<pre data-sample="field-responsive"></pre>
 				</section>
 
 				<!-- ===== Controls ===== -->
@@ -733,22 +853,22 @@
 					<div class="showcase">
 						<p class="section-note">Pair a checkbox with a field wrapper for a label, helper text, and invalid or disabled states.</p>
 						<div class="field-group" style="max-width: 42rem;">
-							<div class="field">
+							<div class="field is-horizontal">
 								<input type="checkbox" id="terms-checkbox" name="terms-checkbox" checked>
 								<label for="terms-checkbox">Accept terms and conditions</label>
 							</div>
-							<div class="field">
+							<div class="field is-horizontal">
 								<input type="checkbox" id="terms-checkbox-2" name="terms-checkbox-2" checked>
 								<div class="field-content">
 									<label class="field-label" for="terms-checkbox-2">Accept terms and conditions</label>
 									<p class="field-description">By clicking this checkbox, you agree to the terms and conditions.</p>
 								</div>
 							</div>
-							<div class="field" data-disabled>
+							<div class="field is-horizontal" data-disabled>
 								<input type="checkbox" id="toggle-checkbox" name="toggle-checkbox" disabled>
 								<label for="toggle-checkbox">Enable notifications</label>
 							</div>
-							<div class="field" data-invalid>
+							<div class="field is-horizontal" data-invalid>
 								<input type="checkbox" id="terms-checkbox-invalid" name="terms-checkbox-invalid" aria-invalid>
 								<div class="field-content">
 									<label class="field-label" for="terms-checkbox-invalid">Accept terms and conditions</label>
@@ -760,23 +880,23 @@
 					<div class="code-label">Checkboxes with fields</div>
 					<pre data-sample="checkbox"></pre>
 					<div class="showcase">
-						<fieldset style="max-width: 44rem; padding: 2.4rem;">
-							<legend>Show these items on the desktop</legend>
+						<fieldset class="fieldset" style="max-width: 44rem;">
+							<legend class="field-legend is-label">Show these items on the desktop</legend>
 							<p class="field-description" style="margin-top: 0.8rem;">Select the items you want to show on the desktop.</p>
 							<div class="field-group" style="margin-top: 1.6rem;">
-								<div class="field">
+								<div class="field is-horizontal">
 									<input type="checkbox" id="finder-hard-disks" checked>
 									<label for="finder-hard-disks">Hard disks</label>
 								</div>
-								<div class="field">
+								<div class="field is-horizontal">
 									<input type="checkbox" id="finder-external-disks" checked>
 									<label for="finder-external-disks">External disks</label>
 								</div>
-								<div class="field">
+								<div class="field is-horizontal">
 									<input type="checkbox" id="finder-cds">
 									<label for="finder-cds">CDs, DVDs, and iPods</label>
 								</div>
-								<div class="field">
+								<div class="field is-horizontal">
 									<input type="checkbox" id="finder-servers">
 									<label for="finder-servers">Connected servers</label>
 								</div>

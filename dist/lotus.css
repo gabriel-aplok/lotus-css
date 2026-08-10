@@ -1000,12 +1000,20 @@ textarea:focus {
 }
 
 input.error:not([type=checkbox], [type=radio], [type=submit], [type=color], [type=button], [type=reset], [type=range]),
-textarea.error {
+textarea.error,
+select.error,
+input[aria-invalid]:not([type=checkbox], [type=radio], [type=submit], [type=color], [type=button], [type=reset], [type=range]),
+textarea[aria-invalid],
+select[aria-invalid] {
   border-color: var(--destructive);
 }
 
 input.error:not([type=checkbox], [type=radio], [type=submit], [type=color], [type=button], [type=reset], [type=range]):focus,
-textarea.error:focus {
+textarea.error:focus,
+select.error:focus,
+input[aria-invalid]:not([type=checkbox], [type=radio], [type=submit], [type=color], [type=button], [type=reset], [type=range]):focus,
+textarea[aria-invalid]:focus,
+select[aria-invalid]:focus {
   box-shadow: 0 0 0 2px color-mix(in oklab, var(--destructive) 30%, transparent);
 }
 
@@ -1605,35 +1613,73 @@ progress.tertiary::-moz-progress-bar {
 
 .field {
   display: flex;
-  align-items: flex-start;
-  gap: var(--space-2_5);
-}
-.field > [type=checkbox],
-.field > [type=radio] {
-  flex: none;
-  margin-inline: 0;
-  margin-top: var(--space-0_5);
-}
-.field > label {
-  align-self: center;
-  margin-bottom: 0;
-}
-.field .field-content {
-  display: grid;
-  gap: var(--space-0_75);
-}
-.field .field-content label,
-.field .field-content .field-label {
-  margin-bottom: 0;
-}
-
-.field.is-vertical {
   flex-direction: column;
   align-items: stretch;
   gap: var(--space-1_25);
 }
+.field > label,
+.field > .field-label {
+  margin-bottom: 0;
+}
+.field > .button + .button {
+  margin-left: 0;
+}
 
-.field-label {
+.field.is-horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-2_5);
+}
+.field.is-horizontal > [type=checkbox],
+.field.is-horizontal > [type=radio] {
+  flex: none;
+  margin-inline: 0;
+  margin-top: var(--space-0_5);
+}
+.field.is-horizontal > label {
+  align-self: center;
+}
+.field.is-horizontal > .field-content {
+  flex: 1;
+}
+
+.field.is-responsive {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-1_25);
+}
+@container field-group (min-width: 640px) {
+  .field.is-responsive {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-2_5);
+  }
+  .field.is-responsive > [type=checkbox],
+  .field.is-responsive > [type=radio] {
+    flex: none;
+    margin-inline: 0;
+    margin-top: var(--space-0_5);
+  }
+  .field.is-responsive > label {
+    align-self: center;
+  }
+  .field.is-responsive > .field-content {
+    flex: 1;
+  }
+}
+
+.field-content {
+  display: grid;
+  gap: var(--space-0_75);
+}
+.field-content label,
+.field-content .field-label,
+.field-content .field-title {
+  margin-bottom: 0;
+}
+
+.field-label,
+.field-title {
   font-weight: 600;
 }
 
@@ -1643,13 +1689,47 @@ progress.tertiary::-moz-progress-bar {
   font-size: var(--font-size-sm);
 }
 
+.field-error {
+  margin: 0;
+  color: var(--destructive);
+  font-size: var(--font-size-sm);
+}
+
+.field-separator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2_5);
+  margin-block: var(--space-1);
+  color: var(--muted-foreground);
+  font-size: var(--font-size-sm);
+}
+.field-separator::before, .field-separator::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--border);
+}
+
 .field-group {
+  container: field-group/inline-size;
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
 }
 .field-group > .field > label {
   font-weight: 500;
+}
+
+fieldset.fieldset {
+  padding: var(--space-5);
+}
+
+legend.field-legend.is-label {
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: 0;
 }
 
 .field[data-invalid] > label,

@@ -60,12 +60,20 @@ textarea:focus {
 }
 
 input.error:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"], [type="range"]),
-textarea.error {
+textarea.error,
+select.error,
+input[aria-invalid]:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"], [type="range"]),
+textarea[aria-invalid],
+select[aria-invalid] {
 	border-color: var(--destructive);
 }
 
 input.error:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"], [type="range"]):focus,
-textarea.error:focus {
+textarea.error:focus,
+select.error:focus,
+input[aria-invalid]:not([type="checkbox"], [type="radio"], [type="submit"], [type="color"], [type="button"], [type="reset"], [type="range"]):focus,
+textarea[aria-invalid]:focus,
+select[aria-invalid]:focus {
 	box-shadow: 0 0 0 2px color-mix(in oklab, var(--destructive) 30%, transparent);
 }
 

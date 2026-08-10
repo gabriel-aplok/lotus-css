@@ -291,10 +291,112 @@ toast('Saved', { type: 'success', title: 'Done' });`,
   form: {
     filename: "form.html",
     lang: "html",
-    code: `<label for="name">Name</label>
-<input id="name" type="text" placeholder="Ada Lovelace">
-<select id="country"><option>…</option></select>
-<textarea rows="3">…</textarea>`,
+    code: `<div class="field-group">
+  <div class="field">
+    <label class="field-label" for="name">Name</label>
+    <input id="name" type="text" placeholder="Ada Lovelace">
+  </div>
+  <div class="field">
+    <label class="field-label" for="email">Email</label>
+    <input id="email" type="email" placeholder="ada@example.com">
+    <p class="field-description">We never share your email with anyone.</p>
+  </div>
+  <div class="field">
+    <label class="field-label" for="country">Country</label>
+    <select id="country">
+      <option>United Kingdom</option>
+      <option>United States</option>
+    </select>
+  </div>
+  <div class="field is-horizontal">
+    <button class="button primary" type="submit">Submit</button>
+    <button class="button outline" type="reset">Reset</button>
+  </div>
+</div>`,
+  },
+  field: {
+    filename: "field.html",
+    lang: "html",
+    code: `<form class="field-group">
+  <fieldset class="fieldset">
+    <legend class="field-legend">Payment Method</legend>
+    <p class="field-description">All transactions are secure and encrypted.</p>
+    <div class="field-group">
+      <div class="field">
+        <label class="field-label" for="card-name">Name on Card</label>
+        <input id="card-name" type="text" placeholder="Evil Rabbit" required>
+      </div>
+      <div class="field">
+        <label class="field-label" for="card-number">Card Number</label>
+        <input id="card-number" type="text" placeholder="1234 5678 9012 3456" required>
+        <p class="field-description">Enter your 16-digit card number.</p>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="field">
+            <label class="field-label" for="exp-month">Month</label>
+            <select id="exp-month"><option>MM</option></select>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="field">
+            <label class="field-label" for="exp-year">Year</label>
+            <select id="exp-year"><option>YYYY</option></select>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="field">
+            <label class="field-label" for="cvv">CVV</label>
+            <input id="cvv" type="text" placeholder="123" required>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <div class="field-separator">Or pay with</div>
+  <fieldset class="fieldset">
+    <legend class="field-legend">Billing Address</legend>
+    <p class="field-description">The billing address associated with your payment method.</p>
+    <div class="field-group">
+      <div class="field is-horizontal">
+        <input type="checkbox" id="same-shipping" checked>
+        <label for="same-shipping">Same as shipping address</label>
+      </div>
+    </div>
+  </fieldset>
+  <div class="field is-horizontal">
+    <button class="button primary" type="submit">Submit</button>
+    <button class="button outline" type="button">Cancel</button>
+  </div>
+</form>`,
+  },
+  "field-error": {
+    filename: "field-error.html",
+    lang: "html",
+    code: `<div class="field-group">
+  <div class="field" data-invalid>
+    <label class="field-label" for="username">Username</label>
+    <input id="username" type="text" aria-invalid>
+    <p class="field-error">Choose another username.</p>
+  </div>
+</div>`,
+  },
+  "field-responsive": {
+    filename: "field-responsive.html",
+    lang: "html",
+    code: `<div class="field-group">
+  <div class="field is-responsive">
+    <div class="field-content">
+      <label class="field-label" for="name">Name</label>
+      <p class="field-description">Provide your full name for identification.</p>
+    </div>
+    <input id="name" type="text" placeholder="Evil Rabbit" required>
+  </div>
+  <div class="field is-responsive">
+    <button class="button primary" type="submit">Submit</button>
+    <button class="button outline" type="button">Cancel</button>
+  </div>
+</div>`,
   },
   controls: {
     filename: "controls.html",
@@ -318,22 +420,22 @@ toast('Saved', { type: 'success', title: 'Done' });`,
     filename: "checkbox.html",
     lang: "html",
     code: `<div class="field-group">
-  <div class="field">
+  <div class="field is-horizontal">
     <input type="checkbox" id="terms" checked>
     <label for="terms">Accept terms and conditions</label>
   </div>
-  <div class="field">
+  <div class="field is-horizontal">
     <input type="checkbox" id="terms-2" checked>
     <div class="field-content">
       <label class="field-label" for="terms-2">Accept terms and conditions</label>
       <p class="field-description">By clicking this checkbox, you agree to the terms.</p>
     </div>
   </div>
-  <div class="field" data-disabled>
+  <div class="field is-horizontal" data-disabled>
     <input type="checkbox" id="notify" disabled>
     <label for="notify">Enable notifications</label>
   </div>
-  <div class="field" data-invalid>
+  <div class="field is-horizontal" data-invalid>
     <input type="checkbox" id="terms-invalid" aria-invalid>
     <div class="field-content">
       <label class="field-label" for="terms-invalid">Accept terms and conditions</label>
@@ -345,19 +447,19 @@ toast('Saved', { type: 'success', title: 'Done' });`,
   "checkbox-group": {
     filename: "checkbox-group.html",
     lang: "html",
-    code: `<fieldset style="padding: 2.4rem; max-width: 44rem;">
-  <legend>Show these items on the desktop</legend>
+    code: `<fieldset class="fieldset">
+  <legend class="field-legend is-label">Show these items on the desktop</legend>
   <p class="field-description">Select the items you want to show on the desktop.</p>
   <div class="field-group">
-    <div class="field">
+    <div class="field is-horizontal">
       <input type="checkbox" id="disks" checked>
       <label for="disks">Hard disks</label>
     </div>
-    <div class="field">
+    <div class="field is-horizontal">
       <input type="checkbox" id="external" checked>
       <label for="external">External disks</label>
     </div>
-    <div class="field">
+    <div class="field is-horizontal">
       <input type="checkbox" id="cds">
       <label for="cds">CDs, DVDs, and iPods</label>
     </div>
