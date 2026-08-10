@@ -212,6 +212,79 @@ export const SAMPLES = {
   <button data-sheet-close>Close</button>
 </dialog>`,
   },
+  drawer: {
+    filename: "drawer.html",
+    lang: "html",
+    code: `<button data-sheet-open="my-drawer">Pick delivery time</button>
+
+<dialog class="sheet" id="my-drawer" data-side="bottom" data-sheet-snaps="24rem 1">
+  <!-- Grab bar: drag to resize; Arrow/Page keys cycle the snap points -->
+  <div class="sheet-handle" data-sheet-handle role="slider" aria-label="Resize drawer" tabindex="0"></div>
+  <div class="dialog-header">
+    <div class="dialog-header-text">
+      <h3 class="dialog-title">Pick a delivery time</h3>
+      <p class="dialog-description">We'll prepare your order as soon as possible.</p>
+    </div>
+    <button class="button clear icon-only" data-sheet-close aria-label="Close"><span class="material-symbols-outlined" aria-hidden="true">close</span></button>
+  </div>
+  <div class="dialog-body">
+    <div class="field-group" style="gap: var(--space-1_5);">
+      <div class="field is-horizontal">
+        <input type="radio" id="delivery-asap" name="delivery-time" checked>
+        <div class="field-content">
+          <label class="field-label" for="delivery-asap">Standard delivery <span class="badge">Fastest</span></label>
+          <p class="field-description">25–35 min · Driver assigned now</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dialog-footer">
+    <button class="button primary" data-sheet-close>Confirm delivery time</button>
+    <button class="button outline" data-sheet-close>Cancel</button>
+  </div>
+</dialog>`,
+  },
+  "drawer-nested": {
+    filename: "drawer.html",
+    lang: "html",
+    code: `<button data-sheet-open="outer">Open drawer</button>
+<dialog class="sheet" id="outer" data-side="right">
+  <div class="dialog-header">
+    <h3 class="dialog-title">Drawer</h3>
+  </div>
+  <div class="dialog-body">
+    <!-- Nesting works for free: native <dialog> stacks them -->
+    <button class="button outline" data-sheet-open="inner">Open nested drawer</button>
+  </div>
+</dialog>
+<dialog class="sheet" id="inner" data-side="right">
+  <div class="dialog-header">
+    <h3 class="dialog-title">Nested drawer</h3>
+  </div>
+  <div class="dialog-body">
+    <button class="button primary" data-sheet-close>Close</button>
+  </div>
+</dialog>`,
+  },
+  "drawer-snap": {
+    filename: "drawer.html",
+    lang: "html",
+    code: `<button data-sheet-open="snap-drawer">Open snap drawer</button>
+
+<!-- Snap values: rem strings, viewport fractions (0–1), or pixels (> 1) -->
+<dialog class="sheet" id="snap-drawer" data-side="bottom" data-sheet-snaps="25rem 1">
+  <div class="sheet-handle" data-sheet-handle role="slider" aria-label="Resize drawer" tabindex="0"></div>
+  <div class="dialog-header">
+    <h3 class="dialog-title">Snap points</h3>
+  </div>
+  <div class="dialog-body">
+    <p>Drag the handle to snap between a compact peek and full height.</p>
+  </div>
+  <div class="dialog-footer">
+    <button class="button primary" data-sheet-close>Close</button>
+  </div>
+</dialog>`,
+  },
   popover: {
     filename: "popover.html",
     lang: "html",

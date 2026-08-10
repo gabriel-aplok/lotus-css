@@ -1,5 +1,15 @@
-// Sheets (side drawers)
+// Sheets & drawers (side and edge panels): native <dialog> sliding in from
+// any edge. Structure mirrors dialogs (.dialog-header/.dialog-body/
+// .dialog-footer). Drawer extras:
+//   - .sheet-handle     a grab bar; pair it with data-sheet-snaps so the JS
+//                       binds drag-to-resize (vertical sheets only)
+//   - data-sheet-snaps  space-separated snap heights ("24rem 1"): rem strings,
+//                       viewport fractions (0 < n <= 1), or pixel numbers (> 1)
+//   - --sheet-inset     floats the sheet off the viewport edges (rounded)
+
 dialog.sheet {
+	--sheet-inset: 0px;
+
 	position: fixed;
 	margin: 0;
 	width: min(92vw, 40rem);
@@ -7,14 +17,16 @@ dialog.sheet {
 	height: 100%;
 	max-height: 100%;
 	border: none;
-	border-radius: 0;
+	border-radius: calc(var(--sheet-inset) * 1.5);
 	box-shadow: var(--shadow-lg);
 	padding: 0;
-	inset-block: 0;
-	inset-inline: auto 0; // default: right edge
+	overflow-y: auto; // fallback scroll for unwrapped content; the pinned
+	// header/footer case is contained by .dialog-body { flex: 1 }
+	inset-block: var(--sheet-inset);
+	inset-inline: auto var(--sheet-inset); // default: right edge
 
 	&[data-side="left"] {
-		inset-inline: 0 auto;
+		inset-inline: var(--sheet-inset) auto;
 		border-right: 1px solid var(--border);
 	}
 
@@ -22,24 +34,38 @@ dialog.sheet {
 		border-left: 1px solid var(--border);
 	}
 
-	&[data-side="top"] {
-		inset-inline: 0;
-		inset-block: 0 auto;
-		width: 100%;
+	&[data-side="top"],
+	&[data-side="bottom"] {
+		inset-inline: var(--sheet-inset);
+		width: auto;
 		height: min(70vh, 40rem);
+	}
+
+	&[data-side="top"] {
+		inset-block: var(--sheet-inset) auto;
 		border-bottom: 1px solid var(--border);
 	}
 
 	&[data-side="bottom"] {
-		inset-inline: 0;
-		inset-block: auto 0;
-		width: 100%;
-		height: min(70vh, 40rem);
+		inset-block: auto var(--sheet-inset);
 		border-top: 1px solid var(--border);
+	}
+
+	// Scrollable content region: the body grows and scrolls between the
+	// pinned header and footer.
+	.dialog-body {
+		flex: 1;
+		min-height: 0;
+		overflow-y: auto;
 	}
 }
 
+// The flex layout must be scoped to [open] — an author-level display on the
+// closed dialog would override the UA's dialog:not([open]){ display:none }
+// and leave every sheet visible on the page.
 dialog.sheet[open] {
+	display: flex;
+	flex-direction: column;
 	animation: sheet-in var(--transition-base) cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -58,6 +84,33 @@ dialog.sheet[data-side="bottom"][open] {
 dialog.sheet::backdrop {
 	background-color: rgb(0 0 0 / 50%);
 	backdrop-filter: blur(2px);
+}
+
+// Grab bar for drag-to-resize. Decorative on its own; focusable so keyboard
+// users can cycle the snap points (Arrow keys) or jump (Page keys) on it.
+.sheet-handle {
+	display: flex;
+	justify-content: center;
+	padding-top: var(--space-2);
+	touch-action: none;
+	cursor: grab;
+
+	&::before {
+		content: "";
+		width: 6rem;
+		height: 0.5rem;
+		border-radius: var(--radius-full);
+		background-color: var(--muted-foreground);
+		opacity: 0.35;
+	}
+
+	&[data-dragging] {
+		cursor: grabbing;
+	}
+
+	&[data-dragging]::before {
+		opacity: 0.55;
+	}
 }
 
 @keyframes sheet-in {

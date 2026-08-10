@@ -18,7 +18,7 @@ import { initDropdowns } from './dropdown';
 import { initCarousels } from './carousel';
 import { initTableSelect } from './select';
 import { initPopovers } from './popover';
-import { initSheets } from './sheet';
+import { initSheets, openSheet, resolveSnapPoint, clampSnapHeight } from './sheet';
 import { initToggles } from './toggle';
 import { initCopy, initHighlight } from './code';
 import { initAvatars } from './avatar';
@@ -43,6 +43,9 @@ export {
 	initTableSelect,
 	initPopovers,
 	initSheets,
+	openSheet,
+	resolveSnapPoint,
+	clampSnapHeight,
 	initToggles,
 	initCopy,
 	initHighlight,

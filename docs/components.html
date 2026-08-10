@@ -349,12 +349,19 @@
 
 				<!-- ===== Sheets ===== -->
 				<section id="sheets" data-animate="fade-up">
-					<h2>Sheets</h2>
+					<h2>Sheets &amp; Drawers</h2>
 					<div class="showcase">
 						<p>
 							<button class="button" data-sheet-open="sheet-right">Right sheet</button>
 							<button class="button" data-sheet-open="sheet-left">Left sheet</button>
 							<button class="button" data-sheet-open="sheet-bottom">Bottom sheet</button>
+							<button class="button secondary" data-sheet-open="drawer-delivery">Pick delivery time</button>
+							<button class="button outline" data-sheet-open="drawer-nested-1">Nested drawers</button>
+							<button class="button outline" data-sheet-open="drawer-snap">Snap points</button>
+						</p>
+						<p class="section-note">Sheets slide in from any edge via <code>data-side</code>. A drawer adds a
+							<code>.sheet-handle</code> and <code>data-sheet-snaps</code> — drag the handle (or Arrow keys on it) to
+							snap between heights. Native <code>&lt;dialog&gt;</code> gives focus trapping, Esc, and nested stacking.
 						</p>
 						<dialog class="sheet" id="sheet-right" data-side="right">
 							<div class="dialog-header">
@@ -390,9 +397,113 @@
 								<p>Slides up from the bottom, the way mobile apps do it.</p>
 							</div>
 						</dialog>
+
+						<dialog class="sheet" id="drawer-delivery" data-side="bottom" data-sheet-snaps="24rem 1">
+							<div class="sheet-handle" data-sheet-handle role="slider" aria-label="Resize drawer" tabindex="0"></div>
+							<div class="dialog-header">
+								<div class="dialog-header-text">
+									<h3 class="dialog-title">Pick a delivery time</h3>
+									<p class="dialog-description">We'll prepare your order as soon as possible.</p>
+								</div>
+								<button class="button clear icon-only" data-sheet-close aria-label="Close"><span
+										class="material-symbols-outlined" aria-hidden="true">close</span></button>
+							</div>
+							<div class="dialog-body">
+								<div class="field-group" style="gap: var(--space-1_5);">
+									<div class="field is-horizontal">
+										<input type="radio" id="delivery-asap" name="delivery-time" checked>
+										<div class="field-content">
+											<label class="field-label" for="delivery-asap">Standard delivery <span class="badge">Fastest</span></label>
+											<p class="field-description">25–35 min · Driver assigned now</p>
+										</div>
+									</div>
+									<div class="field is-horizontal">
+										<input type="radio" id="delivery-500" name="delivery-time">
+										<div class="field-content">
+											<label class="field-label" for="delivery-500">5:00 PM – 5:15 PM</label>
+											<p class="field-description">Prep starts at 4:45 PM</p>
+										</div>
+									</div>
+									<div class="field is-horizontal">
+										<input type="radio" id="delivery-530" name="delivery-time">
+										<div class="field-content">
+											<label class="field-label" for="delivery-530">5:30 PM – 5:45 PM</label>
+											<p class="field-description">Good if you're heading home</p>
+										</div>
+									</div>
+									<div class="field is-horizontal">
+										<input type="radio" id="delivery-600" name="delivery-time">
+										<div class="field-content">
+											<label class="field-label" for="delivery-600">6:00 PM – 6:15 PM</label>
+											<p class="field-description">Most popular · High demand</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="dialog-footer">
+								<button class="button primary" data-sheet-close>Confirm delivery time</button>
+								<button class="button outline" data-sheet-close>Cancel</button>
+							</div>
+						</dialog>
+
+						<dialog class="sheet" id="drawer-nested-1" data-side="right">
+							<div class="dialog-header">
+								<div class="dialog-header-text">
+									<h3 class="dialog-title">Drawer</h3>
+									<p class="dialog-description">Open another drawer from the same side. The parent stays mounted behind it.</p>
+								</div>
+								<button class="button clear icon-only" data-sheet-close aria-label="Close"><span
+										class="material-symbols-outlined" aria-hidden="true">close</span></button>
+							</div>
+							<div class="dialog-body">
+								<p>Native <code>&lt;dialog&gt;</code> stacking handles nesting for free — closing the frontmost
+									returns focus to the drawer behind.</p>
+								<button class="button outline" data-sheet-open="drawer-nested-2">Open nested drawer</button>
+							</div>
+						</dialog>
+
+						<dialog class="sheet" id="drawer-nested-2" data-side="right">
+							<div class="dialog-header">
+								<div class="dialog-header-text">
+									<h3 class="dialog-title">Nested drawer</h3>
+									<p class="dialog-description">This is the frontmost drawer in the stack.</p>
+								</div>
+								<button class="button clear icon-only" data-sheet-close aria-label="Close"><span
+										class="material-symbols-outlined" aria-hidden="true">close</span></button>
+							</div>
+							<div class="dialog-body">
+								<p>Close it to reveal the drawer behind.</p>
+							</div>
+						</dialog>
+
+						<dialog class="sheet" id="drawer-snap" data-side="bottom" data-sheet-snaps="25rem 1">
+							<div class="sheet-handle" data-sheet-handle role="slider" aria-label="Resize drawer" tabindex="0"></div>
+							<div class="dialog-header">
+								<div class="dialog-header-text">
+									<h3 class="dialog-title">Snap points</h3>
+									<p class="dialog-description">Drag the handle to snap between a compact peek and a near full-height view.
+										Arrow keys cycle the points.</p>
+								</div>
+								<button class="button clear icon-only" data-sheet-close aria-label="Close"><span
+										class="material-symbols-outlined" aria-hidden="true">close</span></button>
+							</div>
+							<div class="dialog-body">
+								<p>Snap values are space-separated: <code>data-sheet-snaps="25rem 1"</code>. Fractions (0–1)
+									size against the viewport, numbers above 1 are pixels, and rem strings use the root font size.</p>
+							</div>
+							<div class="dialog-footer">
+								<button class="button primary" data-sheet-close>Close</button>
+							</div>
+						</dialog>
 					</div>
 					<div class="code-label">Markup</div>
 					<pre data-sample="sheet"></pre>
+					<div class="code-label">Drawer: delivery time</div>
+					<pre data-sample="drawer"></pre>
+					<div class="code-label">Nested drawers</div>
+					<pre data-sample="drawer-nested"></pre>
+					<div class="code-label">Snap points</div>
+					<pre data-sample="drawer-snap"></pre>
 				</section>
 
 				<!-- ===== Popovers ===== -->
