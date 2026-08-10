@@ -8,7 +8,7 @@
 	right: 1.5rem;
 	z-index: var(--z-toast);
 	display: grid;
-	gap: 0.75rem;
+	gap: var(--space-1_875);
 	max-width: min(90vw, 36rem);
 }
 
@@ -32,8 +32,8 @@
 .toast-item {
 	display: flex;
 	align-items: flex-start;
-	gap: 0.75rem;
-	padding: 1.2rem 1.4rem;
+	gap: var(--space-1_875);
+	padding: var(--space-3) var(--space-3_5);
 	background-color: var(--popover);
 	color: var(--popover-foreground);
 	border: 1px solid var(--border);
@@ -60,7 +60,7 @@
 
 .toast-close {
 	margin-left: auto;
-	padding: 0.2rem;
+	padding: var(--space-0_5);
 	background: none;
 	border: none;
 	border-radius: var(--radius-sm);

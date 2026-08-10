@@ -37,7 +37,7 @@
 	text-decoration: none;
 	display: flex;
 	align-items: center;
-	padding: 1rem 2rem;
+	padding: var(--space-2_5) var(--space-5);
 	color: var(--muted-foreground);
 	transition: color var(--transition-fast);
 }
@@ -60,11 +60,11 @@
 }
 
 .nav .brand img {
-	padding-right: 1rem;
+	padding-right: var(--space-2_5);
 }
 
 .nav .button {
-	margin: 0 1rem;
+	margin: 0 var(--space-2_5);
 }
 
 // Sticky navbars: pair with the utility .sticky class or use is-sticky.
@@ -90,6 +90,6 @@
 	}
 
 	.nav a {
-		padding: 1rem;
+		padding: var(--space-2_5);
 	}
 }

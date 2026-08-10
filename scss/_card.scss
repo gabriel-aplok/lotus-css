@@ -41,7 +41,7 @@
 .card-header {
   display: grid;
   align-items: start;
-  gap: 0.4rem;
+  gap: var(--space-1);
 }
 
 // When an action (badge, button) is present it sits top-right.
@@ -70,7 +70,7 @@
 .card-footer {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: var(--space-2);
 
   // Span the card edge to edge (the card's own padding is pulled back).
   margin-inline: calc(-1 * var(--card-spacing));
@@ -106,7 +106,7 @@
 
 .card header > * {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-2_5);
 }
 
 .card p:last-child {

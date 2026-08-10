@@ -21,8 +21,8 @@ details[data-accordion-item] {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1.2rem;
-		padding: 1.4rem 1.6rem;
+		gap: var(--space-3);
+		padding: var(--space-3_5) var(--space-4);
 		font-weight: 600;
 		user-select: none;
 		transition: background-color var(--transition-fast);
@@ -50,7 +50,7 @@ details[data-accordion-item] {
 			border-right: 2px solid currentcolor;
 			border-bottom: 2px solid currentcolor;
 			transform: rotate(45deg);
-			margin-top: -0.3rem;
+			margin-top: -var(--space-0_75);
 			opacity: 0.6;
 			transition: transform var(--transition-base);
 		}
@@ -62,7 +62,7 @@ details[data-accordion-item] {
 
 	> :not(summary),
 	.accordion-body {
-		padding: 0 1.6rem 1.6rem;
+		padding: 0 var(--space-4) var(--space-4);
 		color: var(--muted-foreground);
 	}
 
@@ -74,7 +74,7 @@ details[data-accordion-item] {
 }
 
 details.accordion + details.accordion {
-	margin-top: 0.5rem;
+	margin-top: var(--space-1_25);
 }
 
 // Smooth open/close where the platform can animate details content

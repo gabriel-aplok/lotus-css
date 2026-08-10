@@ -246,7 +246,7 @@ function initPopovers(root = document) {
 function positionPopover(trigger, panel) {
   const rect = trigger.getBoundingClientRect();
   const panelRect = panel.getBoundingClientRect();
-  const gap = 8;
+  const gap = readTokenPx("--space-2") ?? 8;
   let top = rect.bottom + gap;
   let left = rect.left;
   if (top + panelRect.height > window.innerHeight) {
@@ -257,6 +257,13 @@ function positionPopover(trigger, panel) {
   }
   panel.style.top = `${top}px`;
   panel.style.left = `${left}px`;
+}
+function readTokenPx(name) {
+  const style = getComputedStyle(document.documentElement);
+  const raw = style.getPropertyValue(name).trim();
+  const value = parseFloat(raw);
+  if (!Number.isFinite(value)) return null;
+  return raw.endsWith("rem") ? value * parseFloat(style.fontSize) : value;
 }
 function closePopover(panel) {
   panel.classList.remove("open");

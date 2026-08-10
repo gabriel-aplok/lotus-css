@@ -5,10 +5,10 @@
 
 .carousel-track {
 	display: flex;
-	gap: 1.6rem;
+	gap: var(--space-4);
 	overflow-x: auto;
 	scroll-snap-type: x mandatory;
-	padding: 0.6rem 0 1.4rem;
+	padding: var(--space-1_5) 0 var(--space-3_5);
 	scrollbar-width: none;
 
 	&::-webkit-scrollbar {

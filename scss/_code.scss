@@ -20,8 +20,8 @@ pre[data-filename]::before {
 	z-index: 1;
 	display: inline-flex;
 	align-items: center;
-	gap: 0.4rem;
-	padding: 0.4rem 0.8rem;
+	gap: var(--space-1);
+	padding: var(--space-1) var(--space-2);
 	border: 1px solid var(--border);
 	border-radius: var(--radius-sm);
 	background-color: var(--card);

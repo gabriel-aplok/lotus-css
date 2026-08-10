@@ -64,12 +64,12 @@ blockquote {
 	color: var(--muted-foreground);
 	border-left: 3px solid var(--primary);
 	border-radius: var(--radius-md);
-	margin: 1.4rem 0;
-	padding: 2.5rem 2rem;
+	margin: var(--space-3_5) 0;
+	padding: var(--space-6_25) var(--space-5);
 
 	cite {
 		display: block;
-		margin-top: 1rem;
+		margin-top: var(--space-2_5);
 		font-style: normal;
 		font-size: var(--font-size-sm);
 	}
@@ -99,7 +99,7 @@ pre {
 	overflow-x: auto;
 	font-size: 1em;
 	line-height: 1.6;
-	padding: 1.6rem;
+	padding: var(--space-4);
 	position: relative;
 }
 
@@ -110,7 +110,7 @@ pre code {
 }
 
 pre.has-copy {
-	padding-top: 4.6rem;
+	padding-top: var(--space-11_5);
 }
 
 code:not(pre code) {
@@ -125,6 +125,6 @@ mark {
 	background-color: var(--warning);
 	color: var(--warning-foreground);
 	border-radius: var(--radius-sm);
-	padding: 0.1rem 0.4rem;
-	margin: 0.1rem;
+	padding: var(--space-0_25) var(--space-1);
+	margin: var(--space-0_25);
 }

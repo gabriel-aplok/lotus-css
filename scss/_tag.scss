@@ -6,20 +6,20 @@
 	font-size: var(--font-size-sm);
 	letter-spacing: var(--letter-spacing-wide);
 	line-height: 1;
-	padding: 0.6rem 0.8rem;
+	padding: var(--space-1_5) var(--space-2);
 	display: inline-block;
 }
 
 .tag.is-small {
-	padding: 0.4rem;
+	padding: var(--space-1);
 	font-size: 0.75em;
 }
 
 .tag.is-large {
-	padding: 0.7rem;
+	padding: var(--space-1_75);
 	font-size: 1.125em;
 }
 
 .tag + .tag {
-	margin-left: 1rem;
+	margin-left: var(--space-2_5);
 }

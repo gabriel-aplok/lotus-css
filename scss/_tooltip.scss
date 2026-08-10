@@ -6,10 +6,10 @@
 [data-tooltip]::after {
 	content: attr(data-tooltip);
 	position: absolute;
-	bottom: calc(100% + 0.8rem);
+	bottom: calc(100% + var(--space-2));
 	left: 50%;
 	transform: translateX(-50%);
-	padding: 0.4rem 0.8rem;
+	padding: var(--space-1) var(--space-2);
 	white-space: nowrap;
 	border-radius: var(--radius-sm);
 	background-color: var(--foreground);
@@ -29,17 +29,17 @@
 
 [data-tooltip-position="bottom"]::after {
 	bottom: auto;
-	top: calc(100% + 0.8rem);
+	top: calc(100% + var(--space-2));
 }
 
 [data-tooltip-position="left"]::after {
-	inset: 50% calc(100% + 0.8rem) auto auto;
+	inset: 50% calc(100% + var(--space-2)) auto auto;
 	transform: translateY(-50%);
 }
 
 [data-tooltip-position="right"]::after {
 	bottom: auto;
 	top: 50%;
-	left: calc(100% + 0.8rem);
+	left: calc(100% + var(--space-2));
 	transform: translateY(-50%);
 }

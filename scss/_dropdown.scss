@@ -17,10 +17,10 @@ details.dropdown > summary::-webkit-details-marker {
 details.dropdown > :last-child {
 	position: absolute;
 	left: 0;
-	top: calc(100% + 0.4rem);
+	top: calc(100% + var(--space-1));
 	white-space: nowrap;
 	min-width: 16rem;
-	padding: 0.5rem;
+	padding: var(--space-1_25);
 	z-index: var(--z-dropdown);
 	background-color: var(--popover);
 	color: var(--popover-foreground);
@@ -31,7 +31,7 @@ details.dropdown > :last-child {
 
 details.dropdown > :last-child a {
 	display: block;
-	padding: 0.6rem 1rem;
+	padding: var(--space-1_5) var(--space-2_5);
 	border-radius: var(--radius-sm);
 	text-decoration: none;
 	color: var(--popover-foreground);

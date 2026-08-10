@@ -63,7 +63,7 @@
 }
 
 .skeleton + .skeleton {
-	margin-top: 1rem;
+	margin-top: var(--space-2_5);
 }
 
 @keyframes shimmer {

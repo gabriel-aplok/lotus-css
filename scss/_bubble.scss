@@ -3,7 +3,7 @@
 .chat {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: var(--space-4);
 }
 
 // The bubble wrapper. Bubbles size to their content, up to 80% of the thread.
@@ -24,7 +24,7 @@
 // The framed surface. Default variant is the strong primary (user) bubble.
 .bubble-content {
   width: fit-content;
-  padding: 1rem 1.4rem;
+  padding: var(--space-2_5) var(--space-3_5);
   border-radius: var(--radius-lg);
   background-color: var(--primary);
   color: var(--primary-foreground);
@@ -60,7 +60,7 @@
 
 // Extra surface inside a bubble (e.g. an attachment under the text).
 .bubble > .bubble-content + .attachment {
-  margin-top: 0.8rem;
+  margin-top: var(--space-2);
 }
 
 // Unframed content (assistant prose, markdown): full width, no box.
@@ -85,7 +85,7 @@
 .bubble-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-1_25);
 }
 
 // Reactions anchored to the bubble edge, overlapping it. Defaults: bottom
@@ -93,13 +93,13 @@
 .bubble-reactions {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: var(--space-0_75);
   align-self: flex-end;
   position: relative;
   z-index: 1;
-  margin-top: -0.8rem;
+  margin-top: -var(--space-2);
   margin-inline-end: 1.4rem;
-  padding: 0.3rem 0.6rem;
+  padding: var(--space-0_75) var(--space-1_5);
   border: 1px solid var(--border);
   border-radius: var(--radius-full);
   background-color: var(--card);
@@ -115,21 +115,21 @@
 
 .bubble-reactions[data-align="start"] {
   align-self: flex-start;
-  margin-inline: 1.4rem 0;
+  margin-inline: var(--space-3_5) 0;
 }
 
 .bubble-reactions[data-side="top"] {
   order: -1;
   margin-top: 0;
-  margin-bottom: -0.8rem;
+  margin-bottom: -var(--space-2);
 }
 
 // Small metadata line under a bubble (a "seen" read receipt, timestamp, ...).
 .bubble-meta {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  margin-top: 0.4rem;
+  gap: var(--space-0_75);
+  margin-top: var(--space-1);
   color: var(--muted-foreground);
   font-size: var(--font-size-xs);
 }

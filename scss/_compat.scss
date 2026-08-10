@@ -4,7 +4,7 @@ html {
 	-webkit-text-size-adjust: 100%;
 	text-size-adjust: 100%;
 	scroll-behavior: smooth;
-	scroll-padding-top: 2rem; // keep anchored sections clear of fixed headers
+	scroll-padding-top: var(--space-5); // keep anchored sections clear of fixed headers
 	-webkit-tap-highlight-color: transparent;
 }
 

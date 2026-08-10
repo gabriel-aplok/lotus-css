@@ -5,7 +5,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	gap: 0.75rem;
+	gap: var(--space-1_875);
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -16,7 +16,7 @@
 .breadcrumb li {
 	display: flex;
 	align-items: center;
-	gap: 0.75rem;
+	gap: var(--space-1_875);
 }
 
 // Automatic separator. Zero markup: any item except the last gets a "/" after

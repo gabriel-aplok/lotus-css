@@ -115,16 +115,16 @@
 .stack {
 	display: flex;
 	flex-direction: column;
-	gap: var(--stack-gap, 1.6rem);
+	gap: var(--stack-gap, var(--space-4));
 }
 
 // Size modifiers; use together with .stack.
 .stack-sm {
-	--stack-gap: 1rem;
+	--stack-gap: var(--space-2_5);
 }
 
 .stack-lg {
-	--stack-gap: 2.4rem;
+	--stack-gap: var(--space-6);
 }
 
 // --- misc ---

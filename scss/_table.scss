@@ -15,7 +15,7 @@ table.striped tr:nth-of-type(2n) {
 td,
 th {
 	vertical-align: middle;
-	padding: 1.2rem 1.6rem;
+	padding: var(--space-3) var(--space-4);
 }
 
 thead {
@@ -29,5 +29,5 @@ tfoot {
 caption {
 	text-align: left;
 	font-weight: bold;
-	padding-bottom: 1rem;
+	padding-bottom: var(--space-2_5);
 }

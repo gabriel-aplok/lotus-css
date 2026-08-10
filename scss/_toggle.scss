@@ -3,8 +3,8 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	gap: 0.5rem;
-	padding: 0.8rem 1.4rem;
+	gap: var(--space-1_25);
+	padding: var(--space-2) var(--space-3_5);
 	border: 1px solid var(--border);
 	border-radius: var(--radius-md);
 	background-color: transparent;
@@ -32,15 +32,15 @@
 .toggle-group {
 	display: inline-flex;
 	align-items: center;
-	padding: 0.3rem;
-	gap: 0.2rem;
+	padding: var(--space-0_75);
+	gap: var(--space-0_5);
 	background-color: var(--muted);
 	border: 1px solid var(--border);
 	border-radius: var(--radius-md);
 
 	.toggle {
 		border: none;
-		border-radius: calc(var(--radius-md) - 0.2rem);
+		border-radius: calc(var(--radius-md) - var(--space-0_5));
 
 		&[aria-pressed="true"] {
 			background-color: var(--card);

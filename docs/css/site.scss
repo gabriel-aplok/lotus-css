@@ -6,7 +6,7 @@
 
 html {
 	scroll-behavior: smooth;
-	scroll-padding-top: 8rem;
+	scroll-padding-top: var(--space-20);
 }
 
 body {
@@ -46,7 +46,7 @@ main {
 }
 
 .container {
-	width: min(112rem, 100% - 4rem);
+	width: min(112rem, 100% - var(--space-10));
 	margin-inline: auto;
 }
 
@@ -59,8 +59,8 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 2rem;
-	padding: 1.4rem 2rem;
+	gap: var(--space-5);
+	padding: var(--space-3_5) var(--space-5);
 	background-color: color-mix(in oklab, var(--background) 82%, transparent);
 	backdrop-filter: blur(12px);
 	border-bottom: 1px solid var(--border);
@@ -69,7 +69,7 @@ main {
 .brand {
 	display: flex;
 	align-items: center;
-	gap: 1rem;
+	gap: var(--space-2_5);
 	font-size: 1.8rem;
 	font-weight: bold;
 	text-decoration: none;
@@ -96,14 +96,14 @@ main {
 	align-items: center;
 	justify-content: flex-end;
 	flex-wrap: wrap;
-	gap: 0.4rem;
+	gap: var(--space-1);
 	list-style: none;
 	padding: 0;
 	margin: 0;
 
 	a {
 		display: inline-block;
-		padding: 0.8rem 1.2rem;
+		padding: var(--space-2) var(--space-3);
 		border-radius: var(--radius-md);
 		color: var(--muted-foreground);
 		text-decoration: none;
@@ -187,32 +187,32 @@ body.page-components .hide-on-components {
 	display: grid;
 	place-items: center;
 	text-align: center;
-	padding: 10rem 2rem 8rem;
+	padding: var(--space-25) var(--space-5) var(--space-20);
 }
 
 .hero-badge {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.6rem;
-	padding: 0.4rem 1.2rem;
+	gap: var(--space-1_5);
+	padding: var(--space-1) var(--space-3);
 	border: 1px solid var(--border);
 	border-radius: var(--radius-full);
 	background-color: var(--card);
 	color: var(--muted-foreground);
 	font-size: 1.3rem;
-	margin-bottom: 2rem;
+	margin-bottom: var(--space-5);
 }
 
 .hero h1 {
 	font-size: clamp(4rem, 9vw, 7.2rem);
 	line-height: 1.05;
 	letter-spacing: -0.03em;
-	margin: 0 0 2rem;
+	margin: 0 0 var(--space-5);
 }
 
 .hero-sub {
 	max-width: 56rem;
-	margin: 0 auto 3rem;
+	margin: 0 auto var(--space-7_5);
 	color: var(--muted-foreground);
 	font-size: var(--font-size-lg);
 }
@@ -221,21 +221,21 @@ body.page-components .hide-on-components {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 1rem;
+	gap: var(--space-2_5);
 }
 
 // --- sections ---------------------------------------------------------------
 
 .section {
-	padding: 6rem 2rem;
+	padding: var(--space-15) var(--space-5);
 }
 
 .section-head {
 	max-width: 64rem;
-	margin-bottom: 4rem;
+	margin-bottom: var(--space-10);
 
 	h2 {
-		margin: 0 0 1rem;
+		margin: 0 0 var(--space-2_5);
 	}
 
 	p {
@@ -253,8 +253,9 @@ body.page-components .hide-on-components {
 .feature-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+
 	// Inter-card rhythm — intentionally not a --card-spacing consumer.
-	gap: 2rem;
+	gap: var(--space-5);
 }
 
 // Landing cards consume the shared --card-spacing token (default on :root is
@@ -301,7 +302,7 @@ body.page-components .hide-on-components {
 .quick-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-	gap: 2rem;
+	gap: var(--space-5);
 	align-items: stretch;
 }
 
@@ -343,12 +344,12 @@ body.page-components .hide-on-components {
 .component-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
-	gap: 1.6rem;
+	gap: var(--space-4);
 }
 
 .component-link {
 	display: block;
-	padding: 1.8rem 2rem;
+	padding: var(--space-4_5) var(--space-5);
 	border: 1px solid var(--border);
 	border-radius: var(--radius-md);
 	background-color: var(--card);
@@ -364,7 +365,7 @@ body.page-components .hide-on-components {
 	small {
 		display: block;
 		color: var(--muted-foreground);
-		margin-top: 0.4rem;
+		margin-top: var(--space-1);
 	}
 }
 
@@ -373,8 +374,8 @@ body.page-components .hide-on-components {
 .components-layout {
 	display: grid;
 	grid-template-columns: 24rem 1fr;
-	gap: 4rem;
-	padding: 4rem 2rem;
+	gap: var(--space-10);
+	padding: var(--space-10) var(--space-5);
 	align-items: start;
 
 	@media (max-width: 900px) {
@@ -385,9 +386,9 @@ body.page-components .hide-on-components {
 .components-sidebar {
 	position: sticky;
 	top: 8rem;
-	max-height: calc(100vh - 10rem);
+	max-height: calc(100vh - var(--space-25));
 	overflow-y: auto;
-	padding: 1.6rem;
+	padding: var(--space-4);
 	border: 1px solid var(--border);
 	border-radius: var(--radius-lg);
 	background-color: var(--card);
@@ -405,7 +406,7 @@ body.page-components .hide-on-components {
 
 	a {
 		display: block;
-		padding: 0.7rem 1.2rem;
+		padding: var(--space-1_75) var(--space-3);
 		border-radius: var(--radius-md);
 		color: var(--muted-foreground);
 		text-decoration: none;
@@ -422,14 +423,14 @@ body.page-components .hide-on-components {
 	min-width: 0;
 
 	h2 {
-		scroll-margin-top: 9rem;
+		scroll-margin-top: var(--space-22_5);
 		margin-top: 0;
 	}
 }
 
 .showcase {
-	padding: 2.4rem;
-	margin-bottom: 4rem;
+	padding: var(--space-6);
+	margin-bottom: var(--space-10);
 	border: 1px solid var(--border);
 	border-radius: var(--radius-lg);
 	background-color: var(--card);
@@ -441,18 +442,18 @@ body.page-components .hide-on-components {
 	}
 
 	& > * + * {
-		margin-top: 1.6rem;
+		margin-top: var(--space-4);
 	}
 
 	// Standalone accordion items have their own small sibling margin (0.5rem)
 	// meant for general use; inside a showcase the shared gap takes over.
 	details.accordion + details.accordion {
-		margin-top: 1.6rem;
+		margin-top: var(--space-4);
 	}
 }
 
 .showcase + .showcase {
-	margin-top: 4rem;
+	margin-top: var(--space-10);
 }
 
 // Grid-laid-out showcases: the sibling margin rule above must not apply, or
@@ -460,7 +461,7 @@ body.page-components .hide-on-components {
 .showcase.is-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
-	gap: 2rem;
+	gap: var(--space-5);
 	align-items: start;
 
 	& > * + * {
@@ -472,8 +473,8 @@ body.page-components .hide-on-components {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 1rem;
-	margin: 2.4rem 0 0.8rem;
+	gap: var(--space-2_5);
+	margin: var(--space-6) 0 var(--space-2);
 	font-size: 1.3rem;
 	color: var(--muted-foreground);
 	text-transform: uppercase;
@@ -491,7 +492,7 @@ pre[data-sample]:empty::before {
 // --- footer -----------------------------------------------------------------
 
 .site-footer {
-	padding: 4rem 2rem;
+	padding: var(--space-10) var(--space-5);
 	text-align: center;
 	border-top: 1px solid var(--border);
 	color: var(--muted-foreground);

@@ -132,6 +132,44 @@
   --transition-base: 200ms ease;
   --transition-slow: 300ms ease;
 
+  // --- spacing ---
+  // 0.4rem step scale. Use these for paddings, margins and gaps instead of
+  // hardcoded rems so the whole site (framework + docs) scales together.
+  // Suffix = value in 0.4rem steps (e.g. --space-2_5 = 2.5 × 0.4rem = 1rem).
+  // Decimal steps use underscores (--space-1_5) because Sass rejects dots in
+  // custom-property names — do not "clean" them back to --space-1.5.
+  --space-0_25: 0.1rem;
+  --space-0_5: 0.2rem;
+  --space-0_75: 0.3rem;
+  --space-1: 0.4rem;
+  --space-1_25: 0.5rem;
+  --space-1_5: 0.6rem;
+  --space-1_75: 0.7rem;
+  --space-1_875: 0.75rem;
+  --space-2: 0.8rem;
+  --space-2_125: 0.85rem;
+  --space-2_25: 0.9rem;
+  --space-2_5: 1rem;
+  --space-3: 1.2rem;
+  --space-3_5: 1.4rem;
+  --space-4: 1.6rem;
+  --space-4_5: 1.8rem;
+  --space-5: 2rem;
+  --space-6: 2.4rem;
+  --space-6_25: 2.5rem;
+  --space-6_5: 2.6rem;
+  --space-7: 2.8rem;
+  --space-7_5: 3rem;
+  --space-8: 3.2rem;
+  --space-9: 3.6rem;
+  --space-10: 4rem;
+  --space-11_5: 4.6rem;
+  --space-12: 4.8rem;
+  --space-15: 6rem;
+  --space-20: 8rem;
+  --space-22_5: 9rem;
+  --space-25: 10rem;
+
   // --- layout ---
   --grid-max-width: 120rem;
   --grid-gutter-size: 2rem;
@@ -221,7 +259,7 @@ hr {
   background-color: var(--border);
   border: none;
   height: 1px;
-  margin: 1rem 0;
+  margin: var(--space-2_5) 0;
 }
 
 iframe {

@@ -10,8 +10,8 @@
 
 	display: inline-flex;
 	align-items: center;
-	gap: 0.4rem;
-	padding: 0.3rem 0.9rem;
+	gap: var(--space-1);
+	padding: var(--space-0_75) var(--space-2_25);
 	border-radius: var(--radius-full);
 	font-size: 1.2rem;
 	font-weight: 600;

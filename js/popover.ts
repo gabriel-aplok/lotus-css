@@ -33,7 +33,10 @@ export function initPopovers(root: ParentNode = document): void {
 function positionPopover(trigger: HTMLElement, panel: HTMLElement): void {
 	const rect = trigger.getBoundingClientRect();
 	const panelRect = panel.getBoundingClientRect();
-	const gap = 8;
+	// Gap between the trigger and the panel. Reads the design-system --space-2
+	// token (0.8rem) so positioning stays in sync with the CSS gap; falls back
+	// to the historical 8px when the token is unavailable (e.g. in jsdom).
+	const gap = readTokenPx('--space-2') ?? 8;
 	let top = rect.bottom + gap;
 	let left = rect.left;
 	if (top + panelRect.height > window.innerHeight) {
@@ -44,6 +47,15 @@ function positionPopover(trigger: HTMLElement, panel: HTMLElement): void {
 	}
 	panel.style.top = `${top}px`;
 	panel.style.left = `${left}px`;
+}
+
+/** Resolve a CSS length token (e.g. `--space-2: 0.8rem`) to pixels, or null. */
+function readTokenPx(name: string): number | null {
+	const style = getComputedStyle(document.documentElement);
+	const raw = style.getPropertyValue(name).trim();
+	const value = parseFloat(raw);
+	if (!Number.isFinite(value)) return null;
+	return raw.endsWith('rem') ? value * parseFloat(style.fontSize) : value;
 }
 
 function closePopover(panel: HTMLElement): void {
