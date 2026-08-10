@@ -1,261 +1,274 @@
 // LOTUS.css docs site stylesheet
 
-@use '../../scss/lotus';
+@use "../../scss/lotus";
 
 // --- layout shell -----------------------------------------------------------
 
 html {
-	scroll-behavior: smooth;
-	scroll-padding-top: var(--space-20);
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--space-20);
 }
 
 body {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-	flex: 1;
-	width: 100%;
+  flex: 1;
+  width: 100%;
 }
 
 // --- icons (Google Material Symbols) -----------------------------------------
 
 .material-symbols-outlined {
-	font-size: 2.4rem;
-	line-height: 1;
-	font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-	user-select: none;
+  font-size: 2.4rem;
+  line-height: 1;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+  user-select: none;
 }
 
 .button .material-symbols-outlined {
-	font-size: 1.9rem;
+  font-size: 1.9rem;
 }
 
 .avatar-badge .material-symbols-outlined {
-	font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .badge .material-symbols-outlined {
-	font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 .breadcrumb-separator .material-symbols-outlined {
-	font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 .container {
-	width: min(112rem, 100% - var(--space-10));
-	margin-inline: auto;
+  width: min(112rem, 100% - var(--space-10));
+  margin-inline: auto;
 }
 
 // --- site nav ---------------------------------------------------------------
 
 .site-nav {
-	position: sticky;
-	top: 0;
-	z-index: var(--z-fixed);
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: var(--space-5);
-	padding: var(--space-3_5) var(--space-5);
-	background-color: color-mix(in oklab, var(--background) 82%, transparent);
-	backdrop-filter: blur(12px);
-	border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-fixed);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding: var(--space-3_5) var(--space-5);
+  background-color: color-mix(in oklab, var(--background) 82%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
 }
 
 .brand {
-	display: flex;
-	align-items: center;
-	gap: var(--space-2_5);
-	font-size: 1.8rem;
-	font-weight: bold;
-	text-decoration: none;
-	color: var(--foreground);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2_5);
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--foreground);
 }
 
 .brand-logo {
-	display: grid;
-	place-items: center;
-	width: 3.2rem;
-	height: 3.2rem;
-	border-radius: var(--radius-md);
-	background-color: var(--primary);
-	color: var(--primary-foreground);
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: var(--radius-md);
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 
-	svg {
-		width: 1.9rem;
-		height: 1.9rem;
-	}
+  svg {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
 }
 
 .site-nav-links {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	flex-wrap: wrap;
-	gap: var(--space-1);
-	list-style: none;
-	padding: 0;
-	margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 
-	a {
-		display: inline-block;
-		padding: var(--space-2) var(--space-3);
-		border-radius: var(--radius-md);
-		color: var(--muted-foreground);
-		text-decoration: none;
-		transition: color var(--transition-fast), background-color var(--transition-fast);
+  a {
+    display: inline-block;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    color: var(--muted-foreground);
+    text-decoration: none;
+    transition:
+      color var(--transition-fast),
+      background-color var(--transition-fast);
 
-		&:hover {
-			color: var(--foreground);
-			background-color: var(--muted);
-		}
-	}
+    &:hover {
+      color: var(--foreground);
+      background-color: var(--muted);
+    }
+  }
 
-	@media (max-width: 640px) {
-		.hide-mobile {
-			display: none;
-		}
-	}
+  @media (max-width: 640px) {
+    .hide-mobile {
+      display: none;
+    }
+  }
 }
 
 .theme-toggle {
-	display: inline-grid;
-	place-items: center;
-	width: 3.6rem;
-	height: 3.6rem;
-	padding: 0;
-	border: 1px solid var(--border);
-	border-radius: var(--radius-md);
-	background-color: var(--card);
-	color: var(--muted-foreground);
-	cursor: pointer;
-	transition: color var(--transition-fast), border-color var(--transition-fast);
+  display: inline-grid;
+  place-items: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background-color: var(--card);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast);
 
-	&:hover {
-		color: var(--foreground);
-		border-color: var(--ring);
-	}
+  &:hover {
+    color: var(--foreground);
+    border-color: var(--ring);
+  }
 
-	svg {
-		width: 1.8rem;
-		height: 1.8rem;
-	}
+  svg {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
 
-	[data-theme-icon="sun"] {
-		display: none;
-	}
+  [data-theme-icon="sun"] {
+    display: none;
+  }
 }
 
 // Swap moon/sun with the resolved theme (automatic and manual dark).
 @media (prefers-color-scheme: dark) {
-	html:not(.light) .theme-toggle [data-theme-icon="sun"] {
-		display: block;
-	}
+  html:not(.light) .theme-toggle [data-theme-icon="sun"] {
+    display: block;
+  }
 
-	html:not(.light) .theme-toggle [data-theme-icon="moon"] {
-		display: none;
-	}
+  html:not(.light) .theme-toggle [data-theme-icon="moon"] {
+    display: none;
+  }
 }
 
 html.dark .theme-toggle [data-theme-icon="sun"] {
-	display: block;
+  display: block;
 }
 
 html.dark .theme-toggle [data-theme-icon="moon"] {
-	display: none;
+  display: none;
 }
 
 // The nav shell is shared between pages; conditional items are hidden by a
 // class on <body> (the clock only on the landing page, Components only on the
 // components page).
 body.page-index .hide-on-index {
-	display: none;
+  display: none;
 }
 
 body.page-components .hide-on-components {
-	display: none;
+  display: none;
 }
 
 // --- hero -------------------------------------------------------------------
 
 .hero {
-	position: relative;
-	display: grid;
-	place-items: center;
-	text-align: center;
-	padding: var(--space-25) var(--space-5) var(--space-20);
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: var(--space-25) var(--space-5) var(--space-20);
+
+  // 10rem of top padding is wasted on phones; tighten the hero vertically.
+  @media (max-width: 640px) {
+    padding: var(--space-15) var(--space-5) var(--space-12);
+  }
 }
 
 .hero-badge {
-	display: inline-flex;
-	align-items: center;
-	gap: var(--space-1_5);
-	padding: var(--space-1) var(--space-3);
-	border: 1px solid var(--border);
-	border-radius: var(--radius-full);
-	background-color: var(--card);
-	color: var(--muted-foreground);
-	font-size: 1.3rem;
-	margin-bottom: var(--space-5);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1_5);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background-color: var(--card);
+  color: var(--muted-foreground);
+  font-size: 1.3rem;
+  margin-bottom: var(--space-5);
 }
 
 .hero h1 {
-	font-size: clamp(4rem, 9vw, 7.2rem);
-	line-height: 1.05;
-	letter-spacing: -0.03em;
-	margin: 0 0 var(--space-5);
+  font-size: clamp(4rem, 9vw, 7.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0 0 var(--space-5);
 }
 
 .hero-sub {
-	max-width: 56rem;
-	margin: 0 auto var(--space-7_5);
-	color: var(--muted-foreground);
-	font-size: var(--font-size-lg);
+  max-width: 56rem;
+  margin: 0 auto var(--space-7_5);
+  color: var(--muted-foreground);
+  font-size: var(--font-size-lg);
 }
 
 .hero-actions {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: var(--space-2_5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2_5);
 }
 
 // --- sections ---------------------------------------------------------------
 
 .section {
-	padding: var(--space-15) var(--space-5);
+  padding: var(--space-15) var(--space-5);
 }
 
 .section-head {
-	max-width: 64rem;
-	margin-bottom: var(--space-10);
+  max-width: 64rem;
+  margin-bottom: var(--space-10);
 
-	h2 {
-		margin: 0 0 var(--space-2_5);
-	}
+  h2 {
+    margin: 0 0 var(--space-2_5);
+  }
 
-	p {
-		color: var(--muted-foreground);
-		margin: 0;
-	}
+  p {
+    color: var(--muted-foreground);
+    margin: 0;
+  }
 }
 
 .section + .section {
-	border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border);
 }
 
 // --- feature cards ----------------------------------------------------------
 
 .feature-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(26rem, 100%), 1fr));
 
-	// Inter-card rhythm — intentionally not a --card-spacing consumer.
-	gap: var(--space-5);
+  // Inter-card rhythm — intentionally not a --card-spacing consumer.
+  gap: var(--space-5);
 }
 
 // Landing cards consume the shared --card-spacing token (default on :root is
@@ -263,247 +276,341 @@ body.page-components .hide-on-components {
 // together when the token changes.
 
 .feature-card {
-	padding: var(--card-spacing);
-	border: 1px solid var(--border);
-	border-radius: var(--radius-lg);
-	background-color: var(--card);
-	transition: border-color var(--transition-fast), transform var(--transition-fast);
+  padding: var(--card-spacing);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--card);
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 
-	&:hover {
-		border-color: var(--ring);
-		transform: translateY(-2px);
-	}
+  &:hover {
+    border-color: var(--ring);
+    transform: translateY(-2px);
+  }
 
-	.feature-icon {
-		display: grid;
-		place-items: center;
-		width: 4rem;
-		height: 4rem;
-		margin-bottom: calc(var(--card-spacing) * 0.6);
-		border-radius: var(--radius-md);
-		background-color: var(--muted);
-		color: var(--foreground);
-		font-size: 2rem;
-	}
+  .feature-icon {
+    display: grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: calc(var(--card-spacing) * 0.6);
+    border-radius: var(--radius-md);
+    background-color: var(--muted);
+    color: var(--foreground);
+    font-size: 2rem;
+  }
 
-	h3 {
-		margin: 0 0 calc(var(--card-spacing) * 0.375);
-	}
+  h3 {
+    margin: 0 0 calc(var(--card-spacing) * 0.375);
+  }
 
-	p {
-		color: var(--muted-foreground);
-		margin: 0;
-		font-size: var(--font-size-base);
-	}
+  p {
+    color: var(--muted-foreground);
+    margin: 0;
+    font-size: var(--font-size-base);
+  }
 }
 
 // --- quick start code -------------------------------------------------------
 
 .quick-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-	gap: var(--space-5);
-	align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(30rem, 100%), 1fr));
+  gap: var(--space-5);
+  align-items: stretch;
 }
 
 .quick-step {
-	display: flex;
-	flex-direction: column;
-	padding: var(--card-spacing);
-	border: 1px solid var(--border);
-	border-radius: var(--radius-lg);
-	background-color: var(--card);
+  display: flex;
+  flex-direction: column;
+  padding: var(--card-spacing);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--card);
 
-	h3 {
-		display: flex;
-		align-items: center;
-		gap: calc(var(--card-spacing) * 0.625);
-		margin: 0 0 calc(var(--card-spacing) * 0.875);
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--card-spacing) * 0.625);
+    margin: 0 0 calc(var(--card-spacing) * 0.875);
 
-		.step {
-			display: grid;
-			place-items: center;
-			width: 2.8rem;
-			height: 2.8rem;
-			border-radius: var(--radius-full);
-			background-color: var(--primary);
-			color: var(--primary-foreground);
-			font-size: 1.4rem;
-		}
-	}
+    .step {
+      display: grid;
+      place-items: center;
+      width: 2.8rem;
+      height: 2.8rem;
+      border-radius: var(--radius-full);
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      font-size: 1.4rem;
+    }
+  }
 
-	pre {
-		margin: 0;
-		flex: 1;
-		align-content: start;
-	}
+  pre {
+    margin: 0;
+    flex: 1;
+    align-content: start;
+  }
 }
 
 // --- component gallery ------------------------------------------------------
 
 .component-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
-	gap: var(--space-4);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(22rem, 100%), 1fr));
+  gap: var(--space-4);
 }
 
 .component-link {
-	display: block;
-	padding: var(--space-4_5) var(--space-5);
-	border: 1px solid var(--border);
-	border-radius: var(--radius-md);
-	background-color: var(--card);
-	color: var(--foreground);
-	text-decoration: none;
-	transition: border-color var(--transition-fast), transform var(--transition-fast);
+  display: block;
+  padding: var(--space-4_5) var(--space-5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background-color: var(--card);
+  color: var(--foreground);
+  text-decoration: none;
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 
-	&:hover {
-		border-color: var(--ring);
-		transform: translateY(-2px);
-	}
+  &:hover {
+    border-color: var(--ring);
+    transform: translateY(-2px);
+  }
 
-	small {
-		display: block;
-		color: var(--muted-foreground);
-		margin-top: var(--space-1);
-	}
+  small {
+    display: block;
+    color: var(--muted-foreground);
+    margin-top: var(--space-1);
+  }
 }
 
 // --- components page layout ------------------------------------------------
 
 .components-layout {
-	display: grid;
-	grid-template-columns: 24rem 1fr;
-	gap: var(--space-10);
-	padding: var(--space-10) var(--space-5);
-	align-items: start;
+  display: grid;
+  grid-template-columns: 24rem 1fr;
+  gap: var(--space-10);
+  padding: var(--space-10) var(--space-5);
+  align-items: start;
 
-	@media (max-width: 900px) {
-		grid-template-columns: 1fr;
-	}
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-4);
+  }
 }
 
 .components-sidebar {
-	position: sticky;
-	top: 8rem;
-	max-height: calc(100vh - var(--space-25));
-	overflow-y: auto;
-	padding: var(--space-4);
-	border: 1px solid var(--border);
-	border-radius: var(--radius-lg);
-	background-color: var(--card);
+  position: sticky;
+  top: var(--space-20);
+  max-height: calc(100vh - var(--space-25));
+  overflow-y: auto;
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--card);
 
-	@media (max-width: 900px) {
-		position: static;
-		max-height: none;
-	}
+  // The mobile toggle lives inside the <summary>; it is hidden on desktop.
+  summary {
+    display: none;
+  }
 
-	ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 
-	a {
-		display: block;
-		padding: var(--space-1_75) var(--space-3);
-		border-radius: var(--radius-md);
-		color: var(--muted-foreground);
-		text-decoration: none;
-		transition: color var(--transition-fast), background-color var(--transition-fast);
+  a {
+    display: block;
+    padding: var(--space-1_75) var(--space-3);
+    border-radius: var(--radius-md);
+    color: var(--muted-foreground);
+    text-decoration: none;
+    transition:
+      color var(--transition-fast),
+      background-color var(--transition-fast);
 
-		&:hover {
-			color: var(--foreground);
-			background-color: var(--muted);
-		}
-	}
+    &:hover {
+      color: var(--foreground);
+      background-color: var(--muted);
+    }
+  }
+
+  // Small screens: collapse the sidebar into a sticky "Jump to" toggle so the
+  // component list never pushes the content below the fold.
+  @media (max-width: 900px) {
+    position: static;
+    max-height: none;
+
+    // Desktop sets overflow-y: auto; that would trap the sticky summary in
+    // its own scrollport, so restore visible on small screens.
+    overflow: visible;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    border-radius: 0;
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+
+      // Clear the sticky site nav (up to ~6.9rem with all links shown)
+      // instead of overlapping it.
+      top: calc(var(--space-15) + var(--space-3));
+      z-index: var(--z-fixed);
+      margin-bottom: var(--space-3);
+      padding: var(--space-2) var(--space-4);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      background-color: var(--card);
+      color: var(--foreground);
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      box-shadow: var(--shadow-md);
+
+      &::after {
+        content: "";
+        width: 0.8rem;
+        height: 0.8rem;
+        border-right: 2px solid currentcolor;
+        border-bottom: 2px solid currentcolor;
+        transform: rotate(45deg);
+        transition: transform var(--transition-fast);
+      }
+
+      // Hide the marker Chrome paints on summary elements.
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+
+    // Rotate the chevron while expanded.
+    &[open] summary::after {
+      transform: rotate(225deg);
+    }
+
+    nav {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background-color: var(--card);
+      padding: var(--space-2);
+    }
+
+    // Cap the open list so it stays scannable.
+    nav ul {
+      max-height: 55vh;
+      overflow-y: auto;
+    }
+  }
 }
 
 .components-content {
-	min-width: 0;
+  min-width: 0;
 
-	.section-note {
-		color: var(--muted-foreground);
-		max-width: 64rem;
-		margin: 0 0 var(--space-6);
-	}
+  // Keep anchored sections clear of the sticky nav (and the mobile jump bar).
+  section[id] {
+    scroll-margin-top: var(--space-20);
 
-	h2 {
-		scroll-margin-top: var(--space-22_5);
-		margin-top: 0;
-	}
+    @media (max-width: 900px) {
+      scroll-margin-top: var(--space-12);
+    }
+  }
+
+  .section-note {
+    color: var(--muted-foreground);
+    max-width: 64rem;
+    margin: 0 0 var(--space-6);
+  }
+
+  h2 {
+    scroll-margin-top: var(--space-22_5);
+    margin-top: 0;
+  }
 }
 
 .showcase {
-	padding: var(--space-6);
-	margin-bottom: var(--space-10);
-	border: 1px solid var(--border);
-	border-radius: var(--radius-lg);
-	background-color: var(--card);
+  padding: var(--space-6);
+  margin-bottom: var(--space-10);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background-color: var(--card);
 
-	// Components are bare blocks with no built-in flow margin, so space
-	// stacked children (alerts, cards, buttons, ...) with a consistent gap.
-	& > :last-child {
-		margin-bottom: 0;
-	}
+  // Components are bare blocks with no built-in flow margin, so space
+  // stacked children (alerts, cards, buttons, ...) with a consistent gap.
+  & > :last-child {
+    margin-bottom: 0;
+  }
 
-	& > * + * {
-		margin-top: var(--space-4);
-	}
+  & > * + * {
+    margin-top: var(--space-4);
+  }
 
-	// Standalone accordion items have their own small sibling margin (0.5rem)
-	// meant for general use; inside a showcase the shared gap takes over.
-	details.accordion + details.accordion {
-		margin-top: var(--space-4);
-	}
+  // Standalone accordion items have their own small sibling margin (0.5rem)
+  // meant for general use; inside a showcase the shared gap takes over.
+  details.accordion + details.accordion {
+    margin-top: var(--space-4);
+  }
 }
 
 .showcase + .showcase {
-	margin-top: var(--space-10);
+  margin-top: var(--space-10);
 }
 
 // Grid-laid-out showcases: the sibling margin rule above must not apply, or
 // later items shift inside their cells.
 .showcase.is-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
-	gap: var(--space-5);
-	align-items: start;
+  display: grid;
 
-	& > * + * {
-		margin-top: 0;
-	}
+  // Card demos sit 2-up from tablets up; phones stack via the 480px rule.
+  // (A minmax(min(20rem,100%),1fr) track here resolved narrower than 20rem
+  // in Chrome's auto-fit sizing, so explicit tracks are used instead.)
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+  align-items: start;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+
+  & > * + * {
+    margin-top: 0;
+  }
 }
 
 .code-label {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: var(--space-2_5);
-	margin: var(--space-6) 0 var(--space-2);
-	font-size: 1.3rem;
-	color: var(--muted-foreground);
-	text-transform: uppercase;
-	letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2_5);
+  margin: var(--space-6) 0 var(--space-2);
+  font-size: 1.3rem;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 // Code samples are filled at runtime from samples.js. Without JavaScript the
 // blocks would render as empty boxes, so show a quiet placeholder instead.
 pre[data-sample]:empty::before {
-	content: 'Code sample appears when JavaScript is enabled.';
-	color: var(--muted-foreground);
-	font-style: italic;
+  content: "Code sample appears when JavaScript is enabled.";
+  color: var(--muted-foreground);
+  font-style: italic;
 }
 
 // --- footer -----------------------------------------------------------------
 
 .site-footer {
-	padding: var(--space-10) var(--space-5);
-	text-align: center;
-	border-top: 1px solid var(--border);
-	color: var(--muted-foreground);
+  padding: var(--space-10) var(--space-5);
+  text-align: center;
+  border-top: 1px solid var(--border);
+  color: var(--muted-foreground);
 
-	a {
-		color: var(--foreground);
-	}
+  a {
+    color: var(--foreground);
+  }
 }
