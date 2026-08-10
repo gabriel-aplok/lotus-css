@@ -8,7 +8,8 @@
 	-webkit-appearance: none;
 	width: 1.8rem;
 	height: 1.8rem;
-	margin: 0 var(--space-1_5) 0 0;
+	margin: 0;
+	margin-inline-end: var(--space-1_5);
 	vertical-align: middle;
 	display: inline-grid;
 	place-content: center;
@@ -46,6 +47,43 @@
 	height: 0.8rem;
 	background-color: var(--primary-foreground);
 	border-radius: var(--radius-full);
+}
+
+// Indeterminate ("select some") state: a dash instead of the check mark.
+[type="checkbox"]:indeterminate {
+	background-color: var(--primary);
+	border-color: var(--primary);
+}
+
+[type="checkbox"]:indeterminate::before {
+	content: "";
+	width: 1rem;
+	height: 0.25rem;
+	background-color: var(--primary-foreground);
+	border-radius: var(--radius-full);
+}
+
+[type="checkbox"]:focus-visible,
+[type="radio"]:focus-visible {
+	outline: 2px solid var(--ring);
+	outline-offset: 2px;
+}
+
+// Invalid (failed validation): destructive border, ring, and fill.
+[type="checkbox"][aria-invalid],
+[type="radio"][aria-invalid] {
+	border-color: var(--destructive);
+}
+
+[type="checkbox"][aria-invalid]:focus-visible,
+[type="radio"][aria-invalid]:focus-visible {
+	outline-color: var(--destructive);
+}
+
+[type="checkbox"][aria-invalid]:checked,
+[type="checkbox"][aria-invalid]:indeterminate {
+	background-color: var(--destructive);
+	border-color: var(--destructive);
 }
 
 [type="checkbox"]:disabled,

@@ -915,6 +915,10 @@ table.striped tr:nth-of-type(2n) {
   color: var(--muted-foreground);
 }
 
+tr[data-state=selected] {
+  background-color: color-mix(in oklab, var(--primary) 8%, transparent);
+}
+
 td,
 th {
   vertical-align: middle;
@@ -1317,7 +1321,8 @@ button:disabled,
   -webkit-appearance: none;
   width: 1.8rem;
   height: 1.8rem;
-  margin: 0 var(--space-1_5) 0 0;
+  margin: 0;
+  margin-inline-end: var(--space-1_5);
   vertical-align: middle;
   display: inline-grid;
   place-content: center;
@@ -1355,6 +1360,41 @@ button:disabled,
   height: 0.8rem;
   background-color: var(--primary-foreground);
   border-radius: var(--radius-full);
+}
+
+[type=checkbox]:indeterminate {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+[type=checkbox]:indeterminate::before {
+  content: "";
+  width: 1rem;
+  height: 0.25rem;
+  background-color: var(--primary-foreground);
+  border-radius: var(--radius-full);
+}
+
+[type=checkbox]:focus-visible,
+[type=radio]:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+[type=checkbox][aria-invalid],
+[type=radio][aria-invalid] {
+  border-color: var(--destructive);
+}
+
+[type=checkbox][aria-invalid]:focus-visible,
+[type=radio][aria-invalid]:focus-visible {
+  outline-color: var(--destructive);
+}
+
+[type=checkbox][aria-invalid]:checked,
+[type=checkbox][aria-invalid]:indeterminate {
+  background-color: var(--destructive);
+  border-color: var(--destructive);
 }
 
 [type=checkbox]:disabled,
@@ -1561,6 +1601,75 @@ progress:indeterminate::after {
 progress.tertiary::-webkit-progress-value,
 progress.tertiary::-moz-progress-bar {
   background-color: var(--accent-foreground);
+}
+
+.field {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2_5);
+}
+.field > [type=checkbox],
+.field > [type=radio] {
+  flex: none;
+  margin-inline: 0;
+  margin-top: var(--space-0_5);
+}
+.field > label {
+  align-self: center;
+  margin-bottom: 0;
+}
+.field .field-content {
+  display: grid;
+  gap: var(--space-0_75);
+}
+.field .field-content label,
+.field .field-content .field-label {
+  margin-bottom: 0;
+}
+
+.field.is-vertical {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-1_25);
+}
+
+.field-label {
+  font-weight: 600;
+}
+
+.field-description {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: var(--font-size-sm);
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.field-group > .field > label {
+  font-weight: 500;
+}
+
+.field[data-invalid] > label,
+.field[data-invalid] .field-label,
+.field[data-invalid] .field-title {
+  color: var(--destructive);
+}
+.field[data-invalid] .field-description {
+  color: color-mix(in oklab, var(--destructive) 75%, var(--muted-foreground));
+}
+
+.field[data-disabled] > label,
+.field[data-disabled] .field-label,
+.field[data-disabled] .field-title,
+.field[data-disabled] .field-description {
+  color: var(--muted-foreground);
+}
+
+fieldset .field-group {
+  gap: var(--space-2_5);
 }
 
 details.dropdown {

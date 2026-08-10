@@ -16,6 +16,7 @@ import { initTabs } from './tabs';
 import { initAccordions } from './accordion';
 import { initDropdowns } from './dropdown';
 import { initCarousels } from './carousel';
+import { initTableSelect } from './select';
 import { initPopovers } from './popover';
 import { initSheets } from './sheet';
 import { initToggles } from './toggle';
@@ -39,6 +40,7 @@ export {
 	initAccordions,
 	initDropdowns,
 	initCarousels,
+	initTableSelect,
 	initPopovers,
 	initSheets,
 	initToggles,
@@ -63,6 +65,7 @@ export function init(root: ParentNode | Document = document): void {
 	initAccordions(root);
 	initDropdowns(root);
 	initCarousels(root);
+	initTableSelect(root);
 	initPopovers(root);
 	initToggles(root);
 	initCopy(root);

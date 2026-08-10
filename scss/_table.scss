@@ -12,6 +12,11 @@ table.striped tr:nth-of-type(2n) {
 	color: var(--muted-foreground);
 }
 
+// Selected row (paired with a row checkbox; see the select helper in js/).
+tr[data-state="selected"] {
+	background-color: color-mix(in oklab, var(--primary) 8%, transparent);
+}
+
 td,
 th {
 	vertical-align: middle;

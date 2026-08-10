@@ -730,6 +730,61 @@
 					</div>
 					<div class="code-label">Markup</div>
 					<pre data-sample="controls"></pre>
+					<div class="showcase">
+						<p class="section-note">Pair a checkbox with a field wrapper for a label, helper text, and invalid or disabled states.</p>
+						<div class="field-group" style="max-width: 42rem;">
+							<div class="field">
+								<input type="checkbox" id="terms-checkbox" name="terms-checkbox" checked>
+								<label for="terms-checkbox">Accept terms and conditions</label>
+							</div>
+							<div class="field">
+								<input type="checkbox" id="terms-checkbox-2" name="terms-checkbox-2" checked>
+								<div class="field-content">
+									<label class="field-label" for="terms-checkbox-2">Accept terms and conditions</label>
+									<p class="field-description">By clicking this checkbox, you agree to the terms and conditions.</p>
+								</div>
+							</div>
+							<div class="field" data-disabled>
+								<input type="checkbox" id="toggle-checkbox" name="toggle-checkbox" disabled>
+								<label for="toggle-checkbox">Enable notifications</label>
+							</div>
+							<div class="field" data-invalid>
+								<input type="checkbox" id="terms-checkbox-invalid" name="terms-checkbox-invalid" aria-invalid>
+								<div class="field-content">
+									<label class="field-label" for="terms-checkbox-invalid">Accept terms and conditions</label>
+									<p class="field-description">You must accept the terms to continue.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="code-label">Checkboxes with fields</div>
+					<pre data-sample="checkbox"></pre>
+					<div class="showcase">
+						<fieldset style="max-width: 44rem; padding: 2.4rem;">
+							<legend>Show these items on the desktop</legend>
+							<p class="field-description" style="margin-top: 0.8rem;">Select the items you want to show on the desktop.</p>
+							<div class="field-group" style="margin-top: 1.6rem;">
+								<div class="field">
+									<input type="checkbox" id="finder-hard-disks" checked>
+									<label for="finder-hard-disks">Hard disks</label>
+								</div>
+								<div class="field">
+									<input type="checkbox" id="finder-external-disks" checked>
+									<label for="finder-external-disks">External disks</label>
+								</div>
+								<div class="field">
+									<input type="checkbox" id="finder-cds">
+									<label for="finder-cds">CDs, DVDs, and iPods</label>
+								</div>
+								<div class="field">
+									<input type="checkbox" id="finder-servers">
+									<label for="finder-servers">Connected servers</label>
+								</div>
+							</div>
+						</fieldset>
+					</div>
+					<div class="code-label">Checkbox group</div>
+					<pre data-sample="checkbox-group"></pre>
 				</section>
 
 				<!-- ===== Toggles ===== -->
@@ -1212,6 +1267,41 @@
 					</div>
 					<div class="code-label">Markup</div>
 					<pre data-sample="table"></pre>
+					<div class="showcase">
+						<p class="section-note">Row selection: the header checkbox drives the row checkboxes, and selected rows gain <code>data-state="selected"</code>.</p>
+						<table>
+							<thead>
+								<tr>
+									<th style="width: 4.8rem;"><input type="checkbox" data-select-all aria-label="Select all rows"></th>
+									<th>Name</th>
+									<th>Email</th>
+									<th>Role</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="checkbox" data-select-item aria-label="Select Sarah Chen"></td>
+									<td>Sarah Chen</td>
+									<td>sarah.chen@example.com</td>
+									<td>Admin</td>
+								</tr>
+								<tr data-state="selected">
+									<td><input type="checkbox" data-select-item checked aria-label="Select Marcus Rodriguez"></td>
+									<td>Marcus Rodriguez</td>
+									<td>marcus.rodriguez@example.com</td>
+									<td>User</td>
+								</tr>
+								<tr>
+									<td><input type="checkbox" data-select-item aria-label="Select Priya Patel"></td>
+									<td>Priya Patel</td>
+									<td>priya.patel@example.com</td>
+									<td>User</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="code-label">Selectable table</div>
+					<pre data-sample="checkbox-table"></pre>
 				</section>
 
 				<!-- ===== Spinners & Skeletons ===== -->

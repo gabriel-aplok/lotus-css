@@ -1,0 +1,93 @@
+// Field layout: a label (and optional helper text) paired with a control.
+// The wrapper stays structural — the control itself keeps its own styles.
+
+.field {
+	display: flex;
+	align-items: flex-start;
+	gap: var(--space-2_5);
+
+	// A bare control in a field: the flex gap does the spacing, so drop the
+	// control's own inline-end margin (both sides, to stay correct in RTL).
+	> [type="checkbox"],
+	> [type="radio"] {
+		flex: none;
+		margin-inline: 0;
+		margin-top: var(--space-0_5);
+	}
+
+	// Bare labels sit centred against a single control; the margin the global
+	// label rule adds would offset the row.
+	> label {
+		align-self: center;
+		margin-bottom: 0;
+	}
+
+	// Stacked content (label + description) under the control.
+	.field-content {
+		display: grid;
+		gap: var(--space-0_75);
+	}
+
+	.field-content label,
+	.field-content .field-label {
+		margin-bottom: 0;
+	}
+}
+
+// Vertical fields stack the control above the content.
+.field.is-vertical {
+	flex-direction: column;
+	align-items: stretch;
+	gap: var(--space-1_25);
+}
+
+.field-label {
+	font-weight: 600;
+}
+
+.field-description {
+	margin: 0;
+	color: var(--muted-foreground);
+	font-size: var(--font-size-sm);
+}
+
+// A stack of fields with consistent rhythm.
+.field-group {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+
+	// Checkbox/radio lists read better with regular-weight labels.
+	> .field > label {
+		font-weight: 500;
+	}
+}
+
+// Invalid field: tint the label and helper text, and surface the control's
+// destructive border (the control itself styles [aria-invalid]).
+.field[data-invalid] {
+	> label,
+	.field-label,
+	.field-title {
+		color: var(--destructive);
+	}
+
+	.field-description {
+		color: color-mix(in oklab, var(--destructive) 75%, var(--muted-foreground));
+	}
+}
+
+// Disabled field: soften the copy alongside the control's own disabled state.
+.field[data-disabled] {
+	> label,
+	.field-label,
+	.field-title,
+	.field-description {
+		color: var(--muted-foreground);
+	}
+}
+
+// Fieldset-as-group: keep the native border but give it room to breathe.
+fieldset .field-group {
+	gap: var(--space-2_5);
+}

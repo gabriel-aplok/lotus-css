@@ -216,6 +216,39 @@ function initCarousels(root = document) {
   });
 }
 
+// js/select.ts
+function initTableSelect(root = document) {
+  root.querySelectorAll("[data-select-all]").forEach((toggle) => {
+    const table = toggle.closest("table");
+    if (!table) return;
+    const items = () => [...table.querySelectorAll("[data-select-item]")];
+    const refresh = () => {
+      const list = items();
+      const checked = list.filter((item) => item.checked).length;
+      toggle.checked = checked > 0 && checked === list.length;
+      toggle.indeterminate = checked > 0 && checked < list.length;
+      list.forEach((item) => {
+        const row = item.closest("tr");
+        if (item.checked) {
+          row?.setAttribute("data-state", "selected");
+        } else {
+          row?.removeAttribute("data-state");
+        }
+      });
+    };
+    toggle.addEventListener("change", () => {
+      items().forEach((item) => {
+        item.checked = toggle.checked;
+      });
+      refresh();
+    });
+    items().forEach((item) => {
+      item.addEventListener("change", refresh);
+    });
+    refresh();
+  });
+}
+
 // js/popover.ts
 function initPopovers(root = document) {
   root.querySelectorAll("[data-popover-trigger]").forEach((trigger) => {
@@ -430,6 +463,7 @@ function init(root = document) {
   initAccordions(root);
   initDropdowns(root);
   initCarousels(root);
+  initTableSelect(root);
   initPopovers(root);
   initToggles(root);
   initCopy(root);
@@ -460,6 +494,7 @@ export {
   initHighlight,
   initPopovers,
   initSheets,
+  initTableSelect,
   initTabs,
   initTheme,
   initToasts,

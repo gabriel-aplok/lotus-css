@@ -314,6 +314,56 @@ toast('Saved', { type: 'success', title: 'Done' });`,
   <button class="toggle" aria-pressed="false">Week</button>
 </div>`,
   },
+  checkbox: {
+    filename: "checkbox.html",
+    lang: "html",
+    code: `<div class="field-group">
+  <div class="field">
+    <input type="checkbox" id="terms" checked>
+    <label for="terms">Accept terms and conditions</label>
+  </div>
+  <div class="field">
+    <input type="checkbox" id="terms-2" checked>
+    <div class="field-content">
+      <label class="field-label" for="terms-2">Accept terms and conditions</label>
+      <p class="field-description">By clicking this checkbox, you agree to the terms.</p>
+    </div>
+  </div>
+  <div class="field" data-disabled>
+    <input type="checkbox" id="notify" disabled>
+    <label for="notify">Enable notifications</label>
+  </div>
+  <div class="field" data-invalid>
+    <input type="checkbox" id="terms-invalid" aria-invalid>
+    <div class="field-content">
+      <label class="field-label" for="terms-invalid">Accept terms and conditions</label>
+      <p class="field-description">You must accept the terms to continue.</p>
+    </div>
+  </div>
+</div>`,
+  },
+  "checkbox-group": {
+    filename: "checkbox-group.html",
+    lang: "html",
+    code: `<fieldset style="padding: 2.4rem; max-width: 44rem;">
+  <legend>Show these items on the desktop</legend>
+  <p class="field-description">Select the items you want to show on the desktop.</p>
+  <div class="field-group">
+    <div class="field">
+      <input type="checkbox" id="disks" checked>
+      <label for="disks">Hard disks</label>
+    </div>
+    <div class="field">
+      <input type="checkbox" id="external" checked>
+      <label for="external">External disks</label>
+    </div>
+    <div class="field">
+      <input type="checkbox" id="cds">
+      <label for="cds">CDs, DVDs, and iPods</label>
+    </div>
+  </div>
+</fieldset>`,
+  },
   nav: {
     filename: "nav.html",
     lang: "html",
@@ -575,6 +625,31 @@ toast('Saved', { type: 'success', title: 'Done' });`,
     code: `<table class="striped">
   <thead><tr><th>Plan</th><th>Price</th></tr></thead>
   <tbody><tr><td>Pro</td><td>$12/mo</td></tr></tbody>
+</table>`,
+  },
+  "checkbox-table": {
+    filename: "checkbox-table.html",
+    lang: "html",
+    code: `<table>
+  <thead>
+    <tr>
+      <th><input type="checkbox" data-select-all aria-label="Select all rows"></th>
+      <th>Name</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-state="selected">
+      <td><input type="checkbox" data-select-item checked aria-label="Select row"></td>
+      <td>Sarah Chen</td>
+      <td>Admin</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" data-select-item aria-label="Select row"></td>
+      <td>Priya Patel</td>
+      <td>User</td>
+    </tr>
+  </tbody>
 </table>`,
   },
   loading: {
